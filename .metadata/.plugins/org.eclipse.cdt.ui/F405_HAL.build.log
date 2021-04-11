@@ -1,0 +1,17 @@
+23:04:28 **** Incremental Build of configuration Debug for project F405_HAL ****
+make -j4 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Inc" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:89:3: warning: implicit declaration of function 'appmain'; did you mean 'main'? [-Wimplicit-function-declaration]
+   appmain();
+   ^~~~~~~
+   main
+arm-none-eabi-g++ -o "F405_HAL.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_HAL/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_HAL.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Core/Src/main.o: In function `main':
+/home/chris/DSPGuitarPedalF405/F405_HAL/Debug/../Core/Src/main.c:89: undefined reference to `appmain'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:73: F405_HAL.elf] Error 1
+"make -j4 all" terminated with exit code 2. Build might be incomplete.
+
+23:04:29 Build Failed. 2 errors, 1 warnings. (took 434ms)
+

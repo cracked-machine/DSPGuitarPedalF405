@@ -1,0 +1,17 @@
+00:10:17 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+make all 
+Building target: LinuxGCC_Tests
+Invoking: GCC C++ Linker
+g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./Src/AppMain.o  ./test_blank.o ./testmain.o   -lHost_CppUTest
+Finished building target: LinuxGCC_Tests
+ 
+00:10:24 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+make all 
+make: Nothing to be done for 'all'.
+00:10:54 **** Incremental Build of configuration Debug for project F405_Main ****
+make -j4 all 
+arm-none-eabi-size   F405_Main.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 166764	    756	   8656	 176176	  2b030	F405_Main.elf
+Finished building: default.size.stdout
+ 

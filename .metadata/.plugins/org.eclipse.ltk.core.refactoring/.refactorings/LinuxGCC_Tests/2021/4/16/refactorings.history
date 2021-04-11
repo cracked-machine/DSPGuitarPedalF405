@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LinuxGCC_Tests/test_audio_buffer.cpp&apos; to &apos;test_blank.cpp&apos;" description="Rename resource &apos;test_audio_buffer.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test_audio_buffer.cpp" name="test_blank.cpp" stamp="1618177266677" updateReferences="true"/>
+</session>

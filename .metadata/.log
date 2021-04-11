@@ -1,0 +1,445 @@
+!SESSION 2021-04-11 22:33:17.645 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -data /home/chris/DSPGuitarPedalF405 -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-11 22:33:23.737
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-11 22:33:23.805
+!MESSAGE Log4j initialized with config file /home/chris/DSPGuitarPedalF405/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-11 22:33:26.222
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-11 22:33:26.491
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 22:36:45.268
+!MESSAGE Indexed 'F405_HAL' (21 sources, 80 headers) in 3.04 sec: 4,259 declarations; 17,285 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0093%)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-11 22:37:07.051
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.781550161: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-11 22:37:07.052
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug/libHost_CppUTest.a
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1230)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 22:37:08.343
+!MESSAGE Indexed 'LinuxGCC_Tests' (2 sources, 233 headers) in 5.3 sec: 19,570 declarations; 28,807 references; 1 unresolved inclusions; 0 syntax errors; 178 unresolved names (0.37%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 22:37:12.866
+!MESSAGE Indexed 'Host_CppUTest' (35 sources, 304 headers) in 4.52 sec: 29,133 declarations; 53,033 references; 5 unresolved inclusions; 0 syntax errors; 83 unresolved names (0.1%)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-11 22:37:24.114
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.781550161: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-11 22:37:24.114
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug/libHost_CppUTest.a
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$16(StackAnalyzerView.java:1250)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-11 22:37:28.918
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-11 22:37:28.919
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1230)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-11 22:39:32.266
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-11 22:39:32.266
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$16(StackAnalyzerView.java:1250)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 22:40:48.209
+!MESSAGE Indexed 'F405_Main' (3 sources, 52 headers) in 1.48 sec: 1,920 declarations; 2,733 references; 0 unresolved inclusions; 2 syntax errors; 2 unresolved names (0.043%)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-11 22:41:12.655
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-11 22:41:12.655
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$16(StackAnalyzerView.java:1250)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-11 22:56:21.934
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:298)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-11 22:56:21.937
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-11 22:56:58.031
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:298)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-11 22:56:58.036
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-11 22:57:48.976
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:298)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-11 22:57:48.977
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-11 22:58:52.765
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:298)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-11 22:58:52.766
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:03:47.496
+!MESSAGE Indexed 'F405_HAL' (22 sources, 81 headers) in 1.16 sec: 4,264 declarations; 17,315 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0093%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:09:13.337
+!MESSAGE Indexed 'F405_Main' (0 sources, 0 headers) in 0.001 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:09:16.638
+!MESSAGE Indexed 'F405_Main' (21 sources, 80 headers) in 1.75 sec: 4,259 declarations; 17,285 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0093%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:14:24.667
+!MESSAGE Indexed 'F405_Main' (23 sources, 82 headers) in 0.973 sec: 4,266 declarations; 17,320 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0093%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:16:26.909
+!MESSAGE Indexed 'F405_RTT' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:16:30.243
+!MESSAGE Indexed 'F405_RTT' (4 sources, 128 headers) in 1.56 sec: 7,255 declarations; 10,778 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.011%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:18:17.046
+!MESSAGE Indexed 'F405_RTT' (3 sources, 44 headers) in 0.444 sec: 2,630 declarations; 5,775 references; 1 unresolved inclusions; 1 syntax errors; 4 unresolved names (0.048%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-11 23:21:35.473
+!MESSAGE Indexed 'F405_Main' (23 sources, 83 headers) in 0.943 sec: 4,267 declarations; 17,324 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0093%)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-11 23:28:12.486
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:298)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-11 23:28:12.491
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 2 0 2021-04-11 23:41:01.246
+!MESSAGE Error while determining symbol addresses
+!STACK 0
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:601)
+	at java.lang.Long.valueOf(Long.java:776)
+	at java.lang.Long.decode(Long.java:928)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:74)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:70)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$6(StackAnalyzerView.java:864)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:566)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:872)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$16(StackAnalyzerView.java:1250)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 2 0 2021-04-11 23:41:56.083
+!MESSAGE Error while determining symbol addresses
+!STACK 0
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:601)
+	at java.lang.Long.valueOf(Long.java:776)
+	at java.lang.Long.decode(Long.java:928)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:74)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:70)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$6(StackAnalyzerView.java:864)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:566)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:872)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1230)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2021-04-11 23:42:25.206
+!MESSAGE Won't launch debug session since we failed to locate the binary.
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 2 0 2021-04-11 23:42:36.118
+!MESSAGE Error while determining symbol addresses
+!STACK 0
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(NumberFormatException.java:65)
+	at java.lang.Long.parseLong(Long.java:601)
+	at java.lang.Long.valueOf(Long.java:776)
+	at java.lang.Long.decode(Long.java:928)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:74)
+	at org.eclipse.cdt.utils.Addr32.<init>(Addr32.java:70)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$6(StackAnalyzerView.java:864)
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:193)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:566)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:872)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$14(StackAnalyzerView.java:1185)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:06:31.649
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:06:32.115
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-12 00:06:32.115
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$15(StackAnalyzerView.java:1230)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-12 00:07:51.744
+!MESSAGE Indexed 'LinuxGCC_Tests' (2 sources, 233 headers) in 2.88 sec: 19,562 declarations; 28,774 references; 0 unresolved inclusions; 0 syntax errors; 171 unresolved names (0.35%)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:08:01.822
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-12 00:08:01.823
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$16(StackAnalyzerView.java:1250)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-12 00:09:39.780
+!MESSAGE Indexed 'LinuxGCC_Tests' (4 sources, 326 headers) in 3.14 sec: 27,992 declarations; 46,896 references; 0 unresolved inclusions; 0 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:10:15.054
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:10:31.524
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-12 00:10:31.524
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$14(StackAnalyzerView.java:1185)
+	at java.lang.Thread.run(Thread.java:748)
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:10:59.665
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.toolchain 1 1 2021-04-12 00:11:00.321
+!MESSAGE No type or version options in toolchain configuration cdt.managedbuild.toolchain.gnu.exe.debug.2049035813: null; null
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2021-04-12 00:11:00.321
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/Debug/LinuxGCC_Tests
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:68)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:86)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:900)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$14(StackAnalyzerView.java:1185)
+	at java.lang.Thread.run(Thread.java:748)

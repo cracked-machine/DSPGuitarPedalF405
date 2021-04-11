@@ -1,0 +1,4 @@
+"Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.o"
+"RTT/SEGGER_RTT.o"
+"RTT/SEGGER_RTT_ASM_ARMv7M.o"
+"RTT/SEGGER_RTT_printf.o"

@@ -1,0 +1,25 @@
+/*
+ * AppMain.cpp
+ *
+ *  Created on: Apr 11, 2021
+ *      Author: chris
+ */
+
+#include <AppMain.hpp>
+#include <SEGGER_RTT.h>
+#include <iostream>
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+	void appmain()
+	{
+		std::cout << "hello\n";
+	}
+
+#ifdef __cplusplus
+	}
+#endif
+
