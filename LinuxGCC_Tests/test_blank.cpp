@@ -26,9 +26,9 @@
  * 		SOFTWARE.
  */
 
+#include <app_main.hpp>
 #include "CppUTest/TestHarness.h"
 
-#include <AppMain.hpp>
 
 
 TEST_GROUP(BlankGroup)

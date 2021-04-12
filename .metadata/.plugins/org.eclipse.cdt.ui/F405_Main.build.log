@@ -1,10 +1,20 @@
-00:10:54 **** Incremental Build of configuration Debug for project F405_Main ****
+11:30:12 **** Incremental Build of configuration Debug for project F405_Main ****
 make -j4 all 
+arm-none-eabi-gcc "../Core/Src/stm32f4xx_it.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/stm32f4xx_it.d" -MT"Core/Src/stm32f4xx_it.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/stm32f4xx_it.o"
+arm-none-eabi-g++ -o "F405_Main.elf" @"objects.list"  -lF405_RTT -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_Main/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_Main.map" -Wl,--gc-sections -static -L"/home/chris/DSPGuitarPedalF405/F405_RTT/Release" -L/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: F405_Main.elf
+ 
+arm-none-eabi-objdump -h -S  F405_Main.elf  > "F405_Main.list"
+arm-none-eabi-objcopy  -O binary  F405_Main.elf  "F405_Main.bin"
 arm-none-eabi-size   F405_Main.elf 
    text	   data	    bss	    dec	    hex	filename
- 166764	    756	   8656	 176176	  2b030	F405_Main.elf
+ 171388	    756	   8784	 180928	  2c2c0	F405_Main.elf
 Finished building: default.size.stdout
  
+Finished building: F405_Main.bin
+ 
+Finished building: F405_Main.list
+ 
 
-00:10:54 Build Finished. 0 errors, 0 warnings. (took 304ms)
+11:30:14 Build Finished. 0 errors, 0 warnings. (took 2s.25ms)
 

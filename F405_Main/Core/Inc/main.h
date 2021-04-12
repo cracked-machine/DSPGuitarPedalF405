@@ -58,6 +58,38 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define FootSwitchA_IN_Pin GPIO_PIN_13
+#define FootSwitchA_IN_GPIO_Port GPIOC
+#define FootSwitchA_IN_EXTI_IRQn EXTI15_10_IRQn
+#define FootSwitchB_IN_Pin GPIO_PIN_14
+#define FootSwitchB_IN_GPIO_Port GPIOC
+#define FootSwitchB_IN_EXTI_IRQn EXTI15_10_IRQn
+#define Encoder2_ENC_SW_Pin GPIO_PIN_0
+#define Encoder2_ENC_SW_GPIO_Port GPIOH
+#define Encoder2_ENC_SW_EXTI_IRQn EXTI0_IRQn
+#define RelayCoil_OUT_Pin GPIO_PIN_0
+#define RelayCoil_OUT_GPIO_Port GPIOC
+#define UserSwitchA_IN_Pin GPIO_PIN_1
+#define UserSwitchA_IN_GPIO_Port GPIOC
+#define UserSwitchA_IN_EXTI_IRQn EXTI1_IRQn
+#define UserSwitchB_IN_Pin GPIO_PIN_2
+#define UserSwitchB_IN_GPIO_Port GPIOC
+#define UserSwitchB_IN_EXTI_IRQn EXTI2_IRQn
+#define LEDA_R_Pin GPIO_PIN_0
+#define LEDA_R_GPIO_Port GPIOB
+#define LEDA_G_Pin GPIO_PIN_1
+#define LEDA_G_GPIO_Port GPIOB
+#define LEDA_B_Pin GPIO_PIN_2
+#define LEDA_B_GPIO_Port GPIOB
+#define LEDB_R_Pin GPIO_PIN_10
+#define LEDB_R_GPIO_Port GPIOA
+#define LEDB_G_Pin GPIO_PIN_11
+#define LEDB_G_GPIO_Port GPIOA
+#define LEDB_B_Pin GPIO_PIN_12
+#define LEDB_B_GPIO_Port GPIOA
+#define Encoder1_ENC_SW_Pin GPIO_PIN_15
+#define Encoder1_ENC_SW_GPIO_Port GPIOA
+#define Encoder1_ENC_SW_EXTI_IRQn EXTI15_10_IRQn
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */
