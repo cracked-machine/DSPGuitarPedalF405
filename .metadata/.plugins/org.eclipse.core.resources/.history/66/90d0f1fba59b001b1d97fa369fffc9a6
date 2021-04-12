@@ -1,0 +1,23 @@
+/*
+ * EventMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "EventMachine.hpp"
+
+EventMachine::EventMachine()
+{
+	state = stateFX_DISABLED;
+}
+
+void EventMachine::update()
+{
+	state->update(machine);
+}
+
+AbstractState * EventMachine::getState()
+{
+	return state;
+}

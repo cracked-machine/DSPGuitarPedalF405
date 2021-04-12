@@ -1,0 +1,46 @@
+/*
+ * EventMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#ifndef INC_EVENTMACHINE_HPP_
+#define INC_EVENTMACHINE_HPP_
+#pragma once
+
+#include <AbstractState.hpp>
+#include <array>
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+class AbstractState;
+
+class EventMachine
+{
+	friend class AbstractState;
+public:
+	EventMachine();
+	void update(EventMachine &machine);
+
+	std::array<AbstractState*, 2> states;
+
+
+	AbstractState *getState();
+private:
+	AbstractState *state;
+};
+
+
+AbstractState *stateFX_DISABLED;
+AbstractState *stateFX_ENABLED;
+
+#ifdef __cplusplus
+	}
+#endif
+
+
+#endif /* INC_EVENTMACHINE_HPP_ */

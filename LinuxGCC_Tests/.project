@@ -26,9 +26,9 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>Src</name>
+			<name>FSM</name>
 			<type>2</type>
-			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/Src</location>
+			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM</location>
 		</link>
 	</linkedResources>
 </projectDescription>

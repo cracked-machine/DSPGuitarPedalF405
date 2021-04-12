@@ -1,3 +1,7 @@
+"Application/FSM/AbstractState.o"
+"Application/FSM/EventMachine.o"
+"Application/FSM/FxDisabledState.o"
+"Application/FSM/FxEnabledState.o"
 "Application/Src/app_main.o"
 "Application/Src/pedal_io_test.o"
 "Core/Src/RedirectWrite.o"

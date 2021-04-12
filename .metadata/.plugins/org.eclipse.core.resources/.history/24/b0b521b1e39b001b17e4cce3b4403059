@@ -1,0 +1,58 @@
+/*
+ * AbstractState.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#pragma once
+#include <EventMachine.hpp>
+
+#include <stdint.h>
+
+class EventMachine;
+
+
+class AbstractState
+{
+
+public:
+
+
+
+	virtual void update(EventMachine *machine) = 0;
+	virtual void setEnabled(EventMachine *machine) = 0;
+	virtual void setDisabled(EventMachine *machine) = 0;
+	virtual ~AbstractState();
+
+
+
+protected:
+
+
+
+	void setState(EventMachine *machine, AbstractState *st);
+
+};
+
+
+
+class FxDisabledState : public AbstractState
+{
+public:
+
+	virtual void update(EventMachine *machine);
+	virtual void setEnabled(EventMachine *machine);
+	virtual void setDisabled(EventMachine *machine);
+};
+
+class FxEnabledState : public AbstractState
+{
+public:
+	virtual void update(EventMachine *machine);
+	virtual void setEnabled(EventMachine *machine);
+	virtual void setDisabled(EventMachine *machine);
+};
+
+
+

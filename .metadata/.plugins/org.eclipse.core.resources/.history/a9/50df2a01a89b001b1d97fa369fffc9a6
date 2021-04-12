@@ -1,0 +1,41 @@
+/*
+ * AbstractState.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#include <AbstractState.hpp>
+
+void AbstractState::setState(EventMachine &machine, AbstractState *state) {
+  machine.state = state;
+}
+
+uint8_t AbstractState::getId()
+{
+	return this->id;
+}
+
+FxDisabledState::FxDisabledState(uint8_t _id)
+{
+	this->id = _id;
+
+}
+
+void FxDisabledState::update(EventMachine &machine)
+{
+	if(machine.getState() == machine.stateFX_DISABLED)
+	{
+
+	}
+}
+
+
+void FxEnabledState::update(EventMachine &machine)
+{
+	if(machine.getState() == machine.stateFX_DISABLED)
+	{
+
+	}
+}

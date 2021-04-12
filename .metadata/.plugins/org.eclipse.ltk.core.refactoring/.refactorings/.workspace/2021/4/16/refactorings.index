@@ -6,3 +6,7 @@
 1618178404782	Delete resource 'F405_Main/STM32F405RGTX_RAM.ld'
 1618178904482	Delete resource 'F405_HAL'
 1618178916277	Delete resource 'F405_Main'
+1618231563514	Delete resource 'F405_Main/Application/Inc/MachineStates.hpp'
+1618244833888	Delete resource 'F405_Main/Application/Inc/EventMachine_old.hpp'
+1618244839576	Delete resource 'F405_Main/Application/Src/EventMachine_old.cpp'
+1618261980380	Delete resource 'LinuxGCC_Tests/Src'

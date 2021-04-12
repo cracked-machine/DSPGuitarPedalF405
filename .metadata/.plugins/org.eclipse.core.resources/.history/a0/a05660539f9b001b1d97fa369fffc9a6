@@ -1,0 +1,16 @@
+/*
+ * AbstractState.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+class AbstractState
+{
+public:
+	AbstractState();
+	doBehavior();
+
+};
+

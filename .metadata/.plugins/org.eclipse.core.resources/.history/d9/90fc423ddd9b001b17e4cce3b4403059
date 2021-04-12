@@ -1,0 +1,47 @@
+/*
+ * EventMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "EventMachine.hpp"
+
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+EventMachine::EventMachine()
+{
+//	FxDisabledState stateFX_DISABLED = FxDisabledState();
+//	FxEnabledState stateFX_ENABLED = FxEnabledState();
+
+	states_list[EventMachine::FX_DISABLED] = stateFX_DISABLED;
+	states_list[EventMachine::FX_ENABLED] = stateFX_ENABLED;
+
+	state = states_list[EventMachine::FX_DISABLED];
+}
+
+EventMachine::~EventMachine()
+{
+//	for(AbstractState s : states_list)
+//	{
+//		delete s;
+//	}
+}
+
+void EventMachine::update()
+{
+	state->update(this);
+}
+
+AbstractState * EventMachine::getState()
+{
+	return state;
+}
+
+#ifdef __cplusplus
+	}
+#endif

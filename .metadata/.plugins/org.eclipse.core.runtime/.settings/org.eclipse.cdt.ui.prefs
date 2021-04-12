@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
-scalability.numberOfLines=10000
+scalability.numberOfLines=20000
 spelling_locale=en_GB
 spelling_locale_initialized=true
 useAnnotationsPrefPage=true

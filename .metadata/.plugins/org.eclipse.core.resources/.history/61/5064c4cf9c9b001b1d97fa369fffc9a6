@@ -1,0 +1,176 @@
+/*
+ * EventMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#include "EventMachine.hpp"
+#include "stm32f4xx_hal.h"
+#include "main.h"
+
+#include <iostream>
+
+
+
+
+//
+void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+{
+
+}
+
+EventMachine::EventMachine()
+{
+	_nextState = FX_DISABLED;
+	std::cout << "State machine initialised" << std::endl;
+}
+
+void EventMachine::processEvent()
+{
+	switch(_nextState)
+	{
+		case FX_DISABLED:
+
+			switch(_newEvent)
+			{
+				case evFOOT_SWITCH_LEFT:
+					_nextState = FX_ENABLED_DEFAULT;
+					HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
+					break;
+				case evFOOT_SWITCH_RIGHT:
+					break;
+				case evUSER_SWITCH_LEFT:
+					break;
+				case evUSER_SWITCH_RIGHT:
+					break;
+				case evROTARY_ENC_LEFT:
+					break;
+				case evROTARY_ENC_RIGHT:
+					break;
+				default:
+					break;
+			}
+
+			// reset the event
+			_newEvent = evNone;
+
+			break;
+
+		case FX_ENABLED_DEFAULT:
+
+			switch(_newEvent)
+			{
+				case evFOOT_SWITCH_LEFT:
+					_nextState = FX_DISABLED;
+					HAL_GPIO_WritePin(LEDA_R_Pin, GPIO_PIN_0, GPIO_PIN_RESET);
+					break;
+				case evFOOT_SWITCH_RIGHT:
+					break;
+				case evUSER_SWITCH_LEFT:
+					break;
+				case evUSER_SWITCH_RIGHT:
+					break;
+				case evROTARY_ENC_LEFT:
+					break;
+				case evROTARY_ENC_RIGHT:
+					break;
+				default:
+					break;
+			}
+
+			// reset the event
+			_newEvent = evNone;
+
+			break;
+
+		case FX_ENABLED_WITH_USER_SWITCH_A:
+
+			switch(_newEvent)
+			{
+				case evFOOT_SWITCH_LEFT:
+					break;
+				case evFOOT_SWITCH_RIGHT:
+					break;
+				case evUSER_SWITCH_LEFT:
+					break;
+				case evUSER_SWITCH_RIGHT:
+					break;
+				case evROTARY_ENC_LEFT:
+					break;
+				case evROTARY_ENC_RIGHT:
+					break;
+				default:
+					break;
+			}
+
+			// reset the event
+			_newEvent = evNone;
+
+			break;
+
+		case FX_ENABLED_WITH_USER_SWITCH_B:
+
+			switch(_newEvent)
+			{
+				case evFOOT_SWITCH_LEFT:
+					break;
+				case evFOOT_SWITCH_RIGHT:
+					break;
+				case evUSER_SWITCH_LEFT:
+					break;
+				case evUSER_SWITCH_RIGHT:
+					break;
+				case evROTARY_ENC_LEFT:
+					break;
+				case evROTARY_ENC_RIGHT:
+					break;
+				default:
+					break;
+			}
+
+			// reset the event
+			_newEvent = evNone;
+
+			break;
+
+		case FX_ENABLED_WITH_USER_SWITCH_A_AND_B:
+
+			switch(_newEvent)
+			{
+				case evFOOT_SWITCH_LEFT:
+					break;
+				case evFOOT_SWITCH_RIGHT:
+					break;
+				case evUSER_SWITCH_LEFT:
+					break;
+				case evUSER_SWITCH_RIGHT:
+					break;
+				case evROTARY_ENC_LEFT:
+					break;
+				case evROTARY_ENC_RIGHT:
+					break;
+				default:
+					break;
+			}
+
+			// reset the event
+			_newEvent = evNone;
+
+			break;
+	}
+}
+
+void EventMachine::setNewEvent(EventMachine::Event _event)
+{
+	_newEvent = _event;
+}
+
+EventMachine::State EventMachine::getSystemState()
+{
+	return _nextState;
+}
+
+
+

@@ -31,6 +31,7 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1732166750" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -44,6 +45,7 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.376229759" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -62,19 +64,19 @@
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.assembler.exe.debug.1305390534" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.exe.debug">
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.both.asm.option.include.paths.1482064250" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/G474RE_Main/Application/buffers}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.433669244" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Src"/>
+						<entry excluding="FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="FSM"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -109,6 +111,7 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.379181340" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -122,6 +125,7 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1372919347" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -140,6 +144,7 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.470518714" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>

@@ -1,0 +1,29 @@
+/*
+ * AbstractState.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+class AbstractState
+{
+public:
+	virtual void doBehavior() = 0;
+
+};
+
+class FxDisabledState : AbstractState
+{
+public:
+	void doBehavior();
+};
+
+class FxEnabledState : AbstractState
+{
+public:
+	void doBehavior();
+};
+
+
+

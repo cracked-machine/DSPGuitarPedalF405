@@ -1,0 +1,14 @@
+/*
+ * EventMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "EventMachine.hpp"
+
+EventMachine::EventMachine()
+{
+
+}
+

@@ -1,0 +1,33 @@
+/*
+ * AbstractState.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#include <AbstractState.hpp>
+
+// AbstractState virtual class
+void AbstractState::setState(EventMachine &machine, AbstractState *state) {
+  machine.state = state;
+}
+
+
+// FxDisabledState class
+FxDisabledState::FxDisabledState()
+{
+
+}
+
+void FxDisabledState::update(EventMachine &machine)
+{
+	machine.state = NULL;
+
+}
+
+
+void FxEnabledState::update(EventMachine &machine)
+{
+
+}
