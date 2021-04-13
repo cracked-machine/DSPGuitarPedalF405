@@ -10,8 +10,9 @@
 #include <pedal_io_test.hpp>
 #include <arm_math.h>
 
-//#include <EventMachine_old.hpp>
 #include <EventMachine.hpp>
+
+#include <Debounce.hpp>
 
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_tim.h"
@@ -27,7 +28,7 @@
 	{
 #endif
 
-
+	HALDebounceManager debounceManagerTim14(TIM14, 100);
 	EventMachine em;
 
 	void appmain()
@@ -40,10 +41,14 @@
 		HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 		HAL_TIM_Encoder_Start_IT(&htim4, TIM_CHANNEL_ALL);
 
+
+		debounceManagerTim14.start();
+
 		run_sys_checks();
 
 		while(1)
 		{
+			//debounceManagerTim14.check_debounce();
 			//em.processEvent();
 		}
 	}
@@ -51,16 +56,20 @@
 	// callback for switches
 	void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 	{
-		//em.setNewEvent( (EventMachine::Event)GPIO_Pin );
-		switch(GPIO_Pin)
+		if(debounceManagerTim14.check_debounce())
 		{
-			case GPIO_PIN_13:
-				em.evFootswitchA();
-				break;
-			case GPIO_PIN_14:
-				em.evFootswitchB();
-				break;
+			switch(GPIO_Pin)
+			{
+				case GPIO_PIN_13:
+					em.evFootswitchA();
+					break;
+				case GPIO_PIN_14:
+					em.evFootswitchB();
+					break;
+			}
 		}
+
+
 
 	}
 

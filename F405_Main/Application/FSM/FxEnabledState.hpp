@@ -10,6 +10,10 @@
 
 #include "AbstractState.hpp"
 
+
+
+
+
 class FxEnabledState : public AbstractState
 {
 public:
@@ -23,6 +27,7 @@ public:
 	virtual void evRotaryEncoderB(EventMachine *machine);
 
 };
+
 
 
 #endif /* FSM_FXENABLEDSTATE_HPP_ */

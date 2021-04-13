@@ -1,29 +1,9 @@
-00:44:55 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+15:09:00 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/AbstractState.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/AbstractState.d" -MT"FSM/AbstractState.o" -o "FSM/AbstractState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/AbstractState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/AbstractState.cpp
- 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/EventMachine.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/EventMachine.d" -MT"FSM/EventMachine.o" -o "FSM/EventMachine.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/EventMachine.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/EventMachine.cpp
- 
 Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
 Invoking: GCC C++ Compiler
 g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/FxDisabledState.d" -MT"FSM/FxDisabledState.o" -o "FSM/FxDisabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp"
 Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
- 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxEnabledState.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/FxEnabledState.d" -MT"FSM/FxEnabledState.o" -o "FSM/FxEnabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxEnabledState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxEnabledState.cpp
- 
-Building file: ../test_eventmachine.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_eventmachine.d" -MT"test_eventmachine.o" -o "test_eventmachine.o" "../test_eventmachine.cpp"
-Finished building: ../test_eventmachine.cpp
  
 Building target: LinuxGCC_Tests
 Invoking: GCC C++ Linker
@@ -31,5 +11,5 @@ g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  
 Finished building target: LinuxGCC_Tests
  
 
-00:44:56 Build Finished. 0 errors, 0 warnings. (took 1s.559ms)
+15:09:00 Build Finished. 0 errors, 0 warnings. (took 604ms)
 

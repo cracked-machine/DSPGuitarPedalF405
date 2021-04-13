@@ -34,6 +34,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.928346804" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -54,6 +55,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.464342760" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -74,6 +76,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.495092843" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>
@@ -145,6 +148,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.653569451" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -164,6 +168,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1159392037" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -183,6 +188,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.170623925" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>

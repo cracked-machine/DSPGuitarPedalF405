@@ -1,0 +1,53 @@
+/*
+ * AbstractState.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#include <AbstractState.hpp>
+
+
+// AbstractState class
+AbstractState::~AbstractState() {}
+
+void AbstractState::evFootswitchA(EventMachine *machine)
+{
+
+}
+
+void AbstractState::evFootswitchB(EventMachine *machine)
+{
+
+}
+
+void AbstractState::evUserSwitchA(EventMachine *machine)
+{
+
+}
+
+void AbstractState::evUserSwitchB(EventMachine *machine)
+{
+
+}
+
+void AbstractState::evRotaryEncoderA(EventMachine *machine)
+{
+
+}
+
+void AbstractState::evRotaryEncoderB(EventMachine *machine)
+{
+
+}
+
+void AbstractState::setState(EventMachine *machine, AbstractState *state)
+{
+  machine->state = state;
+}
+
+
+
+
+

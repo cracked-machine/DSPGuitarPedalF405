@@ -10,10 +10,7 @@
 #include "FxDisabledState.hpp"
 #include "FxEnabledState.hpp"
 
-#ifdef __cplusplus
-	extern "C"
-	{
-#endif
+
 
 EventMachine::EventMachine()
 {
@@ -68,6 +65,4 @@ void EventMachine::evRotaryEncoderB()
 
 
 
-#ifdef __cplusplus
-	}
-#endif
+

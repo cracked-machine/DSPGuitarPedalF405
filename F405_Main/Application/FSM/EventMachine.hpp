@@ -12,11 +12,6 @@
 #include <AbstractState.hpp>
 #include <array>
 
-#ifdef __cplusplus
-	extern "C"
-	{
-#endif
-
 
 
 
@@ -53,9 +48,6 @@ private:
 
 
 
-#ifdef __cplusplus
-	}
-#endif
 
 
 #endif /* INC_EVENTMACHINE_HPP_ */

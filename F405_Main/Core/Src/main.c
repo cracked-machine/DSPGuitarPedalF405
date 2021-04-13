@@ -92,6 +92,7 @@ int main(void)
   MX_I2S2_Init();
   MX_TIM3_Init();
   MX_TIM4_Init();
+  MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
   appmain();
   /* USER CODE END 2 */

@@ -1,0 +1,37 @@
+/*
+ * Debounce.hpp
+ *
+ *  Created on: Apr 13, 2021
+ *      Author: chris
+ */
+
+#ifndef DEBOUNCE_DEBOUNCE_HPP_
+#define DEBOUNCE_DEBOUNCE_HPP_
+
+#include "stm32f4xx_hal.h"
+
+template <class T>
+class DebounceManager
+{
+
+public:
+
+	DebounceManager(T _tim, uint32_t _delay)
+	{
+		tim = _tim;
+		delay = _delay;
+	}
+
+	void start();
+
+private:
+
+	T tim;
+	uint32_t delay;
+
+};
+
+typedef DebounceManager<TIM_HandleTypeDef> HALDebounceManager;
+
+
+#endif /* DEBOUNCE_DEBOUNCE_HPP_ */
