@@ -8,7 +8,11 @@
 #ifndef DEBOUNCE_DEBOUNCE_HPP_
 #define DEBOUNCE_DEBOUNCE_HPP_
 
-#include "stm32f4xx_hal.h"
+#include <assert.h>
+
+#ifdef USE_HAL_DRIVER
+	#include "stm32f4xx_hal.h"
+#endif
 
 template <class T>
 class DebounceManager
@@ -18,16 +22,26 @@ public:
 
 	DebounceManager(T* _tim, size_t _delay)
 	{
+		// input conditioning checks
+		assert(_tim != NULL);
+
+		if(_delay < 0 || _delay > 65535)
+			_delay = 65535;
+
+		// init members
 		theTimer = _tim;
 		delay = _delay;
 		last_interrupt_time = 0;
 		interrupt_time = 0;
 
-
+		// set the timer counter to max resolution
+		theTimer->PSC = 65536;
+		theTimer->ARR = 65536;
 	}
 
 	void start();
 	bool check_debounce();
+
 
 private:
 
@@ -35,6 +49,8 @@ private:
 	size_t delay;
 	size_t interrupt_time;
 	size_t last_interrupt_time;
+
+
 
 };
 
@@ -61,6 +77,7 @@ bool DebounceManager<T>::check_debounce()
 }
 
 
-typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
+
+
 
 #endif /* DEBOUNCE_DEBOUNCE_HPP_ */

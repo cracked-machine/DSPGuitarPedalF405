@@ -1,61 +1,49 @@
-15:08:36 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+17:10:05 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
+Building file: ../test_debounce.cpp
 Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/FxDisabledState.d" -MT"FSM/FxDisabledState.o" -o "FSM/FxDisabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
+In file included from /home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc/CppUTest/TestHarness.h:40,
+                 from ../test_debounce.cpp:46:
+../test_debounce.cpp: In member function ‘virtual void TEST_DebounceGroup_DebounceTest_Test::testBody()’:
+../test_debounce.cpp:60:28: error: expected primary-expression before ‘debounceManagerTim14_FAIL’
+   60 |  CHECK(TestDebounceManager debounceManagerTim14_FAIL(NULL, 100));
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc/CppUTest/UtestMacros.h:120:46: note: in definition of macro ‘CHECK_TRUE_LOCATION’
+  120 |   do { UtestShell::getCurrent()->assertTrue((condition), checkString, conditionString, text, file, line); } while(0)
+      |                                              ^~~~~~~~~
+../test_debounce.cpp:60:2: note: in expansion of macro ‘CHECK’
+   60 |  CHECK(TestDebounceManager debounceManagerTim14_FAIL(NULL, 100));
+      |  ^~~~~
+../test_debounce.cpp:60:28: error: expected ‘)’ before ‘debounceManagerTim14_FAIL’
+   60 |  CHECK(TestDebounceManager debounceManagerTim14_FAIL(NULL, 100));
+      |                            ^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc/CppUTest/UtestMacros.h:120:46: note: in definition of macro ‘CHECK_TRUE_LOCATION’
+  120 |   do { UtestShell::getCurrent()->assertTrue((condition), checkString, conditionString, text, file, line); } while(0)
+      |                                              ^~~~~~~~~
+../test_debounce.cpp:60:2: note: in expansion of macro ‘CHECK’
+   60 |  CHECK(TestDebounceManager debounceManagerTim14_FAIL(NULL, 100));
+      |  ^~~~~
+/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc/CppUTest/UtestMacros.h:120:45: note: to match this ‘(’
+  120 |   do { UtestShell::getCurrent()->assertTrue((condition), checkString, conditionString, text, file, line); } while(0)
+      |                                             ^
+/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc/CppUTest/UtestMacros.h:102:3: note: in expansion of macro ‘CHECK_TRUE_LOCATION’
+  102 |   CHECK_TRUE_LOCATION(condition, "CHECK", #condition, NULLPTR, __FILE__, __LINE__)
+      |   ^~~~~~~~~~~~~~~~~~~
+../test_debounce.cpp:60:2: note: in expansion of macro ‘CHECK’
+   60 |  CHECK(TestDebounceManager debounceManagerTim14_FAIL(NULL, 100));
+      |  ^~~~~
+make: *** [subdir.mk:29: test_debounce.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+17:14:01 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+make all 
+Building file: ../test_debounce.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
+Finished building: ../test_debounce.cpp
  
 Building target: LinuxGCC_Tests
 Invoking: GCC C++ Linker
-g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/EventMachine.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o  ./test_blank.o ./test_eventmachine.o ./testmain.o   -lHost_CppUTest
+g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/EventMachine.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o  ./test_blank.o ./test_debounce.o ./test_eventmachine.o ./testmain.o   -lHost_CppUTest
 Finished building target: LinuxGCC_Tests
- 
-15:08:39 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
-make all 
-make: Nothing to be done for 'all'.
-15:08:50 **** Incremental Build of configuration Debug for project F405_Main ****
-make -j4 all 
-arm-none-eabi-g++ "../Application/FSM/FxDisabledState.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Application/FSM/FxDisabledState.d" -MT"Application/FSM/FxDisabledState.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/FSM/FxDisabledState.o"
-arm-none-eabi-g++ -o "F405_Main.elf" @"objects.list"  -lF405_RTT -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_Main/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_Main.map" -Wl,--gc-sections -static -L"/home/chris/DSPGuitarPedalF405/F405_RTT/Release" -L/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: F405_Main.elf
- 
-arm-none-eabi-objdump -h -S  F405_Main.elf  > "F405_Main.list"
-arm-none-eabi-objcopy  -O binary  F405_Main.elf  "F405_Main.bin"
-arm-none-eabi-size   F405_Main.elf 
-   text	   data	    bss	    dec	    hex	filename
- 173156	    772	   8888	 182816	  2ca20	F405_Main.elf
-Finished building: default.size.stdout
- 
-Finished building: F405_Main.bin
- 
-Finished building: F405_Main.list
- 
-15:09:00 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
-make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FSM/FxDisabledState.d" -MT"FSM/FxDisabledState.o" -o "FSM/FxDisabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM/FxDisabledState.cpp
- 
-Building target: LinuxGCC_Tests
-Invoking: GCC C++ Linker
-g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/EventMachine.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o  ./test_blank.o ./test_eventmachine.o ./testmain.o   -lHost_CppUTest
-Finished building target: LinuxGCC_Tests
- 
-15:11:50 **** Incremental Build of configuration Debug for project F405_Main ****
-make -j4 all 
-arm-none-eabi-g++ "../Application/Src/app_main.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fstack-usage -MMD -MP -MF"Application/Src/app_main.d" -MT"Application/Src/app_main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/Src/app_main.o"
-arm-none-eabi-g++ -o "F405_Main.elf" @"objects.list"  -lF405_RTT -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_Main/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_Main.map" -Wl,--gc-sections -static -L"/home/chris/DSPGuitarPedalF405/F405_RTT/Release" -L/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
-Finished building target: F405_Main.elf
- 
-arm-none-eabi-objdump -h -S  F405_Main.elf  > "F405_Main.list"
-arm-none-eabi-objcopy  -O binary  F405_Main.elf  "F405_Main.bin"
-arm-none-eabi-size   F405_Main.elf 
-   text	   data	    bss	    dec	    hex	filename
- 173156	    772	   8888	 182816	  2ca20	F405_Main.elf
-Finished building: default.size.stdout
- 
-Finished building: F405_Main.bin
- 
-Finished building: F405_Main.list
  

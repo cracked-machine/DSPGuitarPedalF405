@@ -32,6 +32,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1732166750" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -46,6 +47,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.376229759" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -69,6 +71,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.433669244" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -112,6 +115,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.379181340" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -126,6 +130,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1372919347" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -145,6 +150,7 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.470518714" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
