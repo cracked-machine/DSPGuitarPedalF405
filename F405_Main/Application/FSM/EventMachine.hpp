@@ -12,8 +12,11 @@
 #include <AbstractState.hpp>
 #include <array>
 
+#include <Debounce.hpp>
 
-
+// create instance of the debounce manager for HAL Timer (specifically TIM14)
+//typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
+//HALDebounceManager debounceManagerTim14;
 
 class AbstractState;
 
@@ -43,7 +46,10 @@ public:
 	AbstractState* getState();
 private:
 	AbstractState* state;
+	DebounceManager* debounceTim14;
+
 };
+
 
 
 

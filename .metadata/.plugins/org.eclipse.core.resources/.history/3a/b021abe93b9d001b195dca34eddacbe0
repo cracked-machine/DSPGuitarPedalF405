@@ -1,0 +1,21 @@
+/*
+ * TaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_TASKMANAGER_HPP_
+#define FREERTOS_TASKMANAGER_HPP_
+
+
+class TaskManager
+{
+public:
+	TaskManager();
+
+	void intTask(void* parm);
+};
+
+
+#endif /* FREERTOS_TASKMANAGER_HPP_ */

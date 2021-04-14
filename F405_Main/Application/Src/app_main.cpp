@@ -7,75 +7,106 @@
 
 #include <app_main.hpp>
 
-#include <pedal_io_test.hpp>
-#include <arm_math.h>
-
-#include <EventMachine.hpp>
-
-#include <Debounce.hpp>
-
+// HAL
 #include "stm32f4xx_hal.h"
 #include "stm32f4xx_hal_tim.h"
 #include "tim.h"
 
-#include <SEGGER_RTT.h>
-
-// C++ STL
+// STL
 #include <iostream>
+
+// system tests
+#include <pedal_io_test.hpp>
+
+// rtos task manager
+#include <FreeRTOS_UserTasks.hpp>
 
 #ifdef __cplusplus
 	extern "C"
 	{
 #endif
 
-	// create instance of the debounce manager for HAL timers
-	typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
-	HALDebounceManager debounceManagerTim14(TIM14, 100);
-
-	// create state machine instance
-	EventMachine em;
 
 	void appmain()
 	{
 		std::cout << "hello\n";
 
+		//HAL_NVIC_SetPriorityGrouping( NVIC_PRIORITYGROUP_4 );
+
+		// EXTI init
+		 HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
+		 HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+		 HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
+		 HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+		 HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
+		 HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+		 HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+		 HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 
 		// enable the rotary encoders
 		HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
 		HAL_TIM_Encoder_Start_IT(&htim4, TIM_CHANNEL_ALL);
 
-
-		debounceManagerTim14.start();
-
 		run_sys_checks();
+
+		initEventMachine();
+		initRTOS();
+
 
 		while(1)
 		{
-			//debounceManagerTim14.check_debounce();
-			//em.processEvent();
+
 		}
 	}
 
-	// callback for switches
-	void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+
+	/*
+	 *
+	 * STM32 Interrupt Handlers
+	 *
+	 */
+
+	void EXTI0_IRQHandler(void)
 	{
-		if(debounceManagerTim14.check_debounce())
+		//extiResumeTask();
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR0_Pos));
+	}
+
+	void EXTI1_IRQHandler(void)
+	{
+		//extiResumeTask();
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR1_Pos));
+	}
+
+	void EXTI2_IRQHandler(void)
+	{
+		//extiResumeTask();
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR2_Pos));
+	}
+
+	void EXTI15_10_IRQHandler(void)
+	{
+		uint16_t tmp;
+		if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
 		{
-			switch(GPIO_Pin)
-			{
-				case GPIO_PIN_13:
-					em.evFootswitchA();
-					break;
-				case GPIO_PIN_14:
-					em.evFootswitchB();
-					break;
-			}
+			tmp = FootSwitchA_IN_Pin;
+			extiResumeTask(&tmp);
+		}
+		if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
+		{
+			tmp = FootSwitchB_IN_Pin;
+			extiResumeTask(&tmp);
 		}
 
-
-
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR13_Pos));
+		EXTI->PR &= ~((EXTI_PR_PR14_Pos));
 	}
+
 
 	//
 	void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)

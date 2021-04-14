@@ -14,13 +14,13 @@
 	#include "stm32f4xx_hal.h"
 #endif
 
-template <class T>
+
 class DebounceManager
 {
 
 public:
 
-	DebounceManager(T* _tim, size_t _delay)
+	DebounceManager(TIM_TypeDef*  _tim, size_t _delay)
 	{
 		// input conditioning checks
 		assert(_tim != NULL);
@@ -35,9 +35,11 @@ public:
 		interrupt_time = 0;
 
 		// set the timer counter to max resolution
-		theTimer->PSC = 65536;
-		theTimer->ARR = 65536;
+		theTimer->PSC = 65535;
+		theTimer->ARR = 65535;
 	}
+
+
 
 	void start();
 	bool check_debounce();
@@ -45,39 +47,20 @@ public:
 
 private:
 
-	T* theTimer;
+	TIM_TypeDef*  theTimer;
 	size_t delay;
 	size_t interrupt_time;
 	size_t last_interrupt_time;
 
-
-
 };
 
 
-template <class T>
-void DebounceManager<T>::start()
-{
-	theTimer->CR1 |= TIM_CR1_CEN_Msk;
-}
 
-template <class T>
-bool DebounceManager<T>::check_debounce()
-{
-	bool res = false;
-
-	interrupt_time = theTimer->CNT;
-	if ((interrupt_time - last_interrupt_time) > delay)
-	{
-		res = true;
-	}
-
-	last_interrupt_time = interrupt_time;
-	return res;
-}
 
 
 
 
 
 #endif /* DEBOUNCE_DEBOUNCE_HPP_ */
+
+

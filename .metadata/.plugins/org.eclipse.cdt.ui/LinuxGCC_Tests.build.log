@@ -1,15 +1,86 @@
-17:14:01 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+01:34:57 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-Building file: ../test_debounce.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
-Finished building: ../test_debounce.cpp
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/port.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/port.d" -MT"FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/port.o" -o "FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/port.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/port.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix/port.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/croutine.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/croutine.d" -MT"FREERTOS_ROOT/croutine.o" -o "FREERTOS_ROOT/croutine.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/croutine.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/croutine.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/event_groups.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/event_groups.d" -MT"FREERTOS_ROOT/event_groups.o" -o "FREERTOS_ROOT/event_groups.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/event_groups.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/event_groups.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/list.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/list.d" -MT"FREERTOS_ROOT/list.o" -o "FREERTOS_ROOT/list.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/list.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/list.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/queue.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/queue.d" -MT"FREERTOS_ROOT/queue.o" -o "FREERTOS_ROOT/queue.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/queue.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/queue.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/stream_buffer.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/stream_buffer.d" -MT"FREERTOS_ROOT/stream_buffer.o" -o "FREERTOS_ROOT/stream_buffer.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/stream_buffer.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/stream_buffer.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/tasks.d" -MT"FREERTOS_ROOT/tasks.o" -o "FREERTOS_ROOT/tasks.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c
+ 
+Building file: /opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c
+Invoking: GCC C Compiler
+gcc -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Inc" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/ThirdParty/GCC/Posix" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"FREERTOS_ROOT/timers.d" -MT"FREERTOS_ROOT/timers.o" -o "FREERTOS_ROOT/timers.o" "/opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c"
+Finished building: /opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c
  
 Building target: LinuxGCC_Tests
 Invoking: GCC C++ Linker
-g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/EventMachine.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o  ./test_blank.o ./test_debounce.o ./test_eventmachine.o ./testmain.o   -lHost_CppUTest
-Finished building target: LinuxGCC_Tests
- 
+g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/EventMachine.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o  ./FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/utils/wait_for_event.o  ./FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/port.o  ./FREERTOS_ROOT/croutine.o ./FREERTOS_ROOT/event_groups.o ./FREERTOS_ROOT/list.o ./FREERTOS_ROOT/queue.o ./FREERTOS_ROOT/stream_buffer.o ./FREERTOS_ROOT/tasks.o ./FREERTOS_ROOT/timers.o  ./test_blank.o ./test_debounce.o ./test_eventmachine.o ./testmain.o   -lHost_CppUTest -lpthread
+/usr/bin/ld: ./FREERTOS_ROOT/event_groups.o: in function `xEventGroupCreate':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/event_groups.c:163: undefined reference to `pvPortMalloc'
+/usr/bin/ld: ./FREERTOS_ROOT/event_groups.o: in function `vEventGroupDelete':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/event_groups.c:655: undefined reference to `vPortFree'
+/usr/bin/ld: ./FREERTOS_ROOT/queue.o: in function `xQueueGenericCreate':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/queue.c:412: undefined reference to `pvPortMalloc'
+/usr/bin/ld: ./FREERTOS_ROOT/queue.o: in function `vQueueDelete':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/queue.c:2051: undefined reference to `vPortFree'
+/usr/bin/ld: ./FREERTOS_ROOT/stream_buffer.o: in function `xStreamBufferGenericCreate':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/stream_buffer.c:264: undefined reference to `pvPortMalloc'
+/usr/bin/ld: ./FREERTOS_ROOT/stream_buffer.o: in function `vStreamBufferDelete':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/stream_buffer.c:385: undefined reference to `vPortFree'
+/usr/bin/ld: ./FREERTOS_ROOT/tasks.o: in function `xTaskCreate':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:766: undefined reference to `pvPortMalloc'
+/usr/bin/ld: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:771: undefined reference to `pvPortMalloc'
+/usr/bin/ld: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:782: undefined reference to `vPortFree'
+/usr/bin/ld: ./FREERTOS_ROOT/tasks.o: in function `vTaskStartScheduler':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:2000: undefined reference to `vApplicationGetIdleTaskMemory'
+/usr/bin/ld: ./FREERTOS_ROOT/tasks.o: in function `xTaskIncrementTick':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:2859: undefined reference to `vApplicationTickHook'
+/usr/bin/ld: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:2889: undefined reference to `vApplicationTickHook'
+/usr/bin/ld: ./FREERTOS_ROOT/tasks.o: in function `prvIdleTask':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:3483: undefined reference to `vApplicationIdleHook'
+/usr/bin/ld: ./FREERTOS_ROOT/tasks.o: in function `prvDeleteTCB':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:3965: undefined reference to `vPortFree'
+/usr/bin/ld: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:3966: undefined reference to `vPortFree'
+/usr/bin/ld: /opt/FreeRTOSv202012.00/FreeRTOS/Source/tasks.c:3972: undefined reference to `vPortFree'
+/usr/bin/ld: ./FREERTOS_ROOT/timers.o: in function `xTimerCreateTimerTask':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c:239: undefined reference to `vApplicationGetTimerTaskMemory'
+/usr/bin/ld: ./FREERTOS_ROOT/timers.o: in function `xTimerCreate':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c:284: undefined reference to `pvPortMalloc'
+/usr/bin/ld: ./FREERTOS_ROOT/timers.o: in function `prvTimerTask':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c:567: undefined reference to `vApplicationDaemonTaskStartupHook'
+/usr/bin/ld: ./FREERTOS_ROOT/timers.o: in function `prvProcessReceivedCommands':
+/opt/FreeRTOSv202012.00/FreeRTOS/Source/timers.c:866: undefined reference to `vPortFree'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:50: LinuxGCC_Tests] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
 
-17:14:01 Build Finished. 0 errors, 0 warnings. (took 653ms)
+01:34:58 Build Failed. 36 errors, 0 warnings. (took 1s.196ms)
 

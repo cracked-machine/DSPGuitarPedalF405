@@ -3,3 +3,4 @@
 1618263532131	Delete resource 'F405_Main/FSM'
 1618270162922	Delete resource 'F405_Main/Application/FSM/Src'
 1618270167892	Delete resource 'F405_Main/Application/FSM/Inc'
+1618416621391	Delete resource 'F405_Main/Application/FreeRTOS/TaskManager.hpp'

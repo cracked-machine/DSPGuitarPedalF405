@@ -33,6 +33,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1732166750" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -48,6 +51,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.376229759" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -58,6 +64,7 @@
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.100543947" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" useByScannerDiscovery="false" valueType="libs">
 									<listOptionValue builtIn="false" value="Host_CppUTest"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.1837279036" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -72,13 +79,17 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.433669244" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="FREERTOS_ROOT|FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="FREERTOS_ROOT"/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="FSM"/>
 					</sourceEntries>
 				</configuration>
@@ -116,6 +127,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.379181340" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -131,11 +145,17 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1372919347" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
 							<tool id="cdt.managedbuild.tool.gnu.c.linker.exe.release.1551951228" name="GCC C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.exe.release"/>
 							<tool id="cdt.managedbuild.tool.gnu.cpp.linker.exe.release.639329392" name="GCC C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.exe.release">
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.link.option.libs.1973356423" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="pthread"/>
+								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.353365447" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -151,6 +171,9 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.470518714" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>

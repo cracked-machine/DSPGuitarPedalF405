@@ -1,0 +1,29 @@
+/*
+ * FreeRTOS_Tasks.c
+ *
+ *  Created on: 14 Apr 2021
+ *      Author: chris
+ */
+
+#include <FreeRTOS_UserTasks.hpp>
+#include <iostream>
+
+/* Function that implements the task being created. */
+void vTaskCode( void * pvParameters )
+{
+	/* The parameter value is expected to be 1 as 1 is passed in the
+	pvParameters value in the call to xTaskCreateStatic(). */
+	configASSERT( ( uint32_t ) pvParameters == 1UL );
+
+
+
+	/* The pxSemaphoreBuffer was not NULL, so it is expected that the
+	handle will not be NULL. */
+	configASSERT( xSemaphore );
+
+	for( ;; )
+	{
+		std::cout << "Looping in vTaskCode" << std::endl;
+		/* Task code goes here. */
+	}
+}

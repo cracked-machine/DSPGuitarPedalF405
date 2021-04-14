@@ -26,9 +26,49 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>FREERTOS_ROOT</name>
+			<type>2</type>
+			<locationURI>FREERTOS_ROOT</locationURI>
+		</link>
+		<link>
 			<name>FSM</name>
 			<type>2</type>
 			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM</location>
 		</link>
 	</linkedResources>
+	<filteredResources>
+		<filter>
+			<id>1618358231544</id>
+			<name>FREERTOS_ROOT/portable</name>
+			<type>13</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-ThirdParty</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1618358251108</id>
+			<name>FREERTOS_ROOT/portable/ThirdParty</name>
+			<type>13</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-GCC</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1618358271436</id>
+			<name>FREERTOS_ROOT/portable/ThirdParty/GCC</name>
+			<type>13</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-Posix</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
+	<variableList>
+		<variable>
+			<name>FREERTOS_ROOT</name>
+			<value>file:/opt/FreeRTOSv202012.00/FreeRTOS/Source</value>
+		</variable>
+	</variableList>
 </projectDescription>

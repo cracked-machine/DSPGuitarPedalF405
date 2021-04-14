@@ -19,8 +19,9 @@ EventMachine::EventMachine()
 	states_list[EventMachine::FX_ENABLED] = new FxEnabledState();
 
 	state = states_list[EventMachine::FX_DISABLED];
+	debounceTim14 = new DebounceManager(TIM14, 100);
+	debounceTim14->start();
 }
-
 
 EventMachine::~EventMachine()
 {
@@ -35,32 +36,38 @@ AbstractState * EventMachine::getState()
 
 void EventMachine::evFootswitchA()
 {
-	state->evFootswitchA(this);
+	if(debounceTim14->check_debounce())
+		state->evFootswitchA(this);
 }
 
 void EventMachine::evFootswitchB()
 {
-	state->evFootswitchB(this);
+	if(debounceTim14->check_debounce())
+		state->evFootswitchB(this);
 }
 
 void EventMachine::evUserSwitchA()
 {
-	state->evUserSwitchA(this);
+	if(debounceTim14->check_debounce())
+		state->evUserSwitchA(this);
 }
 
 void EventMachine::evUserSwitchB()
 {
-	state->evUserSwitchB(this);
+	if(debounceTim14->check_debounce())
+		state->evUserSwitchB(this);
 }
 
 void EventMachine::evRotaryEncoderA()
 {
-	state->evRotaryEncoderA(this);
+	if(debounceTim14->check_debounce())
+		state->evRotaryEncoderA(this);
 }
 
 void EventMachine::evRotaryEncoderB()
 {
-	state->evRotaryEncoderB(this);
+	if(debounceTim14->check_debounce())
+		state->evRotaryEncoderB(this);
 }
 
 

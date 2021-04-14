@@ -1,0 +1,29 @@
+/*
+ * FreeRTOS_UserTasks.h
+ *
+ *  Created on: 14 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_FREERTOS_USERTASKS_HPP_
+#define FREERTOS_FREERTOS_USERTASKS_HPP_
+
+
+#include "FreeRTOS.h"
+#include "task.h"
+
+	#include <EventMachine.hpp>
+	#include <Debounce.hpp>
+
+	// create instance of the debounce manager for HAL Timer (specifically TIM14)
+	typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
+	HALDebounceManager debounceManagerTim14(TIM14, 100);
+
+	// create state machine instance
+	EventMachine em;
+
+
+
+void vTaskCode( void * pvParameters );
+
+#endif /* FREERTOS_FREERTOS_USERTASKS_HPP_ */

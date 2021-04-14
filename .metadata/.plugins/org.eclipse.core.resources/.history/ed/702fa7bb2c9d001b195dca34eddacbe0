@@ -1,0 +1,79 @@
+/*
+ * EventMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "EventMachine.hpp"
+
+#include "FxDisabledState.hpp"
+#include "FxEnabledState.hpp"
+
+#include <Debounce.hpp>
+
+// create instance of the debounce manager for HAL Timer (specifically TIM14)
+typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
+HALDebounceManager debounceManagerTim14(TIM14, 100);
+
+EventMachine::EventMachine()
+{
+	// instantiate the state objects now at init for the duration
+	states_list[EventMachine::FX_DISABLED] = new FxDisabledState();
+	states_list[EventMachine::FX_ENABLED] = new FxEnabledState();
+
+	state = states_list[EventMachine::FX_DISABLED];
+	debounceManagerTim14.start();
+}
+
+
+EventMachine::~EventMachine()
+{
+	for(AbstractState* s : states_list)
+		delete s;
+}
+
+AbstractState * EventMachine::getState()
+{
+	return state;
+}
+
+void EventMachine::evFootswitchA()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evFootswitchA(this);
+}
+
+void EventMachine::evFootswitchB()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evFootswitchB(this);
+}
+
+void EventMachine::evUserSwitchA()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evUserSwitchA(this);
+}
+
+void EventMachine::evUserSwitchB()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evUserSwitchB(this);
+}
+
+void EventMachine::evRotaryEncoderA()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evRotaryEncoderA(this);
+}
+
+void EventMachine::evRotaryEncoderB()
+{
+	if(debounceManagerTim14.check_debounce())
+		state->evRotaryEncoderB(this);
+}
+
+
+
+

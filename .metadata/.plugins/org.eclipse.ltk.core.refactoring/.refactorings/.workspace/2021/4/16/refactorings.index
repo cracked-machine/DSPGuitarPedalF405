@@ -10,3 +10,5 @@
 1618244833888	Delete resource 'F405_Main/Application/Inc/EventMachine_old.hpp'
 1618244839576	Delete resource 'F405_Main/Application/Src/EventMachine_old.cpp'
 1618261980380	Delete resource 'LinuxGCC_Tests/Src'
+1618330484937	Delete resource 'LinuxGCC_Tests/test_debounce.hpp'
+1618355615032	Delete resource 'F405_Main/Middlewares/Third_Party/FreeRTOS'
