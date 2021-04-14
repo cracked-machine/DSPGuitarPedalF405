@@ -1,0 +1,15 @@
+/*
+ * RtosTaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_RTOSTASKMANAGER_HPP_
+#define FREERTOS_RTOSTASKMANAGER_HPP_
+
+
+
+
+
+#endif /* FREERTOS_RTOSTASKMANAGER_HPP_ */

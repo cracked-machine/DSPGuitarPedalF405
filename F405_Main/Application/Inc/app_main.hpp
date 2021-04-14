@@ -18,6 +18,7 @@
 
 #endif
 
+
 	void appmain();
 
 #ifdef __cplusplus

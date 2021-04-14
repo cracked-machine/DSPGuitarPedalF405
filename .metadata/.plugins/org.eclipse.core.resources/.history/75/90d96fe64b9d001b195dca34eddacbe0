@@ -1,0 +1,20 @@
+/*
+ * RTOSTask.cpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#include "RTOSTask.hpp"
+
+Thread::Thread( unsigned portSHORT _stackDepth, UBaseType_t _priority, const char* _name = "" )
+{
+	xTaskCreate( task, _name, _stackDepth, this, _priority, &this->taskHandle );
+}
+
+static void Thread::task( void* _params )
+{
+	Thread* p = static_cast<Thread*>( _params );
+	p->Main();
+}
+

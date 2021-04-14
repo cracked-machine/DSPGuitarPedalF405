@@ -1,0 +1,40 @@
+/*
+ * RtosTaskManager.cpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#include "RtosTaskManager.hpp"
+
+RtosTaskManager::RtosTaskManager()
+{
+	ISRTaskHandle = NULL;
+
+}
+
+EventMachine* RtosTaskManager::getEM()
+{
+	return em;
+}
+
+void RtosTaskManager::initEventMachine()
+{
+	em = new EventMachine();
+}
+
+void RtosTaskManager::initIsrTask()
+{
+	/* Create the task without using any dynamic memory allocation. */
+	ISRTaskHandle = xTaskCreateStatic(
+		ISRTaskCode,       /* Function that implements the task. */
+		"NAME",          /* Text name for the task. */
+		200,      /* Number of indexes in the ISRTaskStack array. */
+		(void*) 1,    /* Parameter passed into the task. */
+		tskIDLE_PRIORITY,/* Priority at which the task is created. */
+		ISRTaskStack,          /* Array to use as the task's stack. */
+		&ISRTaskBuffer );  /* Variable to hold the task's data structure. */
+
+}
+
+

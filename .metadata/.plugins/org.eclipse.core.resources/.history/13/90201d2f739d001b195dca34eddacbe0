@@ -1,0 +1,121 @@
+/*
+ * FreeRTOS_Tasks.c
+ *
+ *  Created on: 14 Apr 2021
+ *      Author: chris
+ */
+
+#include <FreeRTOS_UserTasks.hpp>
+
+// STL
+#include <iostream>
+
+
+// the state machine
+//#include <EventMachine.hpp>
+
+// create state machine instance
+EventMachine *em;
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+//#include "app_main.hpp"
+
+// static RTOS task
+#define STACK_SIZE 200
+TaskHandle_t ISRTaskHandle = NULL;
+StaticTask_t ISRTaskBuffer;
+StackType_t ISRTaskStack[ STACK_SIZE ];
+
+#define QUEUE_LENGTH    1
+#define ITEM_SIZE       sizeof( uint16_t )
+static StaticQueue_t xStaticQueue;
+uint8_t ucQueueStorageArea[ QUEUE_LENGTH * ITEM_SIZE ];
+QueueHandle_t xQueue;
+
+
+
+
+
+EventMachine* getEM()
+{
+	return em;
+}
+
+void initEventMachine()
+{
+	em = new EventMachine();
+}
+
+void initRTOS()
+{
+	/* Create the task without using any dynamic memory allocation. */
+	ISRTaskHandle = xTaskCreateStatic(
+		ISRTaskCode,       /* Function that implements the task. */
+		"NAME",          /* Text name for the task. */
+		STACK_SIZE,      /* Number of indexes in the ISRTaskStack array. */
+		(void*) 1,    /* Parameter passed into the task. */
+		tskIDLE_PRIORITY,/* Priority at which the task is created. */
+		ISRTaskStack,          /* Array to use as the task's stack. */
+		&ISRTaskBuffer );  /* Variable to hold the task's data structure. */
+
+
+	/* Create a queue capable of containing 10 uint64_t values. */
+	xQueue = xQueueCreateStatic( QUEUE_LENGTH,
+								 ITEM_SIZE,
+								 ucQueueStorageArea,
+								 &xStaticQueue );
+
+	vTaskStartScheduler();
+}
+
+/* Function that implements the task being created. */
+void ISRTaskCode( void * parm )
+{
+
+	while(1)
+	{
+		uint16_t item = 0;
+		std::cout << "ISRTaskCode waiting for queue item" << std::endl;
+
+		if( xQueueReceive( xQueue, &( item ), ( TickType_t ) 10 ) == pdPASS)
+		{
+			std::cout << "ISRTaskCode retrieved queue item" << std::endl;
+			switch(item)
+			{
+				case EXTI_PR_PR13:
+					em->evFootswitchA();
+					break;
+				case EXTI_PR_PR14:
+					em->evFootswitchB();
+					break;
+			}
+
+		}
+
+
+
+	}
+}
+
+// receives event data and resumes the task
+/*
+void extiResumeTask(uint16_t* _pin)
+{
+	thePin = _pin;
+	BaseType_t checkIfYieldRequired;
+	checkIfYieldRequired = xTaskResumeFromISR(ISRTaskHandle);
+	portYIELD_FROM_ISR(checkIfYieldRequired);
+}
+*/
+
+void xQueueSendFromISR_wrapper(uint16_t item)
+{
+
+	xQueueSendFromISR(xQueue, &item, NULL);
+}
+
+

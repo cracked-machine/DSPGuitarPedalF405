@@ -1,0 +1,24 @@
+/*
+ * FreeRTOS_UserTasks.h
+ *
+ *  Created on: 14 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_FREERTOS_USERTASKS_HPP_
+#define FREERTOS_FREERTOS_USERTASKS_HPP_
+
+
+#include <stdint.h>
+// the state machine
+#include <EventMachine.hpp>
+
+EventMachine* getEM();
+
+void initEventMachine();
+void initRTOS();
+//void extiResumeTask(uint16_t* _pin);
+void ISRTaskCode( void* pvParameters );
+void xQueueSendFromISR_wrapper(uint16_t item);
+
+#endif /* FREERTOS_FREERTOS_USERTASKS_HPP_ */

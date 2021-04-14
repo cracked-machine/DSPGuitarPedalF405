@@ -1,0 +1,92 @@
+/*
+ * FreeRTOS_Tasks.c
+ *
+ *  Created on: 14 Apr 2021
+ *      Author: chris
+ */
+
+#include <FreeRTOS_UserTasks.hpp>
+
+// STL
+#include <iostream>
+
+// the state machine
+#include <EventMachine.hpp>
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+
+
+
+// static RTOS task
+#define STACK_SIZE 200
+TaskHandle_t ISRTaskHandle = NULL;
+StaticTask_t ISRTaskBuffer;
+StackType_t ISRTaskStack[ STACK_SIZE ];
+
+
+// create state machine instance
+EventMachine *em;
+
+uint16_t* thePin;
+
+
+void initEventMachine()
+{
+	em = new EventMachine();
+}
+
+void initRTOS()
+{
+
+	/* Create the task without using any dynamic memory allocation. */
+	ISRTaskHandle = xTaskCreateStatic(
+		ISRTaskCode,       /* Function that implements the task. */
+		"NAME",          /* Text name for the task. */
+		STACK_SIZE,      /* Number of indexes in the ISRTaskStack array. */
+		&thePin,    /* Parameter passed into the task. */
+		tskIDLE_PRIORITY,/* Priority at which the task is created. */
+		ISRTaskStack,          /* Array to use as the task's stack. */
+		&ISRTaskBuffer );  /* Variable to hold the task's data structure. */
+
+
+	vTaskStartScheduler();
+}
+
+/* Function that implements the task being created. */
+void ISRTaskCode( void * parm )
+{
+	uint16_t* tmp = static_cast<uint16_t*>(parm);
+	while(1)
+	{
+		std::cout << "Suspending ISRTaskCode" << std::endl;
+		vTaskSuspend(NULL);
+		std::cout << "Running ISRTaskCode" << std::endl;
+
+
+			if(*thePin == FootSwitchA_IN_Pin)
+			{
+				std::cout << "Running EM" << std::endl;
+				em->evFootswitchA();
+			}
+			if(*thePin == FootSwitchB_IN_Pin)
+			{
+				em->evFootswitchB();
+			}
+
+
+	}
+}
+
+// receives event data and resumes the task
+void extiResumeTask(uint16_t* _pin)
+{
+	thePin = _pin;
+	BaseType_t checkIfYieldRequired;
+	checkIfYieldRequired = xTaskResumeFromISR(ISRTaskHandle);
+	portYIELD_FROM_ISR(checkIfYieldRequired);
+}
+
+
+

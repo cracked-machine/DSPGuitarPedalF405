@@ -21,7 +21,10 @@ void FxDisabledState::evFootswitchA(EventMachine *machine)
 
 void FxDisabledState::evFootswitchB(EventMachine *machine)
 {
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+	setState(machine, machine->states_list[EventMachine::FX_ENABLED]);
+#ifdef USE_HAL_DRIVER
+	HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_SET);
+#endif
 }
 
 void FxDisabledState::evUserSwitchA(EventMachine *machine)

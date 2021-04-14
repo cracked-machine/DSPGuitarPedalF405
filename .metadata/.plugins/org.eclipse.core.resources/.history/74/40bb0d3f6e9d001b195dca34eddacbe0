@@ -1,0 +1,21 @@
+/*
+ * RtosTaskManager.cpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#include "RtosTaskManager.hpp"
+
+RtosTaskManager::RtosTaskManager()
+{
+	ISRTaskHandle = NULL;
+
+}
+
+EventMachine* RtosTaskManager::getEM()
+{
+	return em;
+}
+
+

@@ -1,0 +1,32 @@
+/*
+ * RtosTaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_RTOSTASKMANAGER_HPP_
+#define FREERTOS_RTOSTASKMANAGER_HPP_
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+
+class RtosTaskManager
+{
+public:
+	RtosTaskManager();
+private:
+	// static RTOS task
+	TaskHandle_t ISRTaskHandle;
+	const uint32_t STACK_SIZE 200;
+	StaticTask_t ISRTaskBuffer;
+	StackType_t ISRTaskStack[ STACK_SIZE ];
+
+	QueueHandle_t xQueue;
+};
+
+
+#endif /* FREERTOS_RTOSTASKMANAGER_HPP_ */

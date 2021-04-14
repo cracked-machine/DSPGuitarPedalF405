@@ -1,0 +1,28 @@
+/*
+ * RtosTaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_RTOSTASKMANAGER_HPP_
+#define FREERTOS_RTOSTASKMANAGER_HPP_
+
+
+
+class RtosTaskManager
+{
+
+	TaskHandle_t ISRTaskHandle = NULL;
+	StaticTask_t ISRTaskBuffer;
+	StackType_t ISRTaskStack[ STACK_SIZE ];
+
+	#define QUEUE_LENGTH    1
+	#define ITEM_SIZE       sizeof( uint16_t )
+	static StaticQueue_t xStaticQueue;
+	uint8_t ucQueueStorageArea[ QUEUE_LENGTH * ITEM_SIZE ];
+	QueueHandle_t xQueue;
+};
+
+
+#endif /* FREERTOS_RTOSTASKMANAGER_HPP_ */

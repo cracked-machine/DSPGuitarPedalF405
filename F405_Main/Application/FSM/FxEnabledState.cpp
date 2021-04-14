@@ -15,16 +15,18 @@
 void FxEnabledState::evFootswitchA(EventMachine *machine)
 {
 	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-#ifdef USE_HAL_DRIVER
-	HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_RESET);
-#endif
+	#ifdef USE_HAL_DRIVER
+		HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_RESET);
+	#endif
 	std::cout << "FxEnabledState::evFootswitchA" << std::endl;
 }
 
 void FxEnabledState::evFootswitchB(EventMachine *machine)
 {
-	//setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-	AbstractState::evFootswitchB(machine);
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+	#ifdef USE_HAL_DRIVER
+		HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_B_Pin, GPIO_PIN_RESET);
+	#endif
 }
 
 void FxEnabledState::evUserSwitchA(EventMachine *machine)

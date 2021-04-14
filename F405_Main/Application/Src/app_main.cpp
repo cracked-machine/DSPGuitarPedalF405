@@ -19,30 +19,32 @@
 #include <pedal_io_test.hpp>
 
 // rtos task manager
-#include <FreeRTOS_UserTasks.hpp>
+//#include <FreeRTOS_UserTasks.hpp>
+
+#include <EventMachine.hpp>
+#include <ISRTaskManager.hpp>
 
 #ifdef __cplusplus
 	extern "C"
 	{
 #endif
 
+	ISRTaskManager *taskman = NULL;
+
 
 	void appmain()
 	{
 		std::cout << "hello\n";
 
-		//HAL_NVIC_SetPriorityGrouping( NVIC_PRIORITYGROUP_4 );
-
 		// EXTI init
-		 HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
-		 HAL_NVIC_EnableIRQ(EXTI0_IRQn);
-		 HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
-		 HAL_NVIC_EnableIRQ(EXTI1_IRQn);
-		 HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
-		 HAL_NVIC_EnableIRQ(EXTI2_IRQn);
-		 HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
-		 HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
-
+		HAL_NVIC_SetPriority(EXTI0_IRQn, 5, 0);
+		HAL_NVIC_EnableIRQ(EXTI0_IRQn);
+		HAL_NVIC_SetPriority(EXTI1_IRQn, 5, 0);
+		HAL_NVIC_EnableIRQ(EXTI1_IRQn);
+		HAL_NVIC_SetPriority(EXTI2_IRQn, 5, 0);
+		HAL_NVIC_EnableIRQ(EXTI2_IRQn);
+		HAL_NVIC_SetPriority(EXTI15_10_IRQn, 5, 0);
+		HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 		// enable the rotary encoders
 		HAL_TIM_Encoder_Start_IT(&htim3, TIM_CHANNEL_ALL);
@@ -50,13 +52,16 @@
 
 		run_sys_checks();
 
-		initEventMachine();
-		initRTOS();
+		taskman = new ISRTaskManager();
+		taskman->initEventMachine();
+		taskman->initIsrTask();
+		taskman->initIsrQueue();
 
+		vTaskStartScheduler();
 
 		while(1)
 		{
-
+			// not reached!
 		}
 	}
 
@@ -69,37 +74,35 @@
 
 	void EXTI0_IRQHandler(void)
 	{
-		//extiResumeTask();
+
 		// clear the EXTI pending bit
 		EXTI->PR &= ~((EXTI_PR_PR0_Pos));
 	}
 
 	void EXTI1_IRQHandler(void)
 	{
-		//extiResumeTask();
+
 		// clear the EXTI pending bit
 		EXTI->PR &= ~((EXTI_PR_PR1_Pos));
 	}
 
 	void EXTI2_IRQHandler(void)
 	{
-		//extiResumeTask();
+
 		// clear the EXTI pending bit
 		EXTI->PR &= ~((EXTI_PR_PR2_Pos));
 	}
 
 	void EXTI15_10_IRQHandler(void)
 	{
-		uint16_t tmp;
+		// send EXTI message to task manager
 		if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
 		{
-			tmp = FootSwitchA_IN_Pin;
-			extiResumeTask(&tmp);
+			taskman->ISRQueueSendFromISR_wrapper(EXTI_PR_PR13);
 		}
 		if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
 		{
-			tmp = FootSwitchB_IN_Pin;
-			extiResumeTask(&tmp);
+			taskman->ISRQueueSendFromISR_wrapper(EXTI_PR_PR14);
 		}
 
 		// clear the EXTI pending bit

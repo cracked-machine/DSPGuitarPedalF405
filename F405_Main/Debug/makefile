@@ -8,6 +8,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include FREERTOS_ROOT/portable/MemMang/subdir.mk
 -include FREERTOS_ROOT/portable/GCC/ARM_CM4F/subdir.mk
 -include FREERTOS_ROOT/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
@@ -17,7 +18,6 @@ RM := rm -rf
 -include Application/FreeRTOS/subdir.mk
 -include Application/FSM/subdir.mk
 -include Application/Debounce/subdir.mk
--include Application/subdir.mk
 -include subdir.mk
 -include objects.mk
 

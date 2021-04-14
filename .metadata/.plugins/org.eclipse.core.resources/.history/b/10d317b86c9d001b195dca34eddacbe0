@@ -1,0 +1,22 @@
+/*
+ * RtosTaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_RTOSTASKMANAGER_HPP_
+#define FREERTOS_RTOSTASKMANAGER_HPP_
+
+
+class RtosTaskManager
+{
+
+private:
+	// static RTOS task
+
+	QueueHandle_t xQueue;
+};
+
+
+#endif /* FREERTOS_RTOSTASKMANAGER_HPP_ */

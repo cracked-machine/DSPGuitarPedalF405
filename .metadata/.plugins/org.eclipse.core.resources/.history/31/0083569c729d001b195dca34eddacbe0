@@ -1,0 +1,52 @@
+/*
+ * RtosTaskManager.hpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_RTOSTASKMANAGER_HPP_
+#define FREERTOS_RTOSTASKMANAGER_HPP_
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+#include "EventMachine.hpp"
+
+
+
+class RtosTaskManager
+{
+public:
+	RtosTaskManager();
+
+	void initEventMachine();
+	void initIsrTask();
+	void initIsrQueue();
+
+	EventMachine* getEM();
+	TaskHandle_t getIsrTask();
+	QueueHandle_t getQueue();
+
+	void xQueueSendFromISR_wrapper(uint16_t item);
+
+private:
+	// static RTOS task
+	TaskHandle_t ISRTaskHandle;
+	StaticTask_t ISRTaskBuffer;
+	StackType_t ISRTaskStack[ 200 ];
+
+	// static RTOS queue for ISR-to-task comm
+	StaticQueue_t xStaticQueue;
+	uint8_t ucQueueStorageArea[ 1 * sizeof( uint16_t ) ];
+	QueueHandle_t xQueue;
+
+	// create state machine instance
+	EventMachine *em;
+};
+
+
+
+#endif /* FREERTOS_RTOSTASKMANAGER_HPP_ */

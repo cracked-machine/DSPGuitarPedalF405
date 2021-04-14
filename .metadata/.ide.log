@@ -8461,3 +8461,6 @@
 2021-04-14 13:48:35,676 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 1947mS.
 2021-04-14 13:48:35,677 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 1mS.
 2021-04-14 13:48:35,677 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2021-04-14 19:49:20,152 [INFO] RtosManager:778 - Current active RTOS is FREERTOS [Cortex-M4NS]
+2021-04-14 19:49:20,411 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
+2021-04-14 19:49:20,470 [ERROR] RtosPanel:542 - Can not restore the selected Tab for FREERTOS(A reason can be that the tab is no more available.)
