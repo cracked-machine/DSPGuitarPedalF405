@@ -1,0 +1,98 @@
+/*
+ * ExtCtrlTaskManager.cpp
+ *
+ *  Created on: Apr 14, 2021
+ *      Author: chris
+ */
+
+#include <ExtCtrlTaskManager.hpp>
+#include <iostream>
+
+
+void ExtCtrlTaskCode( void * parm );
+
+static StaticQueue_t ExtCtrlStaticQueue;
+
+
+
+ExtCtrlTaskManager::ExtCtrlTaskManager()
+{
+	ExtCtrlTaskHandle = NULL;
+
+}
+
+EventMachine* ExtCtrlTaskManager::getEventMan()
+{
+	return ExtCtrlEventMan;
+}
+
+void ExtCtrlTaskManager::initEventMachine()
+{
+	ExtCtrlEventMan = new EventMachine();
+}
+
+void ExtCtrlTaskManager::initTask()
+{
+	// Create the task without using any dynamic memory allocation.
+	ExtCtrlTaskHandle = xTaskCreateStatic(
+		ExtCtrlTaskCode,       		// global function in ExtCtrlTaskManager
+		"IRSTaskMan",          	// Text name for the task.
+		200,      				// Number of indexes in the ExtCtrlTaskStack array.
+		this,    				// pointer to this class instance (used by "IRSTaskMan" to access class members)
+		tskIDLE_PRIORITY,		// Priority at which the task is created.
+		ExtCtrlTaskStack,           // Array to use as the task's stack.
+		&ExtCtrlTaskBuffer );  		// Variable to hold the task's data structure.
+
+}
+
+void ExtCtrlTaskManager::initQueue()
+{
+	/* Create a queue capable of containing 10 uint64_t values. */
+	ExtCtrlQueue = ISRQueueCreateStatic(
+		1,						// QUEUE_SIZE
+		sizeof(uint16_t),		// ITEM_SIZE
+		ExtCtrlQueueStorageArea,	// total queue storage size (QUEUE_SIZE * ITEM_SIZE)
+		&ExtCtrlStaticQueue );		// Queue data structure
+}
+
+TaskHandle_t ExtCtrlTaskManager::getTask()
+{
+	return this->ExtCtrlTaskHandle;
+}
+
+QueueHandle_t ExtCtrlTaskManager::getQueue()
+{
+	return this->ExtCtrlQueue;
+}
+
+void ExtCtrlTaskManager::ExtCtrlQueueSendFromISR_wrapper(uint16_t item)
+{
+
+	ISRQueueSendFromISR(ExtCtrlQueue, &item, NULL);
+}
+
+/* Function that implements the task being created. */
+void ExtCtrlTaskCode( void * parm )
+{
+	ExtCtrlTaskManager *isr_taskman = static_cast<ExtCtrlTaskManager*>(parm);
+	while(1)
+	{
+		uint16_t item = 0;
+		std::cout << "ExtCtrlTaskCode waiting for queue item" << std::endl;
+
+		if( ISRQueueReceive( isr_taskman->getQueue(), &( item ), ( TickType_t ) 10 ) == pdPASS)
+		{
+			std::cout << "ExtCtrlTaskCode retrieved queue item" << std::endl;
+			switch(item)
+			{
+				case EXTI_PR_PR13:
+					isr_taskman->getEventMan()->evFootswitchA();
+					break;
+				case EXTI_PR_PR14:
+					isr_taskman->getEventMan()->evFootswitchB();
+					break;
+			}
+		}
+	}
+}
+

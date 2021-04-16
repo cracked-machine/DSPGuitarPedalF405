@@ -1,0 +1,106 @@
+/*
+ * PeriphInterrupts.cpp
+ *
+ *  Created on: Apr 16, 2021
+ *      Author: chris
+ */
+
+
+// HAL
+#include <AppMain.hpp>
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "tim.h"
+#include "stm32f4xx_hal_i2s.h"
+#include "i2s.h"
+
+#include <I2STaskManager.hpp>
+#include <InputTaskManager.hpp>
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+	// defined in Core/i2s.c
+	extern DMA_HandleTypeDef hdma_i2s2_ext_rx;
+	extern DMA_HandleTypeDef hdma_spi2_tx;
+
+	// defined in Application/Src/AppMain.cpp
+	extern ISRTaskManager *isr_taskman;
+	extern I2STaskManager *i2s_taskman;
+
+	void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
+
+		i2s_taskman->queueSendFromISR_wrapper(1);
+
+	}
+
+	void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s){
+
+		i2s_taskman->queueSendFromISR_wrapper(2);
+
+	}
+	void EXTI0_IRQHandler(void)
+	{
+
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR0_Pos));
+	}
+
+	void EXTI1_IRQHandler(void)
+	{
+
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR1_Pos));
+	}
+
+	void EXTI2_IRQHandler(void)
+	{
+
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR2_Pos));
+	}
+
+	void EXTI15_10_IRQHandler(void)
+	{
+		// send EXTI message to task manager
+		if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
+		{
+			isr_taskman->ISRQueueSendFromISR_wrapper(EXTI_PR_PR13);
+		}
+		if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
+		{
+			isr_taskman->ISRQueueSendFromISR_wrapper(EXTI_PR_PR14);
+		}
+
+		// clear the EXTI pending bit
+		EXTI->PR &= ~((EXTI_PR_PR13_Pos));
+		EXTI->PR &= ~((EXTI_PR_PR14_Pos));
+	}
+
+
+	//
+	void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
+	{
+
+	}
+
+
+	void DMA1_Stream3_IRQHandler(void)
+	{
+
+		HAL_DMA_IRQHandler(&hdma_i2s2_ext_rx);
+
+	}
+
+	void DMA1_Stream4_IRQHandler(void)
+	{
+
+	  HAL_DMA_IRQHandler(&hdma_spi2_tx);
+
+	}
+
+#ifdef __cplusplus
+	}
+#endif

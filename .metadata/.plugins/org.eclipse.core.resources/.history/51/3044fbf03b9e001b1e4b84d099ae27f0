@@ -1,0 +1,33 @@
+/*
+ * i2STaskManager.cpp
+ *
+ *  Created on: Apr 15, 2021
+ *      Author: chris
+ */
+
+
+
+#include <ISRTaskManager.hpp>
+#include <iostream>
+
+
+void I2STaskCode( void * parm );
+
+static StaticQueue_t I2SStaticQueue;
+
+I2STaskManager::I2STaskManager()
+{
+
+}
+
+void I2STaskManager::initI2STask()
+{
+
+}
+
+void I2STaskManager::I2SQueueSendFromISR_wrapper(uint8_t item)
+{
+
+}
+
+

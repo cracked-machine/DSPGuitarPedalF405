@@ -32,12 +32,14 @@
 								<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel.969471592" name="Debug level" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel" useByScannerDiscovery="false" value="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.debuglevel.value.g3" valueType="enumerated"/>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths.1086799259" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.928346804" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -50,18 +52,20 @@
 									<listOptionValue builtIn="false" value="DEBUG"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths.1020577237" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc"/>
-									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
-									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
-									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
+									<listOptionValue builtIn="false" value="../Core/Inc"/>
+									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
+									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc"/>
+									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.464342760" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -74,18 +78,20 @@
 									<listOptionValue builtIn="false" value="DEBUG"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths.1679742316" name="Include paths (-I)" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.option.includepaths" useByScannerDiscovery="false" valueType="includePath">
-									<listOptionValue builtIn="false" value="../Core/Inc"/>
-									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc"/>
-									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
-									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
-									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
+									<listOptionValue builtIn="false" value="../Core/Inc"/>
+									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Include"/>
+									<listOptionValue builtIn="false" value="../Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
+									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc"/>
+									<listOptionValue builtIn="false" value="../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.495092843" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>
@@ -126,6 +132,7 @@
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1112239645.1764809694" name="Floating-point ABI" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1112239645"/>
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.455006016.1361270975" name="Board" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.455006016"/>
 							<option id="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.1091164032.646341820" name="Defaults" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.1091164032"/>
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.targetplatform" isAbstract="false" osList="all" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.targetplatform"/>
 							<tool id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.1354573662" name="MCU GCC Assembler" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.1184130727">
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.1737318599" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -194,6 +201,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input.653569451" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.assembler.input"/>
 							</tool>
@@ -217,6 +226,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c.1159392037" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.c.compiler.input.c"/>
 							</tool>
@@ -240,6 +251,8 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/DSP}&quot;"/>
 								</option>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp.170623925" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.compiler.input.cpp"/>
 							</tool>

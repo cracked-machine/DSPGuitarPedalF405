@@ -1,0 +1,15 @@
+/*
+ * I2STaskManager.hpp
+ *
+ *  Created on: Apr 15, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_I2STASKMANAGER_HPP_
+#define FREERTOS_I2STASKMANAGER_HPP_
+
+
+
+
+
+#endif /* FREERTOS_I2STASKMANAGER_HPP_ */

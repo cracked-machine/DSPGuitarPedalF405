@@ -1,13 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="pTxData"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="txBuf"/>
+			<item value="rxBuf"/>
+			<item value="I2S_Error"/>
+			<item value="ISRTaskCode2"/>
+			<item value="debounceManagerTim14"/>
+			<item value="debounceTim14"/>
+			<item value="&lt;T&gt;::"/>
+			<item value="T*"/>
 			<item value="vApplicationGetIdleTaskMemory"/>
 			<item value="configSUPPORT_STATIC_ALLOCATION"/>
 			<item value="portRESET_READY_PRIORITY"/>
@@ -15,25 +23,23 @@
 			<item value="configUSEPORTOPTIMISEDTASKSELECTION"/>
 			<item value="xTaskCreate"/>
 			<item value="task.h"/>
-			<item value="SVC"/>
-			<item value="fail"/>
-			<item value="__IO"/>
-			<item value="*/"/>
-			<item value="/*"/>
-			<item value="FxDisabledState"/>
-			<item value="weak"/>
-			<item value="Write"/>
 		</list>
 		<list key="replacehistory">
-			<item value="volatile"/>
+			<item value="pTxData"/>
+			<item value="pRxData"/>
+			<item value="ISRTaskCode"/>
+			<item value="debounceTim14"/>
+			<item value="::"/>
 			<item value=""/>
+			<item value="TIM_TypeDef* "/>
+			<item value="volatile"/>
 			<item value="//"/>
 			<item value="FxEnabledState"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item key="DIALOG_X_ORIGIN" value="940"/>
-		<item key="DIALOG_Y_ORIGIN" value="124"/>
+		<item key="DIALOG_X_ORIGIN" value="1180"/>
+		<item key="DIALOG_Y_ORIGIN" value="178"/>
 		<item key="DIALOG_WIDTH" value="348"/>
 		<item key="DIALOG_HEIGHT" value="437"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>

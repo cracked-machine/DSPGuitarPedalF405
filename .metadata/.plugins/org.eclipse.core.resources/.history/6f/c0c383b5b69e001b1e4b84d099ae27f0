@@ -1,0 +1,15 @@
+/*
+ * PeriphInterrupts.hpp
+ *
+ *  Created on: Apr 16, 2021
+ *      Author: chris
+ */
+
+#ifndef PERIPHINTERRUPTS_HPP_
+#define PERIPHINTERRUPTS_HPP_
+
+void SetupPeriphInterrupts();
+
+
+
+#endif /* PERIPHINTERRUPTS_HPP_ */

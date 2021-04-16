@@ -1,0 +1,38 @@
+/*
+ * I2STaskManager.hpp
+ *
+ *  Created on: Apr 15, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_I2STASKMANAGER_HPP_
+#define FREERTOS_I2STASKMANAGER_HPP_
+
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+class I2STaskManager
+{
+public:
+	I2STaskManager();
+
+	void initI2STask();
+
+	void I2SQueueSendFromISR_wrapper(uint8_t item);
+
+private:
+	// static RTOS task
+	TaskHandle_t ISRTaskHandle;
+	StaticTask_t ISRTaskBuffer;
+	StackType_t ISRTaskStack[ 200 ];
+
+	// static RTOS queue for ISR-to-task comm
+	uint8_t ISRQueueStorageArea[ 1 * sizeof( uint16_t ) ];
+	QueueHandle_t ISRQueue;
+};
+
+
+#endif /* FREERTOS_I2STASKMANAGER_HPP_ */

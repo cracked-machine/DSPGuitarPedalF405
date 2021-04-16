@@ -1,0 +1,61 @@
+/*
+ * i2STaskManager.cpp
+ *
+ *  Created on: Apr 15, 2021
+ *      Author: chris
+ */
+
+
+
+#include <I2STaskManager.hpp>
+#include <iostream>
+
+
+void I2STaskCode( void * parm );
+
+static StaticQueue_t I2SStaticQueue;
+
+I2STaskManager::I2STaskManager()
+{
+	I2STaskHandle = NULL;
+}
+
+void I2STaskManager::initTask()
+{
+	// Create the task without using any dynamic memory allocation.
+	I2STaskHandle = xTaskCreateStatic(
+		I2STaskCode,       		// global function in ISRTaskManager
+		"I2STaskMan",          	// Text name for the task.
+		200,      				// Number of indexes in the ISRTaskStack array.
+		this,    				// pointer to this class instance (used by "IRSTaskMan" to access class members)
+		tskIDLE_PRIORITY,		// Priority at which the task is created.
+		I2STaskStack,           // Array to use as the task's stack.
+		&I2STaskBuffer );  		// Variable to hold the task's data structure.
+}
+
+void I2STaskManager::initQueue()
+{
+	/* Create a queue capable of containing 10 uint64_t values. */
+	I2SQueue = ISRQueueCreateStatic(
+		1,						// QUEUE_SIZE
+		sizeof(uint16_t),		// ITEM_SIZE
+		I2SQueueStorageArea,	// total queue storage size (QUEUE_SIZE * ITEM_SIZE)
+		&I2SStaticQueue );		// Queue data structure
+}
+
+TaskHandle_t I2STaskManager::getTask()
+{
+	return this->I2STaskHandle;
+}
+
+QueueHandle_t I2STaskManager::getQueue()
+{
+	return this->I2SQueue;
+}
+
+void I2STaskManager::queueSendFromISR_wrapper(uint8_t item)
+{
+	ISRQueueOverwriteFromISR(I2SQueue, &item, NULL);
+}
+
+

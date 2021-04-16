@@ -19,7 +19,7 @@ EventMachine::EventMachine()
 	states_list[EventMachine::FX_ENABLED] = new FxEnabledState();
 
 	state = states_list[EventMachine::FX_DISABLED];
-	debounceTim14 = new DebounceManager(TIM14, 100);
+	debounceTim14 = new DebounceManager(TIM14, 800);
 	debounceTim14->start();
 }
 

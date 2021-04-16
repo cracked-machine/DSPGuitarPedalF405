@@ -12,3 +12,6 @@
 1618261980380	Delete resource 'LinuxGCC_Tests/Src'
 1618330484937	Delete resource 'LinuxGCC_Tests/test_debounce.hpp'
 1618355615032	Delete resource 'F405_Main/Middlewares/Third_Party/FreeRTOS'
+1618578050331	Delete resource 'F405_Main/Application/Inc'
+1618578053652	Delete resource 'F405_Main/Application/Src'
+1618578177971	Delete resource 'F405_Main/Application/DSP/arm_math.h'

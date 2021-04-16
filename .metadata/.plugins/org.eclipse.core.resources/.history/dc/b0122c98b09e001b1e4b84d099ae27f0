@@ -1,0 +1,29 @@
+/*
+ * PeriphInterrupts.cpp
+ *
+ *  Created on: Apr 16, 2021
+ *      Author: chris
+ */
+
+
+// HAL
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "tim.h"
+#include "stm32f4xx_hal_i2s.h"
+#include "i2s.h"
+
+#include "app_main.hpp"
+
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+
+
+
+#ifdef __cplusplus
+	}
+#endif

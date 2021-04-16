@@ -1,0 +1,25 @@
+/*
+ * I2STaskManager.hpp
+ *
+ *  Created on: Apr 15, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_I2STASKMANAGER_HPP_
+#define FREERTOS_I2STASKMANAGER_HPP_
+
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+class I2STaskManager
+{
+public:
+	I2STaskManager();
+
+};
+
+
+#endif /* FREERTOS_I2STASKMANAGER_HPP_ */

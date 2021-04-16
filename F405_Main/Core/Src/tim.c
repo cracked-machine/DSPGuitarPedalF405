@@ -37,10 +37,10 @@ void MX_TIM3_Init(void)
   htim3.Instance = TIM3;
   htim3.Init.Prescaler = 0;
   htim3.Init.CounterMode = TIM_COUNTERMODE_CENTERALIGNED3;
-  htim3.Init.Period = 255;
+  htim3.Init.Period = 1024;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI2;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -70,10 +70,10 @@ void MX_TIM4_Init(void)
   htim4.Instance = TIM4;
   htim4.Init.Prescaler = 0;
   htim4.Init.CounterMode = TIM_COUNTERMODE_CENTERALIGNED3;
-  htim4.Init.Period = 255;
+  htim4.Init.Period = 1024;
   htim4.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim4.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
-  sConfig.EncoderMode = TIM_ENCODERMODE_TI12;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI2;
   sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
   sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
   sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
@@ -181,10 +181,6 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
   /* USER CODE END TIM14_MspInit 0 */
     /* TIM14 clock enable */
     __HAL_RCC_TIM14_CLK_ENABLE();
-
-    /* TIM14 interrupt Init */
-    HAL_NVIC_SetPriority(TIM8_TRG_COM_TIM14_IRQn, 0, 0);
-    HAL_NVIC_EnableIRQ(TIM8_TRG_COM_TIM14_IRQn);
   /* USER CODE BEGIN TIM14_MspInit 1 */
 
   /* USER CODE END TIM14_MspInit 1 */
@@ -246,9 +242,6 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
   /* USER CODE END TIM14_MspDeInit 0 */
     /* Peripheral clock disable */
     __HAL_RCC_TIM14_CLK_DISABLE();
-
-    /* TIM14 interrupt Deinit */
-    HAL_NVIC_DisableIRQ(TIM8_TRG_COM_TIM14_IRQn);
   /* USER CODE BEGIN TIM14_MspDeInit 1 */
 
   /* USER CODE END TIM14_MspDeInit 1 */

@@ -18,6 +18,7 @@
   */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
+#include <AppMain.hpp>
 #include "main.h"
 #include "dma.h"
 #include "i2s.h"
@@ -26,7 +27,9 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include <app_main.hpp>
+#include <math.h>
+
+#include "arm_math.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -47,6 +50,39 @@
 
 /* USER CODE BEGIN PV */
 
+	#define BLOCK_SIZE_FLOAT 512
+	//#define BLOCK_SIZE_U16 2048
+
+	arm_biquad_casd_df1_inst_f32 iirsettings_l, iirsettings_r;
+
+	//4 delayed samples per biquad
+	float iir_l_state [4];
+	float iir_r_state [4];
+
+
+	//IIR low-pass, fs=48kHz, f_cut=1kHz, q=0.707
+	float iir_coeffs [5] = {
+					0.003916123487156427f,
+					0.007832246974312854f,
+					0.003916123487156427f,
+					1.8153396116625289f,
+					-0.8310041056111546
+	};
+
+
+
+
+//	uint16_t rxBuf[BLOCK_SIZE_U16*2];
+//	uint16_t txBuf[BLOCK_SIZE_U16*2];
+	float l_buf_in [BLOCK_SIZE_FLOAT*2];
+	float r_buf_in [BLOCK_SIZE_FLOAT*2];
+	float l_buf_out [BLOCK_SIZE_FLOAT*2];
+	float r_buf_out [BLOCK_SIZE_FLOAT*2];
+
+	//uint8_t callback_state = 0;
+
+	int offset_r_ptr;
+	int offset_w_ptr, w_ptr;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -58,6 +94,86 @@ void SystemClock_Config(void);
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
 
+/*
+void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
+
+	callback_state = 1;
+
+}
+
+void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s){
+
+	callback_state = 2;
+
+}
+
+void do_iir_init()
+{
+  arm_biquad_cascade_df1_init_f32 ( &iirsettings_l, 1, &iir_coeffs[0], &iir_l_state[0]);
+  arm_biquad_cascade_df1_init_f32 ( &iirsettings_r, 1, &iir_coeffs[0], &iir_r_state[0]);
+
+
+  //int res = testfunc();
+  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
+
+
+}
+
+void do_iir_loop()
+{
+  if (callback_state != 0) {
+
+	  //decide if it was half or cplt callback
+	  if (callback_state == 1)   {
+			  offset_r_ptr = 0;
+			  offset_w_ptr = 0;
+			  w_ptr = 0;
+	  }
+
+	  else if (callback_state == 2) {
+		  offset_r_ptr = BLOCK_SIZE_U16;
+		  offset_w_ptr = BLOCK_SIZE_FLOAT;
+		  w_ptr = BLOCK_SIZE_FLOAT;
+	  }
+
+
+	  //restore input sample buffer to float array
+	  for (int i=offset_r_ptr; i<offset_r_ptr+BLOCK_SIZE_U16; i=i+4) {
+		  l_buf_in[w_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
+		  r_buf_in[w_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
+		  w_ptr++;
+	  }
+
+
+	  //process IIR
+	  arm_biquad_cascade_df1_f32 (&iirsettings_l, &l_buf_in[offset_w_ptr], &l_buf_out[offset_w_ptr],BLOCK_SIZE_FLOAT);
+	  arm_biquad_cascade_df1_f32 (&iirsettings_r, &r_buf_in[offset_w_ptr], &r_buf_out[offset_w_ptr],BLOCK_SIZE_FLOAT);
+
+
+	  //restore processed float-array to output sample-buffer
+	  w_ptr = offset_w_ptr;
+
+	  for (int i=offset_r_ptr; i<offset_r_ptr+BLOCK_SIZE_U16; i=i+4) {
+			txBuf[i] =  (((int)l_buf_out[w_ptr])>>16)&0xFFFF;
+			txBuf[i+1] = ((int)l_buf_out[w_ptr])&0xFFFF;
+			txBuf[i+2] = (((int)l_buf_out[w_ptr])>>16)&0xFFFF;
+			txBuf[i+3] = ((int)l_buf_out[w_ptr])&0xFFFF;
+			w_ptr++;
+	  }
+
+	  callback_state = 0;
+
+  }
+}
+
+
+
+
+void HAL_I2S_ErrorCallback(I2S_HandleTypeDef *hi2s)
+{
+	callback_state = 0;
+}
+*/
 /* USER CODE END 0 */
 
 /**
@@ -94,13 +210,21 @@ int main(void)
   MX_TIM4_Init();
   MX_TIM14_Init();
   /* USER CODE BEGIN 2 */
+
   appmain();
+  //HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+
+
+  //do_iir_init();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+	  //do_iir_loop();
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -118,12 +242,6 @@ void SystemClock_Config(void)
   RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
   RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
-  /** Macro to configure the PLL multiplication factor
-  */
-  __HAL_RCC_PLL_PLLM_CONFIG(16);
-  /** Macro to configure the PLL clock source
-  */
-  __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_HSI);
   /** Configure the main internal regulator output voltage
   */
   __HAL_RCC_PWR_CLK_ENABLE();
@@ -134,8 +252,12 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
+  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
+  RCC_OscInitStruct.PLL.PLLM = 8;
+  RCC_OscInitStruct.PLL.PLLN = 168;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
+  RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
     Error_Handler();
@@ -144,17 +266,17 @@ void SystemClock_Config(void)
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
                               |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
+  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
   RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
   {
     Error_Handler();
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_I2S;
-  PeriphClkInitStruct.PLLI2S.PLLI2SN = 192;
+  PeriphClkInitStruct.PLLI2S.PLLI2SN = 50;
   PeriphClkInitStruct.PLLI2S.PLLI2SR = 2;
   if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
   {

@@ -16,6 +16,17 @@
   *
   ******************************************************************************
   */
+
+
+
+
+/*
+ *
+ * Interrupt handlers moved to Application/Src/SystemInterrupts.cpp
+ *
+ *
+ */
+
 /* USER CODE END Header */
 
 /* Includes ------------------------------------------------------------------*/
@@ -57,11 +68,8 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
-extern DMA_HandleTypeDef hdma_i2s2_ext_rx;
-extern I2S_HandleTypeDef hi2s2;
 extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim4;
-extern TIM_HandleTypeDef htim14;
 extern TIM_HandleTypeDef htim13;
 
 /* USER CODE BEGIN EV */
@@ -71,133 +79,6 @@ extern TIM_HandleTypeDef htim13;
 /******************************************************************************/
 /*           Cortex-M4 Processor Interruption and Exception Handlers          */
 /******************************************************************************/
-/**
-  * @brief This function handles Non maskable interrupt.
-  */
-void NMI_Handler(void)
-{
-  /* USER CODE BEGIN NonMaskableInt_IRQn 0 */
-
-  /* USER CODE END NonMaskableInt_IRQn 0 */
-  /* USER CODE BEGIN NonMaskableInt_IRQn 1 */
-  while (1)
-  {
-  }
-  /* USER CODE END NonMaskableInt_IRQn 1 */
-}
-
-/**
-  * @brief This function handles Hard fault interrupt.
-  */
-void HardFault_Handler(void)
-{
-  /* USER CODE BEGIN HardFault_IRQn 0 */
-
-  /* USER CODE END HardFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_HardFault_IRQn 0 */
-    /* USER CODE END W1_HardFault_IRQn 0 */
-  }
-}
-
-/**
-  * @brief This function handles Memory management fault.
-  */
-void MemManage_Handler(void)
-{
-  /* USER CODE BEGIN MemoryManagement_IRQn 0 */
-
-  /* USER CODE END MemoryManagement_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_MemoryManagement_IRQn 0 */
-    /* USER CODE END W1_MemoryManagement_IRQn 0 */
-  }
-}
-
-/**
-  * @brief This function handles Pre-fetch fault, memory access fault.
-  */
-void BusFault_Handler(void)
-{
-  /* USER CODE BEGIN BusFault_IRQn 0 */
-
-  /* USER CODE END BusFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_BusFault_IRQn 0 */
-    /* USER CODE END W1_BusFault_IRQn 0 */
-  }
-}
-
-/**
-  * @brief This function handles Undefined instruction or illegal state.
-  */
-void UsageFault_Handler(void)
-{
-  /* USER CODE BEGIN UsageFault_IRQn 0 */
-
-  /* USER CODE END UsageFault_IRQn 0 */
-  while (1)
-  {
-    /* USER CODE BEGIN W1_UsageFault_IRQn 0 */
-    /* USER CODE END W1_UsageFault_IRQn 0 */
-  }
-}
-
-/**
-  * @brief This function handles System service call via SWI instruction.
-  */
-__weak void SVC_Handler(void)
-{
-  /* USER CODE BEGIN SVCall_IRQn 0 */
-
-  /* USER CODE END SVCall_IRQn 0 */
-  /* USER CODE BEGIN SVCall_IRQn 1 */
-
-  /* USER CODE END SVCall_IRQn 1 */
-}
-
-/**
-  * @brief This function handles Debug monitor.
-  */
-void DebugMon_Handler(void)
-{
-  /* USER CODE BEGIN DebugMonitor_IRQn 0 */
-
-  /* USER CODE END DebugMonitor_IRQn 0 */
-  /* USER CODE BEGIN DebugMonitor_IRQn 1 */
-
-  /* USER CODE END DebugMonitor_IRQn 1 */
-}
-
-/**
-  * @brief This function handles Pendable request for system service.
-  */
-__weak void PendSV_Handler(void)
-{
-  /* USER CODE BEGIN PendSV_IRQn 0 */
-
-  /* USER CODE END PendSV_IRQn 0 */
-  /* USER CODE BEGIN PendSV_IRQn 1 */
-
-  /* USER CODE END PendSV_IRQn 1 */
-}
-
-/**
-  * @brief This function handles System tick timer.
-  */
-__weak void SysTick_Handler(void)
-{
-  /* USER CODE BEGIN SysTick_IRQn 0 */
-
-  /* USER CODE END SysTick_IRQn 0 */
-
-  /* USER CODE BEGIN SysTick_IRQn 1 */
-
-  /* USER CODE END SysTick_IRQn 1 */
-}
 
 /******************************************************************************/
 /* STM32F4xx Peripheral Interrupt Handlers                                    */
@@ -207,31 +88,12 @@ __weak void SysTick_Handler(void)
 /******************************************************************************/
 
 /**
-  * @brief This function handles DMA1 stream3 global interrupt.
-  */
-void DMA1_Stream3_IRQHandler(void)
-{
-  /* USER CODE BEGIN DMA1_Stream3_IRQn 0 */
-
-  /* USER CODE END DMA1_Stream3_IRQn 0 */
-  HAL_DMA_IRQHandler(&hdma_i2s2_ext_rx);
-  /* USER CODE BEGIN DMA1_Stream3_IRQn 1 */
-
-  /* USER CODE END DMA1_Stream3_IRQn 1 */
-}
-
-/**
   * @brief This function handles TIM3 global interrupt.
   */
 void TIM3_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM3_IRQn 0 */
 
-	// Right hand Knob
-	char tmp[10];
-	snprintf(tmp, sizeof(tmp), "%lu\n", TIM3->CNT);
-	printf(tmp);
-	HAL_GPIO_TogglePin(LEDB_R_GPIO_Port, LEDB_R_Pin);
   /* USER CODE END TIM3_IRQn 0 */
   HAL_TIM_IRQHandler(&htim3);
   /* USER CODE BEGIN TIM3_IRQn 1 */
@@ -246,30 +108,11 @@ void TIM4_IRQHandler(void)
 {
   /* USER CODE BEGIN TIM4_IRQn 0 */
 
-	// Left hand knob
-	char tmp[10];
-	snprintf(tmp, sizeof(tmp), "%lu\n", TIM4->CNT);
-	printf(tmp);
-	HAL_GPIO_TogglePin(LEDA_R_GPIO_Port, LEDA_R_Pin);
   /* USER CODE END TIM4_IRQn 0 */
   HAL_TIM_IRQHandler(&htim4);
   /* USER CODE BEGIN TIM4_IRQn 1 */
 
   /* USER CODE END TIM4_IRQn 1 */
-}
-
-/**
-  * @brief This function handles SPI2 global interrupt.
-  */
-void SPI2_IRQHandler(void)
-{
-  /* USER CODE BEGIN SPI2_IRQn 0 */
-
-  /* USER CODE END SPI2_IRQn 0 */
-  HAL_I2S_IRQHandler(&hi2s2);
-  /* USER CODE BEGIN SPI2_IRQn 1 */
-
-  /* USER CODE END SPI2_IRQn 1 */
 }
 
 /**
@@ -284,20 +127,6 @@ void TIM8_UP_TIM13_IRQHandler(void)
   /* USER CODE BEGIN TIM8_UP_TIM13_IRQn 1 */
 
   /* USER CODE END TIM8_UP_TIM13_IRQn 1 */
-}
-
-/**
-  * @brief This function handles TIM8 trigger and commutation interrupts and TIM14 global interrupt.
-  */
-void TIM8_TRG_COM_TIM14_IRQHandler(void)
-{
-  /* USER CODE BEGIN TIM8_TRG_COM_TIM14_IRQn 0 */
-
-  /* USER CODE END TIM8_TRG_COM_TIM14_IRQn 0 */
-  HAL_TIM_IRQHandler(&htim14);
-  /* USER CODE BEGIN TIM8_TRG_COM_TIM14_IRQn 1 */
-
-  /* USER CODE END TIM8_TRG_COM_TIM14_IRQn 1 */
 }
 
 /* USER CODE BEGIN 1 */
