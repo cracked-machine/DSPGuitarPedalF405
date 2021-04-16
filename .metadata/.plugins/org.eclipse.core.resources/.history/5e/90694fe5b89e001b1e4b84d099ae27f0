@@ -1,0 +1,15 @@
+/*
+ * AbstractTaskManager.hpp
+ *
+ *  Created on: Apr 16, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_ABSTRACTTASKMANAGER_HPP_
+#define FREERTOS_ABSTRACTTASKMANAGER_HPP_
+
+
+
+
+
+#endif /* FREERTOS_ABSTRACTTASKMANAGER_HPP_ */

@@ -33,3 +33,5 @@
 
 # stack usage files
 *.su
+
+F405_Main/Debug/

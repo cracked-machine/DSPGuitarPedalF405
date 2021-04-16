@@ -1,0 +1,40 @@
+/*
+ * AbstractTaskManager.hpp
+ *
+ *  Created on: Apr 16, 2021
+ *      Author: chris
+ */
+
+#ifndef FREERTOS_ABSTRACTTASKMANAGER_HPP_
+#define FREERTOS_ABSTRACTTASKMANAGER_HPP_
+
+// FreeRTOS
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+
+class AbstractTaskManager
+{
+	AbstractTaskManager();
+
+	virtual void initTask() = 0;
+	virtual void initQueue() = 0;
+
+	virtual TaskHandle_t getTask() = 0;
+	virtual QueueHandle_t getQueue() = 0;
+
+	virtual void queueSendFromISR_wrapper(uint8_t item) = 0;
+	virtual void queueSendFromISR_wrapper(uint16_t item) = 0;
+
+private:
+	// static RTOS task
+	TaskHandle_t I2STaskHandle;
+	StaticTask_t I2STaskBuffer;
+	StackType_t I2STaskStack[ 200 ];
+
+	// static RTOS queue for ISR-to-task comm
+	uint8_t I2SQueueStorageArea[ 1 * sizeof( uint16_t ) ];
+	QueueHandle_t I2SQueue;
+};
+
+#endif /* FREERTOS_ABSTRACTTASKMANAGER_HPP_ */

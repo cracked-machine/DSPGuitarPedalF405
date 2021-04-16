@@ -1,0 +1,128 @@
+/*
+ * AppMain.cpp
+ *
+ *  Created on: Apr 11, 2021
+ *      Author: chris
+ */
+
+#include <AppMain.hpp>
+
+// HAL
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_hal_tim.h"
+#include "tim.h"
+#include "stm32f4xx_hal_i2s.h"
+#include "i2s.h"
+
+
+// STL
+#include <iostream>
+
+// system tests
+#include <pedal_io_test.hpp>
+
+#include "PeriphInterrupts.hpp"
+
+#include <EventMachine.hpp>
+
+#include <ExtCtrlTaskManager.hpp>
+#include <I2STaskManager.hpp>
+
+#include <AbstractTaskManager.hpp>
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+
+	#define BLOCK_SIZE_U16 2048
+	uint16_t rxBuf[BLOCK_SIZE_U16*2];
+	uint16_t txBuf[BLOCK_SIZE_U16*2];
+	uint8_t callback_state = 0;
+
+	ExtCtrlTaskManager *extctrl_taskman = NULL;
+	I2STaskManager *i2s_taskman = NULL;
+
+	I2STaskManager_t *test;
+	void testtaskfun(void* parm);
+	static StaticQueue_t testStaticQueue;
+
+
+
+
+
+	void appmain()
+	{
+
+		test = new I2STaskManager_t();
+		AbstractTaskPtr_t taskptr = &I2STaskCode;
+		test->initTask("I2STaskManager", taskptr);
+		test->initQueue(&testStaticQueue);
+
+		std::cout << "hello\n";
+
+		setupPeriphInterrupts();
+
+		run_sys_checks();
+		// switch relay to enable the FX signal path
+		HAL_GPIO_WritePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin, GPIO_PIN_SET);
+
+		// setup the external control task manager
+		extctrl_taskman = new ExtCtrlTaskManager();
+		extctrl_taskman->initEventMachine();
+		extctrl_taskman->initTask();
+		extctrl_taskman->initQueue();
+
+
+/*
+		// start the I2S task manager
+		i2s_taskman = new I2STaskManager();
+		i2s_taskman->initTask();
+		i2s_taskman->initQueue();
+*/
+
+		// start FullDuplex I2S DMA
+		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
+
+		// start the RTOS
+		vTaskStartScheduler();
+
+		while(1)
+		{
+			// not reached!
+		}
+	}
+
+
+	void testtaskfun(void* parm)
+	{
+
+	}
+
+	// Function that implements the task being created.
+	void I2STaskCode( void * parm )
+	{
+		I2STaskManager *i2s_taskman = static_cast<I2STaskManager*>(parm);
+
+
+
+		while(1)
+		{
+			uint8_t item = 0;
+			//std::cout << "I2STaskCode retrieved queue item" << item << std::endl;
+			if( ISRQueueReceive( i2s_taskman->getQueue(), &( item ), ( TickType_t ) 0 ) == pdPASS)
+			{
+				if(item == 1)
+					HAL_GPIO_TogglePin(LEDA_R_GPIO_Port, LEDA_G_Pin);
+				if(item == 2)
+					HAL_GPIO_TogglePin(LEDB_R_GPIO_Port, LEDB_G_Pin);
+
+			}
+		}
+	}
+
+#ifdef __cplusplus
+	}
+#endif
+

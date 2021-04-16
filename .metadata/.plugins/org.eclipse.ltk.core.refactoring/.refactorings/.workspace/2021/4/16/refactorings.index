@@ -15,3 +15,7 @@
 1618578050331	Delete resource 'F405_Main/Application/Inc'
 1618578053652	Delete resource 'F405_Main/Application/Src'
 1618578177971	Delete resource 'F405_Main/Application/DSP/arm_math.h'
+1618588656057	Delete resource 'F405_Main/Application/FreeRTOS/I2STaskManager.cpp'
+1618588659230	Delete resource 'F405_Main/Application/FreeRTOS/I2STaskManager.hpp'
+1618588662781	Delete resource 'F405_Main/Application/FreeRTOS/ExtCtrlTaskManager.hpp'
+1618588666050	Delete resource 'F405_Main/Application/FreeRTOS/ExtCtrlTaskManager.cpp'

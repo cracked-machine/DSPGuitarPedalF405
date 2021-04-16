@@ -19,8 +19,8 @@
 
 
 #include <AppMain.hpp>
-#include <ExtCtrlTaskManager.hpp>
-#include <I2STaskManager.hpp>
+
+#include <AbstractTaskManager.hpp>
 
 #ifdef __cplusplus
 	extern "C"
@@ -32,8 +32,8 @@
 	extern DMA_HandleTypeDef hdma_spi2_tx;
 
 	// defined in Application/AppMain.cpp
-	extern ExtCtrlTaskManager *extctrl_taskman;
-	extern I2STaskManager *i2s_taskman;
+	extern ExtCtrlTaskManager_t *extctrl_taskman;
+	extern I2STaskManager_t *i2s_taskman;
 
 
 	void setupPeriphInterrupts()
@@ -65,12 +65,13 @@
 	void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
 
 		i2s_taskman->queueSendFromISR_wrapper(1);
-
+		//HAL_GPIO_TogglePin(LEDA_G_GPIO_Port, LEDA_G_Pin);
 	}
 
 	void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s){
 
 		i2s_taskman->queueSendFromISR_wrapper(2);
+		//HAL_GPIO_TogglePin(LEDB_G_GPIO_Port, LEDB_G_Pin);
 
 	}
 	void EXTI0_IRQHandler(void)
@@ -99,11 +100,11 @@
 		// send EXTI message to task manager
 		if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
 		{
-			extctrl_taskman->ExtCtrlQueueSendFromISR_wrapper(EXTI_PR_PR13);
+			extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR13);
 		}
 		if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
 		{
-			extctrl_taskman->ExtCtrlQueueSendFromISR_wrapper(EXTI_PR_PR14);
+			extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR14);
 		}
 
 		// clear the EXTI pending bit
