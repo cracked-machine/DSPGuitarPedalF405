@@ -6,24 +6,16 @@
  */
 
 
-
-
-
 #ifndef INC_APP_MAIN_HPP_
 #define INC_APP_MAIN_HPP_
 
 
 #ifdef __cplusplus
-
-
-
-
 	extern "C"
 	{
-
 #endif
 
-
+	// the C++ entry point for the user application
 	void appmain();
 
 #ifdef __cplusplus

@@ -22300,3 +22300,32 @@
 2021-04-16 17:53:08,657 [INFO] ProjectBuilder:3425 - Time for Generating toolchain IDE Files: 1989mS.
 2021-04-16 17:53:08,658 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
 2021-04-16 17:53:08,658 [INFO] ProjectBuilder:2207 - Time for Copy CMSIS : 0mS.
+2021-04-16 22:27:31,045 [INFO] Activator:170 - 
+
+
+2021-04-16 22:27:31,051 [INFO] Activator:171 - !SESSION log4j initialized
+2021-04-16 22:51:47,469 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.option.internal.toolchain.type.1780081313.546167561 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,470 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.option.internal.toolchain.version.1243112341.149140678 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,471 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.317616252.1519012547 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,472 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.1298978200.825047543 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,472 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1965650217.1226658899 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,473 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.1287430693.2073776869 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,474 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1112239645.1764809694 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,474 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.455006016.1361270975 uses a null category that is invalid in its context. The option was ignored.
+2021-04-16 22:51:47,475 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.1091164032.646341820 uses a null category that is invalid in its context. The option was ignored.
+2021-04-17 02:09:25,393 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:25,397 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: system_stm32f4xx.o:
+2021-04-17 02:09:25,397 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:25,397 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT.o:
+2021-04-17 02:09:25,397 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:25,398 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_ASM_ARMv7M.o:
+2021-04-17 02:09:25,398 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:25,398 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_printf.o:
+2021-04-17 02:09:42,115 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:42,118 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: system_stm32f4xx.o:
+2021-04-17 02:09:42,119 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:42,120 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT.o:
+2021-04-17 02:09:42,121 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:42,122 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_ASM_ARMv7M.o:
+2021-04-17 02:09:42,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
+2021-04-17 02:09:42,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_printf.o:

@@ -23,9 +23,6 @@ C_DEPS :=
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
-FREERTOS_ROOT \
-FREERTOS_ROOT/portable/ThirdParty/GCC/Posix \
-FREERTOS_ROOT/portable/ThirdParty/GCC/Posix/utils \
-FSM \
+Debounce \
 . \
 

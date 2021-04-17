@@ -9,3 +9,5 @@
 1618442653668	Delete resource 'F405_Main/Application/FreeRTOS/FreeRTOS_UserTasks.cpp'
 1618442701755	Delete resource 'F405_Main/Application/FreeRTOS/FreeRTOS_UserTasks.hpp'
 1618442722413	Delete resource 'F405_Main/Application/InterruptHandlers.cpp'
+1618651316703	Delete resource 'LinuxGCC_Tests/FREERTOS_ROOT'
+1618651330877	Delete resource 'LinuxGCC_Tests/FreeRTOSConfig.h'

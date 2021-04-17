@@ -26,6 +26,25 @@
 #include <EventMachine.hpp>
 
 #include <AbstractTaskManager.hpp>
+#include <assert.h>
+/*
+ * 	Disable all usage of delete operator
+*/
+	void operator delete(void*)
+	{
+		return;
+	}
+/*
+	struct CL {
+	    // The bool does nothing, other than making these placement overloads.
+	    void* operator new(size_t s, bool b = true);
+	    void operator delete(void* o, bool b = true);
+	};
+	// Functions are simple wrappers for the normal operators.
+	void* CL::operator new(size_t s, bool b) { return ::operator new(s); }
+	void CL::operator delete(void* o, bool b) { return ::operator delete(o); }
+*/
+
 
 #ifdef __cplusplus
 	extern "C"
@@ -38,10 +57,8 @@
 	uint16_t txBuf[BLOCK_SIZE_U16*2];
 	uint8_t callback_state = 0;
 
-	//ExtCtrlTaskManager *extctrl_taskman = NULL;
-	//I2STaskManager *i2s_taskman = NULL;
-
 	I2STaskManager_t *i2s_taskman;
+	// I2STaskManager_t i2s_taskman {I2STaskManager_t(200, 1)};
 	void I2STaskCode( void * parm );
 	static StaticQueue_t I2S_StaticQueue;
 
@@ -50,6 +67,22 @@
 	static StaticQueue_t ExtCtrl_StaticQueue;
 
 
+/*
+	extern "C" {
+
+		// The canary value
+		extern const uintptr_t __stack_chk_guard = 0xdeadbeef;
+
+		// Called if the check fails
+		[[noreturn]]
+		void __stack_chk_fail()
+		{
+			//Error_Handler("Stack overrun!");
+			exit(0);
+		}
+
+	} // end extern "C"
+*/
 	void appmain()
 	{
 

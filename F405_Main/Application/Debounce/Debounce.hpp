@@ -12,7 +12,10 @@
 
 #ifdef USE_HAL_DRIVER
 	#include "stm32f4xx_hal.h"
+#else
+	#include "test_debounce.h"
 #endif
+
 
 
 class DebounceManager

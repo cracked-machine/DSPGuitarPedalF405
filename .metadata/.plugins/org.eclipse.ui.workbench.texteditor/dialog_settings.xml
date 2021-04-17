@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="pTxData"/>
+		<item key="selection" value="class T"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="class T"/>
+			<item value="testStaticQueue"/>
+			<item value="i2s_StaticQueue"/>
+			<item value="isr_taskman"/>
+			<item value="ISR"/>
+			<item value="initIsrTask"/>
+			<item value="__weak"/>
+			<item value="hdma_i2s2_ext_rx"/>
+			<item value="IRQHandler"/>
+			<item value="overwrite"/>
+			<item value="back"/>
+			<item value="INCLUDE_vTaskDelayUntil"/>
+			<item value="StaticQueue_t"/>
 			<item value="txBuf"/>
 			<item value="rxBuf"/>
-			<item value="I2S_Error"/>
-			<item value="ISRTaskCode2"/>
-			<item value="debounceManagerTim14"/>
-			<item value="debounceTim14"/>
-			<item value="&lt;T&gt;::"/>
-			<item value="T*"/>
-			<item value="vApplicationGetIdleTaskMemory"/>
-			<item value="configSUPPORT_STATIC_ALLOCATION"/>
-			<item value="portRESET_READY_PRIORITY"/>
-			<item value="configUSE_PORT_OPTIMISED_TASK_SELECTION"/>
-			<item value="configUSEPORTOPTIMISEDTASKSELECTION"/>
-			<item value="xTaskCreate"/>
-			<item value="task.h"/>
 		</list>
 		<list key="replacehistory">
+			<item value="class T, class stackSize"/>
+			<item value="I2S_StaticQueue"/>
+			<item value="extctrl_taskman"/>
+			<item value="ExtCtrl"/>
+			<item value="initTask"/>
+			<item value="__attribute__((weak))"/>
+			<item value="I2S_StaticQueue_t"/>
 			<item value="pTxData"/>
 			<item value="pRxData"/>
 			<item value="ISRTaskCode"/>
@@ -33,8 +40,6 @@
 			<item value=""/>
 			<item value="TIM_TypeDef* "/>
 			<item value="volatile"/>
-			<item value="//"/>
-			<item value="FxEnabledState"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

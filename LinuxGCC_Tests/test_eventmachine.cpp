@@ -26,7 +26,7 @@
  * 		SOFTWARE.
  */
 
-
+/*
 #include "CppUTest/TestHarness.h"
 #include <EventMachine.hpp>
 
@@ -47,3 +47,4 @@ TEST(EventMachineGroup, EventMachineTest)
 	CHECK(em.getState() == em.states_list[EventMachine::FX_DISABLED]);
 
 }
+*/
