@@ -1,0 +1,31 @@
+/*
+ * FxDisabledState.hpp
+ *
+ *  Created on: 13 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_FXDISABLEDSTATE_HPP_
+#define FSM_FXDISABLEDSTATE_HPP_
+
+#include "AbstractState.hpp"
+#include <ExtCtrlStateMachine.hpp>
+class ExtCtrlStateMachine;
+
+
+class FxDisabledState : public AbstractState
+{
+public:
+
+
+	   void evFootswitchA(ExtCtrlStateMachine *machine) override;
+	   void evFootswitchB(ExtCtrlStateMachine *machine) override;
+	   void evUserSwitchA(ExtCtrlStateMachine *machine) override;
+	   void evUserSwitchB(ExtCtrlStateMachine *machine) override;
+	   void evRotaryEncoderA(ExtCtrlStateMachine *machine) override;
+	   void evRotaryEncoderB(ExtCtrlStateMachine *machine) override;
+
+};
+
+
+#endif /* FSM_FXDISABLEDSTATE_HPP_ */

@@ -1,0 +1,63 @@
+/*
+ * StateMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#ifndef INC_STATEMACHINE_HPP_
+#define INC_STATEMACHINE_HPP_
+#pragma once
+
+#include <AbstractState.hpp>
+#include <array>
+
+#define MAX_NUM_STATE 2
+
+#include <Debounce.hpp>
+
+
+class AbstractState;
+
+#include "FxDisabledState.hpp"
+#include "FxEnabledState.hpp"
+
+
+class StateMachine
+{
+	friend class AbstractState;
+public:
+	StateMachine();
+
+	void evFootswitchA();
+	void evFootswitchB();
+	void evUserSwitchA();
+	void evUserSwitchB();
+	void evRotaryEncoderA();
+	void evRotaryEncoderB();
+
+	// create all system states at startup, they are not deleted.
+	std::array<AbstractState*, MAX_NUM_STATE> theStateList = {
+		new FxDisabledState(),
+		new FxEnabledState()
+	};
+
+	enum states_enum
+	{
+		FX_DISABLED,
+		FX_ENABLED
+	};
+
+	AbstractState* getState();
+
+private:
+
+	// the current system state
+	AbstractState* state;
+
+	// manage the debounce for all system events
+	DebounceManager debounceTim14  = {DebounceManager(TIM14, 800)};
+};
+
+#endif // INC_STATEMACHINE_HPP_ */

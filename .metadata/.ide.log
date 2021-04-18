@@ -22329,3 +22329,42 @@
 2021-04-17 02:09:42,122 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_ASM_ARMv7M.o:
 2021-04-17 02:09:42,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: 
 2021-04-17 02:09:42,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] NM parsing issue: line doesn't match pattern: SEGGER_RTT_printf.o:
+2021-04-17 16:36:51,754 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-17 16:36:51,758 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-17 16:36:51,760 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-17 16:36:51,769 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-17 16:36:51,784 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-17 16:36:51,795 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-17 16:37:20,104 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-17 16:37:20,106 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-17 16:37:20,115 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-17 16:37:20,117 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-17 16:37:20,118 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-17 16:37:20,120 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-17 16:37:20,122 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-17 16:37:20,124 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-17 16:37:20,125 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-17 16:37:20,127 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-17 16:37:20,129 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-17 23:55:20,466 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-17 23:55:20,468 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-17 23:55:20,469 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-17 23:55:20,472 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-17 23:55:20,473 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-17 23:55:20,474 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-17 23:55:20,475 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-17 23:55:20,480 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-17 23:55:20,481 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-17 23:55:20,481 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-17 23:55:20,482 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-17 23:55:35,994 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-17 23:55:35,995 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-17 23:55:35,997 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-17 23:55:35,998 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-17 23:55:35,999 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-17 23:55:36,000 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-17 23:55:36,001 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-17 23:55:36,005 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-17 23:55:36,006 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-17 23:55:36,007 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-17 23:55:36,009 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList

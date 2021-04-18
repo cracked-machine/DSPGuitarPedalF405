@@ -6,19 +6,19 @@
 CPP_SRCS += \
 ../test_blank.cpp \
 ../test_debounce.cpp \
-../test_eventmachine.cpp \
+../test_statemachine.cpp \
 ../testmain.cpp 
 
 OBJS += \
 ./test_blank.o \
 ./test_debounce.o \
-./test_eventmachine.o \
+./test_statemachine.o \
 ./testmain.o 
 
 CPP_DEPS += \
 ./test_blank.d \
 ./test_debounce.d \
-./test_eventmachine.d \
+./test_statemachine.d \
 ./testmain.d 
 
 

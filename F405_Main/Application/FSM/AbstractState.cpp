@@ -8,44 +8,15 @@
 
 #include <AbstractState.hpp>
 
+#include "StateMachine.hpp"
+class StateMachine;
 
 // AbstractState class
 AbstractState::~AbstractState() {}
 
-
-void AbstractState::evFootswitchA(EventMachine *machine)
+void AbstractState::setState(StateMachine *machine, AbstractState *st)
 {
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::evFootswitchB(EventMachine *machine)
-{
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::evUserSwitchA(EventMachine *machine)
-{
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::evUserSwitchB(EventMachine *machine)
-{
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::evRotaryEncoderA(EventMachine *machine)
-{
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::evRotaryEncoderB(EventMachine *machine)
-{
-	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
-}
-
-void AbstractState::setState(EventMachine *machine, AbstractState *state)
-{
-  machine->state = state;
+	machine->state = st;
 }
 
 

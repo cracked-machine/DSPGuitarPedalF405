@@ -17,72 +17,44 @@
 
 // STL
 #include <iostream>
-
-// system tests
-#include <pedal_io_test.hpp>
-
-#include "PeriphInterrupts.hpp"
-
-#include <EventMachine.hpp>
-
-#include <AbstractTaskManager.hpp>
+#include <array>
 #include <assert.h>
-/*
- * 	Disable all usage of delete operator
-*/
-	void operator delete(void*)
-	{
-		return;
-	}
-/*
-	struct CL {
-	    // The bool does nothing, other than making these placement overloads.
-	    void* operator new(size_t s, bool b = true);
-	    void operator delete(void* o, bool b = true);
-	};
-	// Functions are simple wrappers for the normal operators.
-	void* CL::operator new(size_t s, bool b) { return ::operator new(s); }
-	void CL::operator delete(void* o, bool b) { return ::operator delete(o); }
-*/
 
+
+#include <pedal_io_test.hpp>
+#include "PeriphInterrupts.hpp"
+#include <BaseTaskManager.hpp>
+#include <StateMachine.hpp>
+
+
+// Disable all usage of delete operator
+void operator delete(void*)
+{
+	return;
+}
 
 #ifdef __cplusplus
 	extern "C"
 	{
 #endif
 
-
 	#define BLOCK_SIZE_U16 2048
 	uint16_t rxBuf[BLOCK_SIZE_U16*2];
 	uint16_t txBuf[BLOCK_SIZE_U16*2];
 	uint8_t callback_state = 0;
 
+	// I2S task declarations
 	I2STaskManager_t *i2s_taskman;
-	// I2STaskManager_t i2s_taskman {I2STaskManager_t(200, 1)};
 	void I2STaskCode( void * parm );
 	static StaticQueue_t I2S_StaticQueue;
 
+	// External Control task declarations
 	ExtCtrlTaskManager_t *extctrl_taskman;
 	void ExtCtrlTaskCode( void * parm );
 	static StaticQueue_t ExtCtrl_StaticQueue;
+	StateMachine *extctrlMachine = NULL;
 
 
-/*
-	extern "C" {
-
-		// The canary value
-		extern const uintptr_t __stack_chk_guard = 0xdeadbeef;
-
-		// Called if the check fails
-		[[noreturn]]
-		void __stack_chk_fail()
-		{
-			//Error_Handler("Stack overrun!");
-			exit(0);
-		}
-
-	} // end extern "C"
-*/
 	void appmain()
 	{
 
@@ -94,16 +66,34 @@
 
 		//HAL_EnableCompensationCell();
 
-		i2s_taskman = new I2STaskManager_t(200, 1);
-		AbstractTaskPtr_t taskptr = &I2STaskCode;
-		i2s_taskman->initTask("I2STaskManager", taskptr);
-		i2s_taskman->initQueue(&I2S_StaticQueue);
 
+		// I2S task instantiation on the heap at startup
+		//
+		i2s_taskman = new I2STaskManager_t(200, 1);
+
+		// Set the STATIC freeertos task to global function pointer "I2STaskCode()"
+		AbstractTaskPtr_t I2STaskPtr = &I2STaskCode;
+		i2s_taskman->initTask("I2STaskManager", I2STaskPtr);
+
+		// Set the STATIC freertos queue
+		i2s_taskman->initQueue(&I2S_StaticQueue);
+		//
+
+		// External Control task instantiation on the heap at startup
+		//
 		extctrl_taskman = new ExtCtrlTaskManager_t(200, 1);
-		AbstractTaskPtr_t taskptr2 = &ExtCtrlTaskCode;
-		extctrl_taskman->initStateMachine();
-		extctrl_taskman->initTask("ExtCtrlTaskManager", taskptr2);
+
+		// Set the statemachine
+		extctrlMachine = new StateMachine();
+		extctrl_taskman->initStateMachine(extctrlMachine);
+
+		// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
+		AbstractTaskPtr_t ExtCtrlTaskPtr = &ExtCtrlTaskCode;
+		extctrl_taskman->initTask("ExtCtrlTaskManager", ExtCtrlTaskPtr);
+
+		// Set the STATIC freertos queue
 		extctrl_taskman->initQueue(&ExtCtrl_StaticQueue);
+		//
 
 		// start FullDuplex I2S DMA
 		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
@@ -162,6 +152,7 @@
 				switch(item)
 				{
 					case EXTI_PR_PR13:
+
 						extctrl_taskman->getStateMachine()->evFootswitchA();
 						break;
 					case EXTI_PR_PR14:
@@ -171,6 +162,36 @@
 			}
 		}
 	}
+
+	/*
+		extern "C" {
+
+			// The canary value
+			extern const uintptr_t __stack_chk_guard = 0xdeadbeef;
+
+			// Called if the check fails
+			[[noreturn]]
+			void __stack_chk_fail()
+			{
+				//Error_Handler("Stack overrun!");
+				exit(0);
+			}
+
+		} // end extern "C"
+	*/
+
+
+	/*
+		struct CL {
+		    // The bool does nothing, other than making these placement overloads.
+		    void* operator new(size_t s, bool b = true);
+		    void operator delete(void* o, bool b = true);
+		};
+		// Functions are simple wrappers for the normal operators.
+		void* CL::operator new(size_t s, bool b) { return ::operator new(s); }
+		void CL::operator delete(void* o, bool b) { return ::operator delete(o); }
+	*/
+
 
 #ifdef __cplusplus
 	}

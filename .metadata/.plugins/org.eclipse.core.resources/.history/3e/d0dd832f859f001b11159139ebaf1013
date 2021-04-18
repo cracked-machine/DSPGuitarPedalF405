@@ -1,0 +1,32 @@
+/*
+ * AbstractStateContainer.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_ABSTRACTSTATECONTAINER_HPP_
+#define FSM_ABSTRACTSTATECONTAINER_HPP_
+
+
+
+class AbstractStateContainer
+{
+public:
+
+	virtual size_t size() = 0;
+private:
+	size_t _size;
+};
+
+class ExtCtrlStateContainer : AbstractStateContainer
+{
+public:
+	ExtCtrlStateContainer();
+	size_t size();
+private:
+	size_t _size;
+};
+
+
+#endif /* FSM_ABSTRACTSTATECONTAINER_HPP_ */

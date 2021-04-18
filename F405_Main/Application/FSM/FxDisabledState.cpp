@@ -6,13 +6,15 @@
  */
 
 #include "FxDisabledState.hpp"
+
+#include "StateMachine.hpp"
 #include <iostream>
 
 // FxDisabledState class
 
-void FxDisabledState::evFootswitchA(EventMachine *machine)
+void FxDisabledState::evFootswitchA(StateMachine *machine)
 {
-	setState(machine, machine->states_list[EventMachine::FX_ENABLED]);
+	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
 #ifdef USE_HAL_DRIVER
 	HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
 	// toggle relay for clean/FX signal path
@@ -22,27 +24,29 @@ void FxDisabledState::evFootswitchA(EventMachine *machine)
 	std::cout << "FxDisabledState::evFootswitchA" << std::endl;
 }
 
-void FxDisabledState::evFootswitchB(EventMachine *machine)
+void FxDisabledState::evFootswitchB(StateMachine *machine)
 {
-	setState(machine, machine->states_list[EventMachine::FX_ENABLED]);
+	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
 #ifdef USE_HAL_DRIVER
 	HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_SET);
 #endif
 }
 
-void FxDisabledState::evUserSwitchA(EventMachine *machine)
+void FxDisabledState::evUserSwitchA(StateMachine *machine)
 {
 
 }
-void FxDisabledState::evUserSwitchB(EventMachine *machine)
+void FxDisabledState::evUserSwitchB(StateMachine *machine)
 {
 
 }
-void FxDisabledState::evRotaryEncoderA(EventMachine *machine)
+void FxDisabledState::evRotaryEncoderA(StateMachine *machine)
 {
 
 }
-void FxDisabledState::evRotaryEncoderB(EventMachine *machine)
+void FxDisabledState::evRotaryEncoderB(StateMachine *machine)
 {
 
 }
+
+

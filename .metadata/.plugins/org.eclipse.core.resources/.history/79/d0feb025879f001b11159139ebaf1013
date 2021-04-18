@@ -1,0 +1,33 @@
+/*
+ * AbstractStateContainer.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_ABSTRACTSTATECONTAINER_HPP_
+#define FSM_ABSTRACTSTATECONTAINER_HPP_
+
+#define MAX_EXTCTRL_STATES 2
+
+class AbstractStateContainer
+{
+
+};
+
+class ExtCtrlStateContainer : AbstractStateContainer
+{
+public:
+	ExtCtrlStateContainer(std::array<AbstractState*, MAX_EXTCTRL_STATES> *pStates);
+
+	std::array<AbstractState*, MAX_EXTCTRL_STATES> *states;
+
+};
+
+ExtCtrlStateContainer::ExtCtrlStateContainer(std::array<AbstractState*, MAX_EXTCTRL_STATES> *pStates)
+{
+	states = pStates;
+}
+
+
+#endif /* FSM_ABSTRACTSTATECONTAINER_HPP_ */

@@ -1,0 +1,30 @@
+/*
+ * ExtCtrlStateMachine.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_EXTCTRLSTATEMACHINE_HPP_
+#define FSM_EXTCTRLSTATEMACHINE_HPP_
+
+#pragma once
+
+#include "AbstractStateMachine.hpp"
+
+#include <FxDisabledState.hpp>
+#include <FxEnabledState.hpp>
+
+class ExtCtrlStateMachine : public AbstractStateMachine
+{
+
+public:
+	ExtCtrlStateMachine();
+private:
+	//FxDisabledState theFxDisabledState = { FxDisabledState() };
+	//FxEnabledState theFxEnabledState = { FxEnabledState() };
+	std::array<AbstractState*, 2> states_list;
+};
+
+
+#endif /* FSM_EXTCTRLSTATEMACHINE_HPP_ */

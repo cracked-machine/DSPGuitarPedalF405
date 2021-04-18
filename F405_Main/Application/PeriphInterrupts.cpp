@@ -20,7 +20,7 @@
 
 #include <AppMain.hpp>
 
-#include <AbstractTaskManager.hpp>
+#include <BaseTaskManager.hpp>
 
 #ifdef __cplusplus
 	extern "C"

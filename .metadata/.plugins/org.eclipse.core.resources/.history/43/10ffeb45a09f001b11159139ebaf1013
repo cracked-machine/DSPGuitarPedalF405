@@ -1,0 +1,34 @@
+/*
+ * FxEnabledState.hpp
+ *
+ *  Created on: 13 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_FXENABLEDSTATE_HPP_
+#define FSM_FXENABLEDSTATE_HPP_
+
+#include "AbstractState.hpp"
+#include <ExtCtrlStateMachine.hpp>
+class ExtCtrlStateMachine;
+
+//#include "BaseState.hpp"
+
+//class FxEnabledState : public BaseState
+class FxEnabledState : public AbstractState
+{
+public:
+
+
+	void evFootswitchA(ExtCtrlStateMachine *machine);
+	void evFootswitchB(ExtCtrlStateMachine *machine);
+	void evUserSwitchA(ExtCtrlStateMachine *machine);
+	void evUserSwitchB(ExtCtrlStateMachine *machine);
+	void evRotaryEncoderA(ExtCtrlStateMachine *machine);
+	void evRotaryEncoderB(ExtCtrlStateMachine *machine);
+
+};
+
+
+
+#endif /* FSM_FXENABLEDSTATE_HPP_ */

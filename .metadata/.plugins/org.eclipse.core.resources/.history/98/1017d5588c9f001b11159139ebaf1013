@@ -1,0 +1,75 @@
+/*
+ * AbstractStateMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "AbstractStateMachine.hpp"
+
+
+AbstractStateMachine::AbstractStateMachine(std::array<AbstractState*, MAX_NUM_STATE> *pStates)
+{
+	// instantiate the state objects now at init for the duration
+	if(pStates->size() == states_list.size())
+	{
+		states_list[AbstractStateMachine::FX_DISABLED] = (*pStates)[0];
+		states_list[AbstractStateMachine::FX_ENABLED] = (*pStates)[1];
+	}
+
+	state = states_list[AbstractStateMachine::FX_DISABLED];
+
+	debounceTim14.start();
+}
+
+
+AbstractState * AbstractStateMachine::getState()
+{
+	return state;
+}
+
+/*
+BaseState * AbstractStateMachine::getState()
+{
+	return state;
+}
+*/
+void AbstractStateMachine::evFootswitchA()
+{
+	if(debounceTim14.check_debounce())
+		state->evFootswitchA(this);
+}
+
+void AbstractStateMachine::evFootswitchB()
+{
+	if(debounceTim14.check_debounce())
+		state->evFootswitchB(this);
+}
+
+void AbstractStateMachine::evUserSwitchA()
+{
+	if(debounceTim14.check_debounce())
+		state->evUserSwitchA(this);
+}
+
+void AbstractStateMachine::evUserSwitchB()
+{
+	if(debounceTim14.check_debounce())
+		state->evUserSwitchB(this);
+}
+
+void AbstractStateMachine::evRotaryEncoderA()
+{
+	if(debounceTim14.check_debounce())
+		state->evRotaryEncoderA(this);
+}
+
+void AbstractStateMachine::evRotaryEncoderB()
+{
+	if(debounceTim14.check_debounce())
+		state->evRotaryEncoderB(this);
+}
+
+
+
+

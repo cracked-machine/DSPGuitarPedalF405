@@ -1,0 +1,68 @@
+/*
+ * AbstractStateMachine.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#include "AbstractStateMachine.hpp"
+
+
+AbstractStateMachine::AbstractStateMachine()
+{
+
+
+	debounceTim14.start();
+}
+
+
+AbstractState * AbstractStateMachine::getState()
+{
+	return state;
+}
+
+/*
+BaseState * AbstractStateMachine::getState()
+{
+	return state;
+}
+*/
+void AbstractStateMachine::evFootswitchA()
+{
+	if(debounceTim14.check_debounce())
+		state->evFootswitchA(this);
+}
+
+void AbstractStateMachine::evFootswitchB()
+{
+	if(debounceTim14.check_debounce())
+		state->evFootswitchB(this);
+}
+
+void AbstractStateMachine::evUserSwitchA()
+{
+	if(debounceTim14.check_debounce())
+		state->evUserSwitchA(this);
+}
+
+void AbstractStateMachine::evUserSwitchB()
+{
+	if(debounceTim14.check_debounce())
+		state->evUserSwitchB(this);
+}
+
+void AbstractStateMachine::evRotaryEncoderA()
+{
+	if(debounceTim14.check_debounce())
+		state->evRotaryEncoderA(this);
+}
+
+void AbstractStateMachine::evRotaryEncoderB()
+{
+	if(debounceTim14.check_debounce())
+		state->evRotaryEncoderB(this);
+}
+
+
+
+

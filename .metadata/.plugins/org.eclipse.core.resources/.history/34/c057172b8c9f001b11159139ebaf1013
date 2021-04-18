@@ -1,0 +1,47 @@
+/*
+ * AbstractStateContainer.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_ABSTRACTSTATECONTAINER_HPP_
+#define FSM_ABSTRACTSTATECONTAINER_HPP_
+
+#define MAX_EXTCTRL_STATES 2
+
+#include <array>
+
+
+//#include "FxDisabledState.hpp"
+//#include "FxEnabledState.hpp"
+
+
+class AbstractState;
+
+class AbstractStateContainer
+{
+public:
+	AbstractStateContainer();
+	virtual size_t getSize() = 0;
+private:
+	size_t _size;
+};
+
+class ExtCtrlStateContainer : public AbstractStateContainer
+{
+public:
+	ExtCtrlStateContainer(std::array<AbstractState*, 2> *pStates);
+
+
+
+	//FxDisabledState newFxDisabledState;
+	//FxEnabledState newFxEnabledState;
+	//std::array<AbstractState*, 2> *states;
+
+};
+
+
+
+
+#endif /* FSM_ABSTRACTSTATECONTAINER_HPP_ */

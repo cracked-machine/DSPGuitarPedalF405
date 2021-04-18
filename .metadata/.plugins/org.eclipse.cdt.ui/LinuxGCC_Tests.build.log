@@ -1,6 +1,35 @@
-12:05:36 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+00:38:36 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Debounce/Debounce.d" -MT"Debounce/Debounce.o" -o "Debounce/Debounce.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp"
+Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp
+ 
+Building file: ../test_blank.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_blank.d" -MT"test_blank.o" -o "test_blank.o" "../test_blank.cpp"
+Finished building: ../test_blank.cpp
+ 
+Building file: ../test_debounce.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
+Finished building: ../test_debounce.cpp
+ 
+Building file: ../test_statemachine.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_statemachine.d" -MT"test_statemachine.o" -o "test_statemachine.o" "../test_statemachine.cpp"
+Finished building: ../test_statemachine.cpp
+ 
+Building file: ../testmain.cpp
+Invoking: GCC C++ Compiler
+g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"testmain.d" -MT"testmain.o" -o "testmain.o" "../testmain.cpp"
+Finished building: ../testmain.cpp
+ 
+Building target: LinuxGCC_Tests
+Invoking: GCC C++ Linker
+g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./Debounce/Debounce.o  ./test_blank.o ./test_debounce.o ./test_statemachine.o ./testmain.o   -lHost_CppUTest -lpthread
+Finished building target: LinuxGCC_Tests
+ 
 
-12:05:36 Build Finished. 0 errors, 0 warnings. (took 203ms)
+00:38:38 Build Finished. 0 errors, 0 warnings. (took 1s.993ms)
 

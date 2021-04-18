@@ -1,0 +1,28 @@
+/*
+ * ExtCtrlStateMachine.cpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+
+
+#include "ExtCtrlStateMachine.hpp"
+
+ExtCtrlStateMachine::ExtCtrlStateMachine()
+{
+	// instantiate the state objects now at init for the duration
+	if(pStates->size() == states_list.size())
+	{
+		states_list[EventMachine::FX_DISABLED] = (*pStates)[0];
+		states_list[EventMachine::FX_ENABLED] = (*pStates)[1];
+	}
+
+	state = states_list[EventMachine::FX_DISABLED];
+
+	FxDisabledState newFxDisabledState;
+	test = &newFxDisabledState;
+	debounceTim14.start();
+}
+
+

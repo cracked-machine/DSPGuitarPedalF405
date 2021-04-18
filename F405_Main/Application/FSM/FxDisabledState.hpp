@@ -10,17 +10,20 @@
 
 #include "AbstractState.hpp"
 
+
+
 class FxDisabledState : public AbstractState
 {
 public:
 
 
-	virtual void evFootswitchA(EventMachine *machine);
-	virtual void evFootswitchB(EventMachine *machine);
-	virtual void evUserSwitchA(EventMachine *machine);
-	virtual void evUserSwitchB(EventMachine *machine);
-	virtual void evRotaryEncoderA(EventMachine *machine);
-	virtual void evRotaryEncoderB(EventMachine *machine);
+	   void evFootswitchA(StateMachine *machine) override;
+	   void evFootswitchB(StateMachine *machine) override;
+	   void evUserSwitchA(StateMachine *machine) override;
+	   void evUserSwitchB(StateMachine *machine) override;
+	   void evRotaryEncoderA(StateMachine *machine) override;
+	   void evRotaryEncoderB(StateMachine *machine) override;
+
 
 };
 

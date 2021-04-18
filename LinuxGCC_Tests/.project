@@ -30,11 +30,6 @@
 			<type>2</type>
 			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce</location>
 		</link>
-		<link>
-			<name>FSM</name>
-			<type>2</type>
-			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM</location>
-		</link>
 	</linkedResources>
 	<variableList>
 		<variable>

@@ -1,0 +1,69 @@
+/*
+ * EventMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#ifndef INC_EVENTMACHINE_HPP_
+#define INC_EVENTMACHINE_HPP_
+#pragma once
+
+//#include <AbstractState.hpp>
+#include <BaseState.hpp>
+#include <array>
+
+#define MAX_NUM_STATE 2
+
+#include <Debounce.hpp>
+
+// create instance of the debounce manager for HAL Timer (specifically TIM14)
+//typedef DebounceManager<TIM_TypeDef> HALDebounceManager;
+//HALDebounceManager debounceManagerTim14;
+
+//class AbstractState;
+class BaseState;
+
+class EventMachine
+{
+	//friend class AbstractState;
+	friend class BaseState;
+public:
+	EventMachine(std::array<BaseState*, MAX_NUM_STATE> *pStates);
+	//~EventMachine();
+
+	void evFootswitchA();
+	void evFootswitchB();
+	void evUserSwitchA();
+	void evUserSwitchB();
+	void evRotaryEncoderA();
+	void evRotaryEncoderB();
+
+	//std::array<AbstractState*, 2> states_list;
+	std::array<BaseState*, 2> states_list;
+
+	enum states_enum
+	{
+		FX_DISABLED,
+		FX_ENABLED
+	};
+
+
+	//AbstractState* getState();
+	BaseState* getState();
+private:
+	//AbstractState* state;
+	BaseState *state;
+	//DebounceManager* debounceTim14;
+	DebounceManager debounceTim14  = {DebounceManager(TIM14, 800)};
+
+
+};
+
+
+
+
+
+
+
+#endif /* INC_EVENTMACHINE_HPP_ */

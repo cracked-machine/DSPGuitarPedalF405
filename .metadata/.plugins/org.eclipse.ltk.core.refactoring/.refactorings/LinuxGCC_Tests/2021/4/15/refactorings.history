@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;LinuxGCC_Tests/test_eventmachine.cpp&apos; to &apos;test_statemachine.cpp&apos;" description="Rename resource &apos;test_eventmachine.cpp&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="test_eventmachine.cpp" name="test_statemachine.cpp" stamp="1618702363226" updateReferences="true"/>
+</session>

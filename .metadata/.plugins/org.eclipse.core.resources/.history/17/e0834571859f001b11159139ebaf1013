@@ -1,0 +1,42 @@
+/*
+ * AbstractStateContainer.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_ABSTRACTSTATECONTAINER_HPP_
+#define FSM_ABSTRACTSTATECONTAINER_HPP_
+
+
+
+class AbstractStateContainer
+{
+public:
+
+	virtual size_t Size() = 0;
+private:
+	size_t _size;
+};
+
+class ExtCtrlStateContainer : AbstractStateContainer
+{
+public:
+	ExtCtrlStateContainer(std::array<AbstractState*, 2> *pStates);
+	size_t Size();
+private:
+	size_t _size;
+};
+
+ExtCtrlStateContainer::ExtCtrlStateContainer(std::array<AbstractState*, 2> *pStates)
+{
+	_size = 0;
+
+}
+
+ExtCtrlStateContainer::Size()
+{
+	return _size;
+}
+
+#endif /* FSM_ABSTRACTSTATECONTAINER_HPP_ */

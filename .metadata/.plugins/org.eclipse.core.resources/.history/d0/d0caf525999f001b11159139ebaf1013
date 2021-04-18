@@ -1,0 +1,29 @@
+/*
+ * FxDisabledState.hpp
+ *
+ *  Created on: 13 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_FXDISABLEDSTATE_HPP_
+#define FSM_FXDISABLEDSTATE_HPP_
+
+#include "AbstractState.hpp"
+
+
+class FxDisabledState : public AbstractState
+{
+public:
+
+
+	virtual void evFootswitchA(AbstractStateMachine *machine);
+	virtual void evFootswitchB(AbstractStateMachine *machine);
+	virtual void evUserSwitchA(AbstractStateMachine *machine);
+	virtual void evUserSwitchB(AbstractStateMachine *machine);
+	virtual void evRotaryEncoderA(AbstractStateMachine *machine);
+	virtual void evRotaryEncoderB(AbstractStateMachine *machine);
+
+};
+
+
+#endif /* FSM_FXDISABLEDSTATE_HPP_ */

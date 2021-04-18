@@ -1,0 +1,22 @@
+/*
+ * AbstractStateContainer.cpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+
+
+#include <AbstractStateContainer.hpp>
+
+
+
+ExtCtrlStateContainer::ExtCtrlStateContainer(std::array<AbstractState*, MAX_EXTCTRL_STATES> *pStates)
+{
+	states = pStates;
+}
+
+size_t ExtCtrlStateContainer::getSize()
+{
+	return _size;
+}

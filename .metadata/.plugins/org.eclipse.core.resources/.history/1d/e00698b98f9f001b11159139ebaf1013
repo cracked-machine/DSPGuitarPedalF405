@@ -1,0 +1,59 @@
+/*
+ * EventMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#ifndef INC_EVENTMACHINE_HPP_
+#define INC_EVENTMACHINE_HPP_
+#pragma once
+
+#include <AbstractState.hpp>
+//#include <AbstractStateMachine.hpp>
+
+class FxDisabledState;
+
+
+#include <array>
+
+#define MAX_NUM_STATE 2
+
+#include <Debounce.hpp>
+
+
+class AbstractState;
+
+class EventMachine
+{
+	friend class AbstractState;
+public:
+	EventMachine(std::array<AbstractState*, MAX_NUM_STATE> *pStates);
+
+	void evFootswitchA();
+	void evFootswitchB();
+	void evUserSwitchA();
+	void evUserSwitchB();
+	void evRotaryEncoderA();
+	void evRotaryEncoderB();
+
+	std::array<AbstractState*, MAX_NUM_STATE> states_list;
+
+	enum states_enum
+	{
+		FX_DISABLED,
+		FX_ENABLED
+	};
+
+
+	AbstractState* getState();
+
+private:
+	AbstractState* state;
+	FxEnabledState test;
+	DebounceManager debounceTim14  = {DebounceManager(TIM14, 800)};
+
+
+};
+
+#endif /* INC_EVENTMACHINE_HPP_ */

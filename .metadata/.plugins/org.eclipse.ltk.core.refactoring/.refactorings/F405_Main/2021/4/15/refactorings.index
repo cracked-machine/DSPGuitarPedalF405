@@ -3,3 +3,6 @@
 1618399267306	Rename resource 'FreeRTOS_UserTasks.h'
 1618440726561	Rename resource 'RtosTaskManager.cpp'
 1618440737555	Rename resource 'RtosTaskManager.hpp'
+1618665746269	Rename resource 'AbstractTaskManager.hpp'
+1618697822456	Rename resource 'EventMachine.cpp'
+1618697830172	Rename resource 'EventMachine.hpp'

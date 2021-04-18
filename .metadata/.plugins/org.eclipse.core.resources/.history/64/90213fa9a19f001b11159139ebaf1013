@@ -1,0 +1,54 @@
+/*
+ * ExtCtrlStateMachine.hpp
+ *
+ *  Created on: 17 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_EXTCTRLSTATEMACHINE_HPP_
+#define FSM_EXTCTRLSTATEMACHINE_HPP_
+
+#pragma once
+
+#include "AbstractStateMachine.hpp"
+
+#include <FxDisabledState.hpp>
+#include <FxEnabledState.hpp>
+
+#include <array>
+
+#define MAX_NUM_STATE_EXTCTRL 2
+
+class ExtCtrlStateMachine : public AbstractStateMachine
+{
+
+public:
+	ExtCtrlStateMachine(std::array<AbstractState*, MAX_NUM_STATE_EXTCTRL> *pStates);
+
+	void evFootswitchA();
+	void evFootswitchB();
+	void evUserSwitchA();
+	void evUserSwitchB();
+	void evRotaryEncoderA();
+	void evRotaryEncoderB();
+
+	enum states_enum
+	{
+		FX_DISABLED,
+		FX_ENABLED
+	};
+
+public:
+
+	std::array<AbstractState*, MAX_NUM_STATE_EXTCTRL> states_list;
+
+private:
+	//FxDisabledState theFxDisabledState = { FxDisabledState() };
+	//FxEnabledState theFxEnabledState = { FxEnabledState() };
+
+
+	DebounceManager debounceTim14  = {DebounceManager(TIM14, 800)};
+};
+
+
+#endif /* FSM_EXTCTRLSTATEMACHINE_HPP_ */

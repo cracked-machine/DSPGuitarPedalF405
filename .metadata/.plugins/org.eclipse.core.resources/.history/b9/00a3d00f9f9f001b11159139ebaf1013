@@ -1,0 +1,45 @@
+/*
+ * AbstractStateMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+#ifndef INC_ABSTRACTSTATEMACHINE_HPP_
+#define INC_ABSTRACTSTATEMACHINE_HPP_
+
+#pragma once
+
+#include <AbstractState.hpp>
+
+
+
+
+#define MAX_NUM_STATE 2
+
+#include <Debounce.hpp>
+
+
+class AbstractState;
+
+class AbstractStateMachine
+{
+
+	friend class AbstractState;
+
+public:
+
+	AbstractStateMachine();
+
+	AbstractState* getState();
+
+protected:
+
+	//AbstractState* state;
+
+
+};
+
+
+#endif // INC_ABSTRACTSTATEMACHINE_HPP_
+

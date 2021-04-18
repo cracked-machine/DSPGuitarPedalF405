@@ -1,0 +1,54 @@
+/*
+ * BaseState.cpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+/*
+
+#include <BaseState.hpp>
+
+
+// BaseState class
+BaseState::~BaseState() {}
+
+
+void BaseState::evFootswitchA(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::evFootswitchB(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::evUserSwitchA(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::evUserSwitchB(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::evRotaryEncoderA(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::evRotaryEncoderB(EventMachine *machine)
+{
+	setState(machine, machine->states_list[EventMachine::FX_DISABLED]);
+}
+
+void BaseState::setState(EventMachine *machine, BaseState *state)
+{
+  machine->state = state;
+}
+
+
+*/
+
+
