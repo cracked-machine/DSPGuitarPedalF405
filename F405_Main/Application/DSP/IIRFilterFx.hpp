@@ -21,22 +21,23 @@ public:
 	IIRFilterFx();
 
 	#ifndef ENABLE_IIR_BYPASS
-		void process_half_u16(	array<uint16_t, STEREO_BLOCK_SIZE_U16> *pRxBuf,
-								array<uint16_t, STEREO_BLOCK_SIZE_U16> *pTxBuf) override;
-		void process_full_u16(	array<uint16_t, STEREO_BLOCK_SIZE_U16> *pRxBuf,
-								array<uint16_t, STEREO_BLOCK_SIZE_U16> *pTxBuf) override;
-		void process_all_u16(	array<uint16_t, STEREO_BLOCK_SIZE_U16> *pRxBuf,
-								array<uint16_t, STEREO_BLOCK_SIZE_U16> *pTxBuf) override;
+		void process_half_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_full_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
 	#endif
 
 private:
 
 	arm_biquad_casd_df1_inst_f32 iirsettings_l, iirsettings_r;
-	float iir_l_state [4];
-	float iir_r_state [4];
+
+	std::array<float, 4> iir_l_state{};
+	std::array<float, 4> iir_r_state{};
 
 	//IIR low-pass, fs=48kHz, f_cut=1kHz, q=0.707
-	float iir_coeffs [5] = {
+	std::array<float,5> iir_coeffs = {
 		0.003916123487156427f,
 		0.007832246974312854f,
 		0.003916123487156427f,
@@ -46,10 +47,11 @@ private:
 
 	static const uint16_t IIR_BLOCK_SIZE_FLOAT = 512;
 
-	float l_buf_in [IIR_BLOCK_SIZE_FLOAT*2];
-	float r_buf_in [IIR_BLOCK_SIZE_FLOAT*2];
-	float l_buf_out [IIR_BLOCK_SIZE_FLOAT*2];
-	float r_buf_out [IIR_BLOCK_SIZE_FLOAT*2];
+	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> l_buf_in{};
+
+	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> r_buf_in{};
+	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> l_buf_out{};
+	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> r_buf_out{};
 
 	int offset_r_ptr;
 	int offset_w_ptr, w_ptr;

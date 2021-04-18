@@ -1,0 +1,22 @@
+/*
+ * stereoBlockArrayU16.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_STEREOBLOCKARRAYU16_HPP_
+#define DSP_STEREOBLOCKARRAYU16_HPP_
+
+
+class StereoBlockArrayU16
+{
+public:
+	StereoBlockArrayU16();
+	array<uint16_t, AbstractFx::STEREO_BLOCK_SIZE_U16>
+private:
+	array<uint16_t, AbstractFx::STEREO_BLOCK_SIZE_U16> theArray;
+};
+
+
+#endif /* DSP_STEREOBLOCKARRAYU16_HPP_ */

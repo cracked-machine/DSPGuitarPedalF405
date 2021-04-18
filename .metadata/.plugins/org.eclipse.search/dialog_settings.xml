@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="states_list"/>
+			<item key="textPattern" value="array&lt;uint16_t, STEREO_BLOCK_SIZE_U16&gt;"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -41,7 +41,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="MAX_NUM_STATE"/>
+			<item key="textPattern" value="AbstractFX"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -53,7 +53,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="AbstractTaskManager"/>
+			<item key="textPattern" value="initQueue"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -65,7 +65,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="delete"/>
+			<item key="textPattern" value="initTask"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -77,7 +77,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="static"/>
+			<item key="textPattern" value="initStateMachine"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -89,7 +89,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="abstract_taskpointer_t"/>
+			<item key="textPattern" value="states_list"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -101,7 +101,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="ISRTaskManager"/>
+			<item key="textPattern" value="MAX_NUM_STATE"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -113,7 +113,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="taskman"/>
+			<item key="textPattern" value="AbstractTaskManager"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -125,7 +125,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="xStaticQueue"/>
+			<item key="textPattern" value="delete"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -137,7 +137,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="RtosTaskManager"/>
+			<item key="textPattern" value="static"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -149,7 +149,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="getEM"/>
+			<item key="textPattern" value="abstract_taskpointer_t"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -161,7 +161,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="em"/>
+			<item key="textPattern" value="ISRTaskManager"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -188,13 +188,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="stereoBlockArrayU16_t"/>
+			<item value="AbstractFx"/>
+			<item value="setQueue"/>
+			<item value="setTask"/>
+			<item value="setStateMachine"/>
 			<item value="theStateList"/>
 			<item value="BaseTaskManager"/>
-			<item value="AbstractTaskPtr_t"/>
-			<item value="ExtCtrlTaskManager"/>
-			<item value="isr_taskman"/>
-			<item value="ISRStaticQueue"/>
-			<item value="ISRTaskManager"/>
 		</list>
 	</section>
 	<section name="">

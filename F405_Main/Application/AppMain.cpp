@@ -28,6 +28,7 @@
 #include <StateMachine.hpp>
 #include "DSPManager.hpp"
 
+
 #ifdef USE_HAL_DRIVER
 	// Disable all usage of delete operator
 	void operator delete(void*)
@@ -42,19 +43,10 @@
 #endif
 
 
-	//uint16_t rxBuf[BLOCK_SIZE_U16*2];
-	//uint16_t txBuf[BLOCK_SIZE_U16*2];
-	std::array<uint16_t, STEREO_BLOCK_SIZE_U16> rxBuf{};
-	std::array<uint16_t, STEREO_BLOCK_SIZE_U16> txBuf{};
-
-
-	uint8_t callback_state = 0;
-
 	// I2S task declarations
 	I2STaskManager_t *i2s_taskman;
 	void I2STaskCode( void * parm );
 	static StaticQueue_t I2S_StaticQueue;
-
 
 	// External Control task declarations
 	ExtCtrlTaskManager_t *extctrl_taskman;
@@ -66,6 +58,8 @@
 	DSPManager *dspman;
 	IIRFilterFx *iirfx;
 
+	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
+	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
 
 	void appmain()
 	{
@@ -81,7 +75,7 @@
 
 		// I2S task instantiation on the heap at startup
 		//
-		i2s_taskman = new I2STaskManager_t(200, 1);
+		i2s_taskman = new  I2STaskManager_t(200, 1);
 
 		// Set the STATIC freeertos task to global function pointer "I2STaskCode()"
 		AbstractTaskPtr_t I2STaskPtr = &I2STaskCode;
@@ -115,8 +109,7 @@
 		dspman = new DSPManager(iirfx);
 
 		// start FullDuplex I2S DMA
-		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf.data(), rxBuf.data(), BLOCK_SIZE_U16);
-		//HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
+		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf.data(), rxBuf.data(), AbstractFx::HALF_BLK_SIZE_U16);
 
 		// start the RTOS
 		vTaskStartScheduler();
@@ -145,15 +138,11 @@
 				if(item == 1)
 				{
 					iirfx->process_half_u16(&rxBuf, &txBuf);
-//					for(size_t i = 0; i < BLOCK_SIZE_U16; i++ )
-//						txBuf[i] = rxBuf[i];
 					LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
 				}
 				if(item == 2)
 				{
 					iirfx->process_full_u16(&rxBuf, &txBuf);
-//					for(size_t i = BLOCK_SIZE_U16; i < STEREO_BLOCK_SIZE_U16; i++ )
-//						txBuf[i] = rxBuf[i];
 					LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
 				}
 
@@ -186,6 +175,8 @@
 			}
 		}
 	}
+
+
 
 	/*
 		extern "C" {
