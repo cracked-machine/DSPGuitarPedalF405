@@ -1,0 +1,23 @@
+/*
+ * DSPManager.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#include "AbstractFx.hpp"
+
+class DSPManager
+{
+
+public:
+	DSPManager();
+	virtual ~DSPManager();
+
+
+private:
+	AbstractFx* theFx;
+
+};
+
+

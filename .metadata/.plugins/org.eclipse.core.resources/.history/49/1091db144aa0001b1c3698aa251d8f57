@@ -1,0 +1,26 @@
+/*
+ * AbstractFx.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_ABSTRACTFX_HPP_
+#define DSP_ABSTRACTFX_HPP_
+
+
+
+class AbstractFx
+{
+
+public:
+	AbstractFX();
+	virtual ~AbstractFX();
+
+	virtual void process() = 0;
+private:
+
+
+};
+
+#endif /* DSP_ABSTRACTFX_HPP_ */

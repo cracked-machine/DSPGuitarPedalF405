@@ -1,0 +1,30 @@
+/*
+ * AbstractFx.cpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+
+#include "AbstractFx.hpp"
+
+
+AbstractFx::AbstractFx()
+{
+
+}
+
+AbstractFx::~AbstractFx()
+{
+
+}
+
+void AbstractFx::setBufferState(AbstractFx::BufferState pBufferState)
+{
+
+}
+
+AbstractFx::BufferState AbstractFx::getBufferState()
+{
+
+}

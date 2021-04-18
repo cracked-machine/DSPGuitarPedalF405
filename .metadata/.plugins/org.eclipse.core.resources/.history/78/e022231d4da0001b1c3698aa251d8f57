@@ -1,0 +1,21 @@
+/*
+ * IIRFilterFx.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_FIRFILTERFX_HPP_
+#define DSP_FIRFILTERFX_HPP_
+
+
+#include "AbstractFx.hpp"
+
+class FIRFilterFx : public AbstractFx
+{
+public:
+	void process() override;
+};
+
+
+#endif /* DSP_FIRFILTERFX_HPP_ */

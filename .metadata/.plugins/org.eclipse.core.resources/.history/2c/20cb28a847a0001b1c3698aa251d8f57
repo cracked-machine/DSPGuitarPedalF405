@@ -1,0 +1,19 @@
+/*
+ * DSPManager.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+class DSPManager
+{
+
+public:
+	DSPManager();
+
+private:
+
+
+};
+
+

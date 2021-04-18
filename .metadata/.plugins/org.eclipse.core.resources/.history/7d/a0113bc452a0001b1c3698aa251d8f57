@@ -1,0 +1,20 @@
+/*
+ * IIRFilterFx.cpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+
+
+
+#include "FIRFilterFx.hpp"
+
+void FIRFilterFx::process(	array<uint16_t, STEREO_BLOCK_SIZE_U16> *pRxBuf,
+							array<uint16_t, STEREO_BLOCK_SIZE_U16> *pTxBuf)
+{
+
+}
+
+void FIRFilterFx::setBufferState(AbstractFx::BufferState pBufferState);
+AbstractFx::BufferState FIRFilterFx::getBufferState();

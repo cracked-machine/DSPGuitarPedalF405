@@ -1,0 +1,29 @@
+/*
+ * AbstractFx.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_ABSTRACTFX_HPP_
+#define DSP_ABSTRACTFX_HPP_
+
+#define BLOCK_SIZE_U16 2048
+
+using namespace std;
+
+class AbstractFx
+{
+
+public:
+	AbstractFx();
+	virtual ~AbstractFx();
+
+	virtual void process(	array<uint16_t, BLOCK_SIZE_U16> *pRxBuf,
+							array<uint16_t, BLOCK_SIZE_U16> *pTxBuf) = 0;
+private:
+
+
+};
+
+#endif /* DSP_ABSTRACTFX_HPP_ */

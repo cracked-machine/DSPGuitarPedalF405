@@ -1,0 +1,20 @@
+/*
+ * IIRFilterFx.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_IIRFILTERFX_HPP_
+#define DSP_IIRFILTERFX_HPP_
+
+
+#include "AbstractFx.hpp"
+
+class IIRFilterFx : public AbstractFX
+{
+
+};
+
+
+#endif /* DSP_IIRFILTERFX_HPP_ */

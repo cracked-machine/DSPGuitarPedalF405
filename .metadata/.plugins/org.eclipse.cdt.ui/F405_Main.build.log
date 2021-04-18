@@ -1,5 +1,7 @@
-12:10:59 **** Incremental Build of configuration Debug for project F405_Main ****
+16:56:42 **** Incremental Build of configuration Debug for project F405_Main ****
 make -j4 all 
+arm-none-eabi-g++ "../Application/DSP/DSPManager.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I../Core/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fno-common -fstack-protector-strong -ffreestanding -fstack-usage -MMD -MP -MF"Application/DSP/DSPManager.d" -MT"Application/DSP/DSPManager.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/DSP/DSPManager.o"
+arm-none-eabi-g++ "../Application/DSP/IIRFilterFx.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I../Core/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fno-common -fstack-protector-strong -ffreestanding -fstack-usage -MMD -MP -MF"Application/DSP/IIRFilterFx.d" -MT"Application/DSP/IIRFilterFx.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/DSP/IIRFilterFx.o"
 arm-none-eabi-g++ "../Application/AppMain.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I../Core/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fno-common -fstack-protector-strong -ffreestanding -fstack-usage -MMD -MP -MF"Application/AppMain.d" -MT"Application/AppMain.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/AppMain.o"
 arm-none-eabi-g++ -o "F405_Main.elf" @"objects.list"  -lF405_RTT -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_Main/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_Main.map" -Wl,--gc-sections -static -L"/home/chris/DSPGuitarPedalF405/F405_RTT/Release" -L/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 Finished building target: F405_Main.elf
@@ -8,7 +10,7 @@ arm-none-eabi-objdump -h -S  F405_Main.elf  > "F405_Main.list"
 arm-none-eabi-objcopy  -O binary  F405_Main.elf  "F405_Main.bin"
 arm-none-eabi-size   F405_Main.elf 
    text	   data	    bss	    dec	    hex	filename
- 183056	    792	  26472	 210320	  33590	F405_Main.elf
+ 185232	    792	  26480	 212504	  33e18	F405_Main.elf
 Finished building: default.size.stdout
  
 Finished building: F405_Main.bin
@@ -16,5 +18,5 @@ Finished building: F405_Main.bin
 Finished building: F405_Main.list
  
 
-12:11:01 Build Finished. 0 errors, 0 warnings. (took 2s.518ms)
+16:56:44 Build Finished. 0 errors, 0 warnings. (took 2s.687ms)
 

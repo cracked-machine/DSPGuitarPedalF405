@@ -22,9 +22,11 @@
 
 
 #include <pedal_io_test.hpp>
+
 #include "PeriphInterrupts.hpp"
 #include <BaseTaskManager.hpp>
 #include <StateMachine.hpp>
+#include "DSPManager.hpp"
 
 #ifdef USE_HAL_DRIVER
 	// Disable all usage of delete operator
@@ -39,9 +41,13 @@
 	{
 #endif
 
-	#define BLOCK_SIZE_U16 2048
-	uint16_t rxBuf[BLOCK_SIZE_U16*2];
-	uint16_t txBuf[BLOCK_SIZE_U16*2];
+
+	//uint16_t rxBuf[BLOCK_SIZE_U16*2];
+	//uint16_t txBuf[BLOCK_SIZE_U16*2];
+	std::array<uint16_t, STEREO_BLOCK_SIZE_U16> rxBuf{};
+	std::array<uint16_t, STEREO_BLOCK_SIZE_U16> txBuf{};
+
+
 	uint8_t callback_state = 0;
 
 	// I2S task declarations
@@ -56,6 +62,9 @@
 	static StaticQueue_t ExtCtrl_StaticQueue;
 	StateMachine *extctrlMachine = NULL;
 	DebounceManager *extctrl_debounceman;
+
+	DSPManager *dspman;
+	IIRFilterFx *iirfx;
 
 
 	void appmain()
@@ -102,8 +111,12 @@
 		extctrl_taskman->setQueue(&ExtCtrl_StaticQueue);
 		//
 
+		iirfx = new IIRFilterFx();
+		dspman = new DSPManager(iirfx);
+
 		// start FullDuplex I2S DMA
-		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
+		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf.data(), rxBuf.data(), BLOCK_SIZE_U16);
+		//HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
 
 		// start the RTOS
 		vTaskStartScheduler();
@@ -131,12 +144,16 @@
 			{
 				if(item == 1)
 				{
-					//HAL_GPIO_TogglePin(LEDA_G_GPIO_Port, LEDA_G_Pin);
+					iirfx->process_half_u16(&rxBuf, &txBuf);
+//					for(size_t i = 0; i < BLOCK_SIZE_U16; i++ )
+//						txBuf[i] = rxBuf[i];
 					LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
 				}
 				if(item == 2)
 				{
-					//HAL_GPIO_TogglePin(LEDB_G_GPIO_Port, LEDB_G_Pin);
+					iirfx->process_full_u16(&rxBuf, &txBuf);
+//					for(size_t i = BLOCK_SIZE_U16; i < STEREO_BLOCK_SIZE_U16; i++ )
+//						txBuf[i] = rxBuf[i];
 					LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
 				}
 
