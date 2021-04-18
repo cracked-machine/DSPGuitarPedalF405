@@ -26,12 +26,13 @@
 #include <BaseTaskManager.hpp>
 #include <StateMachine.hpp>
 
-
-// Disable all usage of delete operator
-void operator delete(void*)
-{
-	return;
-}
+#ifdef USE_HAL_DRIVER
+	// Disable all usage of delete operator
+	void operator delete(void*)
+	{
+		return;
+	}
+#endif
 
 #ifdef __cplusplus
 	extern "C"
@@ -48,11 +49,13 @@ void operator delete(void*)
 	void I2STaskCode( void * parm );
 	static StaticQueue_t I2S_StaticQueue;
 
+
 	// External Control task declarations
 	ExtCtrlTaskManager_t *extctrl_taskman;
 	void ExtCtrlTaskCode( void * parm );
 	static StaticQueue_t ExtCtrl_StaticQueue;
 	StateMachine *extctrlMachine = NULL;
+	DebounceManager *extctrl_debounceman;
 
 
 	void appmain()
@@ -73,10 +76,10 @@ void operator delete(void*)
 
 		// Set the STATIC freeertos task to global function pointer "I2STaskCode()"
 		AbstractTaskPtr_t I2STaskPtr = &I2STaskCode;
-		i2s_taskman->initTask("I2STaskManager", I2STaskPtr);
+		i2s_taskman->setTask("I2STaskManager", I2STaskPtr);
 
 		// Set the STATIC freertos queue
-		i2s_taskman->initQueue(&I2S_StaticQueue);
+		i2s_taskman->setQueue(&I2S_StaticQueue);
 		//
 
 		// External Control task instantiation on the heap at startup
@@ -85,14 +88,18 @@ void operator delete(void*)
 
 		// Set the statemachine
 		extctrlMachine = new StateMachine();
-		extctrl_taskman->initStateMachine(extctrlMachine);
+		// set the delay for the external control debounce
+		extctrl_debounceman = new DebounceManager(TIM14, 200);
+		extctrlMachine->setDebounceMan(extctrl_debounceman);
+		extctrl_taskman->setStateMachine(extctrlMachine);
+
 
 		// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
 		AbstractTaskPtr_t ExtCtrlTaskPtr = &ExtCtrlTaskCode;
-		extctrl_taskman->initTask("ExtCtrlTaskManager", ExtCtrlTaskPtr);
+		extctrl_taskman->setTask("ExtCtrlTaskManager", ExtCtrlTaskPtr);
 
 		// Set the STATIC freertos queue
-		extctrl_taskman->initQueue(&ExtCtrl_StaticQueue);
+		extctrl_taskman->setQueue(&ExtCtrl_StaticQueue);
 		//
 
 		// start FullDuplex I2S DMA

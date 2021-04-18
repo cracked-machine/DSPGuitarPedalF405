@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="class T"/>
+		<item key="selection" value="extctrlMachine"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="false"/>
+		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="class T"/>
-			<item value="testStaticQueue"/>
-			<item value="i2s_StaticQueue"/>
-			<item value="isr_taskman"/>
-			<item value="ISR"/>
-			<item value="initIsrTask"/>
-			<item value="__weak"/>
-			<item value="hdma_i2s2_ext_rx"/>
-			<item value="IRQHandler"/>
-			<item value="overwrite"/>
-			<item value="back"/>
-			<item value="INCLUDE_vTaskDelayUntil"/>
-			<item value="StaticQueue_t"/>
-			<item value="txBuf"/>
-			<item value="rxBuf"/>
+			<item value="st"/>
+			<item value="em"/>
+			<item value="EventMachine"/>
+			<item value="I2STaskCode"/>
+			<item value="taskptr"/>
+			<item value="I2STaskPtr"/>
+			<item value="AbstractStateMachine"/>
+			<item value="StateMachine"/>
+			<item value=";"/>
+			<item value="void"/>
+			<item value="ExtCtrlStateMachine"/>
+			<item value="void "/>
+			<item value="virtual void"/>
+			<item value="AbstractMachine"/>
+			<item value=" = 0"/>
 		</list>
 		<list key="replacehistory">
-			<item value="class T, class stackSize"/>
-			<item value="I2S_StaticQueue"/>
-			<item value="extctrl_taskman"/>
-			<item value="ExtCtrl"/>
-			<item value="initTask"/>
-			<item value="__attribute__((weak))"/>
-			<item value="I2S_StaticQueue_t"/>
-			<item value="pTxData"/>
-			<item value="pRxData"/>
-			<item value="ISRTaskCode"/>
-			<item value="debounceTim14"/>
-			<item value="::"/>
+			<item value="extctrlMachine"/>
+			<item value="StateMachine"/>
+			<item value="ExtCtrlTaskPtr"/>
+			<item value="I2STaskPtr"/>
+			<item value=" override;"/>
+			<item value="virtual void"/>
+			<item value="AbstractStateMachine"/>
+			<item value="void AbstractState::"/>
+			<item value="void"/>
 			<item value=""/>
-			<item value="TIM_TypeDef* "/>
-			<item value="volatile"/>
+			<item value=";"/>
+			<item value="BaseState"/>
+			<item value="debounceTim14."/>
+			<item value="=    0,"/>
+			<item value="class T, class stackSize"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

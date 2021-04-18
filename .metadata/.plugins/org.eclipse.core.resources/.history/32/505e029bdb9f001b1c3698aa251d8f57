@@ -1,0 +1,23 @@
+/*
+ * StateList.hpp
+ *
+ *  Created on: 18 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef FSM_STATELIST_HPP_
+#define FSM_STATELIST_HPP_
+
+#include <map>
+
+class StateList
+{
+public:
+
+private:
+	std::map<size_t, AbstractState*> theMap = {{1, 'a'}, {3, 'b'}, {5, 'c'}, {7, 'd'}};
+};
+
+
+
+#endif /* FSM_STATELIST_HPP_ */

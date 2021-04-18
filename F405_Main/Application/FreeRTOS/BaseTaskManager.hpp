@@ -18,7 +18,7 @@
 #include "StateMachine.hpp"
 
 //
-// function pointer of task, to be passed as argument to BaseTaskManager::initTask
+// function pointer of task, to be passed as argument to BaseTaskManager::setTask
 typedef void (*AbstractTaskPtr_t)(void*);
 
 
@@ -36,13 +36,13 @@ public:
 		theQueueStorageArea = new uint8_t[ queueSize * sizeof( T ) ];
 	}
 
-	void initTask(		const char* _taskname,
+	void setTask(		const char* _taskname,
 						AbstractTaskPtr_t taskptr);
 
-	void initQueue(StaticQueue_t *_staticQueue);
+	void setQueue(StaticQueue_t *_staticQueue);
 
-	void initStateMachine(StateMachine *pMachine);
-	//void initStateMachine(AbstractStateContainer *pStates);
+	void setStateMachine(StateMachine *pMachine);
+	//void setStateMachine(AbstractStateContainer *pStates);
 
 	TaskHandle_t getTask();
 	QueueHandle_t getQueue();
@@ -67,7 +67,7 @@ private:
 };
 
 template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::initTask(	const char* _taskname,
+void BaseTaskManager<T, stateMachineType>::setTask(	const char* _taskname,
 										AbstractTaskPtr_t taskptr)
 {
 	// Create the task without using any dynamic memory allocation.
@@ -82,7 +82,7 @@ void BaseTaskManager<T, stateMachineType>::initTask(	const char* _taskname,
 }
 
 template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::initQueue(StaticQueue_t *_staticQueue)
+void BaseTaskManager<T, stateMachineType>::setQueue(StaticQueue_t *_staticQueue)
 {
 	// Create a queue capable of containing 10 uint64_t values.
 	theQueue = ISRQueueCreateStatic(
@@ -93,8 +93,8 @@ void BaseTaskManager<T, stateMachineType>::initQueue(StaticQueue_t *_staticQueue
 }
 
 template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::initStateMachine(StateMachine *pMachine)
-//void BaseTaskManager<T>::initStateMachine(AbstractStateContainer *pStates)
+void BaseTaskManager<T, stateMachineType>::setStateMachine(StateMachine *pMachine)
+//void BaseTaskManager<T>::setStateMachine(AbstractStateContainer *pStates)
 {
 	theStateMachine = pMachine;
 }

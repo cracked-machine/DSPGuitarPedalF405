@@ -15,21 +15,20 @@
 void FxDisabledState::evFootswitchA(StateMachine *machine)
 {
 	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
-#ifdef USE_HAL_DRIVER
-	HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
-	// toggle relay for clean/FX signal path
-	HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
 
-#endif
+	#ifdef USE_HAL_DRIVER
+		HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_SET);
+		// toggle relay for clean/FX signal path
+		HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+	#endif
+
 	std::cout << "FxDisabledState::evFootswitchA" << std::endl;
 }
 
 void FxDisabledState::evFootswitchB(StateMachine *machine)
 {
-	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
-#ifdef USE_HAL_DRIVER
-	HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_SET);
-#endif
+
 }
 
 void FxDisabledState::evUserSwitchA(StateMachine *machine)

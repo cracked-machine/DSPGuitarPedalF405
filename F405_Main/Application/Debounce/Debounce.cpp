@@ -20,7 +20,7 @@ bool DebounceManager::check_debounce()
 	bool res = false;
 
 	interrupt_time = theTimer->CNT;
-	std::cout << "CNT:" << interrupt_time << " - lastCNT:" << last_interrupt_time << " - diff:" << (interrupt_time - last_interrupt_time) << std::endl;
+	//std::cout << "CNT:" << interrupt_time << " - lastCNT:" << last_interrupt_time << " - diff:" << (interrupt_time - last_interrupt_time) << std::endl;
 	if ((interrupt_time - last_interrupt_time) > delay)
 	{
 		res = true;

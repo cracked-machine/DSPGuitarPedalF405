@@ -16,14 +16,12 @@ class FxDisabledState : public AbstractState
 {
 public:
 
-
 	   void evFootswitchA(StateMachine *machine) override;
 	   void evFootswitchB(StateMachine *machine) override;
 	   void evUserSwitchA(StateMachine *machine) override;
 	   void evUserSwitchB(StateMachine *machine) override;
 	   void evRotaryEncoderA(StateMachine *machine) override;
 	   void evRotaryEncoderB(StateMachine *machine) override;
-
 
 };
 

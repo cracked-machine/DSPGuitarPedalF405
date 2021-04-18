@@ -16,7 +16,8 @@ AbstractState::~AbstractState() {}
 
 void AbstractState::setState(StateMachine *machine, AbstractState *st)
 {
-	machine->state = st;
+	if(machine != NULL)
+		machine->state = st;
 }
 
 

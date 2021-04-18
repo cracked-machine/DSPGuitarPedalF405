@@ -90,6 +90,7 @@
 					<sourceEntries>
 						<entry excluding="Debounce|FREERTOS_ROOT|FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Debounce"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="FSM"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>

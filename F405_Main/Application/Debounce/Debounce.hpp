@@ -13,7 +13,7 @@
 #ifdef USE_HAL_DRIVER
 	#include "stm32f4xx_hal.h"
 #else
-	#include "test_debounce.h"
+	#include <test_hal_testenv.h>
 #endif
 
 

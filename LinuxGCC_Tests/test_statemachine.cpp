@@ -26,27 +26,62 @@
  * 		SOFTWARE.
  */
 
-/*
-#include "CppUTest/TestHarness.h"
-//#include <StateMachine.hpp>
 
-//StateMachine *extctrlMachine = NULL;
+#include "CppUTest/TestHarness.h"
+#include <StateMachine.hpp>
+
+#include <test_hal_testenv.h>
+
+//TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
+
+
 
 TEST_GROUP(StateMachineGroup)
 {
+	void setup()
+	{
+
+	}
+
+	void teardown()
+	{
+
+	}
 };
 
 TEST(StateMachineGroup, StateMachineTest)
 {
+	// create instance of timer periph for debounceman
+	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 
-	extctrlMachine = new StateMachine();
-	extctrlMachine.evFootswitchA();
+	// create statemachine instance
+	StateMachine *extctrlMachine = new StateMachine();
 
-	CHECK(extctrlMachine.getState() == extctrlMachine.theStateList[StateMachine::FX_ENABLED]);
+	// create debounce manager instance
+	DebounceManager *extctrl_debounceman = new DebounceManager(TIM14, 100);
+	extctrlMachine->setDebounceMan(extctrl_debounceman);
 
-	extctrlMachine.evFootswitchB();
 
-	CHECK(extctrlMachine.getState() == extctrlMachine.theStateList[StateMachine::FX_DISABLED]);
 
+	//run tests
+	extctrlMachine->evFootswitchA();
+
+	CHECK(extctrlMachine->getState() == extctrlMachine->theStateList[StateMachine::FX_ENABLED]);
+
+	TIM14->CNT = 200;
+
+	extctrlMachine->evFootswitchA();
+
+	CHECK(extctrlMachine->getState() == extctrlMachine->theStateList[StateMachine::FX_DISABLED]);
+
+	delete extctrl_debounceman;
+	extctrl_debounceman = nullptr;
+
+	delete extctrlMachine;
+	extctrlMachine = nullptr;
+
+	free(TIM14);
+	TIM14 = NULL;
 }
-*/
+
+

@@ -1,0 +1,50 @@
+/*
+ * FxDisabledState.cpp
+ *
+ *  Created on: 13 Apr 2021
+ *      Author: chris
+ */
+
+#include "FxDisabledState.hpp"
+
+#include "StateMachine.hpp"
+#include <iostream>
+
+// FxDisabledState class
+
+void FxDisabledState::evFootswitchA(StateMachine *machine)
+{
+	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
+
+	#ifdef USE_HAL_DRIVER
+		HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
+		// toggle relay for clean/FX signal path
+		HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+	#endif
+
+	std::cout << "FxDisabledState::evFootswitchA" << std::endl;
+}
+
+void FxDisabledState::evFootswitchB(StateMachine *machine)
+{
+
+}
+
+void FxDisabledState::evUserSwitchA(StateMachine *machine)
+{
+
+}
+void FxDisabledState::evUserSwitchB(StateMachine *machine)
+{
+
+}
+void FxDisabledState::evRotaryEncoderA(StateMachine *machine)
+{
+
+}
+void FxDisabledState::evRotaryEncoderB(StateMachine *machine)
+{
+
+}
+
+
