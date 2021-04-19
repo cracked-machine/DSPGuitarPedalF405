@@ -13,6 +13,14 @@
 	template <size_t S>
 	using StereoBlockU16 = std::array<uint16_t, S>;
 
+	template <size_t S>
+	using MonoBlockF32 = std::array<float, S>;
+
+	template <size_t S>
+	using IIRState = std::array<float, S>;
+
+	template <size_t S>
+	using IIRCoeffSet = std::array<float, S>;
 
 
 

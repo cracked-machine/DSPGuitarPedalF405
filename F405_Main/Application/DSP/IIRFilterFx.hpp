@@ -31,13 +31,13 @@ public:
 
 private:
 
-	arm_biquad_casd_df1_inst_f32 iirsettings_l, iirsettings_r;
+	arm_biquad_casd_df1_inst_f32 left_iir_settings, right_iir_settings;
 
-	std::array<float, 4> iir_l_state{};
-	std::array<float, 4> iir_r_state{};
+	IIRState<4> iir_left_state{};
+	IIRState<4> iir_right_state{};
 
 	//IIR low-pass, fs=48kHz, f_cut=1kHz, q=0.707
-	std::array<float,5> iir_coeffs = {
+	IIRCoeffSet<5> iir_coeffs = {
 		0.003916123487156427f,
 		0.007832246974312854f,
 		0.003916123487156427f,
@@ -45,16 +45,16 @@ private:
 		-0.8310041056111546
 	};
 
-	static const uint16_t IIR_BLOCK_SIZE_FLOAT = 512;
+	static const uint16_t QTR_BLK_SIZE_F32 = 512;
+	static const uint16_t HALF_BLK_SIZE_F32 = (QTR_BLK_SIZE_F32 * 2);
 
-	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> l_buf_in{};
+	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_in{};
+	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_in{};
+	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_out{};
+	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_out{};
 
-	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> r_buf_in{};
-	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> l_buf_out{};
-	std::array<float, IIRFilterFx::IIR_BLOCK_SIZE_FLOAT * 2> r_buf_out{};
-
-	int offset_r_ptr;
-	int offset_w_ptr, w_ptr;
+	int offset_read_ptr;
+	int offset_write_ptr, write_ptr;
 
 };
 

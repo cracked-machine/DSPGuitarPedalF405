@@ -26,7 +26,7 @@ class DebounceManager
 
 public:
 
-	DebounceManager(TIM_TypeDef*  _tim, size_t _delay);
+	DebounceManager(TIM_TypeDef*  pTim, size_t pDelay);
 
 	void start();
 	bool check_debounce();

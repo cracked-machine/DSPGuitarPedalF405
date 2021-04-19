@@ -10,8 +10,8 @@
 
 IIRFilterFx::IIRFilterFx()
 {
-	  arm_biquad_cascade_df1_init_f32 ( &iirsettings_l, 1, (float*)iir_coeffs.data(), (float*)iir_l_state.data());
-	  arm_biquad_cascade_df1_init_f32 ( &iirsettings_r, 1, (float*)iir_coeffs.data(), (float*)iir_r_state.data());
+	  arm_biquad_cascade_df1_init_f32 ( &left_iir_settings, 1, (float*)iir_coeffs.data(), (float*)iir_left_state.data());
+	  arm_biquad_cascade_df1_init_f32 ( &right_iir_settings, 1, (float*)iir_coeffs.data(), (float*)iir_right_state.data());
 }
 
 #ifndef ENABLE_IIR_BYPASS
@@ -21,9 +21,9 @@ IIRFilterFx::IIRFilterFx()
 		if(pRxBuf == nullptr || pTxBuf == nullptr)
 			error_handler();
 
-		  offset_r_ptr = 0;
-		  offset_w_ptr = 0;
-		  w_ptr = 0;
+		  offset_read_ptr = 0;
+		  offset_write_ptr = 0;
+		  write_ptr = 0;
 
 		  process_all_u16(pRxBuf, pTxBuf);
 	}
@@ -34,9 +34,9 @@ IIRFilterFx::IIRFilterFx()
 		if(pRxBuf == nullptr || pTxBuf == nullptr)
 			error_handler();
 
-		offset_r_ptr = HALF_BLK_SIZE_U16;
-		offset_w_ptr = IIRFilterFx::IIR_BLOCK_SIZE_FLOAT;
-		w_ptr = IIRFilterFx::IIR_BLOCK_SIZE_FLOAT;
+		offset_read_ptr = HALF_BLK_SIZE_U16;
+		offset_write_ptr = IIRFilterFx::QTR_BLK_SIZE_F32;
+		write_ptr = IIRFilterFx::QTR_BLK_SIZE_F32;
 
 		process_all_u16(pRxBuf, pTxBuf);
 	}
@@ -48,27 +48,27 @@ IIRFilterFx::IIRFilterFx()
 			error_handler();
 
 		  //restore input sample buffer to float array
-		  for (size_t i = offset_r_ptr; i  <offset_r_ptr + HALF_BLK_SIZE_U16; i = i + 4) {
-			  l_buf_in[w_ptr] = (float)((int) ((*pRxBuf)[i] << 16 ) 	| ( *pRxBuf)[i+1] );
-			  r_buf_in[w_ptr] = (float)((int) ((*pRxBuf)[i+2] << 16 ) 	| ( *pRxBuf)[i+3] );
-			  w_ptr++;
+		  for (size_t i = offset_read_ptr; i  <offset_read_ptr + HALF_BLK_SIZE_U16; i = i + 4) {
+			  left_buf_in[write_ptr] = (float)((int) ((*pRxBuf)[i] << 16 ) 	| ( *pRxBuf)[i+1] );
+			  right_buf_in[write_ptr] = (float)((int) ((*pRxBuf)[i+2] << 16 ) 	| ( *pRxBuf)[i+3] );
+			  write_ptr++;
 		  }
 
 
 		  //process IIR
-		  arm_biquad_cascade_df1_f32 (&iirsettings_l, &l_buf_in[offset_w_ptr], &l_buf_out[offset_w_ptr], IIRFilterFx::IIR_BLOCK_SIZE_FLOAT);
-		  arm_biquad_cascade_df1_f32 (&iirsettings_r, &r_buf_in[offset_w_ptr], &r_buf_out[offset_w_ptr], IIRFilterFx::IIR_BLOCK_SIZE_FLOAT);
+		  arm_biquad_cascade_df1_f32 (&left_iir_settings, &left_buf_in[offset_write_ptr], &left_buf_out[offset_write_ptr], IIRFilterFx::QTR_BLK_SIZE_F32);
+		  arm_biquad_cascade_df1_f32 (&right_iir_settings, &right_buf_in[offset_write_ptr], &right_buf_out[offset_write_ptr], IIRFilterFx::QTR_BLK_SIZE_F32);
 
 
 		  //restore processed float-array to output sample-buffer
-		  w_ptr = offset_w_ptr;
+		  write_ptr = offset_write_ptr;
 
-		  for (size_t i = offset_r_ptr; i  <offset_r_ptr + HALF_BLK_SIZE_U16; i = i + 4) {
-				(*pTxBuf)[i] =  	( ((int)l_buf_out[w_ptr]) >> 16 ) & 0xFFFF;
-				(*pTxBuf)[i+1] = 	( (int)l_buf_out[w_ptr] ) & 0xFFFF;
-				(*pTxBuf)[i+2] = 	( ((int)l_buf_out[w_ptr] ) >> 16 ) & 0xFFFF;
-				(*pTxBuf)[i+3] = 	( (int)l_buf_out[w_ptr] ) & 0xFFFF;
-				w_ptr++;
+		  for (size_t i = offset_read_ptr; i  <offset_read_ptr + HALF_BLK_SIZE_U16; i = i + 4) {
+				(*pTxBuf)[i] =  	( ((int)left_buf_out[write_ptr]) >> 16 ) & 0xFFFF;
+				(*pTxBuf)[i+1] = 	( (int)left_buf_out[write_ptr] ) & 0xFFFF;
+				(*pTxBuf)[i+2] = 	( ((int)left_buf_out[write_ptr] ) >> 16 ) & 0xFFFF;
+				(*pTxBuf)[i+3] = 	( (int)left_buf_out[write_ptr] ) & 0xFFFF;
+				write_ptr++;
 		  }
 
 	}

@@ -52,11 +52,11 @@
 	#define BLOCK_SIZE_FLOAT 512
 	//#define HALF_BLK_SIZE_U16 2048
 
-	arm_biquad_casd_df1_inst_f32 iirsettings_l, iirsettings_r;
+	arm_biquad_casd_df1_inst_f32 left_iir_settings, right_iir_settings;
 
 	//4 delayed samples per biquad
-	float iir_l_state [4];
-	float iir_r_state [4];
+	float iir_left_state [4];
+	float iir_right_state [4];
 
 
 	//IIR low-pass, fs=48kHz, f_cut=1kHz, q=0.707
@@ -73,15 +73,15 @@
 
 //	uint16_t rxBuf[HALF_BLK_SIZE_U16*2];
 //	uint16_t txBuf[HALF_BLK_SIZE_U16*2];
-	float l_buf_in [BLOCK_SIZE_FLOAT*2];
-	float r_buf_in [BLOCK_SIZE_FLOAT*2];
-	float l_buf_out [BLOCK_SIZE_FLOAT*2];
-	float r_buf_out [BLOCK_SIZE_FLOAT*2];
+	float left_buf_in [BLOCK_SIZE_FLOAT*2];
+	float right_buf_in [BLOCK_SIZE_FLOAT*2];
+	float left_buf_out [BLOCK_SIZE_FLOAT*2];
+	float right_buf_out [BLOCK_SIZE_FLOAT*2];
 
 	//uint8_t callback_state = 0;
 
-	int offset_r_ptr;
-	int offset_w_ptr, w_ptr;
+	int offset_read_ptr;
+	int offset_write_ptr, write_ptr;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -108,8 +108,8 @@ void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s){
 
 void do_iir_init()
 {
-  arm_biquad_cascade_df1_init_f32 ( &iirsettings_l, 1, &iir_coeffs[0], &iir_l_state[0]);
-  arm_biquad_cascade_df1_init_f32 ( &iirsettings_r, 1, &iir_coeffs[0], &iir_r_state[0]);
+  arm_biquad_cascade_df1_init_f32 ( &left_iir_settings, 1, &iir_coeffs[0], &iir_left_state[0]);
+  arm_biquad_cascade_df1_init_f32 ( &right_iir_settings, 1, &iir_coeffs[0], &iir_right_state[0]);
 
 
   //int res = testfunc();
@@ -124,40 +124,40 @@ void do_iir_loop()
 
 	  //decide if it was half or cplt callback
 	  if (callback_state == 1)   {
-			  offset_r_ptr = 0;
-			  offset_w_ptr = 0;
-			  w_ptr = 0;
+			  offset_read_ptr = 0;
+			  offset_write_ptr = 0;
+			  write_ptr = 0;
 	  }
 
 	  else if (callback_state == 2) {
-		  offset_r_ptr = HALF_BLK_SIZE_U16;
-		  offset_w_ptr = BLOCK_SIZE_FLOAT;
-		  w_ptr = BLOCK_SIZE_FLOAT;
+		  offset_read_ptr = HALF_BLK_SIZE_U16;
+		  offset_write_ptr = BLOCK_SIZE_FLOAT;
+		  write_ptr = BLOCK_SIZE_FLOAT;
 	  }
 
 
 	  //restore input sample buffer to float array
-	  for (int i=offset_r_ptr; i<offset_r_ptr+HALF_BLK_SIZE_U16; i=i+4) {
-		  l_buf_in[w_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
-		  r_buf_in[w_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
-		  w_ptr++;
+	  for (int i=offset_read_ptr; i<offset_read_ptr+HALF_BLK_SIZE_U16; i=i+4) {
+		  left_buf_in[write_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
+		  right_buf_in[write_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
+		  write_ptr++;
 	  }
 
 
 	  //process IIR
-	  arm_biquad_cascade_df1_f32 (&iirsettings_l, &l_buf_in[offset_w_ptr], &l_buf_out[offset_w_ptr],BLOCK_SIZE_FLOAT);
-	  arm_biquad_cascade_df1_f32 (&iirsettings_r, &r_buf_in[offset_w_ptr], &r_buf_out[offset_w_ptr],BLOCK_SIZE_FLOAT);
+	  arm_biquad_cascade_df1_f32 (&left_iir_settings, &left_buf_in[offset_write_ptr], &left_buf_out[offset_write_ptr],BLOCK_SIZE_FLOAT);
+	  arm_biquad_cascade_df1_f32 (&right_iir_settings, &right_buf_in[offset_write_ptr], &right_buf_out[offset_write_ptr],BLOCK_SIZE_FLOAT);
 
 
 	  //restore processed float-array to output sample-buffer
-	  w_ptr = offset_w_ptr;
+	  write_ptr = offset_write_ptr;
 
-	  for (int i=offset_r_ptr; i<offset_r_ptr+HALF_BLK_SIZE_U16; i=i+4) {
-			txBuf[i] =  (((int)l_buf_out[w_ptr])>>16)&0xFFFF;
-			txBuf[i+1] = ((int)l_buf_out[w_ptr])&0xFFFF;
-			txBuf[i+2] = (((int)l_buf_out[w_ptr])>>16)&0xFFFF;
-			txBuf[i+3] = ((int)l_buf_out[w_ptr])&0xFFFF;
-			w_ptr++;
+	  for (int i=offset_read_ptr; i<offset_read_ptr+HALF_BLK_SIZE_U16; i=i+4) {
+			txBuf[i] =  (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
+			txBuf[i+1] = ((int)left_buf_out[write_ptr])&0xFFFF;
+			txBuf[i+2] = (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
+			txBuf[i+3] = ((int)left_buf_out[write_ptr])&0xFFFF;
+			write_ptr++;
 	  }
 
 	  callback_state = 0;
