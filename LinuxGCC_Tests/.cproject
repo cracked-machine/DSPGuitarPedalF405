@@ -31,11 +31,15 @@
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/StateMachine}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/include}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.cpp.compiler.option.preprocessor.def.562004113" name="Defined symbols (-D)" superClass="gnu.cpp.compiler.option.preprocessor.def" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DISABLE_ERROR_HANDLER"/>
@@ -50,13 +54,16 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/G474RE_Main/Application/buffers}&quot;"/>
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include"/>
 									<listOptionValue builtIn="false" value="/home/chris/CMSIS_5.7.0_Build/CMSIS/Include"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Inc}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_RTT/RTT}&quot;"/>
-									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FSM}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/Debounce}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/StateMachine}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="gnu.c.compiler.option.preprocessor.def.symbols.1917544331" name="Defined symbols (-D)" superClass="gnu.c.compiler.option.preprocessor.def.symbols" useByScannerDiscovery="false" valueType="definedSymbols">
 									<listOptionValue builtIn="false" value="DISABLE_ERROR_HANDLER"/>
@@ -88,15 +95,20 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.433669244" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
 						</toolChain>
 					</folderInfo>
 					<sourceEntries>
-						<entry excluding="Debounce|FREERTOS_ROOT|FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry excluding="TaskManager|StateMachine|STATEMACHINE|Debounce|FREERTOS_ROOT|FSM|Src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
 						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="Debounce"/>
-						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="FSM"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="StateMachine"/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="TaskManager"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
@@ -136,6 +148,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.379181340" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -154,6 +170,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1372919347" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -180,6 +200,10 @@
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/include}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests/FREERTOS_ROOT/portable/ThirdParty/GCC/Posix}&quot;"/>
 									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/LinuxGCC_Tests}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/TaskManager}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/Application/FreeRTOS}&quot;"/>
+									<listOptionValue builtIn="false" value="&quot;${workspace_loc:/F405_Main/FREERTOS_ROOT/portable/GCC/ARM_CM4F}&quot;"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.470518714" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>

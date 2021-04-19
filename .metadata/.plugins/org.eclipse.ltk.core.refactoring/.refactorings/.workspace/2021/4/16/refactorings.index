@@ -19,3 +19,5 @@
 1618588659230	Delete resource 'F405_Main/Application/FreeRTOS/I2STaskManager.hpp'
 1618588662781	Delete resource 'F405_Main/Application/FreeRTOS/ExtCtrlTaskManager.hpp'
 1618588666050	Delete resource 'F405_Main/Application/FreeRTOS/ExtCtrlTaskManager.cpp'
+1618840097100	Delete resource 'LinuxGCC_Tests/FSM'
+1618840993430	Delete resource 'LinuxGCC_Tests/STATEMACHINE'

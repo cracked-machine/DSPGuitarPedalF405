@@ -57,7 +57,7 @@ TEST(DebounceManagerGroup, DebounceManager_NullPtrTest)
 {
 	DebounceManager *dman = new DebounceManager(nullptr, 100);
 	dman->start();
-	CHECK_FALSE(dman->isStarted());
+	CHECK(dman->getErrorStatus() == dman->NULL_TIMER_ERR);
 	delete dman;
 	dman = nullptr;
 }

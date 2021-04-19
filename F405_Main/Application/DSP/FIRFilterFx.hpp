@@ -9,7 +9,7 @@
 #define DSP_FIRFILTERFX_HPP_
 
 
-#include "AbstractFx.hpp"
+#include <AbstractFx.hpp>
 
 class FIRFilterFx : public AbstractFx
 {

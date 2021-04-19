@@ -16,7 +16,7 @@ DebounceManager::DebounceManager(TIM_TypeDef*  pTim, size_t pDelay)
 	// input conditioning checks
 	if(!pTim)
 	{
-		error_handler();
+		error_handler(NULL_TIMER_ERR);
 	}
 	else
 	{
@@ -39,7 +39,7 @@ bool DebounceManager::isStarted()
 {
 	if(theTimer == nullptr)
 	{
-		return false;
+		error_handler(NULL_TIMER_ERR);
 	}
 	if((theTimer->CR1 & TIM_CR1_CEN_Msk) == TIM_CR1_CEN_Msk)
 	{
@@ -52,7 +52,7 @@ void DebounceManager::start()
 {
 	if(theTimer == nullptr)
 	{
-		error_handler();
+		error_handler(NULL_TIMER_ERR);
 	}
 	else
 	{
@@ -76,9 +76,15 @@ bool DebounceManager::check_debounce()
 	return res;
 }
 
-void DebounceManager::error_handler()
+DebounceManager::FatalErrTypes DebounceManager::getErrorStatus()
 {
-	std::cout << "Caught error at DebounceManager::error_handle()" << std::endl;
+	return status;
+}
+
+void DebounceManager::error_handler(DebounceManager::FatalErrTypes pError)
+{
+	std::cout << "Caught error(" << pError << ") at DebounceManager::error_handle()" << std::endl;
+	status = pError;
 	while(FOREVER)
 	{
 		// wait here on target

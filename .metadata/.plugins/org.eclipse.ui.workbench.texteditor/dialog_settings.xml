@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="error_handler();"/>
+		<item key="selection" value="NULL_TIMER_ERR"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="return;"/>
-			<item value="new"/>
-			<item value="array&lt;uint16_t, STEREO_BLOCK_SIZE_U16&gt;"/>
-			<item value="iir_coeffs"/>
-			<item value="IIR_BLOCK_SIZE_FLOAT"/>
-			<item value="txBuf"/>
-			<item value="rxBuf"/>
-			<item value="debounceTim14"/>
-			<item value="at"/>
-			<item value="st"/>
-			<item value="em"/>
-			<item value="EventMachine"/>
-			<item value="I2STaskCode"/>
+			<item value="NULL_TIMER_PTR"/>
+			<item value="I2STaskManager_t"/>
+			<item value="i2s_taskman"/>
 			<item value="taskptr"/>
-			<item value="I2STaskPtr"/>
+			<item value="queueSize"/>
+			<item value="stackSize"/>
+			<item value="_taskname"/>
+			<item value="new"/>
+			<item value=";"/>
+			<item value="volatile uint32_t "/>
+			<item value="&#x09; volatile uint32_t "/>
+			<item value="_delay"/>
+			<item value="_tim"/>
+			<item value="return;"/>
+			<item value="array&lt;uint16_t, STEREO_BLOCK_SIZE_U16&gt;"/>
 		</list>
 		<list key="replacehistory">
+			<item value="NULL_TIMER_ERR"/>
+			<item value="TestTaskManager_t"/>
+			<item value="taskman"/>
+			<item value="pTaskPtr"/>
+			<item value="pQueueSize"/>
+			<item value="pStackSize"/>
+			<item value="pTaskName"/>
+			<item value=" = 0;"/>
+			<item value="TIM14-&gt;"/>
+			<item value="pDelay"/>
+			<item value="pTim"/>
 			<item value="error_handler();"/>
 			<item value="&#x09;if(machine == nullptr)&#x0A;&#x09;&#x09;return;&#x0A;&#x09;&#x0A;&#x09;// do state behavior here:"/>
 			<item value="stereoBlockArrayU16_t"/>
 			<item value="IIRFilterFx::IIR_BLOCK_SIZE_FLOAT"/>
-			<item value="(*pTxBuf)"/>
-			<item value="(*pRxBuf)"/>
-			<item value="theDebounceMan"/>
-			<item value="extctrlMachine"/>
-			<item value="StateMachine"/>
-			<item value="ExtCtrlTaskPtr"/>
-			<item value="I2STaskPtr"/>
-			<item value=" override;"/>
-			<item value="virtual void"/>
-			<item value="AbstractStateMachine"/>
-			<item value="void AbstractState::"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

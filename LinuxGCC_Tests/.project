@@ -31,9 +31,14 @@
 			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce</location>
 		</link>
 		<link>
-			<name>FSM</name>
+			<name>StateMachine</name>
 			<type>2</type>
-			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM</location>
+			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine</location>
+		</link>
+		<link>
+			<name>TaskManager</name>
+			<type>2</type>
+			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager</location>
 		</link>
 	</linkedResources>
 	<variableList>

@@ -1,0 +1,69 @@
+/*
+ * FxEnabledState.cpp
+ *
+ *  Created on: 13 Apr 2021
+ *      Author: chris
+ */
+
+#include <FxEnabledState.hpp>
+#include <StateMachine.hpp>
+#include <iostream>
+
+
+// FxEnabledState class
+void FxEnabledState::evFootswitchA(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+	setState(machine, machine->theStateList[StateMachine::FX_DISABLED]);
+
+	#ifdef USE_HAL_DRIVER
+		HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_RESET);
+
+		// toggle relay for clean/FX signal path
+		HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+	#endif
+
+	std::cout << "FxEnabledState::evFootswitchA" << std::endl;
+}
+
+void FxEnabledState::evFootswitchB(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+}
+
+void FxEnabledState::evUserSwitchA(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+}
+void FxEnabledState::evUserSwitchB(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+}
+void FxEnabledState::evRotaryEncoderA(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+}
+void FxEnabledState::evRotaryEncoderB(StateMachine *machine)
+{
+	if(machine == nullptr)
+		error_handler();
+
+	// do state behavior here:
+}
+

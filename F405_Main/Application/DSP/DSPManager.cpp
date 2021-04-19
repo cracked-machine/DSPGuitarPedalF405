@@ -6,7 +6,7 @@
  */
 
 
-#include "DSPManager.hpp"
+#include <DSPManager.hpp>
 
 DSPManager::DSPManager(AbstractFx* pFx)
 {

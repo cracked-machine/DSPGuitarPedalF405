@@ -32,12 +32,9 @@
 #include "CppUTest/CommandLineTestRunner.h"
 
 
-
-
-
 int main()
 {
-	std::cout << "hello";
+	std::cout << "Initialising tests." << std::endl;
 	const char * av_override[] = {  };
 	CommandLineTestRunner::RunAllTests(0, av_override);
 	return 1;

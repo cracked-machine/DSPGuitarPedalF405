@@ -1,0 +1,35 @@
+/*
+ * StateList.hpp
+ *
+ *  Created on: 18 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef STATEMACHINE_STATELIST_HPP_
+#define STATEMACHINE_STATELIST_HPP_
+
+#include "AbstractState.hpp"
+#include <map>
+
+class AbstractState;
+#include "FxDisabledState.hpp"
+#include "/FxEnabledState.hpp"
+
+class StateList
+{
+public:
+
+	enum statekeys
+	{
+		FX_DISABLED = 0,
+		FX_ENABLED
+	};
+
+	AbstractState* getAt(StateList::statekeys _key);
+
+private:
+	std::map<size_t, AbstractState*> theMap = {{0, new FxDisabledState()}, {1, new FxEnabledState()}};
+};
+
+
+#endif /* STATEMACHINE_STATELIST_HPP_ */

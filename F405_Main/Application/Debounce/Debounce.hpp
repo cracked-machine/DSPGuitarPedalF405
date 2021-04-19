@@ -30,9 +30,19 @@ public:
 
 	void start();
 	bool check_debounce();
-	void error_handler();
+
 
 	bool isStarted();
+
+	enum FatalErrTypes
+	{
+		STATUS_OK = 0,
+		NULL_TIMER_ERR,
+		TIMER_STOPPED_ERR
+	};
+
+	DebounceManager::FatalErrTypes getErrorStatus();
+	void error_handler(DebounceManager::FatalErrTypes pError);
 
 private:
 
@@ -40,6 +50,8 @@ private:
 	size_t delay;
 	size_t interrupt_time;
 	size_t last_interrupt_time;
+
+	DebounceManager::FatalErrTypes status = STATUS_OK;
 
 };
 

@@ -23,10 +23,10 @@
 
 #include <pedal_io_test.hpp>
 
-#include "PeriphInterrupts.hpp"
+#include <PeriphInterrupts.hpp>
 #include <BaseTaskManager.hpp>
 #include <StateMachine.hpp>
-#include "DSPManager.hpp"
+#include <DSPManager.hpp>
 
 
 
@@ -66,7 +66,7 @@
 	void appmain()
 	{
 
-		std::cout << "hello\n";
+		std::cout << "Initialising system." << std::endl;
 
 		setupPeriphInterrupts();
 

@@ -1,0 +1,60 @@
+/*
+ * test_taskman.cpp
+ *
+ *  Created on: 19 Apr 2021
+ *      Author: chris
+ */
+
+
+
+
+#include "CppUTest/TestHarness.h"
+#include <BaseTaskManager.hpp>
+
+#include <test_hal_testenv.h>
+
+
+TEST_GROUP(TaskManGroup)
+{
+	void setup()
+	{
+
+	}
+
+	void teardown()
+	{
+
+	}
+};
+
+
+TEST(TaskManGroup, TaskMan_ZeroTaskStackSizeTest)
+{
+	I2STaskManager_t *i2s_taskman = new  I2STaskManager_t(0, 1);
+
+	CHECK_FALSE(i2s_taskman->getTask());
+	delete i2s_taskman;
+}
+
+TEST(TaskManGroup, TaskMan_ZeroQueueSizeTest)
+{
+	I2STaskManager_t *i2s_taskman = new  I2STaskManager_t(200, 0);
+
+	CHECK_FALSE(i2s_taskman->getQueue());
+	delete i2s_taskman;
+}
+
+TEST(TaskManGroup, TaskMan_ZeroQueueAndStackSizeTest)
+{
+	I2STaskManager_t *i2s_taskman = new  I2STaskManager_t(0, 0);
+
+	CHECK_FALSE(i2s_taskman->getQueue());
+	delete i2s_taskman;
+}
+
+TEST(TaskManGroup, TaskMan_BlankTest)
+{
+	CHECK(true);
+}
+
+

@@ -1,0 +1,80 @@
+/*
+ * StateMachine.hpp
+ *
+ *  Created on: Apr 12, 2021
+ *      Author: chris
+ */
+
+
+#ifndef INC_STATEMACHINE_HPP_
+#define INC_STATEMACHINE_HPP_
+
+#pragma once
+
+#include <StateMachine/AbstractState.hpp>
+class AbstractState;
+
+#include <Debounce.hpp>
+#include <StateMachine/FxDisabledState.hpp>
+#include <StateMachine/FxEnabledState.hpp>
+
+
+#include <array>
+
+#ifdef USE_HAL_DRIVER
+	#include "stm32f4xx_hal.h"
+	#include "main.h"
+#else
+	#include <test_hal_testenv.h>
+#endif
+
+#ifndef DISABLE_ERROR_HANDLER
+	#define FOREVER 1
+#else
+	#define FOREVER 0
+#endif
+
+//#define MAX_NUM_STATE 2
+
+class StateMachine
+{
+	friend class AbstractState;
+public:
+	StateMachine();
+	~StateMachine();
+
+	void evFootswitchA();
+	void evFootswitchB();
+	void evUserSwitchA();
+	void evUserSwitchB();
+	void evRotaryEncoderA();
+	void evRotaryEncoderB();
+	AbstractState* getState();
+	void setDebounceMan(DebounceManager *pDebounceMan);
+	void error_handler();
+	DebounceManager* getDebounceMan();
+
+	static const size_t MAX_NUM_STATE = 2;
+
+	// create all system states at startup, they are not deleted.
+	std::array<AbstractState*, MAX_NUM_STATE> theStateList = {
+		new FxDisabledState(),
+		new FxEnabledState()
+	};
+
+	enum states_enum
+	{
+		FX_DISABLED,
+		FX_ENABLED
+	};
+
+private:
+
+	// the current system state
+	AbstractState* state;
+
+	// manage the debounce for all system events
+	DebounceManager *theDebounceMan;
+};
+
+#endif // INC_STATEMACHINE_HPP_ */
