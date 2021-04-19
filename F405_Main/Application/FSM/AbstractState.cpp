@@ -16,8 +16,21 @@ AbstractState::~AbstractState() {}
 
 void AbstractState::setState(StateMachine *machine, AbstractState *st)
 {
-	if(machine != NULL)
-		machine->state = st;
+	if(machine == nullptr || st == nullptr)
+		error_handler();
+
+	// set new system state
+	machine->state = st;
+}
+
+void AbstractState::error_handler()
+{
+	do
+	{
+		// wait here for assistance
+	}
+	while(1);
+
 }
 
 

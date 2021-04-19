@@ -9,13 +9,14 @@
 #define DSP_ABSTRACTFX_HPP_
 
 
-
 using namespace std;
 
 #include "stdint.h"
 #include <array>
 
-#include "arm_math.h"
+#ifdef USE_HAL_DRIVER
+	#include "arm_math.h"
+#endif
 
 #include "BlockTypes.hpp"
 
@@ -41,6 +42,7 @@ public:
 	virtual void process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
 									StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
 
+	void error_handler();
 private:
 
 };

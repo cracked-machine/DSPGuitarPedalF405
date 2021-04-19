@@ -18,6 +18,9 @@ IIRFilterFx::IIRFilterFx()
 	void IIRFilterFx::process_half_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
 										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
+		if(pRxBuf == nullptr || pTxBuf == nullptr)
+			error_handler();
+
 		  offset_r_ptr = 0;
 		  offset_w_ptr = 0;
 		  w_ptr = 0;
@@ -28,6 +31,9 @@ IIRFilterFx::IIRFilterFx()
 	void IIRFilterFx::process_full_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
 										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
+		if(pRxBuf == nullptr || pTxBuf == nullptr)
+			error_handler();
+
 		offset_r_ptr = HALF_BLK_SIZE_U16;
 		offset_w_ptr = IIRFilterFx::IIR_BLOCK_SIZE_FLOAT;
 		w_ptr = IIRFilterFx::IIR_BLOCK_SIZE_FLOAT;
@@ -38,6 +44,9 @@ IIRFilterFx::IIRFilterFx()
 	void IIRFilterFx::process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
 										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
+		if(pRxBuf == nullptr || pTxBuf == nullptr)
+			error_handler();
+
 		  //restore input sample buffer to float array
 		  for (size_t i = offset_r_ptr; i  <offset_r_ptr + HALF_BLK_SIZE_U16; i = i + 4) {
 			  l_buf_in[w_ptr] = (float)((int) ((*pRxBuf)[i] << 16 ) 	| ( *pRxBuf)[i+1] );

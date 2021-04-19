@@ -33,10 +33,12 @@
 
 
 
+
+
 int main()
 {
 	std::cout << "hello";
-	const char * av_override[] = { };
+	const char * av_override[] = {  };
 	CommandLineTestRunner::RunAllTests(0, av_override);
 	return 1;
 }

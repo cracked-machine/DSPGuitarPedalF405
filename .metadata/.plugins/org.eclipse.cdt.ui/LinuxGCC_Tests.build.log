@@ -1,15 +1,6 @@
-12:11:58 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+13:47:02 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-Building file: ../test_statemachine.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FSM" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_statemachine.d" -MT"test_statemachine.o" -o "test_statemachine.o" "../test_statemachine.cpp"
-Finished building: ../test_statemachine.cpp
- 
-Building target: LinuxGCC_Tests
-Invoking: GCC C++ Linker
-g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./FSM/AbstractState.o ./FSM/FxDisabledState.o ./FSM/FxEnabledState.o ./FSM/StateList.o ./FSM/StateMachine.o  ./Debounce/Debounce.o  ./test_blank.o ./test_debounce.o ./test_statemachine.o ./testmain.o   -lHost_CppUTest -lpthread
-Finished building target: LinuxGCC_Tests
- 
+make: Nothing to be done for 'all'.
 
-12:11:59 Build Finished. 0 errors, 0 warnings. (took 653ms)
+13:47:02 Build Finished. 0 errors, 0 warnings. (took 208ms)
 

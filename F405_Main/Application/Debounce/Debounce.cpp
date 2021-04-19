@@ -9,9 +9,55 @@
 #include <iostream>
 
 
+DebounceManager::DebounceManager(TIM_TypeDef*  pTim, size_t pDelay)
+{
+	theTimer = nullptr;
+
+	// input conditioning checks
+	if(!pTim)
+	{
+		error_handler();
+	}
+	else
+	{
+		if(pDelay < 0 || pDelay > 65535)
+			pDelay = 200;
+
+		// init members
+		theTimer = pTim;
+		delay = pDelay;
+		last_interrupt_time = 0;
+		interrupt_time = 0;
+
+		// set the timer counter to max resolution
+		theTimer->PSC = 65535;
+		theTimer->ARR = 65535;
+	}
+}
+
+bool DebounceManager::isStarted()
+{
+	if(theTimer == nullptr)
+	{
+		return false;
+	}
+	if((theTimer->CR1 & TIM_CR1_CEN_Msk) == TIM_CR1_CEN_Msk)
+	{
+		return true;
+	}
+	return false;
+}
+
 void DebounceManager::start()
 {
-	theTimer->CR1 |= TIM_CR1_CEN_Msk;
+	if(theTimer == nullptr)
+	{
+		error_handler();
+	}
+	else
+	{
+		theTimer->CR1 |= TIM_CR1_CEN_Msk;
+	}
 }
 
 
@@ -28,5 +74,16 @@ bool DebounceManager::check_debounce()
 
 	last_interrupt_time = interrupt_time;
 	return res;
+}
+
+void DebounceManager::error_handler()
+{
+	std::cout << "Caught error at DebounceManager::error_handle()" << std::endl;
+	while(FOREVER)
+	{
+		// wait here on target
+	}
+
+
 }
 

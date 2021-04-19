@@ -21,10 +21,18 @@ class AbstractState;
 
 #include <array>
 
-#ifndef USE_HAL_DRIVER
+#ifdef USE_HAL_DRIVER
+	#include "stm32f4xx_hal.h"
+	#include "main.h"
+#else
 	#include <test_hal_testenv.h>
 #endif
 
+#ifndef DISABLE_ERROR_HANDLER
+	#define FOREVER 1
+#else
+	#define FOREVER 0
+#endif
 
 //#define MAX_NUM_STATE 2
 
@@ -41,6 +49,10 @@ public:
 	void evUserSwitchB();
 	void evRotaryEncoderA();
 	void evRotaryEncoderB();
+	AbstractState* getState();
+	void setDebounceMan(DebounceManager *pDebounceMan);
+	void error_handler();
+	DebounceManager* getDebounceMan();
 
 	static const size_t MAX_NUM_STATE = 2;
 
@@ -50,23 +62,18 @@ public:
 		new FxEnabledState()
 	};
 
-
-
 	enum states_enum
 	{
 		FX_DISABLED,
 		FX_ENABLED
 	};
 
-	AbstractState* getState();
-	void setDebounceMan(DebounceManager *pDebounceMan);
 private:
 
 	// the current system state
 	AbstractState* state;
 
 	// manage the debounce for all system events
-	//DebounceManager debounceTim14  = {DebounceManager(TIM14, 800)};
 	DebounceManager *theDebounceMan;
 };
 

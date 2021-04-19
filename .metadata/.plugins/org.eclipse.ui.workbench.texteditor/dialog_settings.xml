@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="stereoBlockArrayU16_t"/>
-		<item key="wrap" value="false"/>
+		<item key="selection" value="error_handler();"/>
+		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="return;"/>
+			<item value="new"/>
 			<item value="array&lt;uint16_t, STEREO_BLOCK_SIZE_U16&gt;"/>
 			<item value="iir_coeffs"/>
 			<item value="IIR_BLOCK_SIZE_FLOAT"/>
@@ -21,10 +23,10 @@
 			<item value="I2STaskCode"/>
 			<item value="taskptr"/>
 			<item value="I2STaskPtr"/>
-			<item value="AbstractStateMachine"/>
-			<item value="StateMachine"/>
 		</list>
 		<list key="replacehistory">
+			<item value="error_handler();"/>
+			<item value="&#x09;if(machine == nullptr)&#x0A;&#x09;&#x09;return;&#x0A;&#x09;&#x0A;&#x09;// do state behavior here:"/>
 			<item value="stereoBlockArrayU16_t"/>
 			<item value="IIRFilterFx::IIR_BLOCK_SIZE_FLOAT"/>
 			<item value="(*pTxBuf)"/>
@@ -38,8 +40,6 @@
 			<item value="virtual void"/>
 			<item value="AbstractStateMachine"/>
 			<item value="void AbstractState::"/>
-			<item value="void"/>
-			<item value=""/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

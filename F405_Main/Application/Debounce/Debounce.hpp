@@ -9,44 +9,30 @@
 #define DEBOUNCE_DEBOUNCE_HPP_
 
 #include <assert.h>
-
 #ifdef USE_HAL_DRIVER
 	#include "stm32f4xx_hal.h"
 #else
 	#include <test_hal_testenv.h>
 #endif
 
-
+#ifndef DISABLE_ERROR_HANDLER
+#define FOREVER 1
+#else
+#define FOREVER 0
+#endif
 
 class DebounceManager
 {
 
 public:
 
-	DebounceManager(TIM_TypeDef*  _tim, size_t _delay)
-	{
-		// input conditioning checks
-		assert(_tim != NULL);
-
-		if(_delay < 0 || _delay > 65535)
-			_delay = 65535;
-
-		// init members
-		theTimer = _tim;
-		delay = _delay;
-		last_interrupt_time = 0;
-		interrupt_time = 0;
-
-		// set the timer counter to max resolution
-		theTimer->PSC = 65535;
-		theTimer->ARR = 65535;
-	}
-
-
+	DebounceManager(TIM_TypeDef*  _tim, size_t _delay);
 
 	void start();
 	bool check_debounce();
+	void error_handler();
 
+	bool isStarted();
 
 private:
 
@@ -56,12 +42,6 @@ private:
 	size_t last_interrupt_time;
 
 };
-
-
-
-
-
-
 
 
 #endif /* DEBOUNCE_DEBOUNCE_HPP_ */

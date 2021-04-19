@@ -13,7 +13,6 @@
 StateMachine::StateMachine()
 {
 	// set the default system state to fx bypass
-	state = NULL;
 	state = theStateList[StateMachine::FX_DISABLED];
 
 }
@@ -33,7 +32,12 @@ AbstractState * StateMachine::getState()
 
 void StateMachine::setDebounceMan(DebounceManager *pDebounceMan)
 {
-	if(pDebounceMan != NULL)
+	theDebounceMan = nullptr;
+	if(pDebounceMan == nullptr)
+	{
+		error_handler();
+	}
+	else
 	{
 		theDebounceMan = pDebounceMan;
 		// start the debounce timer
@@ -41,6 +45,10 @@ void StateMachine::setDebounceMan(DebounceManager *pDebounceMan)
 	}
 }
 
+DebounceManager* StateMachine::getDebounceMan()
+{
+	return theDebounceMan;
+}
 
 void StateMachine::evFootswitchA()
 {
@@ -78,6 +86,15 @@ void StateMachine::evRotaryEncoderB()
 		state->evRotaryEncoderB(this);
 }
 
+
+void StateMachine::error_handler()
+{
+	std::cout << "Caught error at StateMachine::error_handle()" << std::endl;
+	while(FOREVER)
+	{
+		// wait here on target
+	}
+}
 
 
 

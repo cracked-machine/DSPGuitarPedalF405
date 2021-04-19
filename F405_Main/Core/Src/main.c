@@ -50,7 +50,7 @@
 /* USER CODE BEGIN PV */
 
 	#define BLOCK_SIZE_FLOAT 512
-	//#define BLOCK_SIZE_U16 2048
+	//#define HALF_BLK_SIZE_U16 2048
 
 	arm_biquad_casd_df1_inst_f32 iirsettings_l, iirsettings_r;
 
@@ -71,8 +71,8 @@
 
 
 
-//	uint16_t rxBuf[BLOCK_SIZE_U16*2];
-//	uint16_t txBuf[BLOCK_SIZE_U16*2];
+//	uint16_t rxBuf[HALF_BLK_SIZE_U16*2];
+//	uint16_t txBuf[HALF_BLK_SIZE_U16*2];
 	float l_buf_in [BLOCK_SIZE_FLOAT*2];
 	float r_buf_in [BLOCK_SIZE_FLOAT*2];
 	float l_buf_out [BLOCK_SIZE_FLOAT*2];
@@ -113,7 +113,7 @@ void do_iir_init()
 
 
   //int res = testfunc();
-  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, BLOCK_SIZE_U16);
+  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, HALF_BLK_SIZE_U16);
 
 
 }
@@ -130,14 +130,14 @@ void do_iir_loop()
 	  }
 
 	  else if (callback_state == 2) {
-		  offset_r_ptr = BLOCK_SIZE_U16;
+		  offset_r_ptr = HALF_BLK_SIZE_U16;
 		  offset_w_ptr = BLOCK_SIZE_FLOAT;
 		  w_ptr = BLOCK_SIZE_FLOAT;
 	  }
 
 
 	  //restore input sample buffer to float array
-	  for (int i=offset_r_ptr; i<offset_r_ptr+BLOCK_SIZE_U16; i=i+4) {
+	  for (int i=offset_r_ptr; i<offset_r_ptr+HALF_BLK_SIZE_U16; i=i+4) {
 		  l_buf_in[w_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
 		  r_buf_in[w_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
 		  w_ptr++;
@@ -152,7 +152,7 @@ void do_iir_loop()
 	  //restore processed float-array to output sample-buffer
 	  w_ptr = offset_w_ptr;
 
-	  for (int i=offset_r_ptr; i<offset_r_ptr+BLOCK_SIZE_U16; i=i+4) {
+	  for (int i=offset_r_ptr; i<offset_r_ptr+HALF_BLK_SIZE_U16; i=i+4) {
 			txBuf[i] =  (((int)l_buf_out[w_ptr])>>16)&0xFFFF;
 			txBuf[i+1] = ((int)l_buf_out[w_ptr])&0xFFFF;
 			txBuf[i+2] = (((int)l_buf_out[w_ptr])>>16)&0xFFFF;

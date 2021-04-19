@@ -46,3 +46,8 @@ void AbstractFx::process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 
 {
 	// do something for all samples here if needed
 }
+
+void AbstractFx::error_handler()
+{
+
+}
