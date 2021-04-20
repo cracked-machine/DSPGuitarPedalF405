@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="LastUsedHeaderTemplate" value="Default C header template"/>
+	<item key="LastUsedHeaderTemplate" value="Default C++ header template"/>
 	<item key="LastUsedSourceTemplate" value="Default C++ source template"/>
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="--fstack-protector-strong"/>
 	<item key="org.eclipse.cdt.uiformatter_page.white_space.c_view.inner" value="0"/>
 	<item key="org.eclipse.cdt.uiformatter_page.white_space_tab_page.node" value="0"/>
 	<item key="org.eclipse.cdt.uiformatter_page.line_wrapping_tab_page.last_category_index" value="1"/>
@@ -11,6 +10,7 @@
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="728"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="218"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="27"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="-Wl,--print-gc-sections"/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">
@@ -34,5 +34,21 @@
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
 	<section name="PDOMSearchPage">
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.text.QuickOutline">
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_WIDTH" value="400"/>
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_HEIGHT" value="320"/>
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_X_ORIGIN" value="752"/>
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_Y_ORIGIN" value="465"/>
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.cdt.internal.ui.text.COutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="true"/>
+	</section>
+	<section name="org.eclipse.cdt.internal.ui.typehierarchy.QuickHierarchy">
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_WIDTH" value="400"/>
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_HEIGHT" value="320"/>
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_X_ORIGIN" value="770"/>
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_Y_ORIGIN" value="450"/>
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.cdt.internal.ui.typehierarchy.THInformationControlDIALOG_USE_PERSISTED_LOCATION" value="true"/>
 	</section>
 </section>

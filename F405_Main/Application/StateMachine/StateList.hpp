@@ -28,7 +28,7 @@ public:
 	AbstractState* getAt(StateList::statekeys _key);
 
 private:
-	std::map<size_t, AbstractState*> theMap = {{0, new FxDisabledState()}, {1, new FxEnabledState()}};
+	std::map<size_t, AbstractState*> theMap = {{0, new  FxDisabledState()}, {1, new  FxEnabledState()}};
 };
 
 

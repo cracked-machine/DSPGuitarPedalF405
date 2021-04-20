@@ -58,8 +58,8 @@ public:
 
 	// create all system states at startup, they are not deleted.
 	std::array<AbstractState*, MAX_NUM_STATE> theStateList = {
-		new FxDisabledState(),
-		new FxEnabledState()
+		new  FxDisabledState(),
+		new  FxEnabledState()
 	};
 
 	enum states_enum

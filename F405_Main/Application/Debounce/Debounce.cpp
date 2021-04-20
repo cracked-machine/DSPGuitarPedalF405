@@ -89,7 +89,6 @@ void DebounceManager::error_handler(DebounceManager::FatalErrTypes pError)
 	{
 		// wait here on target
 	}
-
-
 }
+
 

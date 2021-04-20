@@ -54,8 +54,8 @@ public:
 		}
 		else
 		{
-			theTaskStack = new StackType_t[pStackSize];
-			theQueueStorageArea = new uint8_t[ pQueueSize * sizeof( T ) ];
+			theTaskStack = new  StackType_t[pStackSize];
+			theQueueStorageArea = new  uint8_t[ pQueueSize * sizeof( T ) ];
 		}
 
 	}

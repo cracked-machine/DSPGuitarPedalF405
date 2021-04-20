@@ -44,6 +44,8 @@ public:
 	DebounceManager::FatalErrTypes getErrorStatus();
 	void error_handler(DebounceManager::FatalErrTypes pError);
 
+
+
 private:
 
 	TIM_TypeDef*  theTimer;

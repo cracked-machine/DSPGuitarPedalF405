@@ -17,6 +17,7 @@ class UniCombFilter : public AbstractFx
 {
 public:
 	UniCombFilter(size_t pSize, float pGain);
+
 	virtual ~UniCombFilter();
 
 	float processSample(float pSampleIn);

@@ -9826,3 +9826,430 @@ java.lang.Exception: Failed to get disassembly from file: /home/chris/DSPGuitarP
 
 !ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 17:23:58.964
 !MESSAGE Existing sessions are:
+!SESSION 2021-04-20 17:43:54.464 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-20 17:44:03.212
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-20 17:44:03.274
+!MESSAGE Log4j initialized with config file /home/chris/DSPGuitarPedalF405/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-20 17:44:10.323
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-20 17:44:10.725
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.346
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 4 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.346
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.347
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 4 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.347
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.427
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 4 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.427
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.429
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 4 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.429
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.430
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 4 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 18:01:29.430
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 18:25:02.889
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 19:40:57.028
+!MESSAGE Request for monitor: '66^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 19:40:57.028
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x0)->uxBasePriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 19:40:57.029
+!MESSAGE Request for monitor: '67^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 19:40:57.029
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x0)->uxPriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 19:40:57.029
+!MESSAGE Request for monitor: '68^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 19:40:57.029
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x0)->pxTopOfStack
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 20:16:12.482
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:52:08.005
+!MESSAGE Request for monitor: '65^error,msg="Cannot access memory at address 0xd20393c"' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:52:08.005
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0xd2038f8)->uxBasePriority
+Error message from debugger back end:
+Cannot access memory at address 0xd20393c
+!STACK 0
+java.lang.Exception: Cannot access memory at address 0xd20393c
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:52:08.007
+!MESSAGE Request for monitor: '66^error,msg="Cannot access memory at address 0xd203924"' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:52:08.007
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0xd2038f8)->uxPriority
+Error message from debugger back end:
+Cannot access memory at address 0xd203924
+!STACK 0
+java.lang.Exception: Cannot access memory at address 0xd203924
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:52:08.026
+!MESSAGE Request for monitor: '67^error,msg="Cannot access memory at address 0xd2038f8"' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:52:08.026
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0xd2038f8)->pxTopOfStack
+Error message from debugger back end:
+Cannot access memory at address 0xd2038f8
+!STACK 0
+java.lang.Exception: Cannot access memory at address 0xd2038f8
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:59:32.609
+!MESSAGE Request for monitor: '63^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:59:32.609
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x7f362b2)->uxBasePriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:59:32.610
+!MESSAGE Request for monitor: '64^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:59:32.610
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x7f362b2)->uxPriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 20:59:32.610
+!MESSAGE Request for monitor: '65^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 20:59:32.610
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x7f362b2)->pxTopOfStack
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.013
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.013
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.014
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.014
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.080
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.080
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.082
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.083
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.083
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 78 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 21:40:17.084
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 21:45:18.758
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 21:48:06.632
+!MESSAGE Request for monitor: '68^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 21:48:06.632
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x800374f)->uxBasePriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 21:48:06.634
+!MESSAGE Request for monitor: '69^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 21:48:06.634
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x800374f)->uxPriority
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-20 21:48:06.634
+!MESSAGE Request for monitor: '70^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-20 21:48:06.634
+!MESSAGE Failed to execute MI command:
+-data-evaluate-expression ((tskTCB*)0x800374f)->pxTopOfStack
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 21:58:56.313
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:702)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 22:01:05.142
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:19.964
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 98 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:19.964
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:19.964
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 98 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:19.964
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.034
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 98 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.035
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.037
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 98 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.037
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.042
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 98 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:14:20.042
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.574
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 100 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.574
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.576
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 100 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.576
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.576
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 100 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:16:26.577
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.529
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 101 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.530
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.531
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 101 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.532
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.532
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 101 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:17:17.532
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:05.982
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:05.982
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:05.983
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:05.984
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.076
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.077
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.079
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.079
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.079
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 102 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-20 22:19:06.079
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 22:19:47.944
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-20 22:33:49.745
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:702)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

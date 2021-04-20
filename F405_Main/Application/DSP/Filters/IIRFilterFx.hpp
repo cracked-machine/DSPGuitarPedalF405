@@ -11,6 +11,8 @@
 //#define ENABLE_IIR_BYPASS
 
 #include <AbstractFx.hpp>
+#include <iostream>
+#include <ResourceManager.hpp>
 
 
 
@@ -28,6 +30,11 @@ public:
 		void process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
 								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
 	#endif
+
+	void *operator new(std::size_t count) {
+		std::cout << "allocating " << count << " bytes, " << how_many_elements<IIRFilterFx>(count) << " items\n";
+		return ::operator new[](count);
+	}
 
 private:
 

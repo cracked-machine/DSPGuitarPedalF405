@@ -10,16 +10,17 @@
 
 #include <vector>
 #include <iostream>
+#include <ResourceManager.hpp>
 
-static uint32_t usedmem = 0;
-static const uint32_t totalmem = 128000;
-static const uint32_t maxthresholdmem = 80000;
 
 template <class Tp>
 struct NAlloc {
     typedef Tp value_type;
     NAlloc() = default;
-    template <class T> NAlloc(const NAlloc<T>&) {}
+    template <class T> NAlloc(const NAlloc<T>&, int test)
+	{
+    	std::cout << test << std::endl;
+    }
 
     Tp* allocate(std::size_t n)
     {
@@ -59,17 +60,38 @@ public:
 	BoundedVector(size_t pCapacity_limit);
 	bool push_back(T pItem);
 	auto begin();
+	auto end();
 
 	typename std::vector<T, NAlloc<T>>::iterator iterator;
+	auto size();
+	auto empty();
 
 
 private:
 	size_t capacity_limit;
-	std::vector<T, NAlloc<T>> v1;
+	std::vector<T, NAlloc<T>> v1{1};
 	bool fatalerror = false;
 
 
 };
+
+template<class T>
+auto BoundedVector<T>::end()
+{
+	return v1.end();
+}
+
+template<class T>
+auto BoundedVector<T>::size()
+{
+	return v1.size();
+}
+
+template<class T>
+auto BoundedVector<T>::empty()
+{
+	return v1.empty();
+}
 
 template<class T>
 auto BoundedVector<T>::begin()
@@ -89,6 +111,7 @@ BoundedVector<T>::BoundedVector(size_t pCapacity_limit)
 	{
 
 		v1.reserve(this->capacity_limit);
+
 		//std::cout << "Success! Vector size: " << v1.size() << " Capacity: " << v1.capacity() << std::endl;
 	}
 	else
