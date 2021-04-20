@@ -1,0 +1,25 @@
+/*
+ * Reverb.hpp
+ *
+ *  Created on: Apr 20, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_REVERB_REVERB_HPP_
+#define DSP_REVERB_REVERB_HPP_
+
+#include <UniCombFilter.hpp>
+#include <IIRCombFilter.hpp>
+
+class BasicReverb
+{
+
+public:
+	BasicReverb();
+	~BasicReverb();
+
+
+};
+
+
+#endif /* DSP_REVERB_REVERB_HPP_ */

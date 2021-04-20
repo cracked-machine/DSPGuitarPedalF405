@@ -23681,3 +23681,66 @@
 2021-04-20 09:28:54,845 [INFO] I2sManager:510 - AudioClock : 48828Divider : 4Odd : 0
 2021-04-20 09:28:54,879 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] toolchainItems.length=====1
 2021-04-20 09:28:55,188 [INFO] OpenFileManager:294 - Restore cursor
+2021-04-20 12:14:32,310 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.option.internal.toolchain.type.1780081313.546167561 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,312 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.option.internal.toolchain.version.1243112341.149140678 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,313 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_mcu.317616252.1519012547 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,314 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_cpuid.1298978200.825047543 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,315 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_coreid.1965650217.1226658899 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,315 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.fpu.1287430693.2073776869 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,316 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.floatabi.1112239645.1764809694 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,317 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.target_board.455006016.1361270975 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 12:14:32,317 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Managed Build system manifest file error: Option com.st.stm32cube.ide.mcu.gnu.managedbuild.option.defaults.1091164032.646341820 uses a null category that is invalid in its context. The option was ignored.
+2021-04-20 13:25:55,654 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 13:25:55,658 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 13:25:55,664 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 13:25:55,666 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-20 13:25:55,668 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-20 13:25:55,669 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-20 13:25:55,670 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-20 13:25:55,675 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-20 13:25:55,678 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-20 13:25:55,682 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-20 13:47:59,778 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-20 13:47:59,782 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 13:47:59,784 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 13:47:59,786 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 13:47:59,787 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-20 13:47:59,789 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-20 13:47:59,791 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-20 13:47:59,793 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-20 13:47:59,795 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-20 13:47:59,797 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-20 13:47:59,799 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-20 16:02:19,341 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 16:02:19,347 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 16:02:19,351 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 16:05:30,451 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-20 16:05:30,458 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-20 16:05:30,460 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-20 16:08:02,962 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 16:08:02,967 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 16:08:02,972 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 16:08:02,976 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-20 16:08:02,978 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-20 16:08:02,981 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-20 16:08:02,984 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-20 16:09:06,652 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[0]
+2021-04-20 16:09:06,658 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 16:09:06,660 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 16:09:06,662 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 16:09:06,663 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-20 16:09:06,666 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-20 16:09:06,668 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-20 16:09:06,670 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-20 16:09:06,672 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-20 16:09:06,673 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList
+2021-04-20 16:09:06,675 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xSuspendedTaskList
+2021-04-20 16:09:25,123 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[1]
+2021-04-20 16:09:25,129 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[2]
+2021-04-20 16:09:25,131 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[3]
+2021-04-20 16:09:25,134 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[4]
+2021-04-20 16:09:25,135 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[5]
+2021-04-20 16:09:25,144 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL pxReadyTasksLists[6]
+2021-04-20 16:09:25,146 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList1
+2021-04-20 16:09:25,148 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xDelayedTaskList2
+2021-04-20 16:09:25,150 [INFO] LogOutputStream:76 - [STDOUT_REDIRECT] FAIL xPendingReadyList

@@ -14,3 +14,7 @@
 1618578560999	Rename resource 'InputTaskManager.cpp'
 1618578570366	Rename resource 'InputTaskManager.hpp'
 1618839978687	Rename resource 'FSM'
+1618929636865	Rename resource 'FIRCombFilter.cpp'
+1618929644052	Rename resource 'FIRCombFilter.hpp'
+1618929655408	Rename resource 'AllPassFilter.cpp'
+1618929673709	Rename resource 'AllPassFilter.hpp'

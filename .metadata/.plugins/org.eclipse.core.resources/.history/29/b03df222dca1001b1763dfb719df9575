@@ -1,0 +1,20 @@
+/*
+ * FIRCombFilter.cpp
+ *
+ *  Created on: Apr 20, 2021
+ *      Author: chris
+ */
+
+#include <BoundedVector.hpp>
+
+
+	FIRCombFilter::FIRCombFilter()
+	{
+		buffer = new
+
+	}
+
+	virtual FIRCombFilter::~FIRCombFilter()
+	{
+
+	}

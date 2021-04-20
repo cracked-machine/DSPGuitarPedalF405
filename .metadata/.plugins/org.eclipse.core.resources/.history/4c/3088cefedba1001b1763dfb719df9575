@@ -1,0 +1,20 @@
+/*
+ * FIRCombFilter.cpp
+ *
+ *  Created on: Apr 20, 2021
+ *      Author: chris
+ */
+
+
+
+
+	FIRCombFilter::FIRCombFilter()
+	{
+
+
+	}
+
+	virtual ~FIRCombFilter::FIRCombFilter()
+	{
+
+	}

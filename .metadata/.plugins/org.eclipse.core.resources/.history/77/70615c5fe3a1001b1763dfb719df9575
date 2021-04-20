@@ -1,0 +1,37 @@
+/*
+ * FIRCombFilter.cpp
+ *
+ *  Created on: Apr 20, 2021
+ *      Author: chris
+ */
+
+
+#include <FIRCombFilter.hpp>
+
+
+
+FIRCombFilter::FIRCombFilter(size_t pSize, float pGain)
+{
+	buffer = new CombFilterBuffer(pSize);
+	buffer->iterator = buffer->begin();
+	gain = pGain;
+	limit = 1.0f * pSize;
+}
+
+FIRCombFilter::~FIRCombFilter()
+{
+
+}
+
+void FIRCombFilter::processSample(float pSampleIn)
+{
+	float Xn = pSampleIn;
+	float readback = buffer->iterator;
+	float tmp = readback * gain + Xn;
+	buffer->iterator = tmp;
+	buffer->iterator++;
+	if (buffer->iterator == limit) cf0_p = 0;
+	return readback;
+}
+
+

@@ -5,11 +5,10 @@
  *      Author: chris
  */
 
+#ifdef USE_HAL_DRIVER
 #include <IIRFilterFx.hpp>
-
-
-
-
+#endif
+#include <Reverb.hpp>
 
 class DSPManager
 {

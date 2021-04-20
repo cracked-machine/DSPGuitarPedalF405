@@ -1,0 +1,34 @@
+/*
+ * FIRCombFilter.hpp
+ *
+ *  Created on: 19 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_FILTERS_FIRCOMBFILTER_HPP_
+#define DSP_FILTERS_FIRCOMBFILTER_HPP_
+
+#include <BoundedVector.hpp>
+#include <AbstractFx.hpp>
+#include <iterator>
+
+typedef BoundedVector<float> CombFilterBuffer;
+
+class FIRCombFilter : public AbstractFx
+{
+public:
+	FIRCombFilter(size_t pSize);
+	virtual ~FIRCombFilter();
+
+
+private:
+	CombFilterBuffer *buffer;
+	float gain;
+	std::container_type::iterator it;
+
+
+};
+
+
+
+#endif /* DSP_FILTERS_FIRCOMBFILTER_HPP_ */

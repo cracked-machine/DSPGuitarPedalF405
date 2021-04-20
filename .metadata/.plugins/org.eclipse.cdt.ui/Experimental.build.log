@@ -1,15 +1,6 @@
-02:01:29 **** Incremental Build of configuration Debug for project Experimental ****
+16:24:30 **** Incremental Build of configuration Debug for project Experimental ****
 make all 
-Building file: ../main.cpp
-Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
-Finished building: ../main.cpp
- 
-Building target: Experimental
-Invoking: GCC C++ Linker
-g++  -o "Experimental"  ./main.o   
-Finished building target: Experimental
- 
+make: Nothing to be done for 'all'.
 
-02:01:29 Build Finished. 0 errors, 0 warnings. (took 713ms)
+16:24:31 Build Finished. 0 errors, 0 warnings. (took 279ms)
 
