@@ -1,0 +1,19 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 20 Apr 2021
+ *      Author: chris
+ */
+#include <vector>
+#include <iostream>
+
+int main()
+{
+	std::vector<int> test(5);
+	std::cout << "Size:" << test.size() << std::endl;
+	std::cout << "Capacity" << test.capacity() << std::endl;
+	test.reserve(10);
+	std::cout << "Size:" << test.size() << std::endl;
+	std::cout << "Capacity" << test.capacity() << std::endl;
+}
+

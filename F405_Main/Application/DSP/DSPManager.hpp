@@ -20,8 +20,12 @@ public:
 
 	void setFx(AbstractFx* pFx);
 	AbstractFx* getFx();
+
+	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
+	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
 private:
 	AbstractFx* theFx;
+
 
 };
 

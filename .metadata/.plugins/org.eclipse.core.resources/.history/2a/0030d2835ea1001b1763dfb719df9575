@@ -1,0 +1,20 @@
+/*
+ * FIRCombFilter.hpp
+ *
+ *  Created on: 19 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_FILTERS_FIRCOMBFILTER_HPP_
+#define DSP_FILTERS_FIRCOMBFILTER_HPP_
+
+
+class FIRCombFilter : public AbstractFx
+{
+	FIRCombFilter();
+	virtual ~FIRCombFilter();
+};
+
+
+
+#endif /* DSP_FILTERS_FIRCOMBFILTER_HPP_ */

@@ -1,0 +1,39 @@
+
+#include <vector>
+
+class BoundedVector
+{
+public:
+	BoundedVector(size_t max_size);
+	bool push_back(int pItem);
+private:
+	size_t capacity;
+	std::vector<int> v1;
+};
+
+BoundedVector::BoundedVector(size_t max_size)
+{
+	v1.reserve(max_size);
+	capacity = max_size;
+}
+
+bool BoundedVector::push_back(int pItem)
+{
+	if(v1.capacity() < capacity)
+	{
+		v1.push_back(pItem);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+
+}
+
+int main()
+{
+	BoundedVector bv1 = new BoundedVector(10);
+
+	return 1;
+}

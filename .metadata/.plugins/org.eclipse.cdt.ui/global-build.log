@@ -1,50 +1,24 @@
-20:40:50 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
-make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/AbstractState.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"StateMachine/AbstractState.d" -MT"StateMachine/AbstractState.o" -o "StateMachine/AbstractState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/AbstractState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/AbstractState.cpp
+11:15:21 **** Incremental Build of configuration Debug for project F405_Main ****
+make -j4 all 
+arm-none-eabi-g++ "../Application/AppMain.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -DUSE_FREERTOS -c -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Interrupts" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I../Core/Inc -I../Drivers/CMSIS/Include -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters" -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -fno-common -fstack-protector-strong -ffreestanding -fstack-usage -MMD -MP -MF"Application/AppMain.d" -MT"Application/AppMain.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Application/AppMain.o"
+arm-none-eabi-g++ -o "F405_Main.elf" @"objects.list"  -lF405_RTT -larm_cortexM4lf_math -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/F405_Main/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="F405_Main.map" -Wl,--gc-sections -static -L"/home/chris/DSPGuitarPedalF405/F405_RTT/Release" -L/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Lib/GCC --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: F405_Main.elf
  
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxDisabledState.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"StateMachine/FxDisabledState.d" -MT"StateMachine/FxDisabledState.o" -o "StateMachine/FxDisabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxDisabledState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxDisabledState.cpp
+arm-none-eabi-objdump -h -S  F405_Main.elf  > "F405_Main.list"
+arm-none-eabi-objcopy  -O binary  F405_Main.elf  "F405_Main.bin"
+arm-none-eabi-size   F405_Main.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 186300	    824	  10112	 197236	  30274	F405_Main.elf
+Finished building: default.size.stdout
  
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxEnabledState.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"StateMachine/FxEnabledState.d" -MT"StateMachine/FxEnabledState.o" -o "StateMachine/FxEnabledState.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxEnabledState.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxEnabledState.cpp
+Finished building: F405_Main.bin
  
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateMachine.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"StateMachine/StateMachine.d" -MT"StateMachine/StateMachine.o" -o "StateMachine/StateMachine.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateMachine.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateMachine.cpp
+Finished building: F405_Main.list
  
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"Debounce/Debounce.d" -MT"Debounce/Debounce.o" -o "Debounce/Debounce.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp
+11:15:33 **** Incremental Build of configuration Debug for project F405_Main ****
+make -j4 all 
+arm-none-eabi-size   F405_Main.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 186300	    824	  10112	 197236	  30274	F405_Main.elf
+Finished building: default.size.stdout
  
-Building file: ../test_debounce.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
-Finished building: ../test_debounce.cpp
- 
-Building file: ../test_statemachine.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_statemachine.d" -MT"test_statemachine.o" -o "test_statemachine.o" "../test_statemachine.cpp"
-Finished building: ../test_statemachine.cpp
- 
-Building file: ../test_taskman.cpp
-Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_taskman.d" -MT"test_taskman.o" -o "test_taskman.o" "../test_taskman.cpp"
-Finished building: ../test_taskman.cpp
- 
-Building target: LinuxGCC_Tests
-Invoking: GCC C++ Linker
-g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./StateMachine/AbstractState.o ./StateMachine/FxDisabledState.o ./StateMachine/FxEnabledState.o ./StateMachine/StateList.o ./StateMachine/StateMachine.o  ./Debounce/Debounce.o  ./test_blank.o ./test_debounce.o ./test_statemachine.o ./test_taskman.o ./testmain.o   -lHost_CppUTest -lpthread
-Finished building target: LinuxGCC_Tests
- 
-20:40:56 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
-make all 
-make: Nothing to be done for 'all'.

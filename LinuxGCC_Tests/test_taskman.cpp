@@ -86,6 +86,14 @@ TEST(TaskManGroup, TaskMan_ZeroQueueAndStackSizeTest)
 	delete taskman;
 }
 
+TEST(TaskManGroup, TaskMan_SetDspManTest)
+{
+	TestTaskManager_t *taskman = new  TestTaskManager_t(200, 1);
+	taskman->setDspManager(nullptr);
+	CHECK(taskman->getErrorStatus() == taskman->INVALID_DSP_MANAGER);
+	delete taskman;
+}
+
 TEST(TaskManGroup, TaskMan_SetTaskTest)
 {
 	TestTaskManager_t *taskman = new  TestTaskManager_t(200, 1);
@@ -93,6 +101,7 @@ TEST(TaskManGroup, TaskMan_SetTaskTest)
 	CHECK(taskman->getErrorStatus() == taskman->NULL_TASK_PTR_ERR);
 	delete taskman;
 }
+
 
 TEST(TaskManGroup, TaskMan_SetQueueTest)
 {

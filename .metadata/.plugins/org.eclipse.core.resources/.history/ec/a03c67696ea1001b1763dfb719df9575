@@ -1,0 +1,29 @@
+
+#include <vector>
+
+class BoundedVector
+{
+public:
+	BoundedVector(size_t max_size);
+	void push_back(int);
+private:
+
+	std::vector<int> v1;
+};
+
+BoundedVector::BoundedVector(size_t max_size)
+{
+
+}
+
+void BoundedVector::push_back(int)
+{
+
+}
+
+int main()
+{
+
+
+	return 1;
+}

@@ -11,6 +11,8 @@
 
 #include <StateMachine.hpp>
 
+class DSPManager;
+
 // FreeRTOS
 #include "FreeRTOS.h"
 #include "task.h"
@@ -76,12 +78,16 @@ public:
 	QueueHandle_t getQueue();
 	stateMachineType* getStateMachine();
 
+	DSPManager *getDspManager();
+	void setDspManager(DSPManager *pDspMan);
+
 	void queueSendFromISR_wrapper(T item);
 
 	enum taskFatalErrTypes
 	{
 		STATUS_OK = 0,
 		INVALID_STACK_QUEUE_SIZE_ERR,
+		INVALID_DSP_MANAGER,
 		NULL_TASK_PTR_ERR,
 		NULL_QUEUE_PTR_ERR,
 		NULL_STATEMACHINE_PTR_ERR,
@@ -89,6 +95,8 @@ public:
 	};
 
 	int getErrorStatus();
+
+
 
 private:
 
@@ -104,11 +112,29 @@ private:
 	// state machine instance
 	stateMachineType *theStateMachine;
 
+	DSPManager *theDspMan;
 
 	BaseTaskManager::taskFatalErrTypes status = STATUS_OK;
 	void error_handler(BaseTaskManager::taskFatalErrTypes pError);
 
 };
+
+
+template<class T, class stateMachineType>
+DSPManager* BaseTaskManager<T, stateMachineType>::getDspManager()
+{
+	return theDspMan;
+}
+
+template<class T, class stateMachineType>
+void BaseTaskManager<T, stateMachineType>::setDspManager(DSPManager *pDspMan)
+{
+	if(pDspMan == nullptr)
+		error_handler(INVALID_DSP_MANAGER);
+	else
+		theDspMan = pDspMan;
+}
+
 
 template<class T, class stateMachineType>
 void BaseTaskManager<T, stateMachineType>::setTask(	const char* pTaskName,
@@ -205,7 +231,7 @@ int BaseTaskManager<T, stateMachineType>::getErrorStatus()
 template<class T, class stateMachineType>
 void BaseTaskManager<T, stateMachineType>::error_handler(BaseTaskManager::taskFatalErrTypes pError)
 {
-	std::cout << "Caught error(" << pError << ") at BaseTaskManager<T, stateMachineType>::error_handler()" << std::endl;
+	std::cout << "Caught error(" << pError << ") at BaseTaskManager::error_handler()" << std::endl;
 	status = pError;
 	while(FOREVER)
 	{

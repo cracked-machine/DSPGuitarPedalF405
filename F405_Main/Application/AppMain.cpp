@@ -57,16 +57,22 @@
 	StateMachine *extctrlMachine = NULL;
 	DebounceManager *extctrl_debounceman;
 
-	DSPManager *dspman;
+
+
 	IIRFilterFx *iirfx;
 
-	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
-	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
+	// TODO move this to the stack
+	//StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
+	//StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
+
+	int32_t myGlobal;
 
 	void appmain()
 	{
 
 		std::cout << "Initialising system." << std::endl;
+
+
 
 		setupPeriphInterrupts();
 
@@ -86,6 +92,10 @@
 		// Set the STATIC freertos queue
 		i2s_taskman->setQueue(&I2S_StaticQueue);
 		//
+
+		iirfx = new IIRFilterFx();
+		i2s_taskman->setDspManager(new DSPManager(iirfx));
+
 
 		// External Control task instantiation on the heap at startup
 		//
@@ -107,11 +117,13 @@
 		extctrl_taskman->setQueue(&ExtCtrl_StaticQueue);
 		//
 
-		iirfx = new IIRFilterFx();
-		dspman = new DSPManager(iirfx);
+
 
 		// start FullDuplex I2S DMA
-		HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf.data(), rxBuf.data(), AbstractFx::HALF_BLK_SIZE_U16);
+		HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+										i2s_taskman->getDspManager()->txBuf.data(),
+										i2s_taskman->getDspManager()->rxBuf.data(),
+										AbstractFx::HALF_BLK_SIZE_U16);
 
 		// start the RTOS
 		vTaskStartScheduler();
@@ -139,12 +151,16 @@
 			{
 				if(item == 1)
 				{
-					iirfx->process_half_u16(&rxBuf, &txBuf);
+					iirfx->process_half_u16(	&i2s_taskman->getDspManager()->rxBuf,
+												&i2s_taskman->getDspManager()->txBuf);
+
 					LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
 				}
 				if(item == 2)
 				{
-					iirfx->process_full_u16(&rxBuf, &txBuf);
+					iirfx->process_full_u16(	&i2s_taskman->getDspManager()->rxBuf,
+												&i2s_taskman->getDspManager()->txBuf);
+
 					LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
 				}
 

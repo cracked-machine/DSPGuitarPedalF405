@@ -1,0 +1,51 @@
+#include <memory>
+#include <iostream>
+#include <vector>
+namespace my_allocator_namespace
+{
+    template <typename T, size_t capacity_limit>
+    class my_allocator: public std::allocator<T>
+    {
+    public:
+        typedef size_t size_type;
+        typedef T* pointer;
+        typedef const T* const_pointer;
+
+        template<typename _Tp1 >
+        struct rebind
+        {
+            typedef my_allocator<_Tp1 , capacity_limit> other;
+        };
+
+        pointer allocate(size_type n, const void *hint=0)
+        {
+        	std::cout << capacity_limit;
+            if( n  > capacity_limit ) {
+                return std::allocator<T>::allocate(capacity_limit );
+            }
+            return std::allocator<T>::allocate(n, hint);
+        }
+
+        void deallocate(pointer p, size_type n)
+        {
+            return std::allocator<T>::deallocate(p, n);
+        }
+
+        my_allocator() throw(): std::allocator<T>() {  }
+        my_allocator(const my_allocator &a) throw(): std::allocator<T>(a) { }
+        template <class U,size_t N>
+        my_allocator(const my_allocator<U,N> &a) throw(): std::allocator<T>(a) { }
+        ~my_allocator() throw() { }
+    };
+}
+using namespace std;
+using namespace my_allocator_namespace;
+int main()
+{
+	vector<int, my_allocator<int,20> > int_vec(10);
+    for(int i = 0 ;i < 20; i++)
+    {
+        std::cerr << i << "," << int_vec.size() << std::endl;
+        int_vec.push_back(i);
+    }
+}

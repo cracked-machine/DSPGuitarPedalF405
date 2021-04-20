@@ -1,0 +1,55 @@
+/*
+ * main.cpp
+ *
+ *  Created on: 20 Apr 2021
+ *      Author: chris
+ */
+#include <cstddef>
+#include <new>
+#include <vector>
+#include <iostream>
+
+// minimal C++11 allocator with debug output
+template <class Tp>
+struct NAlloc {
+    typedef Tp value_type;
+    NAlloc() = default;
+    template <class T> NAlloc(const NAlloc<T>&) {}
+
+    Tp* allocate(std::size_t n)
+    {
+
+    	if(n  > 5)
+    		return static_cast<Tp*>(::operator new(5));
+/*
+        n *= sizeof(Tp);
+        std::cout << "allocating " << n << " bytes\n";
+        return static_cast<Tp*>(::operator new(n));
+        */
+    }
+
+    void deallocate(Tp* p, std::size_t n)
+    {
+        std::cout << "deallocating " << n*sizeof*p << " bytes\n";
+        ::operator delete(p);
+    }
+};
+template <class T, class U>
+bool operator==(const NAlloc<T>&, const NAlloc<U>&) { return true; }
+template <class T, class U>
+bool operator!=(const NAlloc<T>&, const NAlloc<U>&) { return false; }
+
+int main()
+{
+    int sz = 10;
+    std::vector<int, NAlloc<int>> v1;
+
+	v1.reserve(sz);
+	std::cout << v1.capacity() << std::endl;
+	for(int n = 0; n < sz; ++n)
+		v1.push_back(n);
+
+	std::cout << v1.capacity() << std::endl;
+
+
+}

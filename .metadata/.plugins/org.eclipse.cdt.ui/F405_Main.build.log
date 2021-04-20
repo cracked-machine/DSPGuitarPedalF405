@@ -1,10 +1,10 @@
-20:40:38 **** Incremental Build of configuration Debug for project F405_Main ****
+11:15:33 **** Incremental Build of configuration Debug for project F405_Main ****
 make -j4 all 
 arm-none-eabi-size   F405_Main.elf 
    text	   data	    bss	    dec	    hex	filename
- 186108	    824	  26496	 213428	  341b4	F405_Main.elf
+ 186300	    824	  10112	 197236	  30274	F405_Main.elf
 Finished building: default.size.stdout
  
 
-20:40:39 Build Finished. 0 errors, 0 warnings. (took 256ms)
+11:15:33 Build Finished. 0 errors, 0 warnings. (took 260ms)
 
