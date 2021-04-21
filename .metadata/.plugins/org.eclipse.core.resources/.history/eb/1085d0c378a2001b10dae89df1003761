@@ -1,0 +1,30 @@
+/*
+ * ExtCtrlTaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <ExtCtrlTaskManager.hpp>
+
+#ifdef USE_FREERTOS
+
+#else
+		ExtCtrlTaskManagerNoRTOS::ExtCtrlTaskManagerNoRTOS()
+		{
+
+		}
+
+		ExtCtrlTaskManagerNoRTOS::~ExtCtrlTaskManagerNoRTOS()
+		{
+
+		}
+
+		void ExtCtrlTaskManagerNoRTOS::nonRtosTask()
+		{
+
+		}
+
+#endif
+
+

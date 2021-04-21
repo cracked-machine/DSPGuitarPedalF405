@@ -11,6 +11,7 @@
 #include <vector>
 #include <iostream>
 #include <ResourceManager.hpp>
+#include <new>
 
 
 template <class Tp>
@@ -26,23 +27,29 @@ struct NAlloc {
     {
         n *= sizeof(Tp);
 
-        if((usedmem + n) > maxthresholdmem) {
+        if((ResourceManager::getUsedMem() + n) > ResourceManager::getThresholdMem()) {
         	// try to stop the impending disaster
-        	std::cout << "FAILED:" << usedmem << "(used mem) + "
-        			<< n << "(requested mem) > "
-					<< maxthresholdmem << "(total sys mem)" << std::endl;
+        	std::cout << "\n\tMEMORY ALLOCATION FAILURE" << std::endl;
+        	std::cout << "\n\tBoundedVector - failed to allocate: " << n << " bytes." << std::endl;
+        	std::cout << "\n\tThreshold reached: \n\t" << ResourceManager::getUsedMem() << "(Used Memory) + "
+        			<< n << " (Req. Mem)" << " > " << ResourceManager::getThresholdMem() << "(Sys. limit)" << std::endl;
+        	std::cout << "\tRAM required: " << n + ResourceManager::getUsedMem() << std::endl;
         	return nullptr;
         }
         else {
-            usedmem = usedmem + n;
-            std::cout << "SUCCESS: allocating " << n << " bytes. Used Mem = " << usedmem << std::endl;
-        	return static_cast<Tp*>(::operator new(n));
+
+        	ResourceManager::addToUsedMem(n);
+            std::cout << "\n\tBoundedVector: allocating " << n << " bytes" << std::endl;
+            std::cout << "*** System total = " << ResourceManager::getUsedMem() << " bytes." << std::endl;
+        	return static_cast<Tp*>(malloc(n));
         }
     }
 
     void deallocate(Tp* p, std::size_t n)
     {
-        std::cout << "deallocating " << n*sizeof*p << " bytes\n";
+    	ResourceManager::removeFromUsedMem(n*sizeof*p);
+        std::cout << "\n\tBoundedVector: deallocating " << n*sizeof*p << " bytes\n";
+        std::cout << "*** System total = " << ResourceManager::getUsedMem() << " bytes." << std::endl;
         ::operator delete(p);
     }
 };
@@ -66,10 +73,19 @@ public:
 	auto size();
 	auto empty();
 
+	/*
+	 * check there is system memory available before allocation or return nullptr
+	 */
+	void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+			if(ResourceManager::checkSystemMem< BoundedVector >(size))
+				return malloc(size);
+			else
+				return nullptr;
+	}
 
 private:
 	size_t capacity_limit;
-	std::vector<T, NAlloc<T>> v1{1};
+	std::vector<T, NAlloc<T>> *v1;
 	bool fatalerror = false;
 
 
@@ -78,25 +94,25 @@ private:
 template<class T>
 auto BoundedVector<T>::end()
 {
-	return v1.end();
+	return v1->end();
 }
 
 template<class T>
 auto BoundedVector<T>::size()
 {
-	return v1.size();
+	return v1->size();
 }
 
 template<class T>
 auto BoundedVector<T>::empty()
 {
-	return v1.empty();
+	return v1->empty();
 }
 
 template<class T>
 auto BoundedVector<T>::begin()
 {
-	return std::begin(v1);
+	return v1->begin();
 }
 
 template<class T>
@@ -104,19 +120,24 @@ BoundedVector<T>::BoundedVector(size_t pCapacity_limit)
 {
 	this->capacity_limit = pCapacity_limit;
 
-	std::cout << "Reserving " << sizeof(T) * this->capacity_limit <<" bytes (" <<
-			this->capacity_limit << " * " << sizeof(T) << " bytes)" << std::endl;
+	//std::cout << "Reserving " << sizeof(T) * this->capacity_limit <<" bytes (" <<
+	//		this->capacity_limit << " * " << sizeof(T) << " bytes)" << std::endl;
 
-	if(this->capacity_limit < v1.max_size())
+	if(this->capacity_limit < v1->max_size())
 	{
 
-		v1.reserve(this->capacity_limit);
+		//v1->reserve(this->capacity_limit);
+		v1 = new (std::nothrow) std::vector<T, NAlloc<T>>(this->capacity_limit);
 
-		//std::cout << "Success! Vector size: " << v1.size() << " Capacity: " << v1.capacity() << std::endl;
+//		for(size_t i = 0; i < v1.capacity(); i++)
+//		{
+//			v1.push_back(0);
+//		}
+		std::cout << "Success! Vector size: " << v1->size() << " Capacity: " << v1->capacity() << std::endl;
 	}
 	else
 	{
-		std::cout << "Fail! Request exceeds vector max size on this arch: " << v1.max_size()  << std::endl;
+		std::cout << "\tFail! Request exceeds vector max size on this arch: " << v1->max_size()  << std::endl;
 		fatalerror = true;
 	}
 
@@ -131,10 +152,10 @@ bool BoundedVector<T>::push_back(T pItem)
 		return false;
 	}
 
-	if(v1.size() < this->capacity_limit)
+	if(v1->size() < this->capacity_limit)
 	{
-		v1.push_back(pItem);
-		std::cout << "Vector size: " << v1.size() << " Capacity: " << v1.capacity() << std::endl;
+		v1->push_back(pItem);
+		std::cout << "Vector size: " << v1->size() << " Capacity: " << v1->capacity() << std::endl;
 
 		return true;
 	}
@@ -144,7 +165,10 @@ bool BoundedVector<T>::push_back(T pItem)
 		return false;
 	}
 
+
 }
+
+
 
 
 #endif /* RESOURCEMANAGER_BOUNDEDVECTOR_HPP_ */

@@ -1,0 +1,60 @@
+/*
+ * I2STaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <I2STaskManager.hpp>
+
+#include <DSPManager.hpp>
+
+#ifndef USE_FREERTOS
+
+	//BasicReverb *reverbfx;
+
+#else
+
+#endif
+
+
+
+#ifdef USE_FREERTOS
+
+#else
+	I2STaskManagerNoRTOS::I2STaskManagerNoRTOS()
+	{
+
+
+		setDspManager(new(std::nothrow)  DSPManager());
+	}
+
+	I2STaskManagerNoRTOS::~I2STaskManagerNoRTOS()
+	{
+
+	}
+
+	void I2STaskManagerNoRTOS::nonRtosTask(uint8_t pData)
+	{
+		switch(pData)
+		{
+			case 1:
+				if	(this->getDspManager() != nullptr) &&
+					(this->getDspManager()->getFx() != nullptr)
+				{
+
+					this->getDspManager()->getFx()->process_half_u16(	&this->getDspManager()->rxBuf,
+																						&this->getDspManager()->txBuf);
+				}
+
+
+				break;
+			case 2:
+				this->getDspManager()->getFx()->process_full_u16(	&this->getDspManager()->rxBuf,
+																	&this->getDspManager()->txBuf);
+
+				break;
+		}
+	}
+#endif
+

@@ -14,7 +14,8 @@ using namespace std;
 #include "stdint.h"
 #include <array>
 
-#ifdef USE_HAL_DRIVER
+
+#ifndef ENABLE_CPPUTEST
 	#include "arm_math.h"
 #endif
 
@@ -33,14 +34,14 @@ public:
 
 
 
-	virtual void process_half_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
 
-	virtual void process_full_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
 
-	virtual void process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_all_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
 
 	void error_handler();
 private:

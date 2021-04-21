@@ -1,0 +1,23 @@
+DSP/Reverb/Reverb.o: \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.cpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/UniCombFilter.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/BoundedVector.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/BlockTypes.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.hpp
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/UniCombFilter.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/BoundedVector.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/BlockTypes.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.hpp:

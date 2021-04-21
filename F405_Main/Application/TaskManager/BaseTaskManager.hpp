@@ -10,6 +10,7 @@
 
 
 #include <StateMachine.hpp>
+#include <ResourceManager.hpp>
 
 class DSPManager;
 
@@ -20,7 +21,6 @@ class DSPManager;
 
 
 #include <array>
-
 
 #ifndef DISABLE_ERROR_HANDLER
 	#define FOREVER 1
@@ -38,50 +38,70 @@ template<class T, class stateMachineType>
 class BaseTaskManager
 {
 public:
-	BaseTaskManager(size_t pStackSize, size_t pQueueSize)
+	BaseTaskManager()
 	{
-		theTaskHandle = nullptr;
-		theTaskBuffer = {0};
-		theTaskStack = nullptr;
-		theQueueStorageArea = 0;
-		theQueue = {0};
 		theStateMachine = nullptr;
-
-		if(pStackSize == 0 || pQueueSize == 0)
-		{
-
-			error_handler(INVALID_STACK_QUEUE_SIZE_ERR);
-		}
-		else
-		{
-			theTaskStack = new  StackType_t[pStackSize];
-			theQueueStorageArea = new  uint8_t[ pQueueSize * sizeof( T ) ];
-		}
-
+		theDspMan = nullptr;
 	}
+
+	#ifdef USE_FREERTOS
+		BaseTaskManager(size_t pStackSize, size_t pQueueSize)
+		{
+			theTaskHandle = nullptr;
+			theTaskBuffer = {0};
+			theTaskStack = nullptr;
+			theQueueStorageArea = 0;
+			theQueue = {0};
+			theStateMachine = nullptr;
+			theDspMan = nullptr;
+
+			if(pStackSize == 0 || pQueueSize == 0)
+			{
+
+				error_handler(INVALID_STACK_QUEUE_SIZE_ERR);
+			}
+			else
+			{
+				theTaskStack = new  StackType_t[pStackSize];
+				theQueueStorageArea = new  uint8_t[ pQueueSize * sizeof( T ) ];
+			}
+
+		}
+	#else
+
+	#endif
+
+
+
 
 	~BaseTaskManager()
 	{
-		delete[] theTaskStack;
-		delete[] theQueueStorageArea;
+		#ifdef USE_FREERTOS
+				delete[] theTaskStack;
+				delete[] theQueueStorageArea;
+		#endif
 	}
 
-	void setTask(		const char* pTaskName,
-						AbstractTaskPtr_t pTaskPtr);
+	#ifdef USE_FREERTOS
+		void setTask(		const char* pTaskName,
+							AbstractTaskPtr_t pTaskPtr);
+		void setQueue(StaticQueue_t *pStaticQueue);
+		TaskHandle_t getTask();
+		QueueHandle_t getQueue();
+		void queueSendFromISR_wrapper(T item);
+	#else
+		//void nonRtosTask();
+	#endif
 
-	void setQueue(StaticQueue_t *pStaticQueue);
 
 	void setStateMachine(StateMachine *pMachine);
-	//void setStateMachine(AbstractStateContainer *pStates);
-
-	TaskHandle_t getTask();
-	QueueHandle_t getQueue();
 	stateMachineType* getStateMachine();
 
 	DSPManager *getDspManager();
 	void setDspManager(DSPManager *pDspMan);
 
-	void queueSendFromISR_wrapper(T item);
+
+
 
 	enum taskFatalErrTypes
 	{
@@ -100,14 +120,20 @@ public:
 
 private:
 
+	#ifdef USE_FREERTOS
+		TaskHandle_t theTaskHandle;
+		StaticTask_t theTaskBuffer;
+		StackType_t *theTaskStack;
 
-	TaskHandle_t theTaskHandle;
-	StaticTask_t theTaskBuffer;
-	StackType_t *theTaskStack;
+
+		uint8_t *theQueueStorageArea;
+		QueueHandle_t theQueue;
+
+	#else
 
 
-	uint8_t *theQueueStorageArea;
-	QueueHandle_t theQueue;
+
+	#endif
 
 	// state machine instance
 	stateMachineType *theStateMachine;
@@ -120,11 +146,92 @@ private:
 };
 
 
+
 template<class T, class stateMachineType>
 DSPManager* BaseTaskManager<T, stateMachineType>::getDspManager()
 {
 	return theDspMan;
 }
+
+
+
+#ifdef USE_FREERTOS
+
+	template<class T, class stateMachineType>
+	void BaseTaskManager<T, stateMachineType>::setTask(	const char* pTaskName,
+											AbstractTaskPtr_t pTaskPtr)
+	{
+		if(pTaskPtr == nullptr)
+		{
+			error_handler(NULL_TASK_PTR_ERR);
+		}
+		else
+		{
+			// Create the task without using any dynamic memory allocation.
+			theTaskHandle = xTaskCreateStatic(
+				pTaskPtr,       		// global function in ExtCtrlTaskManager
+				pTaskName,          	// Text name for the task.
+				200,      				// Number of indexes in the ISRTaskStack array.
+				this,    				// pointer to this class instance (used by "IRSTaskMan" to access class members)
+				tskIDLE_PRIORITY,		// Priority at which the task is created.
+				theTaskStack,           // Array to use as the task's stack.
+				&theTaskBuffer );  		// Variable to hold the task's data structure.
+		}
+	}
+
+	template<class T, class stateMachineType>
+	void BaseTaskManager<T, stateMachineType>::setQueue(StaticQueue_t *pStaticQueue)
+	{
+		if(pStaticQueue == nullptr)
+		{
+			error_handler(NULL_QUEUE_PTR_ERR);
+		}
+		else
+		{
+			// Create a queue capable of containing 10 uint64_t values.
+			theQueue = ISRQueueCreateStatic(
+				1,						// QUEUE_SIZE
+				sizeof(T),		// ITEM_SIZE
+				theQueueStorageArea,	// total queue storage size (QUEUE_SIZE * ITEM_SIZE)
+				pStaticQueue );		// Queue data structure
+		}
+
+	}
+
+	template<class T, class stateMachineType>
+	TaskHandle_t BaseTaskManager<T, stateMachineType>::getTask()
+	{
+		return this->theTaskHandle;
+	}
+
+	template<class T, class stateMachineType>
+	QueueHandle_t BaseTaskManager<T, stateMachineType>::getQueue()
+	{
+		return this->theQueue;
+	}
+
+
+	template<class T, class stateMachineType>
+	void BaseTaskManager<T, stateMachineType>::queueSendFromISR_wrapper(T item)
+	{
+		if(item < 1) { error_handler(QUEUEITEM_OUTOFBOUNDS_ERR); }
+		else
+		{
+			//ISRQueueSendFromISR(theQueue, &item, NULL);
+			ISRQueueOverwriteFromISR(theQueue, &item, NULL);
+		}
+
+	}
+
+#else
+/*
+	template<class T, class stateMachineType>
+	void BaseTaskManager<T, stateMachineType>::nonRtosTask()
+	{
+
+	}
+*/
+#endif
 
 template<class T, class stateMachineType>
 void BaseTaskManager<T, stateMachineType>::setDspManager(DSPManager *pDspMan)
@@ -133,48 +240,6 @@ void BaseTaskManager<T, stateMachineType>::setDspManager(DSPManager *pDspMan)
 		error_handler(INVALID_DSP_MANAGER);
 	else
 		theDspMan = pDspMan;
-}
-
-
-template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::setTask(	const char* pTaskName,
-										AbstractTaskPtr_t pTaskPtr)
-{
-	if(pTaskPtr == nullptr)
-	{
-		error_handler(NULL_TASK_PTR_ERR);
-	}
-	else
-	{
-		// Create the task without using any dynamic memory allocation.
-		theTaskHandle = xTaskCreateStatic(
-			pTaskPtr,       		// global function in ExtCtrlTaskManager
-			pTaskName,          	// Text name for the task.
-			200,      				// Number of indexes in the ISRTaskStack array.
-			this,    				// pointer to this class instance (used by "IRSTaskMan" to access class members)
-			tskIDLE_PRIORITY,		// Priority at which the task is created.
-			theTaskStack,           // Array to use as the task's stack.
-			&theTaskBuffer );  		// Variable to hold the task's data structure.
-	}
-}
-
-template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::setQueue(StaticQueue_t *pStaticQueue)
-{
-	if(pStaticQueue == nullptr)
-	{
-		error_handler(NULL_QUEUE_PTR_ERR);
-	}
-	else
-	{
-		// Create a queue capable of containing 10 uint64_t values.
-		theQueue = ISRQueueCreateStatic(
-			1,						// QUEUE_SIZE
-			sizeof(T),		// ITEM_SIZE
-			theQueueStorageArea,	// total queue storage size (QUEUE_SIZE * ITEM_SIZE)
-			pStaticQueue );		// Queue data structure
-	}
-
 }
 
 template<class T, class stateMachineType>
@@ -189,37 +254,12 @@ void BaseTaskManager<T, stateMachineType>::setStateMachine(StateMachine *pMachin
 	{
 		theStateMachine = pMachine;
 	}
-
-}
-
-template<class T, class stateMachineType>
-TaskHandle_t BaseTaskManager<T, stateMachineType>::getTask()
-{
-	return this->theTaskHandle;
-}
-
-template<class T, class stateMachineType>
-QueueHandle_t BaseTaskManager<T, stateMachineType>::getQueue()
-{
-	return this->theQueue;
 }
 
 template<class T, class stateMachineType>
 stateMachineType* BaseTaskManager<T, stateMachineType>::getStateMachine()
 {
 	return this->theStateMachine;
-}
-
-template<class T, class stateMachineType>
-void BaseTaskManager<T, stateMachineType>::queueSendFromISR_wrapper(T item)
-{
-	if(item < 1) { error_handler(QUEUEITEM_OUTOFBOUNDS_ERR); }
-	else
-	{
-		//ISRQueueSendFromISR(theQueue, &item, NULL);
-		ISRQueueOverwriteFromISR(theQueue, &item, NULL);
-	}
-
 }
 
 template<class T, class stateMachineType>
@@ -240,8 +280,8 @@ void BaseTaskManager<T, stateMachineType>::error_handler(BaseTaskManager::taskFa
 }
 
 // BaseTaskManager template specializations
-typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
-typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
+//typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
+//typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
 
 
 #endif /* FREERTOS_BASETASKMANAGER_HPP_ */

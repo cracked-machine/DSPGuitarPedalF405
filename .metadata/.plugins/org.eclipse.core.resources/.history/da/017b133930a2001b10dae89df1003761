@@ -1,0 +1,8 @@
+Debounce/Debounce.o: \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.cpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.hpp \
+ /home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/test_hal_testenv.h
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce/Debounce.hpp:
+
+/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests/test_hal_testenv.h:

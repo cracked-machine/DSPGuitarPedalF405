@@ -10,13 +10,15 @@
 
 IIRFilterFx::IIRFilterFx()
 {
+#ifndef ENABLE_CPPUTEST
 	  arm_biquad_cascade_df1_init_f32 ( &left_iir_settings, 1, (float*)iir_coeffs.data(), (float*)iir_left_state.data());
 	  arm_biquad_cascade_df1_init_f32 ( &right_iir_settings, 1, (float*)iir_coeffs.data(), (float*)iir_right_state.data());
+#endif
 }
 
 #ifndef ENABLE_IIR_BYPASS
-	void IIRFilterFx::process_half_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
+	void IIRFilterFx::process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+										AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
 		if(pRxBuf == nullptr || pTxBuf == nullptr)
 			error_handler();
@@ -28,8 +30,8 @@ IIRFilterFx::IIRFilterFx()
 		  process_all_u16(pRxBuf, pTxBuf);
 	}
 
-	void IIRFilterFx::process_full_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
+	void IIRFilterFx::process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+										AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
 		if(pRxBuf == nullptr || pTxBuf == nullptr)
 			error_handler();
@@ -41,8 +43,8 @@ IIRFilterFx::IIRFilterFx()
 		process_all_u16(pRxBuf, pTxBuf);
 	}
 
-	void IIRFilterFx::process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-										StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
+	void IIRFilterFx::process_all_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+										AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 	{
 		if(pRxBuf == nullptr || pTxBuf == nullptr)
 			error_handler();
@@ -54,11 +56,11 @@ IIRFilterFx::IIRFilterFx()
 			  write_ptr++;
 		  }
 
-
+#ifndef ENABLE_CPPUTEST
 		  //process IIR
 		  arm_biquad_cascade_df1_f32 (&left_iir_settings, &left_buf_in[offset_write_ptr], &left_buf_out[offset_write_ptr], IIRFilterFx::QTR_BLK_SIZE_F32);
 		  arm_biquad_cascade_df1_f32 (&right_iir_settings, &right_buf_in[offset_write_ptr], &right_buf_out[offset_write_ptr], IIRFilterFx::QTR_BLK_SIZE_F32);
-
+#endif
 
 		  //restore processed float-array to output sample-buffer
 		  write_ptr = offset_write_ptr;
@@ -72,6 +74,8 @@ IIRFilterFx::IIRFilterFx()
 		  }
 
 	}
+
+
 
 
 #endif

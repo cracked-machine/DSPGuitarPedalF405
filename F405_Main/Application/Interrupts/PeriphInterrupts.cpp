@@ -16,11 +16,11 @@
 #include "stm32f4xx_hal_i2s.h"
 #include "i2s.h"
 
-
-
 #include <AppMain.hpp>
 
-#include <BaseTaskManager.hpp>
+//#include <BaseTaskManager.hpp>
+#include <I2STaskManager.hpp>
+#include <ExtCtrlTaskManager.hpp>
 
 #ifdef __cplusplus
 	extern "C"
@@ -31,9 +31,14 @@
 	extern DMA_HandleTypeDef hdma_i2s2_ext_rx;
 	extern DMA_HandleTypeDef hdma_spi2_tx;
 
+#ifdef USE_FREERTOS
 	// defined in Application/AppMain.cpp
 	extern ExtCtrlTaskManager_t *extctrl_taskman;
 	extern I2STaskManager_t *i2s_taskman;
+#else
+	extern ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	extern I2STaskManagerNoRTOS *i2s_taskman_nortos;
+#endif
 
 
 	void setupPeriphInterrupts()
@@ -49,11 +54,11 @@
 		HAL_NVIC_EnableIRQ(EXTI15_10_IRQn);
 
 		// Setup DMA1_Stream3_IRQn for I2S receive
-		HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 5, 0);
+		HAL_NVIC_SetPriority(DMA1_Stream3_IRQn, 6, 0);
 		HAL_NVIC_EnableIRQ(DMA1_Stream3_IRQn);
 
 		// Setup DMA1_Stream4_IRQn for I2S transmit
-		HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 5, 0);
+		HAL_NVIC_SetPriority(DMA1_Stream4_IRQn, 6, 0);
 		HAL_NVIC_EnableIRQ(DMA1_Stream4_IRQn);
 
 		// enable the rotary encoders
@@ -63,14 +68,21 @@
 
 
 	void HAL_I2SEx_TxRxHalfCpltCallback(I2S_HandleTypeDef *hi2s){
-
+#ifdef USE_FREERTOS
 		i2s_taskman->queueSendFromISR_wrapper(1);
+#else
+		i2s_taskman_nortos->nonRtosTask(1);
+#endif
 		//HAL_GPIO_TogglePin(LEDA_G_GPIO_Port, LEDA_G_Pin);
 	}
 
 	void HAL_I2SEx_TxRxCpltCallback(I2S_HandleTypeDef *hi2s){
-
+#ifdef USE_FREERTOS
 		i2s_taskman->queueSendFromISR_wrapper(2);
+#else
+		i2s_taskman_nortos->nonRtosTask(2);
+#endif
+
 		//HAL_GPIO_TogglePin(LEDB_G_GPIO_Port, LEDB_G_Pin);
 
 	}
@@ -97,15 +109,28 @@
 
 	void EXTI15_10_IRQHandler(void)
 	{
-		// send EXTI message to task manager
-		if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
-		{
-			extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR13);
-		}
-		if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
-		{
-			extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR14);
-		}
+		#ifdef USE_FREERTOS
+			// send EXTI message to task manager
+			if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
+			{
+				extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR13);
+			}
+			if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
+			{
+				extctrl_taskman->queueSendFromISR_wrapper(EXTI_PR_PR14);
+			}
+		#else
+			// send EXTI message to task manager
+			if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
+			{
+				extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR13);
+			}
+			if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
+			{
+				extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR14);
+			}
+		#endif
+
 
 		// clear the EXTI pending bit
 		EXTI->PR &= ~((EXTI_PR_PR13_Pos));

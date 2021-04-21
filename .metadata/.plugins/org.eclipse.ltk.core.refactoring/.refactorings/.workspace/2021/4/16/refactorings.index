@@ -23,3 +23,7 @@
 1618840993430	Delete resource 'LinuxGCC_Tests/STATEMACHINE'
 1618931596936	Delete resource 'LinuxGCC_Tests/Reverb'
 1618931867827	Delete resource 'Experimental/Filters'
+1618961077303	Delete resource 'LinuxGCC_Tests/Filters'
+1618961085410	Delete resource 'LinuxGCC_Tests/Reverb'
+1618961255131	Delete resource 'LinuxGCC_Tests/ResourceManager'
+1618961351840	Delete resource 'LinuxGCC_Tests/Debug/ResourceManager'

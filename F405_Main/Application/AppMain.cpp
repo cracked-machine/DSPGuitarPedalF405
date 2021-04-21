@@ -26,7 +26,11 @@
 #include <pedal_io_test.hpp>
 
 #include <PeriphInterrupts.hpp>
-#include <BaseTaskManager.hpp>
+
+//#include <BaseTaskManager.hpp>
+#include <I2STaskManager.hpp>
+#include <ExtCtrlTaskManager.hpp>
+
 #include <StateMachine.hpp>
 #include <DSPManager.hpp>
 #include <ResourceManager.hpp>
@@ -34,6 +38,11 @@
 #include <IIRCombFilter.hpp>
 #include <UniCombFilter.hpp>
 
+#ifdef USE_FREERTOS
+	#include <IIRFilterFx.hpp>
+
+	IIRFilterFx *iirfx;
+#endif
 
 
 #ifdef __cplusplus
@@ -42,34 +51,48 @@
 #endif
 
 
-	//IIRCombFilter *combfilter1 = new  IIRCombFilter(3460 * 2, 0.805);
-	//IIRCombFilter *combfilter2 = new  IIRCombFilter(2988 * 2, 0.827);
-	//IIRCombFilter *combfilter3 = new  IIRCombFilter(3882 * 2, 0.783);
-	//IIRCombFilter *combfilter4 = new  IIRCombFilter(4312 * 2, 0.764);
-	//UniCombFilter *allpass1 = new  UniCombFilter(   480  * 2, 0.7);
-	//UniCombFilter *allpass2 = new  UniCombFilter(   161  * 2, 0.7);
-	//UniCombFilter *allpass3 = new  UniCombFilter(   46   * 2, 0.7);
 
-	// I2S task declarations
-	I2STaskManager_t *i2s_taskman;
-	void I2STaskCode( void * parm );
-	static StaticQueue_t I2S_StaticQueue;
 
-	// External Control task declarations
-	ExtCtrlTaskManager_t *extctrl_taskman;
-	void ExtCtrlTaskCode( void * parm );
-	static StaticQueue_t ExtCtrl_StaticQueue;
+	//IIRCombFilter *combfilter1 = new(std::nothrow)  IIRCombFilter(3460 * 2, 0.805);
+	//IIRCombFilter *combfilter2 = new(std::nothrow)  IIRCombFilter(2988 * 2, 0.827);
+	//IIRCombFilter *combfilter3 = new(std::nothrow)  IIRCombFilter(3882 * 2, 0.783);
+	//IIRCombFilter *combfilter4 = new(std::nothrow)  IIRCombFilter(4312 * 2, 0.764);
+	//UniCombFilter *allpass1 = new(std::nothrow)  UniCombFilter(   480  * 2, 0.7);
+	//UniCombFilter *allpass2 = new(std::nothrow)  UniCombFilter(   161  * 2, 0.7);
+	//UniCombFilter *allpass3 = new(std::nothrow)  UniCombFilter(   46   * 2, 0.7);
+
+
+
+	#ifdef USE_FREERTOS
+
+		// I2S task declarations
+		I2STaskManager_t *i2s_taskman;
+
+		// External Control task declarations
+		ExtCtrlTaskManager_t *extctrl_taskman;
+
+		void I2STaskCode( void * parm );
+		static StaticQueue_t I2S_StaticQueue;
+		void ExtCtrlTaskCode( void * parm );
+		static StaticQueue_t ExtCtrl_StaticQueue;
+
+	#else
+		// I2S task declarations
+		I2STaskManagerNoRTOS *i2s_taskman_nortos;
+
+		// External Control task declarations
+		ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	#endif
+
 	StateMachine *extctrlMachine = NULL;
 	DebounceManager *extctrl_debounceman;
 
 
 
-	IIRFilterFx *iirfx;
-	//BasicReverb *reverbfx;
 
 	// TODO move this to the stack
-	//StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
-	//StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
+	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
+	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
 
 	int32_t myGlobal;
 
@@ -78,205 +101,198 @@
 
 		std::cout << "Initialising system." << std::endl;
 
-
-
 		setupPeriphInterrupts();
 
 		//run_sys_checks();
 
 		//HAL_EnableCompensationCell();
 
+		#ifdef USE_FREERTOS
+				// I2S task instantiation on the heap at startup
+				//
+				i2s_taskman = new(std::nothrow) I2STaskManager_t(200, 1);
 
-		// I2S task instantiation on the heap at startup
-		//
-		i2s_taskman = new I2STaskManager_t(200, 1);
+				// Set the STATIC freeertos task to global function pointer "I2STaskCode()"
+				AbstractTaskPtr_t I2STaskPtr = &I2STaskCode;
+				i2s_taskman->setTask("I2STaskManager", I2STaskPtr);
 
-		// Set the STATIC freeertos task to global function pointer "I2STaskCode()"
-		AbstractTaskPtr_t I2STaskPtr = &I2STaskCode;
-		i2s_taskman->setTask("I2STaskManager", I2STaskPtr);
+				// Set the STATIC freertos queue
+				i2s_taskman->setQueue(&I2S_StaticQueue);
 
-		// Set the STATIC freertos queue
-		i2s_taskman->setQueue(&I2S_StaticQueue);
-		//
+				iirfx = new(std::nothrow) IIRFilterFx();
+				i2s_taskman->setDspManager(new(std::nothrow)  DSPManager(iirfx));
+				//
+		#else
+				i2s_taskman_nortos = new(std::nothrow) I2STaskManagerNoRTOS();
+		#endif
 
-		iirfx = new IIRFilterFx();
-		//reverbfx = new  BasicReverb();
+		#ifdef USE_FREERTOS
+				// External Control task instantiation on the heap at startup
+				//
+				extctrl_taskman = new(std::nothrow)  ExtCtrlTaskManager_t(200, 1);
 
-		i2s_taskman->setDspManager(new  DSPManager(iirfx));
-
-
-		// External Control task instantiation on the heap at startup
-		//
-		extctrl_taskman = new  ExtCtrlTaskManager_t(200, 1);
-
-		// Set the statemachine
-		extctrlMachine = new  StateMachine();
-		// set the delay for the external control debounce
-		extctrl_debounceman = new  DebounceManager(TIM14, 200);
-		extctrlMachine->setDebounceMan(extctrl_debounceman);
-		extctrl_taskman->setStateMachine(extctrlMachine);
-
-
-		// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
-		AbstractTaskPtr_t ExtCtrlTaskPtr = &ExtCtrlTaskCode;
-		extctrl_taskman->setTask("ExtCtrlTaskManager", ExtCtrlTaskPtr);
-
-		// Set the STATIC freertos queue
-		extctrl_taskman->setQueue(&ExtCtrl_StaticQueue);
-		//
+				// Set the statemachine
+				extctrlMachine = new(std::nothrow)  StateMachine();
+				// set the delay for the external control debounce
+				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
+				extctrlMachine->setDebounceMan(extctrl_debounceman);
+				extctrl_taskman->setStateMachine(extctrlMachine);
 
 
+				// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
+				AbstractTaskPtr_t ExtCtrlTaskPtr = &ExtCtrlTaskCode;
+				extctrl_taskman->setTask("ExtCtrlTaskManager", ExtCtrlTaskPtr);
+
+				// Set the STATIC freertos queue
+				extctrl_taskman->setQueue(&ExtCtrl_StaticQueue);
+				//
+		#else
+
+				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
+
+				extctrlMachine = new(std::nothrow)  StateMachine();
+				extctrlMachine->setDebounceMan(extctrl_debounceman);
+
+				extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTaskManagerNoRTOS();
+				extctrl_taskman_nortos->setStateMachine(extctrlMachine);
+
+		#endif
 
 		// start FullDuplex I2S DMA
 		HAL_StatusTypeDef res = HAL_OK;
+
+		#ifdef USE_FREERTOS
+
+
 		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
 										i2s_taskman->getDspManager()->txBuf.data(),
 										i2s_taskman->getDspManager()->rxBuf.data(),
 										AbstractFx::HALF_BLK_SIZE_U16);
+		#else
+		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+										i2s_taskman_nortos->getDspManager()->txBuf.data(),
+										i2s_taskman_nortos->getDspManager()->rxBuf.data(),
+										AbstractFx::HALF_BLK_SIZE_U16);
 
-
-/*		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-										i2s_taskman->getDspManager()->txBuf.data(),
-										i2s_taskman->getDspManager()->rxBuf.data(),
+		/*		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+										i2s_taskman_nortos->getDspManager()->txBuf.data(),
+										i2s_taskman_nortos->getDspManager()->rxBuf.data(),
 										4);
-*/
+		*/
+
+		#endif
+
 		if (res != HAL_OK)
 			Error_Handler();
 
-
-		// start the RTOS
-		vTaskStartScheduler();
+		#ifdef USE_FREERTOS
+				// start the RTOS
+				vTaskStartScheduler();
+		#endif
 
 		while(1)
 		{
-			// not reached!
+			// never leave, if reached
 		}
 	}
 
 
-
-	// Function that implements the task being created.
-	void I2STaskCode( void * parm )
-	{
-		I2STaskManager_t *_i2s_taskman = static_cast<I2STaskManager_t*>(parm);
-		//float wet = 1.0f;
+	#ifdef USE_FREERTOS
 
 
-		while(1)
+		// Function that implements the task being created.
+		void I2STaskCode( void * parm )
 		{
-			uint8_t item = 0;
-			//std::cout << "I2STaskCode retrieved queue item" << item << std::endl;
-			if( ISRQueueReceive( _i2s_taskman->getQueue(), &( item ), ( TickType_t ) 0 ) == pdPASS)
+			I2STaskManager_t *_i2s_taskman = static_cast<I2STaskManager_t*>(parm);
+			//float wet = 1.0f;
+
+
+			while(1)
 			{
-				if(item == 1)
+				uint8_t item = 0;
+				//std::cout << "I2STaskCode retrieved queue item" << item << std::endl;
+				if( ISRQueueReceive( _i2s_taskman->getQueue(), &( item ), ( TickType_t ) 0 ) == pdPASS)
 				{
-					iirfx->process_half_u16(	&_i2s_taskman->getDspManager()->rxBuf,
-												&_i2s_taskman->getDspManager()->txBuf);
-/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
+					if(item == 1)
 					{
-						int lSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+0]<<16)|i2s_taskman->getDspManager()->rxBuf[i+1];
-						int rSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+2]<<16)|i2s_taskman->getDspManager()->rxBuf[i+3];
+						iirfx->process_half_u16(	&_i2s_taskman->getDspManager()->rxBuf,
+													&_i2s_taskman->getDspManager()->txBuf);
+	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
+						{
+							int lSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+0]<<16)|i2s_taskman->getDspManager()->rxBuf[i+1];
+							int rSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+2]<<16)|i2s_taskman->getDspManager()->rxBuf[i+3];
 
-						float sum = (float) (lSample + rSample);
-						sum = (1.0f - wet ) * sum + wet * reverbfx->processSample(sum);
+							float sum = (float) (lSample + rSample);
+							sum = (1.0f - wet ) * sum + wet * reverbfx->processSample(sum);
 
-						lSample = (int) sum;
-						rSample = lSample;
+							lSample = (int) sum;
+							rSample = lSample;
 
-						//restore to buffer
-						i2s_taskman->getDspManager()->txBuf[i+0] = (lSample>>16)&0xFFFF;
-						i2s_taskman->getDspManager()->txBuf[i+1] = lSample&0xFFFF;
-						i2s_taskman->getDspManager()->txBuf[i+2] = (rSample>>16)&0xFFFF;
-						i2s_taskman->getDspManager()->txBuf[i+3] = rSample&0xFFFF;
-					}
-*/
-
-					LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
-				}
-				if(item == 2)
-				{
-						iirfx->process_full_u16(	&_i2s_taskman->getDspManager()->rxBuf,
-												&_i2s_taskman->getDspManager()->txBuf);
-/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
-					{
-						int lSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+4]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+5];
-						int rSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+6]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+7];
-
-						float sum = (float) (lSample + rSample);
-						sum = (1.0f - wet) * sum + wet * reverbfx->processSample(sum);
-						lSample = (int) sum;
-						rSample = lSample;
-
-						//restore to buffer
-						_i2s_taskman->getDspManager()->txBuf[i+4] = (lSample>>16)&0xFFFF;
-						_i2s_taskman->getDspManager()->txBuf[i+5] = lSample&0xFFFF;
-						_i2s_taskman->getDspManager()->txBuf[i+6] = (rSample>>16)&0xFFFF;
-						_i2s_taskman->getDspManager()->txBuf[i+7] = rSample&0xFFFF;
-					}
-*/
-					LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
-				}
-
-			}
-		}
-	}
-
-	/* Function that implements the task being created. */
-	void ExtCtrlTaskCode( void * parm )
-	{
-		ExtCtrlTaskManager_t *_extctrl_taskman = static_cast<ExtCtrlTaskManager_t*>(parm);
-		while(1)
-		{
-			uint16_t item = 0;
-			//std::cout << "ExtCtrlTaskCode waiting for queue item" << std::endl;
-
-			if( ISRQueueReceive( _extctrl_taskman->getQueue(), &( item ), ( TickType_t ) 10 ) == pdPASS)
-			{
-				std::cout << "ExtCtrlTaskCode retrieved queue item" << std::endl;
-				switch(item)
-				{
-					case EXTI_PR_PR13:
-
-						_extctrl_taskman->getStateMachine()->evFootswitchA();
-						break;
-					case EXTI_PR_PR14:
-						_extctrl_taskman->getStateMachine()->evFootswitchB();
-						break;
-				}
-			}
-		}
-	}
-
-
-
-	/*
-		extern "C" {
-
-			// The canary value
-			extern const uintptr_t __stack_chk_guard = 0xdeadbeef;
-
-			// Called if the check fails
-			[[noreturn]]
-			void __stack_chk_fail()
-			{
-				//Error_Handler("Stack overrun!");
-				exit(0);
-			}
-
-		} // end extern "C"
+							//restore to buffer
+							i2s_taskman->getDspManager()->txBuf[i+0] = (lSample>>16)&0xFFFF;
+							i2s_taskman->getDspManager()->txBuf[i+1] = lSample&0xFFFF;
+							i2s_taskman->getDspManager()->txBuf[i+2] = (rSample>>16)&0xFFFF;
+							i2s_taskman->getDspManager()->txBuf[i+3] = rSample&0xFFFF;
+						}
 	*/
 
+						LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
+					}
+					if(item == 2)
+					{
+							iirfx->process_full_u16(	&_i2s_taskman->getDspManager()->rxBuf,
+													&_i2s_taskman->getDspManager()->txBuf);
+	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
+						{
+							int lSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+4]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+5];
+							int rSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+6]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+7];
 
-	/*
-		struct CL {
-		    // The bool does nothing, other than making these placement overloads.
-		    void* operator new(size_t s, bool b = true);
-		    void operator delete(void* o, bool b = true);
-		};
-		// Functions are simple wrappers for the normal operators.
-		void* CL::operator new(size_t s, bool b) { return ::operator new(s); }
-		void CL::operator delete(void* o, bool b) { return ::operator delete(o); }
+							float sum = (float) (lSample + rSample);
+							sum = (1.0f - wet) * sum + wet * reverbfx->processSample(sum);
+							lSample = (int) sum;
+							rSample = lSample;
+
+							//restore to buffer
+							_i2s_taskman->getDspManager()->txBuf[i+4] = (lSample>>16)&0xFFFF;
+							_i2s_taskman->getDspManager()->txBuf[i+5] = lSample&0xFFFF;
+							_i2s_taskman->getDspManager()->txBuf[i+6] = (rSample>>16)&0xFFFF;
+							_i2s_taskman->getDspManager()->txBuf[i+7] = rSample&0xFFFF;
+						}
 	*/
+						LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
+					}
+
+				}
+			}
+		}
+
+		/* Function that implements the task being created. */
+		void ExtCtrlTaskCode( void * parm )
+		{
+			ExtCtrlTaskManager_t *_extctrl_taskman = static_cast<ExtCtrlTaskManager_t*>(parm);
+			while(1)
+			{
+				uint16_t item = 0;
+				//std::cout << "ExtCtrlTaskCode waiting for queue item" << std::endl;
+
+				if( ISRQueueReceive( _extctrl_taskman->getQueue(), &( item ), ( TickType_t ) 10 ) == pdPASS)
+				{
+					std::cout << "ExtCtrlTaskCode retrieved queue item" << std::endl;
+					switch(item)
+					{
+						case EXTI_PR_PR13:
+
+							_extctrl_taskman->getStateMachine()->evFootswitchA();
+							break;
+						case EXTI_PR_PR14:
+							_extctrl_taskman->getStateMachine()->evFootswitchB();
+							break;
+					}
+				}
+			}
+		}
+
+	#endif
 
 
 #ifdef __cplusplus

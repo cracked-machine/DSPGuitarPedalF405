@@ -8,8 +8,13 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include TaskManager/subdir.mk
 -include StateMachine/subdir.mk
+-include ResourceManager/subdir.mk
 -include Debounce/subdir.mk
+-include DSP/Reverb/subdir.mk
+-include DSP/Filters/subdir.mk
+-include DSP/subdir.mk
 -include subdir.mk
 -include objects.mk
 

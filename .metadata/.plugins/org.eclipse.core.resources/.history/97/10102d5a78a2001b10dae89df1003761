@@ -1,0 +1,32 @@
+/*
+ * ExtCtrlTaskManager.hpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#ifndef TASKMANAGER_EXTCTRLTASKMANAGER_HPP_
+#define TASKMANAGER_EXTCTRLTASKMANAGER_HPP_
+
+#include <BaseTaskManager.hpp>
+
+#ifdef USE_FREERTOS
+	typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
+#else
+
+	typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
+
+	class ExtCtrlTaskManagerNoRTOS : public ExtCtrlTaskManager_t
+	{
+	public:
+		ExtCtrlTaskManagerNoRTOS();
+		~ExtCtrlTaskManagerNoRTOS();
+	};
+#endif
+
+
+
+
+
+
+#endif /* TASKMANAGER_EXTCTRLTASKMANAGER_HPP_ */

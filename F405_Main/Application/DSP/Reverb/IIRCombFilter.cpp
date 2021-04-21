@@ -9,14 +9,13 @@
 #include <IIRCombFilter.hpp>
 
 
-
-IIRCombFilter::IIRCombFilter(size_t pSize, float pGain)
+IIRCombFilter::IIRCombFilter(size_t pSize, float pGain, float pTime)
 {
-	std::cout << "Requesting BoundedVector<float> of size: " << pSize << std::endl;
-	buffer = new  IIRCombFilterBuffer(pSize);
+
+	buffer = new (std::nothrow)  IIRCombFilterBuffer(pSize);
 	buffer->iterator = buffer->begin();
 	gain = pGain;
-	limit = 1.0f * pSize;
+	limit = pTime * pSize;
 }
 
 IIRCombFilter::~IIRCombFilter()

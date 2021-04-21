@@ -1,0 +1,33 @@
+/*
+ * test_resource_manager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+
+#include "CppUTest/TestHarness.h"
+
+
+class TestWidget
+{
+
+};
+
+
+TEST_GROUP(ResourceManGroup)
+{
+};
+
+TEST(ResourceManGroup, ResourceManTest)
+{
+
+    CHECK(true);
+}
+
+/*
+ * 	void *operator new(std::size_t count) {
+		std::cout << "allocating " << count << " bytes, " << how_many_elements<IIRFilterFx>(count) << " items\n";
+		return ::operator new[](count);
+	}
+ */

@@ -1,0 +1,53 @@
+/*
+ * I2STaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <I2STaskManager.hpp>
+
+#include <DSPManager.hpp>
+
+#ifndef USE_FREERTOS
+	#include <IIRFilterFx.hpp>
+	IIRFilterFx *iirfx;
+#else
+
+#endif
+
+
+
+#ifdef USE_FREERTOS
+
+#else
+	I2STaskManagerNoRTOS::I2STaskManagerNoRTOS()
+	{
+		std::cout << sizeof(IIRFilterFx) << std::endl;
+		iirfx = new IIRFilterFx();
+		setDspManager(new  DSPManager(iirfx));
+	}
+
+	I2STaskManagerNoRTOS::~I2STaskManagerNoRTOS()
+	{
+
+	}
+
+	void I2STaskManagerNoRTOS::nonRtosTask(uint8_t pData)
+	{
+		switch(pData)
+		{
+			case 1:
+				this->getDspManager()->getFx()->process_half_u16(	&this->getDspManager()->rxBuf,
+																	&this->getDspManager()->txBuf);
+
+				break;
+			case 2:
+				this->getDspManager()->getFx()->process_full_u16(	&this->getDspManager()->rxBuf,
+																	&this->getDspManager()->txBuf);
+
+				break;
+		}
+	}
+#endif
+

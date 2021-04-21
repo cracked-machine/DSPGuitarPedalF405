@@ -1,0 +1,32 @@
+/*
+ * ResourceManager.hpp
+ *
+ *  Created on: 20 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef RESOURCEMANAGER_RESOURCEMANAGER_HPP_
+#define RESOURCEMANAGER_RESOURCEMANAGER_HPP_
+
+#include <stdint.h>
+#include <cstddef>
+#include <type_traits>
+#include <iostream>
+
+#ifndef DISABLE_ERROR_HANDLER
+#define FOREVER 1
+#else
+#define FOREVER 0
+#endif
+
+template<class T>
+std::size_t how_many_elements(std::size_t bytes)
+{
+  return (bytes - ((!std::is_trivially_destructible<T>::value)*sizeof(void*))) / sizeof(T);
+}
+
+
+
+
+
+#endif /* RESOURCEMANAGER_RESOURCEMANAGER_HPP_ */

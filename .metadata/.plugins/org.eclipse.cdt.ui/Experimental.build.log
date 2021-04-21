@@ -1,4 +1,4 @@
-20:35:30 **** Incremental Build of configuration Debug for project Experimental ****
+08:31:04 **** Incremental Build of configuration Debug for project Experimental ****
 make all 
 Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.cpp
 Invoking: GCC C++ Compiler
@@ -8,55 +8,14 @@ Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/Resource
 Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp
 Invoking: GCC C++ Compiler
 g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DSP/Reverb/IIRCombFilter.d" -MT"DSP/Reverb/IIRCombFilter.o" -o "DSP/Reverb/IIRCombFilter.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp
- 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DSP/Reverb/Reverb.d" -MT"DSP/Reverb/Reverb.o" -o "DSP/Reverb/Reverb.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/Reverb.cpp
- 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/UniCombFilter.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DSP/Reverb/UniCombFilter.d" -MT"DSP/Reverb/UniCombFilter.o" -o "DSP/Reverb/UniCombFilter.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/UniCombFilter.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/UniCombFilter.cpp
- 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/DSPManager.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DSP/DSPManager.d" -MT"DSP/DSPManager.o" -o "DSP/DSPManager.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/DSPManager.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/DSPManager.cpp
- 
-Building file: ../main.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
-../main.cpp: In function ‘int main()’:
-../main.cpp:76:17: warning: unused variable ‘combfilter1’ [-Wunused-variable]
-   76 |  IIRCombFilter *combfilter1 = new IIRCombFilter(3460 * 2, 0.805);
-      |                 ^~~~~~~~~~~
-../main.cpp:77:17: warning: unused variable ‘combfilter2’ [-Wunused-variable]
-   77 |  IIRCombFilter *combfilter2 = new IIRCombFilter(2988 * 2, 0.827);
-      |                 ^~~~~~~~~~~
-../main.cpp:78:17: warning: unused variable ‘combfilter3’ [-Wunused-variable]
-   78 |  IIRCombFilter *combfilter3 = new IIRCombFilter(3882 * 2, 0.783);
-      |                 ^~~~~~~~~~~
-../main.cpp:79:17: warning: unused variable ‘combfilter4’ [-Wunused-variable]
-   79 |  IIRCombFilter *combfilter4 = new IIRCombFilter(4312 * 2, 0.764);
-      |                 ^~~~~~~~~~~
-../main.cpp:80:17: warning: unused variable ‘allpass1’ [-Wunused-variable]
-   80 |  UniCombFilter *allpass1 = new UniCombFilter(   480  * 2, 0.7);
-      |                 ^~~~~~~~
-../main.cpp:81:17: warning: unused variable ‘allpass2’ [-Wunused-variable]
-   81 |  UniCombFilter *allpass2 = new UniCombFilter(   161  * 2, 0.7);
-      |                 ^~~~~~~~
-../main.cpp:82:17: warning: unused variable ‘allpass3’ [-Wunused-variable]
-   82 |  UniCombFilter *allpass3 = new UniCombFilter(   46   * 2, 0.7);
-      |                 ^~~~~~~~
-Finished building: ../main.cpp
- 
-Building target: Experimental
-Invoking: GCC C++ Linker
-g++  -o "Experimental"  ./ResourceManager/ResourceManager.o  ./DSP/Reverb/IIRCombFilter.o ./DSP/Reverb/Reverb.o ./DSP/Reverb/UniCombFilter.o  ./DSP/AbstractFx.o ./DSP/DSPManager.o  ./main.o   
-Finished building target: Experimental
- 
+In file included from /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.hpp:12,
+                 from /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp:9:
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp:19:11: fatal error: arm_math.h: No such file or directory
+   19 |  #include "arm_math.h"
+      |           ^~~~~~~~~~~~
+compilation terminated.
+make: *** [DSP/Reverb/subdir.mk:26: DSP/Reverb/IIRCombFilter.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
 
-20:35:32 Build Finished. 0 errors, 7 warnings. (took 2s.246ms)
+08:31:04 Build Failed. 2 errors, 0 warnings. (took 596ms)
 

@@ -34,6 +34,9 @@ class AbstractState;
 	#define FOREVER 0
 #endif
 
+
+#include <ResourceManager.hpp>
+
 //#define MAX_NUM_STATE 2
 
 class StateMachine
@@ -58,8 +61,8 @@ public:
 
 	// create all system states at startup, they are not deleted.
 	std::array<AbstractState*, MAX_NUM_STATE> theStateList = {
-		new  FxDisabledState(),
-		new  FxEnabledState()
+		new(std::nothrow)  FxDisabledState(),
+		new(std::nothrow)  FxEnabledState()
 	};
 
 	enum states_enum
@@ -75,6 +78,17 @@ public:
 	};
 
 	StateMachine::stateFatalErrTypes getErrorStatus();
+
+	/*
+	 * check there is system memory available before allocation or return nullptr
+	 */
+	void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+			if(ResourceManager::checkSystemMem< StateMachine >(size))
+				return malloc(size);
+			else
+				return nullptr;
+	}
+
 
 private:
 

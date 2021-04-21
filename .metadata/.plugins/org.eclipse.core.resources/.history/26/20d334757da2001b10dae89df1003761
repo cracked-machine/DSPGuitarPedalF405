@@ -1,0 +1,40 @@
+/*
+ * ExtCtrlTaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <ExtCtrlTaskManager.hpp>
+
+#ifdef USE_FREERTOS
+
+#else
+
+		ExtCtrlTaskManagerNoRTOS::ExtCtrlTaskManagerNoRTOS()
+		{
+
+		}
+
+		ExtCtrlTaskManagerNoRTOS::~ExtCtrlTaskManagerNoRTOS()
+		{
+
+		}
+
+		void ExtCtrlTaskManagerNoRTOS::nonRtosTask(uint16_t pData)
+		{
+			switch(item)
+			{
+				case EXTI_PR_PR13:
+
+					this->getStateMachine()->evFootswitchA();
+					break;
+				case EXTI_PR_PR14:
+					this->getStateMachine()->evFootswitchB();
+					break;
+			}
+		}
+
+#endif
+
+

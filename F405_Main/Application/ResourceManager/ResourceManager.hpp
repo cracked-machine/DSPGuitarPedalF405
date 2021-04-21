@@ -11,6 +11,9 @@
 #include <stdint.h>
 #include <cstddef>
 #include <type_traits>
+#include <iostream>
+#include <new>
+#include <typeinfo>
 
 #ifndef DISABLE_ERROR_HANDLER
 #define FOREVER 1
@@ -18,15 +21,77 @@
 #define FOREVER 0
 #endif
 
-template<class T>
-std::size_t how_many_elements(std::size_t bytes)
+class ResourceManager
 {
-  return (bytes - ((!std::is_trivially_destructible<T>::value)*sizeof(void*))) / sizeof(T);
-}
 
-static uint32_t usedmem = 0;
-static const uint32_t totalmem = 128000;
-static const uint32_t maxthresholdmem = 80000;
+public:
+
+	/*
+	 * check the system has memory left before it ius allocated
+	 * (called by class-level overloaded 'operator new(std::nothrow)')
+	 */
+	template<typename T>
+	static bool checkSystemMem(std::size_t pSize)
+	{
+
+	  //return (bytes - ((!std::is_trivially_destructible<T>::value)*sizeof(void*))) / sizeof(T);
+		uint32_t requestedSize = pSize;
+		if(ResourceManager::usedMem + requestedSize > ResourceManager::thresholdMem)
+		{
+			std::cout << std::endl << typeid(T).name() << ":" << std::endl;
+			std::cout << "\n\tMEMORY ALLOCATION FAILURE" << std::endl;
+			std::cout << "Requested memory " << requestedSize << "bytes, is not available" << std::endl;
+			std::cout << "*** System total = " << ResourceManager::usedMem << " bytes." << std::endl;
+			return false;
+		}
+		else
+		{
+			ResourceManager::usedMem += requestedSize;
+			std::cout << std::endl << typeid(T).name() << ":" << std::endl;
+			std::cout << "Allocating " << requestedSize << " bytes." << std::endl;
+			std::cout << "*** System total = " << ResourceManager::usedMem << " bytes." << std::endl;
+			return true;
+		}
+
+	}
+
+	static bool checkSystemMem(std::size_t pSize)
+	{
+	  //return (bytes - ((!std::is_trivially_destructible<T>::value)*sizeof(void*))) / sizeof(T);
+		uint32_t requestedSize = pSize;
+		if(ResourceManager::usedMem + requestedSize > ResourceManager::thresholdMem)
+		{
+			std::cout << "Requested memory, " << requestedSize << "bytes, is not available" << std::endl;
+			return false;
+		}
+		else
+		{
+			ResourceManager::usedMem += requestedSize;
+			std::cout << "Allocating " << requestedSize << " bytes. \t\tSystem total = " << ResourceManager::usedMem << " bytes." << std::endl;
+			return true;
+		}
+
+	}
+
+
+	template< typename T>
+	static double foo(  )
+	{ std::cout << "hello";  return 1.0;}
+
+	static uint32_t getUsedMem();
+	static void addToUsedMem(uint32_t pAddition);
+	static void removeFromUsedMem(uint32_t pSubtract);
+	static uint32_t getTotalMem();
+	static uint32_t getThresholdMem();
+
+private:
+	static uint32_t usedMem;
+	static const uint32_t totalMem = 192000;
+	static const uint32_t thresholdMem = (ResourceManager::totalMem - 1000);
+};
+
+
+
 
 
 

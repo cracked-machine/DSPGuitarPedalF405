@@ -1,0 +1,14 @@
+StateMachine/StateList.o: \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateList.cpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateList.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/AbstractState.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxDisabledState.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxEnabledState.hpp
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/StateList.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/AbstractState.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxDisabledState.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine/FxEnabledState.hpp:

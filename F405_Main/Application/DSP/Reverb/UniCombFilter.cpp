@@ -10,12 +10,12 @@
 
 
 
-UniCombFilter::UniCombFilter(size_t pSize, float pGain)
+UniCombFilter::UniCombFilter(size_t pSize, float pGain, float pTime)
 {
-	buffer = new  UniCombFilterBuffer(pSize);
+	buffer = new (std::nothrow) UniCombFilterBuffer(pSize);
 	buffer->iterator = buffer->begin();
 	gain = pGain;
-	limit = 1.0f * pSize;
+	limit = pTime * pSize;
 }
 
 UniCombFilter::~UniCombFilter()

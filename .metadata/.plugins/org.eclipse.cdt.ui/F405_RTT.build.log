@@ -1,6 +1,6 @@
-20:35:33 **** Incremental Build of configuration Release for project F405_RTT ****
+14:35:52 **** Incremental Build of configuration Release for project F405_RTT ****
 make -j4 all 
 make: Nothing to be done for 'all'.
 
-20:35:34 Build Finished. 0 errors, 0 warnings. (took 218ms)
+14:35:52 Build Finished. 0 errors, 0 warnings. (took 277ms)
 

@@ -4,7 +4,7 @@
  *  Created on: 18 Apr 2021
  *      Author: chris
  */
-
+/*
 #ifndef STATEMACHINE_STATELIST_HPP_
 #define STATEMACHINE_STATELIST_HPP_
 
@@ -33,3 +33,5 @@ private:
 
 
 #endif /* STATEMACHINE_STATELIST_HPP_ */
+
+*/

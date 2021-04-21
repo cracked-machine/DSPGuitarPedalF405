@@ -1,0 +1,14 @@
+DSP/Filters/IIRFilterFx.o: \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters/IIRFilterFx.cpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters/IIRFilterFx.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.hpp \
+ /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/BlockTypes.hpp
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters/IIRFilterFx.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.hpp:
+
+/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/BlockTypes.hpp:

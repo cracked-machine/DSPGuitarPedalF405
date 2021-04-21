@@ -1,0 +1,47 @@
+/*
+ * I2STaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <I2STaskManager.hpp>
+
+#include <DSPManager.hpp>
+#include <IIRFilterFx.hpp>
+
+
+#ifdef USE_FREERTOS
+
+#else
+	I2STaskManagerNoRTOS::I2STaskManagerNoRTOS()
+	{
+
+	}
+
+	I2STaskManagerNoRTOS::~I2STaskManagerNoRTOS()
+	{
+
+	}
+
+	void I2STaskManagerNoRTOS::nonRtosTask(uint8_t pData)
+	{
+		switch(pData)
+		{
+			case 1:
+				iirfx->process_half_u16(	&this->getDspManager()->rxBuf,
+											&this->getDspManager()->txBuf);
+
+				//LEDA_G_GPIO_Port->ODR ^= GPIO_ODR_OD1_Msk;
+				break;
+			case 2:
+				iirfx->process_full_u16(	&this->getDspManager()->rxBuf,
+										&this->getDspManager()->txBuf);
+
+
+				//LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
+				break;
+		}
+	}
+#endif
+

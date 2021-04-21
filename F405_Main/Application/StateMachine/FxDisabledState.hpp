@@ -9,6 +9,7 @@
 #define STATEMACHINE_FXDISABLEDSTATE_HPP_
 
 #include <AbstractState.hpp>
+#include <ResourceManager.hpp>
 
 
 
@@ -23,6 +24,15 @@ public:
 	   void evRotaryEncoderA(StateMachine *machine) override;
 	   void evRotaryEncoderB(StateMachine *machine) override;
 
+		/*
+		 * check there is system memory available before allocation or return nullptr
+		 */
+		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+				if(ResourceManager::checkSystemMem< FxDisabledState >(size))
+					return malloc(size);
+				else
+					return nullptr;
+		}
 };
 
 

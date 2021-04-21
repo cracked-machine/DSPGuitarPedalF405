@@ -26,9 +26,19 @@
 	</natures>
 	<linkedResources>
 		<link>
+			<name>DSP</name>
+			<type>2</type>
+			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP</location>
+		</link>
+		<link>
 			<name>Debounce</name>
 			<type>2</type>
 			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce</location>
+		</link>
+		<link>
+			<name>ResourceManager</name>
+			<type>2</type>
+			<location>/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager</location>
 		</link>
 		<link>
 			<name>StateMachine</name>

@@ -26,7 +26,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="i2s_taskman"/>
+			<item key="textPattern" value="MonoBlockF32"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -41,7 +41,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="rxBuf"/>
+			<item key="textPattern" value="StereoBlockU16"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -53,7 +53,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="dspman"/>
+			<item key="textPattern" value="ResourceManager::usedMem"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -65,7 +65,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="leftt_iir_settings"/>
+			<item key="textPattern" value="void\* operator new(size_t size, const std::nothrow_t&amp; tag) noexcept {"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -77,7 +77,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="right_iirsettings"/>
+			<item key="textPattern" value="IIRFilterFx"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -89,7 +89,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="left_iirsettings"/>
+			<item key="textPattern" value="new(std::nothrow)"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -101,7 +101,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="iirsettings_r"/>
+			<item key="textPattern" value="new"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -113,7 +113,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="iirsettings_l"/>
+			<item key="textPattern" value="i2s_taskman"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -125,7 +125,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="StereoBlockF32"/>
+			<item key="textPattern" value="rxBuf"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -137,7 +137,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="FULL_BLK_SIZE_F32"/>
+			<item key="textPattern" value="dspman"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -149,7 +149,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="HALF_BLK_SIZE_F32"/>
+			<item key="textPattern" value="leftt_iir_settings"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -161,7 +161,7 @@
 			<item key="ignoreCase" value="true"/>
 			<item key="isRegExSearch" value="false"/>
 			<item key="isWholeWord" value="true"/>
-			<item key="textPattern" value="HALF_BLK_SIZE_F32 \* 2"/>
+			<item key="textPattern" value="right_iirsettings"/>
 			<item key="scope" value="0"/>
 			<list key="fileNamePatterns">
 				<item value="*"/>
@@ -176,7 +176,7 @@
 	<section name="DialogBounds_SearchDialog">
 		<item key="DIALOG_X_ORIGIN" value="502"/>
 		<item key="DIALOG_Y_ORIGIN" value="179"/>
-		<item key="DIALOG_WIDTH" value="611"/>
+		<item key="DIALOG_WIDTH" value="600"/>
 		<item key="DIALOG_HEIGHT" value="493"/>
 		<item key="DIALOG_FONT_NAME" value="1|Ubuntu|11.0|0|GTK|1|"/>
 	</section>
@@ -188,13 +188,13 @@
 	</section>
 	<section name="ReplaceDialog2">
 		<list key="replace_with">
+			<item value="AudioBlockF32"/>
+			<item value="AudioBlockU16"/>
+			<item value="new "/>
+			<item value="new(std::nothrow)"/>
 			<item value="left_iir_settings"/>
 			<item value="right_iir_settings"/>
 			<item value="leftt_iir_settings"/>
-			<item value="right_iirsettings"/>
-			<item value="left_iirsettings"/>
-			<item value="MonoBlockF32"/>
-			<item value="HALF_BLK_SIZE_F32"/>
 		</list>
 	</section>
 	<section name="">

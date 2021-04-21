@@ -1,45 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="v1"/>
+		<item key="selection" value="HALF_BLK_SIZE_F32"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
-		<item key="wholeword" value="false"/>
+		<item key="wholeword" value="true"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="HALF_BLK_SIZE_F32"/>
+			<item value="QTR_BLK_SIZE_F32"/>
+			<item value="HALF_BLK_SIZE_U16"/>
+			<item value="FULL_BLK_SIZE_U16"/>
+			<item value="I2S_Audio_Frequency"/>
+			<item value="IIRFilterFx"/>
+			<item value="_i2s_taskman-&gt;getDspManager()-&gt;txBuf"/>
+			<item value="i2s_taskman-&gt;getDspManager()-&gt;rxBuf"/>
+			<item value="i2s_taskman-&gt;getDspManager()-&gt;txBuf"/>
+			<item value="requesting"/>
+			<item value="new"/>
+			<item value="newsample"/>
 			<item value="v1"/>
 			<item value="AllPassFilter"/>
 			<item value="UniCombFilter"/>
-			<item value="FIRCombFilter"/>
-			<item value="i2s_taskman"/>
-			<item value="extctrl_taskman"/>
-			<item value="DSPManagerMem"/>
-			<item value="DSPManager"/>
-			<item value="iirfx"/>
-			<item value="dspman"/>
-			<item value="ExtCtrl_StaticQueue"/>
-			<item value="myGlobal"/>
-			<item value=".text"/>
-			<item value="queueSendFromISR_wrapper"/>
-			<item value="foo"/>
 		</list>
 		<list key="replacehistory">
+			<item value="HALF_BLK_SIZE_F32*2"/>
+			<item value="HALF_BLK_SIZE_U16"/>
+			<item value="QTR_BLK_SIZE_F32*2"/>
+			<item value="QTR_BLK_SIZE_F32"/>
+			<item value="IIRFilterFx2"/>
+			<item value="pTxBuf"/>
+			<item value="pRxBuf"/>
+			<item value="new(std::nothrow)"/>
+			<item value="output"/>
 			<item value="UniCombFilter"/>
 			<item value="IIRCombFilter"/>
 			<item value="AllPassFilter"/>
 			<item value="_i2s_taskman"/>
 			<item value="_extctrl_taskman"/>
 			<item value="FULL_BLK_SIZE_F32"/>
-			<item value="NULL_TIMER_ERR"/>
-			<item value="TestTaskManager_t"/>
-			<item value="taskman"/>
-			<item value="pTaskPtr"/>
-			<item value="pQueueSize"/>
-			<item value="pStackSize"/>
-			<item value="pTaskName"/>
-			<item value=" = 0;"/>
-			<item value="TIM14-&gt;"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

@@ -16,6 +16,7 @@
 
 
 
+
 class IIRFilterFx : public AbstractFx
 {
 public:
@@ -23,23 +24,31 @@ public:
 	IIRFilterFx();
 
 	#ifndef ENABLE_IIR_BYPASS
-		void process_half_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_full_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_all_u16(	StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								StereoBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_all_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
 	#endif
 
-	void *operator new(std::size_t count) {
-		std::cout << "allocating " << count << " bytes, " << how_many_elements<IIRFilterFx>(count) << " items\n";
-		return ::operator new[](count);
-	}
+		/*
+		 * check there is system memory available before allocation or return nullptr
+		 */
+
+		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+				if(ResourceManager::checkSystemMem< IIRFilterFx >(size))
+					return malloc(size);
+				else
+					return nullptr;
+		}
+
 
 private:
 
+#ifndef ENABLE_CPPUTEST
 	arm_biquad_casd_df1_inst_f32 left_iir_settings, right_iir_settings;
-
+#endif
 	IIRState<4> iir_left_state{};
 	IIRState<4> iir_right_state{};
 
@@ -55,10 +64,10 @@ private:
 	static const uint16_t QTR_BLK_SIZE_F32 = 512;
 	static const uint16_t HALF_BLK_SIZE_F32 = (QTR_BLK_SIZE_F32 * 2);
 
-	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_in{};
-	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_in{};
-	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_out{};
-	MonoBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_out{};
+	AudioBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_in{};
+	AudioBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_in{};
+	AudioBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> left_buf_out{};
+	AudioBlockF32 <IIRFilterFx::HALF_BLK_SIZE_F32> right_buf_out{};
 
 	int offset_read_ptr;
 	int offset_write_ptr, write_ptr;
