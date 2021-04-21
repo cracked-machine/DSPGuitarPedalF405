@@ -1,17 +1,15 @@
-14:35:53 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
+00:04:55 **** Incremental Build of configuration Debug for project LinuxGCC_Tests ****
 make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager/ExtCtrlTaskManager.cpp
+Building file: ../test_debounce.cpp
 Invoking: GCC C++ Compiler
-g++ -DDISABLE_ERROR_HANDLER -DENABLE_CPPUTEST -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"TaskManager/ExtCtrlTaskManager.d" -MT"TaskManager/ExtCtrlTaskManager.o" -o "TaskManager/ExtCtrlTaskManager.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager/ExtCtrlTaskManager.cpp"
-/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager/ExtCtrlTaskManager.cpp: In member function ‘void ExtCtrlTaskManagerNoRTOS::nonRtosTask(uint16_t)’:
-/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager/ExtCtrlTaskManager.cpp:28:10: error: ‘EXTI_PR_PR13’ was not declared in this scope
-   28 |     case EXTI_PR_PR13:
-      |          ^~~~~~~~~~~~
-/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager/ExtCtrlTaskManager.cpp:32:10: error: ‘EXTI_PR_PR14’ was not declared in this scope
-   32 |     case EXTI_PR_PR14:
-      |          ^~~~~~~~~~~~
-make: *** [TaskManager/subdir.mk:23: TaskManager/ExtCtrlTaskManager.o] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
+g++ -DDISABLE_ERROR_HANDLER -DENABLE_CPPUTEST -I"/home/chris/DSPGuitarPedalF405/Host_CppUTest/CppUTestInc" -I/home/chris/CMSIS_5.7.0_Build/CMSIS/DSP/Include -I/home/chris/CMSIS_5.7.0_Build/CMSIS/Include -I"/home/chris/DSPGuitarPedalF405/F405_RTT/RTT" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/Debounce" -I"/home/chris/DSPGuitarPedalF405/LinuxGCC_Tests" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/StateMachine" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/TaskManager" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/include" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/FreeRTOS" -I"/opt/FreeRTOSv202012.00/FreeRTOS/Source/portable/GCC/ARM_CM4F" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Filters" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"test_debounce.d" -MT"test_debounce.o" -o "test_debounce.o" "../test_debounce.cpp"
+Finished building: ../test_debounce.cpp
+ 
+Building target: LinuxGCC_Tests
+Invoking: GCC C++ Linker
+g++ -L"/home/chris/DSPGuitarPedalF405/Host_CppUTest/Debug" -o "LinuxGCC_Tests"  ./TaskManager/ExtCtrlTaskManager.o ./TaskManager/I2STaskManager.o  ./StateMachine/AbstractState.o ./StateMachine/FxDisabledState.o ./StateMachine/FxEnabledState.o ./StateMachine/StateList.o ./StateMachine/StateMachine.o  ./ResourceManager/ResourceManager.o  ./Debounce/Debounce.o  ./DSP/Reverb/IIRCombFilter.o ./DSP/Reverb/Reverb.o ./DSP/Reverb/UniCombFilter.o  ./DSP/Filters/FIRFilterFx.o ./DSP/Filters/IIRFilterFx.o ./DSP/Filters/IIRFilterFx2.o  ./DSP/AbstractFx.o ./DSP/DSPManager.o  ./test_blank.o ./test_debounce.o ./test_resource_manager.o ./test_statemachine.o ./test_taskman.o ./testmain.o   -lHost_CppUTest -lpthread
+Finished building target: LinuxGCC_Tests
+ 
 
-14:35:53 Build Failed. 3 errors, 0 warnings. (took 598ms)
+00:04:56 Build Finished. 0 errors, 0 warnings. (took 813ms)
 

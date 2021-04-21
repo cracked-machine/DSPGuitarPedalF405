@@ -24,12 +24,12 @@ public:
 	IIRFilterFx2();
 
 	#ifndef ENABLE_IIR_BYPASS
-		void process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_all_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_all_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
 	#endif
 
 		/*
@@ -61,21 +61,20 @@ private:
 		-0.8310041056111546
 	};
 
-	static const uint16_t QTR_BLK_SIZE_F32 = 512;
-	static const uint16_t HALF_BLK_SIZE_F32 = (QTR_BLK_SIZE_F32 * 2);
 
-	AudioBlockF32 <IIRFilterFx2::HALF_BLK_SIZE_F32> left_buf_in{};
-	AudioBlockF32 <IIRFilterFx2::HALF_BLK_SIZE_F32> right_buf_in{};
-	AudioBlockF32 <IIRFilterFx2::HALF_BLK_SIZE_F32> left_buf_out{};
-	AudioBlockF32 <IIRFilterFx2::HALF_BLK_SIZE_F32> right_buf_out{};
+
+	AudioBlockF32 <STEREO_CH_SIZE_F32> left_buf_in{};
+	AudioBlockF32 <STEREO_CH_SIZE_F32> right_buf_in{};
+	AudioBlockF32 <STEREO_CH_SIZE_F32> left_buf_out{};
+	AudioBlockF32 <STEREO_CH_SIZE_F32> right_buf_out{};
 
 	int offset_read_ptr;
 	int offset_write_ptr, write_ptr;
 
-	AudioBlockF32< IIRFilterFx2::HALF_BLK_SIZE_F32 > pLeftIn;
-	AudioBlockF32< IIRFilterFx2::HALF_BLK_SIZE_F32 > pRightIn;
-	AudioBlockF32< IIRFilterFx2::HALF_BLK_SIZE_F32 > pLeftOut;
-	AudioBlockF32< IIRFilterFx2::HALF_BLK_SIZE_F32 > pRightOut;
+	AudioBlockF32< STEREO_CH_SIZE_F32 > pLeftIn;
+	AudioBlockF32< STEREO_CH_SIZE_F32 > pRightIn;
+	AudioBlockF32< STEREO_CH_SIZE_F32 > pLeftOut;
+	AudioBlockF32< STEREO_CH_SIZE_F32 > pRightOut;
 
 };
 

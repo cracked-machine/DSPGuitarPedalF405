@@ -20,7 +20,8 @@ using namespace std;
 #endif
 
 #include <BlockTypes.hpp>
-
+using namespace AudioBlockTypes;
+using namespace FilterArrayTypes;
 
 class AbstractFx
 {
@@ -29,19 +30,46 @@ public:
 	AbstractFx();
 	virtual ~AbstractFx();
 
-	static const size_t HALF_BLK_SIZE_U16 = 2048;
-	static const size_t FULL_BLK_SIZE_U16 = (AbstractFx::HALF_BLK_SIZE_U16 * 2);
+
+	// 1 x F32 channel
+	// Ch: F32 (first 24 data bits + 8 zero bits)
+	static const size_t MONO_CH_SIZE_F32 = 512;
+
+	// 2 x F32 channel
+	// LCh: F32 (first 24 data bits + 8 zero bits)
+	// RCh: F32 (first 24 data bits + 8 zero bits)
+	static const size_t STEREO_CH_SIZE_F32 = 1024;
+
+
+	// 2 x U16 per channel, one buffer
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t STEREO_CH_SIZE_U16 = 2048;
+
+
+	// 2 x U16 per channel, two buffers.
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t FULL_BLK_SIZE_U16 = 4096;
 
 
 
-	virtual void process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
 
-	virtual void process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
 
-	virtual void process_all_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf);
+	virtual void process_all_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
 
 	void error_handler();
 private:

@@ -55,33 +55,33 @@ void initTimer(TIM_TypeDef *TIM14)
 
 TEST(DebounceManagerGroup, DebounceManager_NullPtrTest)
 {
-	DebounceManager *dman = new DebounceManager(nullptr, 100);
+	DebounceManager *dman = new (std::nothrow) DebounceManager(nullptr, 100);
 	dman->start();
 	CHECK(dman->getErrorStatus() == dman->NULL_TIMER_ERR);
-	delete dman;
-	dman = nullptr;
+	//delete dman;
+	//dman = nullptr;
 }
 
 TEST(DebounceManagerGroup, DebounceManager_DelayLowBoundsTest)
 {
 	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 
-	DebounceManager *dman = new DebounceManager(TIM14, -1);
+	DebounceManager *dman = new (std::nothrow) DebounceManager(TIM14, -1);
 	dman->start();
 	CHECK(dman->isStarted());
-	delete dman;
-	dman = nullptr;
+	//delete dman;
+	//dman = nullptr;
 }
 
 TEST(DebounceManagerGroup, DebounceManager_DelayHighboundsTest)
 {
 	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 
-	DebounceManager *dman = new DebounceManager(TIM14, 65536);
+	DebounceManager *dman = new (std::nothrow) DebounceManager(TIM14, 65536);
 	dman->start();
 	CHECK(dman->isStarted());
-	delete dman;
-	dman = nullptr;
+	//delete dman;
+	//dman = nullptr;
 }
 
 
@@ -89,7 +89,7 @@ TEST(DebounceManagerGroup, DebounceManager_MainDelayTest)
 {
 	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 
-	DebounceManager *dman = new DebounceManager(TIM14, 100);
+	DebounceManager *dman = new (std::nothrow) DebounceManager(TIM14, 100);
 
 	bool res = false;
 	dman->start();
@@ -106,7 +106,7 @@ TEST(DebounceManagerGroup, DebounceManager_MainDelayTest)
 	res = dman->check_debounce();
 	CHECK(res);
 
-	delete dman;
-	dman = nullptr;
+	//delete dman;
+	//dman = nullptr;
 }
 

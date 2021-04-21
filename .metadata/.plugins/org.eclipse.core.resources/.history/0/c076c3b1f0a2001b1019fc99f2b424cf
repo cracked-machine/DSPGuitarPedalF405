@@ -1,0 +1,80 @@
+/*
+ * AbstractFx.hpp
+ *
+ *  Created on: Apr 18, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_ABSTRACTFX_HPP_
+#define DSP_ABSTRACTFX_HPP_
+
+
+using namespace std;
+
+#include "stdint.h"
+#include <array>
+
+
+#ifndef ENABLE_CPPUTEST
+	#include "arm_math.h"
+#endif
+
+#include <BlockTypes.hpp>
+
+
+class AbstractFx
+{
+
+public:
+	AbstractFx();
+	virtual ~AbstractFx();
+
+	// 2 x U16 per channel, single buffer
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t HALF_BLK_SIZE_U16 = 2048;
+
+
+	// 2 x U16 per channel, dual buffers.
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t FULL_BLK_SIZE_U16 = 4096;
+
+	// 1 x F32 channel
+	// Ch: F32 (first 24 data bits + 8 zero bits)
+	static const size_t HALF_BLK_SIZE_F32 = 512;
+
+	// 2 x F32 channel
+	// LCh: F32 (first 24 data bits + 8 zero bits)
+	// RCh: F32 (first 24 data bits + 8 zero bits)
+	static const size_t FULL_BLK_SIZE_F32 = 1024;
+
+
+
+	virtual void process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
+
+	virtual void process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
+
+	virtual void process_all_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf);
+
+	void error_handler();
+private:
+
+};
+
+
+
+
+
+#endif /* DSP_ABSTRACTFX_HPP_ */

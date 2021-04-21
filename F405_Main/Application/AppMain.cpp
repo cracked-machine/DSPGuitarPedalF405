@@ -167,12 +167,12 @@
 		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
 										i2s_taskman->getDspManager()->txBuf.data(),
 										i2s_taskman->getDspManager()->rxBuf.data(),
-										AbstractFx::HALF_BLK_SIZE_U16);
+										AbstractFx::STEREO_CH_SIZE_U16);
 		#else
 		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
 										i2s_taskman_nortos->getDspManager()->txBuf.data(),
 										i2s_taskman_nortos->getDspManager()->rxBuf.data(),
-										AbstractFx::HALF_BLK_SIZE_U16);
+										AbstractFx::STEREO_CH_SIZE_U16);
 
 		/*		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
 										i2s_taskman_nortos->getDspManager()->txBuf.data(),

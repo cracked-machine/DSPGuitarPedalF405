@@ -18,11 +18,7 @@ TEST_GROUP(ResourceManGroup)
 
 TEST(ResourceManGroup, ResourceManTest)
 {
-	CHECK(get_number_bytes<uint8_t>() == 1);
-	CHECK(get_number_bytes<short>() == 2);
-	CHECK(get_number_bytes<int>() == 4);
-	CHECK(get_number_bytes<long>() == 8);
-
+	ResourceManager::checkSystemMem< int >(10);
 
 
 }

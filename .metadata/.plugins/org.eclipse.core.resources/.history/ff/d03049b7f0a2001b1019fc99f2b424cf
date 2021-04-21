@@ -1,0 +1,55 @@
+/*
+ * BlockTypes.hpp
+ *
+ *  Created on: 18 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_BLOCKTYPES_HPP_
+#define DSP_BLOCKTYPES_HPP_
+
+
+	// 2 x U16 per channel, single buffer
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t HALF_BLK_SIZE_U16 = 2048;
+
+
+	// 2 x U16 per channel, dual buffers.
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	// LCh: U16 (first 16 data bits)
+	// LCh: U16 (last 8 data bits + 8 zero bits)
+	// RCh: U16 (first 16 data bits)
+	// RCh: U16 (last 8 data bits + 8 zero bits)
+	static const size_t FULL_BLK_SIZE_U16 = 4096;
+
+	// 1 x F32 channel
+	// Ch: F32 (first 24 data bits + 8 zero bits)
+	static const size_t HALF_BLK_SIZE_F32 = 512;
+
+	// 2 x F32 channel
+	// LCh: F32 (first 24 data bits + 8 zero bits)
+	// RCh: F32 (first 24 data bits + 8 zero bits)
+	static const size_t FULL_BLK_SIZE_F32 = 1024;
+
+	// define alias template to std::array<uint16_t, S> for parameter use
+	template <size_t S>
+	using AudioBlockU16 = std::array<uint16_t, S>;
+
+	template <size_t S>
+	using AudioBlockF32 = std::array<float, S>;
+
+	template <size_t S>
+	using IIRState = std::array<float, S>;
+
+	template <size_t S>
+	using IIRCoeffSet = std::array<float, S>;
+
+
+
+#endif /* DSP_BLOCKTYPES_HPP_ */

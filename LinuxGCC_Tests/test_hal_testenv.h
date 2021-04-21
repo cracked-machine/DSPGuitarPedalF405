@@ -43,6 +43,12 @@ typedef struct
 #define TIM_CR1_CEN_Pos           (0U)
 #define TIM_CR1_CEN_Msk           (0x1UL << TIM_CR1_CEN_Pos)                   //!< 0x00000001
 
+#define EXTI_PR_PR13_Pos          (13U)
+#define EXTI_PR_PR13_Msk          (0x1UL << EXTI_PR_PR13_Pos)                   /*!< 0x00002000 */
+#define EXTI_PR_PR13              EXTI_PR_PR13_Msk                             /*!< Pending bit for line 13 */
+#define EXTI_PR_PR14_Pos          (14U)
+#define EXTI_PR_PR14_Msk          (0x1UL << EXTI_PR_PR14_Pos)                   /*!< 0x00004000 */
+#define EXTI_PR_PR14              EXTI_PR_PR14_Msk                             /*!< Pending bit for line 14 */
 
 
 #endif /* TEST_HAL_TESTENV_H_ */

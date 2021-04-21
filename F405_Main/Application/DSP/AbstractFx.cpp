@@ -24,7 +24,7 @@ void AbstractFx::process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 
 									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 {
 	// do something for first half samples here if needed
-	for(size_t i = 0; i < HALF_BLK_SIZE_U16; i++ )
+	for(size_t i = 0; i < STEREO_CH_SIZE_U16; i++ )
 	{
 		(*pTxBuf)[i] = (*pRxBuf)[i];
 	}
@@ -35,7 +35,7 @@ void AbstractFx::process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 
 									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
 {
 	// do something for second half samples here if needed
-	for(size_t i = HALF_BLK_SIZE_U16; i < FULL_BLK_SIZE_U16; i++ )
+	for(size_t i = STEREO_CH_SIZE_U16; i < FULL_BLK_SIZE_U16; i++ )
 	{
 		(*pTxBuf)[i] = (*pRxBuf)[i];
 	}

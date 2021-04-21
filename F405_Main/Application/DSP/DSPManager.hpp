@@ -5,9 +5,9 @@
  *      Author: chris
  */
 
-#ifdef USE_HAL_DRIVER
+
 #include <AbstractFx.hpp>
-#endif
+
 //#include <Reverb.hpp>
 #include <BoundedVector.hpp>
 

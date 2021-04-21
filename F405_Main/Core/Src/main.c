@@ -50,7 +50,7 @@
 /* USER CODE BEGIN PV */
 
 	#define BLOCK_SIZE_FLOAT 512
-	//#define HALF_BLK_SIZE_U16 2048
+	//#define STEREO_CH_SIZE_U16 2048
 
 	arm_biquad_casd_df1_inst_f32 left_iir_settings, right_iir_settings;
 
@@ -71,8 +71,8 @@
 
 
 
-//	uint16_t rxBuf[HALF_BLK_SIZE_U16*2];
-//	uint16_t txBuf[HALF_BLK_SIZE_U16*2];
+//	uint16_t rxBuf[STEREO_CH_SIZE_U16*2];
+//	uint16_t txBuf[STEREO_CH_SIZE_U16*2];
 	float left_buf_in [BLOCK_SIZE_FLOAT*2];
 	float right_buf_in [BLOCK_SIZE_FLOAT*2];
 	float left_buf_out [BLOCK_SIZE_FLOAT*2];
@@ -113,7 +113,7 @@ void do_iir_init()
 
 
   //int res = testfunc();
-  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, HALF_BLK_SIZE_U16);
+  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, STEREO_CH_SIZE_U16);
 
 
 }
@@ -130,14 +130,14 @@ void do_iir_loop()
 	  }
 
 	  else if (callback_state == 2) {
-		  offset_read_ptr = HALF_BLK_SIZE_U16;
+		  offset_read_ptr = STEREO_CH_SIZE_U16;
 		  offset_write_ptr = BLOCK_SIZE_FLOAT;
 		  write_ptr = BLOCK_SIZE_FLOAT;
 	  }
 
 
 	  //restore input sample buffer to float array
-	  for (int i=offset_read_ptr; i<offset_read_ptr+HALF_BLK_SIZE_U16; i=i+4) {
+	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_CH_SIZE_U16; i=i+4) {
 		  left_buf_in[write_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
 		  right_buf_in[write_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
 		  write_ptr++;
@@ -152,7 +152,7 @@ void do_iir_loop()
 	  //restore processed float-array to output sample-buffer
 	  write_ptr = offset_write_ptr;
 
-	  for (int i=offset_read_ptr; i<offset_read_ptr+HALF_BLK_SIZE_U16; i=i+4) {
+	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_CH_SIZE_U16; i=i+4) {
 			txBuf[i] =  (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
 			txBuf[i+1] = ((int)left_buf_out[write_ptr])&0xFFFF;
 			txBuf[i+2] = (((int)left_buf_out[write_ptr])>>16)&0xFFFF;

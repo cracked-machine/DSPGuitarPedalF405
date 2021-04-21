@@ -8,19 +8,29 @@
 #ifndef DSP_BLOCKTYPES_HPP_
 #define DSP_BLOCKTYPES_HPP_
 
+namespace AudioBlockTypes
+{
 
-	// define alias template to std::array<uint16_t, S> for parameter use
+	// Generic U16 Audio block STL array
 	template <size_t S>
 	using AudioBlockU16 = std::array<uint16_t, S>;
 
+	// Generic F32 Audio block STL array
 	template <size_t S>
 	using AudioBlockF32 = std::array<float, S>;
+}
 
+namespace FilterArrayTypes
+{
+	// Array of state variables for IIR filter
 	template <size_t S>
 	using IIRState = std::array<float, S>;
 
+	// Array of coefficients for IIR filters
 	template <size_t S>
 	using IIRCoeffSet = std::array<float, S>;
+
+}
 
 
 
