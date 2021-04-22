@@ -35,8 +35,8 @@
 					return nullptr;
 		}
 
-
-		void nonRtosTask();
+		void nonRtosStateTask();
+		void nonRtosDspTask();
 
 		enum CallbackStatus_t
 		{

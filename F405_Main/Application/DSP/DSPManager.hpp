@@ -55,6 +55,8 @@ public:
 
 	static void mute();
 	static void unmute();
+	void enable();
+	void disable();
 
 	static SampleMode theSampleMode;
 	static SampleMode theSavedMode;

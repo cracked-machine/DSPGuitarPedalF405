@@ -9,7 +9,7 @@
 
 #include <DSPManager.hpp>
 
-
+#include <i2s.h>
 
 #ifdef USE_FREERTOS
 
@@ -18,7 +18,7 @@
 	{
 
 
-		setDspManager(new(std::nothrow)  DSPManager());
+		//setDspManager(new(std::nothrow)  DSPManager());
 	}
 
 	I2STskManNoRTOS::~I2STskManNoRTOS()
@@ -26,7 +26,27 @@
 
 	}
 
-	void I2STskManNoRTOS::nonRtosTask()
+	void I2STskManNoRTOS::nonRtosStateTask()
+	{
+		if(this->getStateMachine() != nullptr || this->getDspManager() != nullptr)
+		{
+			StateMachine *tmpMachine = this->getStateMachine();
+			DSPManager* tmpDspMan = this->getDspManager();
+			if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_ENABLED])
+			{
+				tmpDspMan->unmute();
+
+			}
+
+			if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_DISABLED])
+			{
+				tmpDspMan->mute();
+
+			}
+		}
+	}
+
+	void I2STskManNoRTOS::nonRtosDspTask()
 	{
 		if	((this->getDspManager() != nullptr) &&
 			(this->getDspManager()->getFx() != nullptr))
@@ -37,10 +57,6 @@
 
 					switch(this->getDspManager()->getSampleMode())
 					{
-						case DSPManager::MUTE_MODE:
-							this->getDspManager()->getFx()->process_mute();
-							break;
-
 						case DSPManager::BLOCK_SAMPLE_MODE:
 							this->getDspManager()->getFx()->process_half_u16_block(
 									&this->getDspManager()->rxBufBlock,
@@ -51,6 +67,9 @@
 							this->getDspManager()->getFx()->process_half_u16_single(
 									&this->getDspManager()->rxBufSingle,
 									&this->getDspManager()->txBufSingle);
+							break;
+
+						case DSPManager::MUTE_MODE:
 							break;
 					}
 
@@ -63,10 +82,6 @@
 
 					switch(this->getDspManager()->getSampleMode())
 					{
-						case DSPManager::MUTE_MODE:
-							this->getDspManager()->getFx()->process_mute();
-							break;
-
 						case DSPManager::BLOCK_SAMPLE_MODE:
 							this->getDspManager()->getFx()->process_full_u16_block(
 									&this->getDspManager()->rxBufBlock,
@@ -78,6 +93,9 @@
 									&this->getDspManager()->rxBufSingle,
 									&this->getDspManager()->txBufSingle);
 
+							break;
+
+						case DSPManager::MUTE_MODE:
 							break;
 					}
 

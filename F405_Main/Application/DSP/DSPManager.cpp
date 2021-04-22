@@ -7,6 +7,10 @@
 
 #include <DSPManager.hpp>
 
+#include <stm32f4xx_hal.h>
+#include <stm32f4xx_hal_i2s_ex.h>
+#include <i2s.h>
+
 #include <IIRFilterFx.hpp>
 //#include <IIRFilterFx2.hpp>
 #include <Reverb.hpp>
@@ -76,9 +80,57 @@ void DSPManager::unmute()
 	if(theSampleMode == MUTE_MODE)
 	{
 		theSampleMode = theSavedMode;
+
+
+	}
+}
+
+
+
+void DSPManager::enable()
+{
+	HAL_StatusTypeDef res = HAL_OK;
+
+	switch(this->getSampleMode())
+	{
+		case DSPManager::BLOCK_SAMPLE_MODE:
+			 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+													txBufBlock.data(),
+													rxBufBlock.data(),
+													AbstractFx::STEREO_SINGLE_BLK_SIZE_U16);
+
+
+			break;
+		case DSPManager::SINGLE_SAMPLE_MODE:
+			 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+													txBufSingle.data(),
+													rxBufSingle.data(),
+													AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
+
+
+			break;
+
+		default:
+			 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+													txBufSingle.data(),
+													rxBufSingle.data(),
+													AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
 	}
 
+	if (res != HAL_OK)
+		Error_Handler();
 }
+
+void DSPManager::disable()
+{
+	HAL_StatusTypeDef res = HAL_OK;
+
+	HAL_I2S_DMAStop(&hi2s2);
+
+	if (res != HAL_OK)
+		Error_Handler();
+}
+
 
 void DSPManager::setFx(AbstractFx* pFx)
 {

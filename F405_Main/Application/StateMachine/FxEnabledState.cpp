@@ -7,8 +7,12 @@
 
 #include <FxEnabledState.hpp>
 #include <StateMachine.hpp>
+
+// STL
 #include <iostream>
 
+// HAL
+#include <i2s.h>
 
 // FxEnabledState class
 void FxEnabledState::evFootswitchA(StateMachine *machine)
@@ -25,7 +29,12 @@ void FxEnabledState::evFootswitchA(StateMachine *machine)
 		HAL_GPIO_WritePin(LEDB_B_GPIO_Port, LEDB_B_Pin, GPIO_PIN_RESET);
 
 		// toggle relay for clean/FX signal path
-		HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+		HAL_I2S_DMAPause(&hi2s2);
+		//HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+		HAL_GPIO_WritePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin, GPIO_PIN_RESET);
+		HAL_I2S_DMAResume(&hi2s2);
+
+
 	#endif
 
 	//std::cout << "FxEnabledState::evFootswitchA" << std::endl;

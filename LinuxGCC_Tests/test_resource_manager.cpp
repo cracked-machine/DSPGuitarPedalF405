@@ -25,8 +25,8 @@ TEST_GROUP(ResourceManGroup)
 TEST(ResourceManGroup, ResourceManTest)
 {
 	I2STskManNoRTOS *i2s_taskman_nortos;
-	ExtCtrlTskManNoRTOS *extctrl_taskman_nortos;
-	StateMachine *extctrl_statemachine = NULL;
+	ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	StateMachine *statemachine = NULL;
 	DebounceManager *extctrl_debounceman;
 
 	i2s_taskman_nortos = new(std::nothrow) I2STskManNoRTOS();
@@ -34,11 +34,11 @@ TEST(ResourceManGroup, ResourceManTest)
 	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 	extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
 
-	extctrl_statemachine = new(std::nothrow)  StateMachine();
-	extctrl_statemachine->setDebounceMan(extctrl_debounceman);
+	statemachine = new(std::nothrow)  StateMachine();
+	statemachine->setDebounceMan(extctrl_debounceman);
 
-	extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTskManNoRTOS();
-	extctrl_taskman_nortos->setStateMachine(extctrl_statemachine);
+	extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTaskManagerNoRTOS();
+	extctrl_taskman_nortos->setStateMachine(statemachine);
 
 
 	std::cout << "-------------------------------------" << std::endl;

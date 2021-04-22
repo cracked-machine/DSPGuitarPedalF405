@@ -27,9 +27,7 @@
 
 #include <PeriphInterrupts.hpp>
 
-//#include <BaseTaskManager.hpp>
 #include <I2STaskManager.hpp>
-#include <ExtCtrlTaskManager.hpp>
 
 #include <StateMachine.hpp>
 #include <DSPManager.hpp>
@@ -50,10 +48,6 @@
 	{
 #endif
 
-
-
-
-
 	#ifdef USE_FREERTOS
 
 		// I2S task declarations
@@ -68,35 +62,27 @@
 		static StaticQueue_t ExtCtrl_StaticQueue;
 
 	#else
-		// I2S task declarations
-		I2STskManNoRTOS *i2s_taskman_nortos;
 
-		// External Control task declarations
-		ExtCtrlTskManNoRTOS *extctrl_taskman_nortos;
+		I2STskManNoRTOS *i2s_taskman_nortos = nullptr;
+
 	#endif
 
-	StateMachine *extctrl_statemachine = NULL;
-	DebounceManager *extctrl_debounceman;
+	StateMachine *statemachine = nullptr;
+	DebounceManager *extctrl_debounceman = nullptr;
 
+	DSPManager *dspman = nullptr;
 
 	void appmain()
 	{
-		//float one_sys_tick;
-		//one_sys_tick = (float)1 / (float)HAL_RCC_GetSysClockFreq();
 
 		std::cout << std::endl << "-------------------------------------" << std::endl;
 		std::cout << "Initialising system." << std::endl;
 
 		std::cout << "System Clock: " << HAL_RCC_GetSysClockFreq() << std::endl;
-//		std::cout << "SysTick: " << one_sys_tick << std::endl;
-		//printf("%f\n", one_sys_tick);
+
 		std::cout << "I2S Clock: " << HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_I2S) << std::endl;
 
-
-
 		setupPeriphInterrupts();
-
-		//run_sys_checks();
 
 		//HAL_EnableCompensationCell();
 
@@ -116,7 +102,7 @@
 				i2s_taskman->setDspManager(new(std::nothrow)  DSPManager(iirfx));
 				//
 		#else
-				i2s_taskman_nortos = new(std::nothrow) I2STskManNoRTOS();
+
 		#endif
 
 		#ifdef USE_FREERTOS
@@ -125,11 +111,11 @@
 				extctrl_taskman = new(std::nothrow)  ExtCtrlTaskManager_t(200, 1);
 
 				// Set the statemachine
-				extctrl_statemachine = new(std::nothrow)  StateMachine();
+				statemachine = new(std::nothrow)  StateMachine();
 				// set the delay for the external control debounce
 				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
-				extctrl_statemachine->setDebounceMan(extctrl_debounceman);
-				extctrl_taskman->setStateMachine(extctrl_statemachine);
+				statemachine->setDebounceMan(extctrl_debounceman);
+				extctrl_taskman->setStateMachine(statemachine);
 
 
 				// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
@@ -141,13 +127,21 @@
 				//
 		#else
 
+				// create Task Manager
+				i2s_taskman_nortos = new(std::nothrow) I2STskManNoRTOS();
+
+				// create DSP Manager and set it in Task Manager
+				dspman = new(std::nothrow)  DSPManager();
+				i2s_taskman_nortos->setDspManager(dspman);
+
+				// create StateMachine and set in Task Manager
+				statemachine = new(std::nothrow)  StateMachine();
+				i2s_taskman_nortos->setStateMachine(statemachine);
+
+				// create Debounce Manager and set in StateMachine
 				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
+				statemachine->setDebounceMan(extctrl_debounceman);
 
-				extctrl_statemachine = new(std::nothrow)  StateMachine();
-				extctrl_statemachine->setDebounceMan(extctrl_debounceman);
-
-				extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTskManNoRTOS();
-				extctrl_taskman_nortos->setStateMachine(extctrl_statemachine);
 
 		#endif
 
@@ -163,47 +157,12 @@
 										AbstractFx::STEREO_SINGLE_BLK_SIZE_U16);
 		#else
 
-		switch(i2s_taskman_nortos->getDspManager()->getSampleMode())
-		{
-			case DSPManager::BLOCK_SAMPLE_MODE:
-				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-														i2s_taskman_nortos->getDspManager()->txBufBlock.data(),
-														i2s_taskman_nortos->getDspManager()->rxBufBlock.data(),
-														AbstractFx::STEREO_SINGLE_BLK_SIZE_U16);
-
-
-				break;
-			case DSPManager::SINGLE_SAMPLE_MODE:
-				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-														i2s_taskman_nortos->getDspManager()->txBufSingle.data(),
-														i2s_taskman_nortos->getDspManager()->rxBufSingle.data(),
-														AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
-
-
-				break;
-
-			default:
-				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-														i2s_taskman_nortos->getDspManager()->txBufSingle.data(),
-														i2s_taskman_nortos->getDspManager()->rxBufSingle.data(),
-														AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
-
-
-				break;
-
-		}
-
-
-		/*		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-										i2s_taskman_nortos->getDspManager()->txBufBlock.data(),
-										i2s_taskman_nortos->getDspManager()->rxBufBlock.data(),
-										4);
-		*/
+		// enable full duplex I2S
+		i2s_taskman_nortos->getDspManager()->enable();
 
 		#endif
 
-		if (res != HAL_OK)
-			Error_Handler();
+
 
 		#ifdef USE_FREERTOS
 				// start the RTOS
@@ -215,8 +174,9 @@
 
 		while(1)
 		{
-
-			i2s_taskman_nortos->nonRtosTask();
+			// loop these functions, check for updates to the system
+			i2s_taskman_nortos->nonRtosStateTask();
+			i2s_taskman_nortos->nonRtosDspTask();
 
 		}
 	}

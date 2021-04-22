@@ -20,7 +20,7 @@
 
 //#include <BaseTaskManager.hpp>
 #include <I2STaskManager.hpp>
-#include <ExtCtrlTaskManager.hpp>
+
 #include <DSPManager.hpp>
 #include <Reverb.hpp>
 
@@ -38,7 +38,7 @@
 	extern ExtCtrlTaskManager_t *extctrl_taskman;
 	extern I2STaskManager_t *i2s_taskman;
 #else
-	extern ExtCtrlTskManNoRTOS *extctrl_taskman_nortos;
+	//extern ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
 	extern I2STskManNoRTOS *i2s_taskman_nortos;
 #endif
 
@@ -125,11 +125,15 @@
 			// send EXTI message to task manager
 			if((EXTI->PR & EXTI_PR_PR13_Msk) == EXTI_PR_PR13_Msk)
 			{
-				extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR13);
+				//extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR13);
+				if(i2s_taskman_nortos->getStateMachine() != nullptr)
+					i2s_taskman_nortos->getStateMachine()->evFootswitchA();
 			}
 			if((EXTI->PR & EXTI_PR_PR14_Msk) == EXTI_PR_PR14_Msk)
 			{
-				extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR14);
+				//extctrl_taskman_nortos->nonRtosTask(EXTI_PR_PR14);
+				if(i2s_taskman_nortos->getStateMachine() != nullptr)
+					i2s_taskman_nortos->getStateMachine()->evFootswitchB();
 			}
 		#endif
 
