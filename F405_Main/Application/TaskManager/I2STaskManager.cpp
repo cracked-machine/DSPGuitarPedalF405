@@ -43,18 +43,44 @@
 			{
 				case CallbackStatus_t::Half:
 
-					this->getDspManager()->getFx()->process_half_u16(
-							&this->getDspManager()->rxBuf,
-							&this->getDspManager()->txBuf);
+					switch(this->getDspManager()->getSampleMode())
+					{
+						case DSPManager::BLOCK_SAMPLE_MODE:
+							this->getDspManager()->getFx()->process_half_u16_block(
+									&this->getDspManager()->rxBufBlock,
+									&this->getDspManager()->txBufBlock);
+							break;
+
+						case DSPManager::SINGLE_SAMPLE_MODE:
+							this->getDspManager()->getFx()->process_half_u16_single(
+																	&this->getDspManager()->rxBufSingle,
+																	&this->getDspManager()->txBufSingle);
+							break;
+					}
+
+
 
 					this->setCallbackStatus(CallbackStatus_t::Idle);
 					break;
 
 				case CallbackStatus_t::Full:
 
-					this->getDspManager()->getFx()->process_full_u16(
-							&this->getDspManager()->rxBuf,
-							&this->getDspManager()->txBuf);
+					switch(this->getDspManager()->getSampleMode())
+					{
+						case DSPManager::BLOCK_SAMPLE_MODE:
+							this->getDspManager()->getFx()->process_full_u16_block(
+									&this->getDspManager()->rxBufBlock,
+									&this->getDspManager()->txBufBlock);
+							break;
+
+						case DSPManager::SINGLE_SAMPLE_MODE:
+							this->getDspManager()->getFx()->process_full_u16_single(
+									&this->getDspManager()->rxBufSingle,
+									&this->getDspManager()->txBufSingle);
+
+							break;
+					}
+
 
 					this->setCallbackStatus(CallbackStatus_t::Idle);
 					break;

@@ -14,10 +14,10 @@
 class FIRFilterFx : public AbstractFx
 {
 public:
-	void process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-							AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
-	void process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-							AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
+	void process_half_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+							AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock) override;
+	void process_full_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+							AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock) override;
 
 
 };

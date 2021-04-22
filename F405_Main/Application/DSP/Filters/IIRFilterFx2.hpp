@@ -24,12 +24,12 @@ public:
 	IIRFilterFx2();
 
 	#ifndef ENABLE_IIR_BYPASS
-		void process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
-		void process_all_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-								AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf) override;
+		void process_half_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+								AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock) override;
+		void process_full_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+								AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock) override;
+		void process_all_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+								AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock) override;
 	#endif
 
 		/*
@@ -63,18 +63,18 @@ private:
 
 
 
-	AudioBlockF32 <STEREO_CH_SIZE_F32> left_buf_in{};
-	AudioBlockF32 <STEREO_CH_SIZE_F32> right_buf_in{};
-	AudioBlockF32 <STEREO_CH_SIZE_F32> left_buf_out{};
-	AudioBlockF32 <STEREO_CH_SIZE_F32> right_buf_out{};
+	AudioBlockF32 <STEREO_SINGLE_BLK_SIZE_F32> left_buf_in{};
+	AudioBlockF32 <STEREO_SINGLE_BLK_SIZE_F32> right_buf_in{};
+	AudioBlockF32 <STEREO_SINGLE_BLK_SIZE_F32> left_buf_out{};
+	AudioBlockF32 <STEREO_SINGLE_BLK_SIZE_F32> right_buf_out{};
 
 	int offset_read_ptr;
 	int offset_write_ptr, write_ptr;
 
-	AudioBlockF32< STEREO_CH_SIZE_F32 > pLeftIn;
-	AudioBlockF32< STEREO_CH_SIZE_F32 > pRightIn;
-	AudioBlockF32< STEREO_CH_SIZE_F32 > pLeftOut;
-	AudioBlockF32< STEREO_CH_SIZE_F32 > pRightOut;
+	AudioBlockF32< STEREO_SINGLE_BLK_SIZE_F32 > pLeftIn;
+	AudioBlockF32< STEREO_SINGLE_BLK_SIZE_F32 > pRightIn;
+	AudioBlockF32< STEREO_SINGLE_BLK_SIZE_F32 > pLeftOut;
+	AudioBlockF32< STEREO_SINGLE_BLK_SIZE_F32 > pRightOut;
 
 };
 

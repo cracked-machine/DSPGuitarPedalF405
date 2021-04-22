@@ -22,20 +22,22 @@ public:
 	void setFx(AbstractFx* pFx);
 	AbstractFx* getFx();
 
-
 	enum SampleMode
 	{
 		BLOCK_SAMPLE_MODE,
 		SINGLE_SAMPLE_MODE
 	};
-	SampleMode sampleMode = BLOCK_SAMPLE_MODE;
 
+	void setSampleMode(DSPManager::SampleMode pMode);
+	DSPManager::SampleMode getSampleMode();
 
-	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
-	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
-	//AudioBlockU16<8> rxBuf{};
-	//AudioBlockU16<8> txBuf{};
-	//uint16_t txBuf[8];
+	// use in DSPManager::BLOCK_SAMPLE_MODE
+	AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > rxBufBlock{};
+	AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > txBufBlock{};
+
+	// use in DSPManager::SINGLE_SAMPLE_MODE
+	AudioBlockU16< AbstractFx::STEREO_DOUBLE_CH_SIZE_U16 >  rxBufSingle{};
+	AudioBlockU16< AbstractFx::STEREO_DOUBLE_CH_SIZE_U16 >  txBufSingle{};
 
 
 	/*
@@ -50,7 +52,7 @@ public:
 
 private:
 	AbstractFx* theFx;
-
+	SampleMode theSampleMode = BLOCK_SAMPLE_MODE;
 
 };
 

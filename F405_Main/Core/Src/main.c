@@ -50,7 +50,7 @@
 /* USER CODE BEGIN PV */
 
 	#define BLOCK_SIZE_FLOAT 512
-	//#define STEREO_CH_SIZE_U16 2048
+	//#define STEREO_SINGLE_BLK_SIZE_U16 2048
 
 	arm_biquad_casd_df1_inst_f32 left_iir_settings, right_iir_settings;
 
@@ -71,8 +71,8 @@
 
 
 
-//	uint16_t rxBuf[STEREO_CH_SIZE_U16*2];
-//	uint16_t txBuf[STEREO_CH_SIZE_U16*2];
+//	uint16_t rxBufBlock[STEREO_SINGLE_BLK_SIZE_U16*2];
+//	uint16_t txBufBlock[STEREO_SINGLE_BLK_SIZE_U16*2];
 	float left_buf_in [BLOCK_SIZE_FLOAT*2];
 	float right_buf_in [BLOCK_SIZE_FLOAT*2];
 	float left_buf_out [BLOCK_SIZE_FLOAT*2];
@@ -113,7 +113,7 @@ void do_iir_init()
 
 
   //int res = testfunc();
-  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBuf, rxBuf, STEREO_CH_SIZE_U16);
+  HAL_I2SEx_TransmitReceive_DMA (&hi2s2, txBufBlock, rxBufBlock, STEREO_SINGLE_BLK_SIZE_U16);
 
 
 }
@@ -130,16 +130,16 @@ void do_iir_loop()
 	  }
 
 	  else if (callback_state == 2) {
-		  offset_read_ptr = STEREO_CH_SIZE_U16;
+		  offset_read_ptr = STEREO_SINGLE_BLK_SIZE_U16;
 		  offset_write_ptr = BLOCK_SIZE_FLOAT;
 		  write_ptr = BLOCK_SIZE_FLOAT;
 	  }
 
 
 	  //restore input sample buffer to float array
-	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_CH_SIZE_U16; i=i+4) {
-		  left_buf_in[write_ptr] = (float) ((int) (rxBuf[i]<<16)|rxBuf[i+1]);
-		  right_buf_in[write_ptr] = (float) ((int) (rxBuf[i+2]<<16)|rxBuf[i+3]);
+	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_SINGLE_BLK_SIZE_U16; i=i+4) {
+		  left_buf_in[write_ptr] = (float) ((int) (rxBufBlock[i]<<16)|rxBufBlock[i+1]);
+		  right_buf_in[write_ptr] = (float) ((int) (rxBufBlock[i+2]<<16)|rxBufBlock[i+3]);
 		  write_ptr++;
 	  }
 
@@ -152,11 +152,11 @@ void do_iir_loop()
 	  //restore processed float-array to output sample-buffer
 	  write_ptr = offset_write_ptr;
 
-	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_CH_SIZE_U16; i=i+4) {
-			txBuf[i] =  (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
-			txBuf[i+1] = ((int)left_buf_out[write_ptr])&0xFFFF;
-			txBuf[i+2] = (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
-			txBuf[i+3] = ((int)left_buf_out[write_ptr])&0xFFFF;
+	  for (int i=offset_read_ptr; i<offset_read_ptr+STEREO_SINGLE_BLK_SIZE_U16; i=i+4) {
+			txBufBlock[i] =  (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
+			txBufBlock[i+1] = ((int)left_buf_out[write_ptr])&0xFFFF;
+			txBufBlock[i+2] = (((int)left_buf_out[write_ptr])>>16)&0xFFFF;
+			txBufBlock[i+3] = ((int)left_buf_out[write_ptr])&0xFFFF;
 			write_ptr++;
 	  }
 
@@ -255,7 +255,7 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 8;
   RCC_OscInitStruct.PLL.PLLN = 168;
-  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV6;
+  RCC_OscInitStruct.PLL.PLLP = RCC_PLLP_DIV2;
   RCC_OscInitStruct.PLL.PLLQ = 7;
   if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
   {
@@ -270,7 +270,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV4;
   RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV2;
 
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)
+  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_5) != HAL_OK)
   {
     Error_Handler();
   }

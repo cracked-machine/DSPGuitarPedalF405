@@ -68,16 +68,13 @@ float BasicReverb::processSample(float pInput)
 	return output;
 }
 
-void BasicReverb::process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf)
-{
+#ifndef ENABLE_REVERB_BYPASS
 
-//	for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
-	for( size_t i = 0; i < STEREO_CH_SIZE_U16 - 4; i += 4 )
+	void BasicReverb::process_half_u16_single(	AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pRxBufSingle,
+												AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle)
 	{
-
-		int lSample = (int) ( (*pRxBuf)[i+0] << 16  |  (*pRxBuf)[i+1] );
-		int rSample = (int) ( (*pRxBuf)[i+2] << 16 | (*pRxBuf)[i+3] );
+		int lSample = (int) ( (*pRxBufSingle)[0] << 16  |  (*pRxBufSingle)[1] );
+		int rSample = (int) ( (*pRxBufSingle)[2] << 16 | (*pRxBufSingle)[3] );
 
 		float sum = (float) (lSample + rSample);
 		sum = (1.0f - wet ) * sum + wet * processSample(sum);
@@ -86,22 +83,17 @@ void BasicReverb::process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
 		rSample = lSample;
 
 		//restore to buffer
-		(*pTxBuf)[i+0] = (lSample >> 16) & 0xFFFF;
-		(*pTxBuf)[i+1] = lSample & 0xFFFF;
-		(*pTxBuf)[i+2] = (rSample >> 16) & 0xFFFF;
-		(*pTxBuf)[i+3] = rSample & 0xFFFF;
+		(*pTxBufSingle)[0] = (lSample >> 16) & 0xFFFF;
+		(*pTxBufSingle)[1] = lSample & 0xFFFF;
+		(*pTxBufSingle)[2] = (rSample >> 16) & 0xFFFF;
+		(*pTxBufSingle)[3] = rSample & 0xFFFF;
 	}
-}
 
-void BasicReverb::process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf)
-{
-
-	//for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
-	for( size_t i = STEREO_CH_SIZE_U16; i < FULL_BLK_SIZE_U16 - 4; i += 4 )
+	void BasicReverb::process_full_u16_single(	AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pRxBufSingle,
+												AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle)
 	{
-		int lSample = (int) ( (*pRxBuf)[i+4] << 16 | (*pRxBuf)[i+5] );
-		int rSample = (int) ( (*pRxBuf)[i+6] << 16 | (*pRxBuf)[i+7] );
+		int lSample = (int) ( (*pRxBufSingle)[4] << 16 | (*pRxBufSingle)[5] );
+		int rSample = (int) ( (*pRxBufSingle)[6] << 16 | (*pRxBufSingle)[7] );
 
 		float sum = (float) (lSample + rSample);
 		sum = (1.0f - wet) * sum + wet * this->processSample(sum);
@@ -109,11 +101,63 @@ void BasicReverb::process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
 		rSample = lSample;
 
 		//restore to buffer
-		(*pTxBuf)[i+4] = (lSample >> 16) & 0xFFFF;
-		(*pTxBuf)[i+5] = lSample & 0xFFFF;
-		(*pTxBuf)[i+6] = (rSample >> 16) & 0xFFFF;
-		(*pTxBuf)[i+7] = rSample & 0xFFFF;
+		(*pRxBufSingle)[4] = (lSample >> 16) & 0xFFFF;
+		(*pRxBufSingle)[5] = lSample & 0xFFFF;
+		(*pRxBufSingle)[6] = (rSample >> 16) & 0xFFFF;
+		(*pRxBufSingle)[7] = rSample & 0xFFFF;
+	}
+
+#endif
+
+
+/*
+void BasicReverb::process_half_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+											AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock)
+{
+
+//	for(size_t i = 0; i < pRxBufBlock->size()-4; i+=4)
+	for( size_t i = 0; i < STEREO_SINGLE_BLK_SIZE_U16 - 4; i += 4 )
+	{
+
+		int lSample = (int) ( (*pRxBufBlock)[i+0] << 16  |  (*pRxBufBlock)[i+1] );
+		int rSample = (int) ( (*pRxBufBlock)[i+2] << 16 | (*pRxBufBlock)[i+3] );
+
+		float sum = (float) (lSample + rSample);
+		sum = (1.0f - wet ) * sum + wet * processSample(sum);
+
+		lSample = (int) sum;
+		rSample = lSample;
+
+		//restore to buffer
+		(*pTxBufBlock)[i+0] = (lSample >> 16) & 0xFFFF;
+		(*pTxBufBlock)[i+1] = lSample & 0xFFFF;
+		(*pTxBufBlock)[i+2] = (rSample >> 16) & 0xFFFF;
+		(*pTxBufBlock)[i+3] = rSample & 0xFFFF;
+	}
+}
+
+void BasicReverb::process_full_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
+											AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock)
+{
+
+	//for(size_t i = 0; i < pRxBufBlock->size()-4; i+=4)
+	for( size_t i = STEREO_SINGLE_BLK_SIZE_U16; i < STEREO_DOUBLE_BLK_SIZE_U16 - 4; i += 4 )
+	{
+		int lSample = (int) ( (*pRxBufBlock)[i+4] << 16 | (*pRxBufBlock)[i+5] );
+		int rSample = (int) ( (*pRxBufBlock)[i+6] << 16 | (*pRxBufBlock)[i+7] );
+
+		float sum = (float) (lSample + rSample);
+		sum = (1.0f - wet) * sum + wet * this->processSample(sum);
+		lSample = (int) sum;
+		rSample = lSample;
+
+		//restore to buffer
+		(*pTxBufBlock)[i+4] = (lSample >> 16) & 0xFFFF;
+		(*pTxBufBlock)[i+5] = lSample & 0xFFFF;
+		(*pTxBufBlock)[i+6] = (rSample >> 16) & 0xFFFF;
+		(*pTxBufBlock)[i+7] = rSample & 0xFFFF;
 	}
 
 }
 
+*/

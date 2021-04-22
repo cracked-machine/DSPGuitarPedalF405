@@ -91,8 +91,8 @@
 
 
 	// TODO move this to the stack
-	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
-	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
+	//AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > rxBufBlock{};
+	//AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > txBufBlock{};
 
 
 
@@ -165,18 +165,36 @@
 
 
 		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-										i2s_taskman->getDspManager()->txBuf.data(),
-										i2s_taskman->getDspManager()->rxBuf.data(),
-										AbstractFx::STEREO_CH_SIZE_U16);
+										i2s_taskman->getDspManager()->txBufBlock.data(),
+										i2s_taskman->getDspManager()->rxBufBlock.data(),
+										AbstractFx::STEREO_SINGLE_BLK_SIZE_U16);
 		#else
-		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-										i2s_taskman_nortos->getDspManager()->txBuf.data(),
-										i2s_taskman_nortos->getDspManager()->rxBuf.data(),
-										AbstractFx::STEREO_CH_SIZE_U16);
+
+		switch(i2s_taskman_nortos->getDspManager()->getSampleMode())
+		{
+			case DSPManager::BLOCK_SAMPLE_MODE:
+				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+														i2s_taskman_nortos->getDspManager()->txBufBlock.data(),
+														i2s_taskman_nortos->getDspManager()->rxBufBlock.data(),
+														AbstractFx::STEREO_SINGLE_BLK_SIZE_U16);
+
+
+				break;
+			case DSPManager::SINGLE_SAMPLE_MODE:
+				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+														i2s_taskman_nortos->getDspManager()->txBufSingle.data(),
+														i2s_taskman_nortos->getDspManager()->rxBufSingle.data(),
+														AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
+
+
+				break;
+
+		}
+
 
 		/*		 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
-										i2s_taskman_nortos->getDspManager()->txBuf.data(),
-										i2s_taskman_nortos->getDspManager()->rxBuf.data(),
+										i2s_taskman_nortos->getDspManager()->txBufBlock.data(),
+										i2s_taskman_nortos->getDspManager()->rxBufBlock.data(),
 										4);
 		*/
 
@@ -220,12 +238,12 @@
 				{
 					if(item == 1)
 					{
-						iirfx->process_half_u16(	&_i2s_taskman->getDspManager()->rxBuf,
-													&_i2s_taskman->getDspManager()->txBuf);
-	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
+						iirfx->process_half_u16_block(	&_i2s_taskman->getDspManager()->rxBufBlock,
+													&_i2s_taskman->getDspManager()->txBufBlock);
+	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBufBlock.size(); i+=4)
 						{
-							int lSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+0]<<16)|i2s_taskman->getDspManager()->rxBuf[i+1];
-							int rSample = (int) (i2s_taskman->getDspManager()->rxBuf[i+2]<<16)|i2s_taskman->getDspManager()->rxBuf[i+3];
+							int lSample = (int) (i2s_taskman->getDspManager()->rxBufBlock[i+0]<<16)|i2s_taskman->getDspManager()->rxBufBlock[i+1];
+							int rSample = (int) (i2s_taskman->getDspManager()->rxBufBlock[i+2]<<16)|i2s_taskman->getDspManager()->rxBufBlock[i+3];
 
 							float sum = (float) (lSample + rSample);
 							sum = (1.0f - wet ) * sum + wet * reverbfx->processSample(sum);
@@ -234,10 +252,10 @@
 							rSample = lSample;
 
 							//restore to buffer
-							i2s_taskman->getDspManager()->txBuf[i+0] = (lSample>>16)&0xFFFF;
-							i2s_taskman->getDspManager()->txBuf[i+1] = lSample&0xFFFF;
-							i2s_taskman->getDspManager()->txBuf[i+2] = (rSample>>16)&0xFFFF;
-							i2s_taskman->getDspManager()->txBuf[i+3] = rSample&0xFFFF;
+							i2s_taskman->getDspManager()->txBufBlock[i+0] = (lSample>>16)&0xFFFF;
+							i2s_taskman->getDspManager()->txBufBlock[i+1] = lSample&0xFFFF;
+							i2s_taskman->getDspManager()->txBufBlock[i+2] = (rSample>>16)&0xFFFF;
+							i2s_taskman->getDspManager()->txBufBlock[i+3] = rSample&0xFFFF;
 						}
 	*/
 
@@ -245,12 +263,12 @@
 					}
 					if(item == 2)
 					{
-							iirfx->process_full_u16(	&_i2s_taskman->getDspManager()->rxBuf,
-													&_i2s_taskman->getDspManager()->txBuf);
-	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBuf.size(); i+=4)
+							iirfx->process_full_u16_block(	&_i2s_taskman->getDspManager()->rxBufBlock,
+													&_i2s_taskman->getDspManager()->txBufBlock);
+	/*					for(size_t i = 0; i < i2s_taskman->getDspManager()->rxBufBlock.size(); i+=4)
 						{
-							int lSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+4]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+5];
-							int rSample = (int) (_i2s_taskman->getDspManager()->rxBuf[i+6]<<16)|_i2s_taskman->getDspManager()->rxBuf[i+7];
+							int lSample = (int) (_i2s_taskman->getDspManager()->rxBufBlock[i+4]<<16)|_i2s_taskman->getDspManager()->rxBufBlock[i+5];
+							int rSample = (int) (_i2s_taskman->getDspManager()->rxBufBlock[i+6]<<16)|_i2s_taskman->getDspManager()->rxBufBlock[i+7];
 
 							float sum = (float) (lSample + rSample);
 							sum = (1.0f - wet) * sum + wet * reverbfx->processSample(sum);
@@ -258,10 +276,10 @@
 							rSample = lSample;
 
 							//restore to buffer
-							_i2s_taskman->getDspManager()->txBuf[i+4] = (lSample>>16)&0xFFFF;
-							_i2s_taskman->getDspManager()->txBuf[i+5] = lSample&0xFFFF;
-							_i2s_taskman->getDspManager()->txBuf[i+6] = (rSample>>16)&0xFFFF;
-							_i2s_taskman->getDspManager()->txBuf[i+7] = rSample&0xFFFF;
+							_i2s_taskman->getDspManager()->txBufBlock[i+4] = (lSample>>16)&0xFFFF;
+							_i2s_taskman->getDspManager()->txBufBlock[i+5] = lSample&0xFFFF;
+							_i2s_taskman->getDspManager()->txBufBlock[i+6] = (rSample>>16)&0xFFFF;
+							_i2s_taskman->getDspManager()->txBufBlock[i+7] = rSample&0xFFFF;
 						}
 	*/
 						LEDB_G_GPIO_Port->ODR ^= GPIO_ODR_OD11_Msk;
