@@ -8,6 +8,7 @@
 #ifndef DSP_IIRFILTERFX_HPP_
 #define DSP_IIRFILTERFX_HPP_
 
+// debug use only
 //#define ENABLE_IIR_BYPASS
 
 #include <AbstractFx.hpp>

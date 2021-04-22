@@ -10,7 +10,7 @@
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_height" value="728"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_x" value="218"/>
 	<item key="org.eclipse.cdt.uiformatter_pagemodify_dialog.preferred_y" value="27"/>
-	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="-Wl,--print-gc-sections"/>
+	<item key="org.eclipse.cdt.utils.ui.controls.FileListControl" value="-u _printf_float "/>
 	<section name="completion_proposal_size">
 	</section>
 	<section name="org.eclipse.cdt.ui.text.hover.CMacroExpansionExploration">

@@ -8,6 +8,9 @@
 #include <FxDisabledState.hpp>
 #include <StateMachine.hpp>
 #include <iostream>
+#include <tim.h>
+#include <DSPManager.hpp>
+class DSPManager;
 
 // FxDisabledState class
 
@@ -19,10 +22,16 @@ void FxDisabledState::evFootswitchA(StateMachine *machine)
 	setState(machine, machine->theStateList[StateMachine::FX_ENABLED]);
 
 	#ifdef USE_HAL_DRIVER
-		HAL_GPIO_WritePin(LEDA_R_GPIO_Port, LEDA_R_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(LEDB_R_GPIO_Port, LEDB_R_Pin, GPIO_PIN_SET);
-		// toggle relay for clean/FX signal path
-		HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+		HAL_GPIO_WritePin(LEDA_G_GPIO_Port, LEDA_G_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(LEDB_B_GPIO_Port, LEDB_B_Pin, GPIO_PIN_SET);
+
+		// mute DSPManager
+		DSPManager::mute();
+
+		// activate a oneshot timer to unmute after a 2ms period
+		HAL_TIM_Base_Start_IT(&htim11);
+
+
 	#endif
 
 	//std::cout << "FxDisabledState::evFootswitchA" << std::endl;

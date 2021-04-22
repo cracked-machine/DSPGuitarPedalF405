@@ -13468,3 +13468,837 @@ java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch ca
 	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
 	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.097
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 90 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.098
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.098
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 90 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.098
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.197
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 90 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.198
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.200
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 90 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.200
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.200
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 90 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 14:16:13.201
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 14:17:44.186
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 14:26:15.089
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.495
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 103 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.495
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.495
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 103 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.496
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.676
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 103 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.676
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.679
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 103 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.679
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.680
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 103 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 15:20:18.680
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 15:24:34.019
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:702)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.329
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.330
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.330
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.330
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.403
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.404
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.406
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.406
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.406
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 107 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 16:01:13.406
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-04-22 16:11:33.774
+!MESSAGE Indexed 'F405_Main' (59 sources, 345 headers) in 11.2 sec: 33,500 declarations; 82,071 references; 0 unresolved inclusions; 1 syntax errors; 6 unresolved names (0.0052%)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.155
+!MESSAGE Request for monitor: '526^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.155
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014800 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.156
+!MESSAGE Request for monitor: '527^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.156
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001480c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.157
+!MESSAGE Request for monitor: '528^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.157
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014810 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.159
+!MESSAGE Request for monitor: '529^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.159
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.160
+!MESSAGE Request for monitor: '530^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.160
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.161
+!MESSAGE Request for monitor: '531^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.161
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014820 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.162
+!MESSAGE Request for monitor: '532^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.162
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014824 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.163
+!MESSAGE Request for monitor: '533^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.163
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014828 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.165
+!MESSAGE Request for monitor: '534^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.165
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001482c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.167
+!MESSAGE Request for monitor: '535^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.167
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014834 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:47:58.169
+!MESSAGE Request for monitor: '536^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:47:58.169
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014850 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.439
+!MESSAGE Request for monitor: '168^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.439
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014800 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.441
+!MESSAGE Request for monitor: '169^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.441
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001480c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.442
+!MESSAGE Request for monitor: '170^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.442
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014810 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.444
+!MESSAGE Request for monitor: '171^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.444
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.445
+!MESSAGE Request for monitor: '172^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.445
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.446
+!MESSAGE Request for monitor: '173^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.446
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014820 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.448
+!MESSAGE Request for monitor: '174^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.448
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014824 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.448
+!MESSAGE Request for monitor: '175^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.448
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014828 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.448
+!MESSAGE Request for monitor: '176^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.448
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001482c x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.448
+!MESSAGE Request for monitor: '177^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.448
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014834 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:50:20.449
+!MESSAGE Request for monitor: '178^error,msg="Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:50:20.449
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014850 x 1 1 4 y
+Error message from debugger back end:
+Cannot execute this command while the target is running.
+Use the "interrupt" command to stop the target
+and then try again.
+!STACK 0
+java.lang.Exception: Cannot execute this command while the target is running.\nUse the "interrupt" command to stop the target\nand then try again.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.802
+!MESSAGE Request for monitor: '485^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.802
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014800 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.804
+!MESSAGE Request for monitor: '486^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.804
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001480c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.806
+!MESSAGE Request for monitor: '487^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.806
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014810 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.807
+!MESSAGE Request for monitor: '488^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.807
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.808
+!MESSAGE Request for monitor: '489^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.808
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014818 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.811
+!MESSAGE Request for monitor: '490^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.811
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014820 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.812
+!MESSAGE Request for monitor: '491^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.812
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014824 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.813
+!MESSAGE Request for monitor: '492^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.813
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014828 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.815
+!MESSAGE Request for monitor: '493^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.815
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x4001482c x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.822
+!MESSAGE Request for monitor: '494^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.822
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014834 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.cdt.dsf 4 10005 2021-04-22 16:52:05.828
+!MESSAGE Request for monitor: '495^error,msg="Unable to read memory."' resulted in an error.
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 16:52:05.828
+!MESSAGE Failed to execute MI command:
+-data-read-memory 0x40014850 x 1 1 4 y
+Error message from debugger back end:
+Unable to read memory.
+!STACK 0
+java.lang.Exception: Unable to read memory.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 16:52:05.977
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2021-04-22 16:52:23.294 -----------------------------------------------
+eclipse.buildId=Version 1.5.1
+java.version=1.8.0_272
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-04-22 16:52:32.606
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-04-22 16:52:32.693
+!MESSAGE Log4j initialized with config file /home/chris/DSPGuitarPedalF405/.metadata/.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-04-22 16:52:42.098
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-04-22 16:52:42.480
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 17:12:39.348
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:703)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.cdt.ui 4 4 2021-04-22 17:15:58.335
+!MESSAGE Error
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParamName(CPPFunction.java:421)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParameters(CPPFunction.java:252)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParameters(CPPFunction.java:1)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.handleFunction(DOMCompletionProposalComputer.java:602)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.handleBinding(DOMCompletionProposalComputer.java:369)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.computeCompletionProposals(DOMCompletionProposalComputer.java:192)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ParsingBasedProposalComputer.computeCompletionProposals(ParsingBasedProposalComputer.java:56)
+	at org.eclipse.cdt.internal.ui.text.contentassist.CompletionProposalComputerDescriptor.computeCompletionProposals(CompletionProposalComputerDescriptor.java:299)
+	at org.eclipse.cdt.internal.ui.text.contentassist.CompletionProposalCategory.computeCompletionProposals(CompletionProposalCategory.java:266)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ContentAssistProcessor.collectProposals(ContentAssistProcessor.java:263)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ContentAssistProcessor.computeCompletionProposals(ContentAssistProcessor.java:215)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.lambda$0(ContentAssistant.java:2015)
+	at java.util.Collections$SingletonSet.forEach(Collections.java:4769)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.run(ContentAssistant.java:2014)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2011)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:573)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.lambda$0(CompletionProposalPopup.java:503)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:498)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.lambda$0(ContentAssistant.java:380)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4928)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4449)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1158)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1047)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:658)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:154)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
+
+!ENTRY org.eclipse.cdt.ui 4 4 2021-04-22 17:16:36.839
+!MESSAGE Error
+!STACK 0
+java.lang.NullPointerException
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParamName(CPPFunction.java:421)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParameters(CPPFunction.java:252)
+	at org.eclipse.cdt.internal.core.dom.parser.cpp.CPPFunction.getParameters(CPPFunction.java:1)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.handleFunction(DOMCompletionProposalComputer.java:602)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.handleBinding(DOMCompletionProposalComputer.java:369)
+	at org.eclipse.cdt.internal.ui.text.contentassist.DOMCompletionProposalComputer.computeCompletionProposals(DOMCompletionProposalComputer.java:192)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ParsingBasedProposalComputer.computeCompletionProposals(ParsingBasedProposalComputer.java:56)
+	at org.eclipse.cdt.internal.ui.text.contentassist.CompletionProposalComputerDescriptor.computeCompletionProposals(CompletionProposalComputerDescriptor.java:299)
+	at org.eclipse.cdt.internal.ui.text.contentassist.CompletionProposalCategory.computeCompletionProposals(CompletionProposalCategory.java:266)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ContentAssistProcessor.collectProposals(ContentAssistProcessor.java:263)
+	at org.eclipse.cdt.internal.ui.text.contentassist.ContentAssistProcessor.computeCompletionProposals(ContentAssistProcessor.java:215)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.lambda$0(ContentAssistant.java:2015)
+	at java.util.Collections$SingletonSet.forEach(Collections.java:4769)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$2.run(ContentAssistant.java:2014)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:45)
+	at org.eclipse.jface.text.contentassist.ContentAssistant.computeCompletionProposals(ContentAssistant.java:2011)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.computeProposals(CompletionProposalPopup.java:573)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.lambda$0(CompletionProposalPopup.java:503)
+	at org.eclipse.swt.custom.BusyIndicator.showWhile(BusyIndicator.java:72)
+	at org.eclipse.jface.text.contentassist.CompletionProposalPopup.showProposals(CompletionProposalPopup.java:498)
+	at org.eclipse.jface.text.contentassist.ContentAssistant$AutoAssistListener.lambda$0(ContentAssistant.java:380)
+	at org.eclipse.swt.widgets.RunnableLock.run(RunnableLock.java:40)
+	at org.eclipse.swt.widgets.Synchronizer.runAsyncMessages(Synchronizer.java:185)
+	at org.eclipse.swt.widgets.Display.runAsyncMessages(Display.java:4928)
+	at org.eclipse.swt.widgets.Display.readAndDispatch(Display.java:4449)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine$5.run(PartRenderingEngine.java:1158)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.e4.ui.internal.workbench.swt.PartRenderingEngine.run(PartRenderingEngine.java:1047)
+	at org.eclipse.e4.ui.internal.workbench.E4Workbench.createAndRunUI(E4Workbench.java:155)
+	at org.eclipse.ui.internal.Workbench.lambda$3(Workbench.java:658)
+	at org.eclipse.core.databinding.observable.Realm.runWithDefault(Realm.java:338)
+	at org.eclipse.ui.internal.Workbench.createAndRunWorkbench(Workbench.java:557)
+	at org.eclipse.ui.PlatformUI.createAndRunWorkbench(PlatformUI.java:154)
+	at org.eclipse.ui.internal.ide.application.IDEApplication.start(IDEApplication.java:150)
+	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:203)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:137)
+	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:107)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:401)
+	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:255)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:657)
+	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:594)
+	at org.eclipse.equinox.launcher.Main.run(Main.java:1447)
+	at org.eclipse.equinox.launcher.Main.main(Main.java:1420)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 17:50:33.486
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:702)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 17:55:44.131
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 19 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 17:55:44.132
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 17:55:44.132
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 19 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 17:55:44.132
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:40.984
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:40.985
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.077
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.077
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.078
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.078
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.081
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.081
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.081
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 25 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 19:42:41.082
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.302
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 33 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.302
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.375
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 33 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.375
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.375
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 33 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.375
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.378
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 33 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.378
+!MESSAGE Existing sessions are:
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.379
+!MESSAGE Error - No active DSF-Session. tmpSessionId = 33 (contextManager row 121)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug 4 0 2021-04-22 20:02:23.379
+!MESSAGE Existing sessions are:
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2021-04-22 22:47:21.086
+!MESSAGE Error in final launch sequence:
+
+Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.concurrent.Query.get(Query.java:112)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugSession(GdbLaunchDelegate.java:242)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launchDebugger(GdbLaunchDelegate.java:106)
+	at org.eclipse.cdt.dsf.gdb.launching.GdbLaunchDelegate.launch(GdbLaunchDelegate.java:94)
+	at com.st.stm32cube.ide.mcu.debug.launch.DSFDelegate.launch(DSFDelegate.java:296)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:807)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:718)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1021)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1224)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+!SUBENTRY 1 org.eclipse.cdt.dsf.gdb 4 10004 2021-04-22 22:47:21.089
+!MESSAGE Failed to execute MI command:
+target remote localhost:2331
+
+Error message from debugger back end:
+localhost:2331: Connection timed out.
+!STACK 0
+java.lang.Exception: localhost:2331: Connection timed out.
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.processMIOutput(AbstractMIControl.java:993)
+	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$RxThread.run(AbstractMIControl.java:822)
+
+!ENTRY org.eclipse.core.jobs 4 2 2021-04-22 22:48:25.504
+!MESSAGE An internal error occurred during: "Debugger Update Job".
+!STACK 0
+java.lang.ClassCastException: com.st.stm32cube.ide.mcu.debug.dsf.MCUGdbLaunch cannot be cast to org.eclipse.cdt.dsf.ui.viewmodel.datamodel.IDMVMContext
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.getMemoryContext(DebugContextManager.java:300)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.DebugContextManager.readMemory(DebugContextManager.java:1566)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView.readMemory(AbstractCubeIdeDebugView.java:579)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.getRegisterValue(FaultAnalyzerView.java:254)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateDataCortexM(FaultAnalyzerView.java:702)
+	at com.st.stm32cube.ide.mcu.faultanalyzer.FaultAnalyzerView.updateData(FaultAnalyzerView.java:686)
+	at com.st.stm32cube.ide.mcu.debug.ui.views.AbstractCubeIdeDebugView$UpdateJob.run(AbstractCubeIdeDebugView.java:84)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)

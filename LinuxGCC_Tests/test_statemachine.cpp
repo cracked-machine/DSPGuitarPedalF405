@@ -64,30 +64,30 @@ TEST(StateMachineGroup, StateMachine_EnabledDisableStateTest)
 	TIM_TypeDef *TIM14 = (TIM_TypeDef*)std::malloc(sizeof(TIM_TypeDef*));
 
 	// create statemachine instance
-	StateMachine *extctrlMachine = new (std::nothrow) StateMachine();
+	StateMachine *extctrl_statemachine = new (std::nothrow) StateMachine();
 /*
 	// create debounce manager instance
 	//DebounceManager *extctrl_debounceman_nullptr = new DebounceManager(nullptr, 100);
 
 	DebounceManager *extctrl_debounceman = new (std::nothrow) DebounceManager(TIM14, 100);
-	extctrlMachine->setDebounceMan(extctrl_debounceman);
+	extctrl_statemachine->setDebounceMan(extctrl_debounceman);
 
 	//run tests
-	extctrlMachine->evFootswitchA();
+	extctrl_statemachine->evFootswitchA();
 
-	//CHECK(extctrlMachine->getState() == extctrlMachine->theStateList[StateMachine::FX_ENABLED]);
+	//CHECK(extctrl_statemachine->getState() == extctrl_statemachine->theStateList[StateMachine::FX_ENABLED]);
 
 	TIM14->CNT = 200;
 
-	extctrlMachine->evFootswitchA();
+	extctrl_statemachine->evFootswitchA();
 
-	CHECK(extctrlMachine->getState() == extctrlMachine->theStateList[StateMachine::FX_DISABLED]);
+	CHECK(extctrl_statemachine->getState() == extctrl_statemachine->theStateList[StateMachine::FX_DISABLED]);
 
 	delete extctrl_debounceman;
 	extctrl_debounceman = nullptr;
 */
-//	delete extctrlMachine;
-//	extctrlMachine = nullptr;
+//	delete extctrl_statemachine;
+//	extctrl_statemachine = nullptr;
 
 	free(TIM14);
 	TIM14 = NULL;

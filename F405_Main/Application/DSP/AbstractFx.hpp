@@ -106,6 +106,8 @@ public:
 	virtual void process_all_u16_single(AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pRxBufSingle,
 										AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle);
 
+	virtual void process_mute();
+
 	void error_handler();
 private:
 

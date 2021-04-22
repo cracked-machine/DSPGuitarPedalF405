@@ -18,17 +18,17 @@
 
 	typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
 
-	class ExtCtrlTaskManagerNoRTOS : public ExtCtrlTaskManager_t
+	class ExtCtrlTskManNoRTOS : public ExtCtrlTaskManager_t
 	{
 	public:
-		ExtCtrlTaskManagerNoRTOS();
-		~ExtCtrlTaskManagerNoRTOS();
+		ExtCtrlTskManNoRTOS();
+		~ExtCtrlTskManNoRTOS();
 
 		/*
 		 * check there is system memory available before allocation or return nullptr
 		 */
 		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
-				if(ResourceManager::checkSystemMem< ExtCtrlTaskManagerNoRTOS >(size))
+				if(ResourceManager::checkSystemMem< ExtCtrlTskManNoRTOS >(size))
 					return malloc(size);
 				else
 					return nullptr;

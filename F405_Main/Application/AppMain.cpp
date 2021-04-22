@@ -53,15 +53,6 @@
 
 
 
-	//IIRCombFilter *combfilter1 = new(std::nothrow)  IIRCombFilter(3460 * 2, 0.805);
-	//IIRCombFilter *combfilter2 = new(std::nothrow)  IIRCombFilter(2988 * 2, 0.827);
-	//IIRCombFilter *combfilter3 = new(std::nothrow)  IIRCombFilter(3882 * 2, 0.783);
-	//IIRCombFilter *combfilter4 = new(std::nothrow)  IIRCombFilter(4312 * 2, 0.764);
-	//UniCombFilter *allpass1 = new(std::nothrow)  UniCombFilter(   480  * 2, 0.7);
-	//UniCombFilter *allpass2 = new(std::nothrow)  UniCombFilter(   161  * 2, 0.7);
-	//UniCombFilter *allpass3 = new(std::nothrow)  UniCombFilter(   46   * 2, 0.7);
-
-
 
 	#ifdef USE_FREERTOS
 
@@ -81,25 +72,27 @@
 		I2STskManNoRTOS *i2s_taskman_nortos;
 
 		// External Control task declarations
-		ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+		ExtCtrlTskManNoRTOS *extctrl_taskman_nortos;
 	#endif
 
-	StateMachine *extctrlMachine = NULL;
+	StateMachine *extctrl_statemachine = NULL;
 	DebounceManager *extctrl_debounceman;
-
-
-
-
-	// TODO move this to the stack
-	//AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > rxBufBlock{};
-	//AudioBlockU16< AbstractFx::STEREO_DOUBLE_BLK_SIZE_U16 > txBufBlock{};
-
 
 
 	void appmain()
 	{
+		//float one_sys_tick;
+		//one_sys_tick = (float)1 / (float)HAL_RCC_GetSysClockFreq();
 
+		std::cout << std::endl << "-------------------------------------" << std::endl;
 		std::cout << "Initialising system." << std::endl;
+
+		std::cout << "System Clock: " << HAL_RCC_GetSysClockFreq() << std::endl;
+//		std::cout << "SysTick: " << one_sys_tick << std::endl;
+		//printf("%f\n", one_sys_tick);
+		std::cout << "I2S Clock: " << HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_I2S) << std::endl;
+
+
 
 		setupPeriphInterrupts();
 
@@ -132,11 +125,11 @@
 				extctrl_taskman = new(std::nothrow)  ExtCtrlTaskManager_t(200, 1);
 
 				// Set the statemachine
-				extctrlMachine = new(std::nothrow)  StateMachine();
+				extctrl_statemachine = new(std::nothrow)  StateMachine();
 				// set the delay for the external control debounce
 				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
-				extctrlMachine->setDebounceMan(extctrl_debounceman);
-				extctrl_taskman->setStateMachine(extctrlMachine);
+				extctrl_statemachine->setDebounceMan(extctrl_debounceman);
+				extctrl_taskman->setStateMachine(extctrl_statemachine);
 
 
 				// Set the STATIC freeertos task to global function pointer "ExtCtrlTaskCode()"
@@ -150,11 +143,11 @@
 
 				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
 
-				extctrlMachine = new(std::nothrow)  StateMachine();
-				extctrlMachine->setDebounceMan(extctrl_debounceman);
+				extctrl_statemachine = new(std::nothrow)  StateMachine();
+				extctrl_statemachine->setDebounceMan(extctrl_debounceman);
 
-				extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTaskManagerNoRTOS();
-				extctrl_taskman_nortos->setStateMachine(extctrlMachine);
+				extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTskManNoRTOS();
+				extctrl_taskman_nortos->setStateMachine(extctrl_statemachine);
 
 		#endif
 
@@ -181,6 +174,15 @@
 
 				break;
 			case DSPManager::SINGLE_SAMPLE_MODE:
+				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
+														i2s_taskman_nortos->getDspManager()->txBufSingle.data(),
+														i2s_taskman_nortos->getDspManager()->rxBufSingle.data(),
+														AbstractFx::STEREO_SINGLE_CH_SIZE_U16);
+
+
+				break;
+
+			default:
 				 res = HAL_I2SEx_TransmitReceive_DMA (	&hi2s2,
 														i2s_taskman_nortos->getDspManager()->txBufSingle.data(),
 														i2s_taskman_nortos->getDspManager()->rxBufSingle.data(),

@@ -5,6 +5,9 @@
  *      Author: chris
  */
 
+#include "stm32f4xx_hal.h"
+
+
 #ifdef __cplusplus
 	extern "C"
 	{
@@ -127,15 +130,10 @@
 	/**
 	  * @brief This function handles System tick timer.
 	  */
-	__attribute__((weak)) void SysTick_Handler(void)
+	/*__attribute__((weak))*/ void SysTick_Handler(void)
 	{
-	  /* USER CODE BEGIN SysTick_IRQn 0 */
-
-	  /* USER CODE END SysTick_IRQn 0 */
-
-	  /* USER CODE BEGIN SysTick_IRQn 1 */
-
-	  /* USER CODE END SysTick_IRQn 1 */
+		// if using HW Timesource comment this line and uncomment the "weak" attribute in this function signature
+		HAL_IncTick();
 	}
 
 

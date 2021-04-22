@@ -72,16 +72,16 @@ void Error_Handler(void);
 #define UserSwitchB_IN_GPIO_Port GPIOC
 #define LEDA_R_Pin GPIO_PIN_0
 #define LEDA_R_GPIO_Port GPIOB
-#define LEDA_G_Pin GPIO_PIN_1
-#define LEDA_G_GPIO_Port GPIOB
-#define LEDA_B_Pin GPIO_PIN_2
+#define LEDA_B_Pin GPIO_PIN_1
 #define LEDA_B_GPIO_Port GPIOB
+#define LEDA_G_Pin GPIO_PIN_2
+#define LEDA_G_GPIO_Port GPIOB
 #define LEDB_R_Pin GPIO_PIN_10
 #define LEDB_R_GPIO_Port GPIOA
-#define LEDB_G_Pin GPIO_PIN_11
-#define LEDB_G_GPIO_Port GPIOA
-#define LEDB_B_Pin GPIO_PIN_12
+#define LEDB_B_Pin GPIO_PIN_11
 #define LEDB_B_GPIO_Port GPIOA
+#define LEDB_G_Pin GPIO_PIN_12
+#define LEDB_G_GPIO_Port GPIOA
 #define Encoder1_ENC_SW_Pin GPIO_PIN_15
 #define Encoder1_ENC_SW_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */

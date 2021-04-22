@@ -47,9 +47,9 @@
 /* USER CODE END EM */
 
 /* Exported functions prototypes ---------------------------------------------*/
+void TIM1_TRG_COM_TIM11_IRQHandler(void);
 void TIM3_IRQHandler(void);
 void TIM4_IRQHandler(void);
-void TIM8_UP_TIM13_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

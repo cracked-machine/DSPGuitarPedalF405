@@ -23,21 +23,28 @@ AbstractFx::~AbstractFx()
 void AbstractFx::process_half_u16_single(AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pRxBufSingle,
 										 AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle)
 {
-	// do something for first half samples here if needed
-	for(size_t i = 0; i < STEREO_SINGLE_CH_SIZE_U16; i++ )
+	if(pRxBufSingle != nullptr  || pTxBufSingle != nullptr)
 	{
-		(*pTxBufSingle)[i] = (*pRxBufSingle)[i];
+		// do something for first half samples here if needed
+		for(size_t i = 0; i < STEREO_SINGLE_CH_SIZE_U16; i++ )
+		{
+			(*pTxBufSingle)[i] = (*pRxBufSingle)[i];
+		}
 	}
+
 }
 
 
 void AbstractFx::process_full_u16_single(AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pRxBufSingle,
 										 AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle)
 {
-	// do something for second half samples here if needed
-	for(size_t i = STEREO_SINGLE_CH_SIZE_U16; i < STEREO_DOUBLE_CH_SIZE_U16; i++ )
+	if(pRxBufSingle != nullptr  || pTxBufSingle != nullptr)
 	{
-		(*pTxBufSingle)[i] = (*pRxBufSingle)[i];
+		// do something for second half samples here if needed
+		for(size_t i = STEREO_SINGLE_CH_SIZE_U16; i < STEREO_DOUBLE_CH_SIZE_U16; i++ )
+		{
+			(*pTxBufSingle)[i] = (*pRxBufSingle)[i];
+		}
 	}
 }
 
@@ -47,14 +54,22 @@ void AbstractFx::process_all_u16_single(AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16
 	// do default for all samples here if needed
 }
 
+void AbstractFx::process_mute()
+{
+	// do nothing
+}
+
 // default passthru implementation for first half of data
 void AbstractFx::process_half_u16_block(AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
 										AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock)
 {
-	// do something for first half samples here if needed
-	for(size_t i = 0; i < STEREO_SINGLE_BLK_SIZE_U16; i++ )
+	if(pRxBufBlock != nullptr  || pTxBufBlock != nullptr)
 	{
-		(*pTxBufBlock)[i] = (*pRxBufBlock)[i];
+		// do something for first half samples here if needed
+		for(size_t i = 0; i < STEREO_SINGLE_BLK_SIZE_U16; i++ )
+		{
+			(*pTxBufBlock)[i] = (*pRxBufBlock)[i];
+		}
 	}
 }
 
@@ -62,10 +77,13 @@ void AbstractFx::process_half_u16_block(AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U1
 void AbstractFx::process_full_u16_block(AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pRxBufBlock,
 										AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U16 > *pTxBufBlock)
 {
-	// do something for second half samples here if needed
-	for(size_t i = STEREO_SINGLE_BLK_SIZE_U16; i < STEREO_DOUBLE_BLK_SIZE_U16; i++ )
+	if(pRxBufBlock != nullptr  || pTxBufBlock != nullptr)
 	{
-		(*pTxBufBlock)[i] = (*pRxBufBlock)[i];
+		// do something for second half samples here if needed
+		for(size_t i = STEREO_SINGLE_BLK_SIZE_U16; i < STEREO_DOUBLE_BLK_SIZE_U16; i++ )
+		{
+			(*pTxBufBlock)[i] = (*pRxBufBlock)[i];
+		}
 	}
 }
 

@@ -38,7 +38,7 @@
 	extern ExtCtrlTaskManager_t *extctrl_taskman;
 	extern I2STaskManager_t *i2s_taskman;
 #else
-	extern ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	extern ExtCtrlTskManNoRTOS *extctrl_taskman_nortos;
 	extern I2STskManNoRTOS *i2s_taskman_nortos;
 #endif
 
@@ -147,6 +147,20 @@
 		fx->setWet(TIM3->CNT);
 	}
 
+	void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+	{
+		if(htim->Instance == TIM11)
+		{
+			if(i2s_taskman_nortos->getDspManager()->getSampleMode() == DSPManager::MUTE_MODE)
+			{
+				DSPManager::unmute();
+				TIM11->SR = 0;
+				// toggle relay to enable FX signal path
+				HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
+			}
+		}
+	}
+
 
 	void DMA1_Stream3_IRQHandler(void)
 	{
@@ -161,6 +175,14 @@
 	  HAL_DMA_IRQHandler(&hdma_spi2_tx);
 
 	}
+
+/*	void TIM1_TRG_COM_TIM11_IRQHandler(void)
+	{
+
+	  HAL_TIM_IRQHandler(&htim11);
+
+	}
+	*/
 
 #ifdef __cplusplus
 	}

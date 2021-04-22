@@ -24,9 +24,12 @@ public:
 
 	enum SampleMode
 	{
+		MUTE_MODE = 0,
 		BLOCK_SAMPLE_MODE,
 		SINGLE_SAMPLE_MODE
 	};
+
+
 
 	void setSampleMode(DSPManager::SampleMode pMode);
 	DSPManager::SampleMode getSampleMode();
@@ -50,9 +53,14 @@ public:
 				return nullptr;
 	}
 
+	static void mute();
+	static void unmute();
+
+	static SampleMode theSampleMode;
+	static SampleMode theSavedMode;
+
 private:
 	AbstractFx* theFx;
-	SampleMode theSampleMode = BLOCK_SAMPLE_MODE;
 
 };
 

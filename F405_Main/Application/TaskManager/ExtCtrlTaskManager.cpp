@@ -11,17 +11,17 @@
 
 #else
 
-		ExtCtrlTaskManagerNoRTOS::ExtCtrlTaskManagerNoRTOS()
+		ExtCtrlTskManNoRTOS::ExtCtrlTskManNoRTOS()
 		{
 
 		}
 
-		ExtCtrlTaskManagerNoRTOS::~ExtCtrlTaskManagerNoRTOS()
+		ExtCtrlTskManNoRTOS::~ExtCtrlTskManNoRTOS()
 		{
 
 		}
 
-		void ExtCtrlTaskManagerNoRTOS::nonRtosTask(uint16_t pData)
+		void ExtCtrlTskManNoRTOS::nonRtosTask(uint16_t pData)
 		{
 			switch(pData)
 			{

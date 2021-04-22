@@ -4,5 +4,5 @@
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.postmortemLaunchType=org.eclipse.cdt.dsf.gdb.launch.coreCLaunch,debug,;
 //org.eclipse.debug.core.PREFERRED_DELEGATES/org.eclipse.cdt.launch.remoteApplicationLaunchType=org.eclipse.rse.remotecdt.dsf.debug,debug,;
 eclipse.preferences.version=1
-org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=false
-prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="sizeof(T)"/>\n<expression enabled\="true" text\="pSize"/>\n<expression enabled\="true" text\="this-&gt;getDspManager()-&gt;getFx()"/>\n<expression enabled\="true" text\="theFx"/>\n<expression enabled\="true" text\="ResourceManager\:\:getUsedMem()"/>\n<expression enabled\="true" text\="(ResourceManager\:\:getUsedMem() + n)"/>\n<expression enabled\="true" text\="n"/>\n<expression enabled\="true" text\="v1.size()"/>\n<expression enabled\="true" text\="v1.capacity()"/>\n<expression enabled\="true" text\="i/2"/>\n<expression enabled\="true" text\="wet"/>\n</watchExpressions>\n
+org.eclipse.debug.core.PREF_BREAKPOINT_MANAGER_ENABLED_STATE=true
+prefWatchExpressions=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<watchExpressions>\n<expression enabled\="true" text\="theSavedMode"/>\n<expression enabled\="true" text\="theSampleMode"/>\n<expression enabled\="true" text\="i2s_taskman_nortos-&gt;getDspManager()-&gt;getSampleMode()"/>\n</watchExpressions>\n

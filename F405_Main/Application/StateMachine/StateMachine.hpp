@@ -14,6 +14,7 @@
 #include <AbstractState.hpp>
 class AbstractState;
 
+
 #include <Debounce.hpp>
 #include <FxDisabledState.hpp>
 #include <FxEnabledState.hpp>
@@ -41,6 +42,7 @@ class AbstractState;
 
 class StateMachine
 {
+
 	friend class AbstractState;
 public:
 	StateMachine();
@@ -97,6 +99,8 @@ private:
 
 	// manage the debounce for all system events
 	DebounceManager *theDebounceMan;
+
+
 
 	StateMachine::stateFatalErrTypes status = STATUS_OK;
 	void error_handler(StateMachine::stateFatalErrTypes pError);

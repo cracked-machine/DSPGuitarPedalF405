@@ -9,14 +9,6 @@
 
 #include <DSPManager.hpp>
 
-#ifndef USE_FREERTOS
-
-	//BasicReverb *reverbfx;
-
-#else
-
-#endif
-
 
 
 #ifdef USE_FREERTOS
@@ -45,6 +37,10 @@
 
 					switch(this->getDspManager()->getSampleMode())
 					{
+						case DSPManager::MUTE_MODE:
+							this->getDspManager()->getFx()->process_mute();
+							break;
+
 						case DSPManager::BLOCK_SAMPLE_MODE:
 							this->getDspManager()->getFx()->process_half_u16_block(
 									&this->getDspManager()->rxBufBlock,
@@ -53,8 +49,8 @@
 
 						case DSPManager::SINGLE_SAMPLE_MODE:
 							this->getDspManager()->getFx()->process_half_u16_single(
-																	&this->getDspManager()->rxBufSingle,
-																	&this->getDspManager()->txBufSingle);
+									&this->getDspManager()->rxBufSingle,
+									&this->getDspManager()->txBufSingle);
 							break;
 					}
 
@@ -67,6 +63,10 @@
 
 					switch(this->getDspManager()->getSampleMode())
 					{
+						case DSPManager::MUTE_MODE:
+							this->getDspManager()->getFx()->process_mute();
+							break;
+
 						case DSPManager::BLOCK_SAMPLE_MODE:
 							this->getDspManager()->getFx()->process_full_u16_block(
 									&this->getDspManager()->rxBufBlock,

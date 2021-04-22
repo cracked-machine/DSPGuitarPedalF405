@@ -1,0 +1,48 @@
+/*
+ * ExtCtrlTaskManager.hpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#ifndef TASKMANAGER_EXTCTRLTASKMANAGER_HPP_
+#define TASKMANAGER_EXTCTRLTASKMANAGER_HPP_
+
+#include <BaseTaskManager.hpp>
+#include <ResourceManager.hpp>
+
+
+#ifdef USE_FREERTOS
+	typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
+#else
+
+	typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;
+
+	class ExtCtrlTaskManagerNoRTOS : public ExtCtrlTaskManager_t
+	{
+	public:
+		ExtCtrlTaskManagerNoRTOS();
+		~ExtCtrlTaskManagerNoRTOS();
+
+		/*
+		 * check there is system memory available before allocation or return nullptr
+		 */
+		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+				if(ResourceManager::checkSystemMem< ExtCtrlTaskManagerNoRTOS >(size))
+					return malloc(size);
+				else
+					return nullptr;
+		}
+
+
+
+		void nonRtosTask(uint16_t pData);
+	};
+#endif
+
+
+
+
+
+
+#endif /* TASKMANAGER_EXTCTRLTASKMANAGER_HPP_ */
