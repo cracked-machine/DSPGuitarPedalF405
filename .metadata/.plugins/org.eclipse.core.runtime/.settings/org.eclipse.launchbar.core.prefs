@@ -2,9 +2,9 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=linux
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.launchbar.core.descriptorType.default\:Experimental,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F405_Main,org.eclipse.launchbar.core.descriptorType.default\:LinuxGCC_Tests
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:Experimental,org.eclipse.launchbar.core.descriptorType.default\:LinuxGCC_Tests,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F405_Main
 eclipse.preferences.version=1
-org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F405_Main/activeLaunchMode=run
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F405_Main/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:F405_Main/activeLaunchTarget=null\:---
 org.eclipse.launchbar.core.descriptorType.default\:Experimental/activeLaunchMode=run
 org.eclipse.launchbar.core.descriptorType.default\:Experimental/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local

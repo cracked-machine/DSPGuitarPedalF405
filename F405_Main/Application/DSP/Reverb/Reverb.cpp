@@ -9,10 +9,10 @@
 
 BasicReverb::BasicReverb()
 {
-	combfilter1 = new(std::nothrow)  IIRCombFilter(3460 * 2, 0.805, 0.5f);
-	combfilter2 = new(std::nothrow)  IIRCombFilter(2988 * 2, 0.827, 0.5f);
-	combfilter3 = new(std::nothrow)  IIRCombFilter(3882 * 2, 0.783, 0.5f);
-	//combfilter4 = new(std::nothrow)  IIRCombFilter(4312 * 2, 0.764, 0.5f);
+	combfilter1 = new(std::nothrow)  IIRCombFilter(3460*2, 0.805, 1.0f);
+	combfilter2 = new(std::nothrow)  IIRCombFilter(2988*2, 0.827, 1.0f);
+	combfilter3 = new(std::nothrow)  IIRCombFilter(3882*2, 0.783, 1.0f);
+	//combfilter4 = new(std::nothrow)  IIRCombFilter(4312*2, 0.764, 1.0f);
 
 	allpass1 = new(std::nothrow)  UniCombFilter(	480  * 2, 0.7, 0.5f);
 	allpass2 = new(std::nothrow)  UniCombFilter(	161  * 2, 0.7, 0.5f);
@@ -24,6 +24,12 @@ BasicReverb::~BasicReverb()
 
 }
 
+void BasicReverb::setWet(uint32_t pParam)
+{
+	float tmp = (float)pParam;
+	wet = tmp / 100;
+}
+
 float BasicReverb::processSample(float pInput)
 {
 	float combs = 0.0f;
@@ -33,18 +39,18 @@ float BasicReverb::processSample(float pInput)
 		output += combfilter1->processSample(pInput);
 
 	}
-	if(combfilter1)	{
+	if(combfilter2)	{
 		combs++;
-		output += combfilter1->processSample(pInput);
+		output += combfilter2->processSample(pInput);
 	}
-	if(combfilter1)	{
+	if(combfilter3)	{
 		combs++;
-		output += combfilter1->processSample(pInput);
+		output += combfilter3->processSample(pInput);
 	}
-	if(combfilter1)	{
+/*	if(combfilter4)	{
 		combs++;
-		output += combfilter1->processSample(pInput);
-	}
+		output += combfilter4->processSample(pInput);
+	}*/
 	output = output / combs;
 	/*
 	float output = (	combfilter1->processSample(pInput) +
@@ -62,11 +68,12 @@ float BasicReverb::processSample(float pInput)
 	return output;
 }
 
-void BasicReverb::process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
+void BasicReverb::process_half_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf)
 {
 
-	for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
+//	for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
+	for( size_t i = 0; i < STEREO_CH_SIZE_U16 - 4; i += 4 )
 	{
 
 		int lSample = (int) ( (*pRxBuf)[i+0] << 16  |  (*pRxBuf)[i+1] );
@@ -86,11 +93,12 @@ void BasicReverb::process_half_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16
 	}
 }
 
-void BasicReverb::process_full_u16(	AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pRxBuf,
-									AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > *pTxBuf)
+void BasicReverb::process_full_u16(	AudioBlockU16< FULL_BLK_SIZE_U16 > *pRxBuf,
+									AudioBlockU16< FULL_BLK_SIZE_U16 > *pTxBuf)
 {
 
-	for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
+	//for(size_t i = 0; i < pRxBuf->size()-4; i+=4)
+	for( size_t i = STEREO_CH_SIZE_U16; i < FULL_BLK_SIZE_U16 - 4; i += 4 )
 	{
 		int lSample = (int) ( (*pRxBuf)[i+4] << 16 | (*pRxBuf)[i+5] );
 		int rSample = (int) ( (*pRxBuf)[i+6] << 16 | (*pRxBuf)[i+7] );

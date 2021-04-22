@@ -21,6 +21,8 @@
 //#include <BaseTaskManager.hpp>
 #include <I2STaskManager.hpp>
 #include <ExtCtrlTaskManager.hpp>
+#include <DSPManager.hpp>
+#include <Reverb.hpp>
 
 #ifdef __cplusplus
 	extern "C"
@@ -141,7 +143,8 @@
 	//
 	void HAL_TIM_IC_CaptureCallback(TIM_HandleTypeDef *htim)
 	{
-
+		BasicReverb* fx = (BasicReverb*)i2s_taskman_nortos->getDspManager()->getFx();
+		fx->setWet(TIM3->CNT);
 	}
 
 

@@ -31,17 +31,17 @@ public:
 	virtual ~AbstractFx();
 
 
-	// 1 x F32 channel
+	// 1 x F32 channel: 512 samples per block
 	// Ch: F32 (first 24 data bits + 8 zero bits)
 	static const size_t MONO_CH_SIZE_F32 = 512;
 
-	// 2 x F32 channel
+	// 2 x F32 channel: 1024 samples per block
 	// LCh: F32 (first 24 data bits + 8 zero bits)
 	// RCh: F32 (first 24 data bits + 8 zero bits)
 	static const size_t STEREO_CH_SIZE_F32 = 1024;
 
 
-	// 2 x U16 per channel, one buffer
+	// 2 x U16 per channel, one buffer: 1024 samples per block
 	// LCh: U16 (first 16 data bits)
 	// LCh: U16 (last 8 data bits + 8 zero bits)
 	// RCh: U16 (first 16 data bits)
@@ -49,7 +49,7 @@ public:
 	static const size_t STEREO_CH_SIZE_U16 = 2048;
 
 
-	// 2 x U16 per channel, two buffers.
+	// 2 x U16 per channel, two buffers: 1024 samples per block.
 	// LCh: U16 (first 16 data bits)
 	// LCh: U16 (last 8 data bits + 8 zero bits)
 	// RCh: U16 (first 16 data bits)
