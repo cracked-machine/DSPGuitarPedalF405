@@ -1,0 +1,59 @@
+/*
+ * I2STaskManager.hpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#ifndef TASKMANAGER_I2STASKMANAGER_HPP_
+#define TASKMANAGER_I2STASKMANAGER_HPP_
+
+#include <BaseTaskManager.hpp>
+
+#ifdef USE_FREERTOS
+
+	typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
+
+#else
+
+	typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
+
+
+	class I2STaskManagerNoRTOS : public I2STaskManager_t
+	{
+	public:
+		I2STaskManagerNoRTOS();
+		~I2STaskManagerNoRTOS();
+
+		/*
+		 * check there is system memory available before allocation or return nullptr
+		 */
+		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+				if(ResourceManager::checkSystemMem< I2STaskManagerNoRTOS >(size))
+					return malloc(size);
+				else
+					return nullptr;
+		}
+
+
+		void nonRtosTask(uint8_t pData);
+
+		enum I2STxRxCallbackStatus_types
+		{
+			Idle = 0,
+			I2STxRxHalfCallback,
+			I2STxRxCpltCallback
+		};
+
+		void setI2STxRxCallbackStatus(I2STaskManagerNoRTOS::eI2STxRxCallbackStatus)
+
+	private:
+
+		I2STxRxCallbackStatus_types I2STxRxCallbackStatus = I2STaskManagerNoRTOS::Idle;
+
+	};
+#endif
+
+
+
+#endif /* TASKMANAGER_I2STASKMANAGER_HPP_ */

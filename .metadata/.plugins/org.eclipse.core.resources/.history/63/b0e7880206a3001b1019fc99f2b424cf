@@ -1,0 +1,52 @@
+/*
+ * test_resource_manager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+
+#include "CppUTest/TestHarness.h"
+
+#include <test_hal_testenv.h>
+
+#include "ResourceManager.hpp"
+#include <I2STaskManager.hpp>
+#include <ExtCtrlTaskManager.hpp>
+#include <StateMachine.hpp>
+#include <Debounce.hpp>
+
+
+
+TEST_GROUP(ResourceManGroup)
+{
+};
+
+TEST(ResourceManGroup, ResourceManTest)
+{
+	I2STaskManagerNoRTOS *i2s_taskman_nortos;
+	ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	StateMachine *extctrlMachine = NULL;
+	DebounceManager *extctrl_debounceman;
+
+	i2s_taskman_nortos = new(std::nothrow) I2STaskManagerNoRTOS();
+
+	extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
+
+	extctrlMachine = new(std::nothrow)  StateMachine();
+	extctrlMachine->setDebounceMan(extctrl_debounceman);
+
+	extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTaskManagerNoRTOS();
+	extctrl_taskman_nortos->setStateMachine(extctrlMachine);
+
+
+	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "Total System Bytes Used: " << ResourceManager::getUsedMem() << std::endl;
+}
+
+/*
+ * 	void *operator new(std::size_t count) {
+		std::cout << "allocating " << count << " bytes, " << how_many_elements<IIRFilterFx>(count) << " items\n";
+		return ::operator new[](count);
+	}
+ */

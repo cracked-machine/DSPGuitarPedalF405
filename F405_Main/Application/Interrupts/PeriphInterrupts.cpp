@@ -39,7 +39,7 @@
 	extern I2STaskManager_t *i2s_taskman;
 #else
 	extern ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
-	extern I2STaskManagerNoRTOS *i2s_taskman_nortos;
+	extern I2STskManNoRTOS *i2s_taskman_nortos;
 #endif
 
 
@@ -73,7 +73,7 @@
 #ifdef USE_FREERTOS
 		i2s_taskman->queueSendFromISR_wrapper(1);
 #else
-		i2s_taskman_nortos->nonRtosTask(1);
+		i2s_taskman_nortos->setCallbackStatus(i2s_taskman_nortos->Half);
 #endif
 		//HAL_GPIO_TogglePin(LEDA_G_GPIO_Port, LEDA_G_Pin);
 	}
@@ -82,7 +82,7 @@
 #ifdef USE_FREERTOS
 		i2s_taskman->queueSendFromISR_wrapper(2);
 #else
-		i2s_taskman_nortos->nonRtosTask(2);
+		i2s_taskman_nortos->setCallbackStatus(i2s_taskman_nortos->Full);
 #endif
 
 		//HAL_GPIO_TogglePin(LEDB_G_GPIO_Port, LEDB_G_Pin);

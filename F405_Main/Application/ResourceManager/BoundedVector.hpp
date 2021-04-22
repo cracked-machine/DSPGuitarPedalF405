@@ -39,8 +39,8 @@ struct NAlloc {
         else {
 
         	ResourceManager::addToUsedMem(n);
-            std::cout << "\n\tBoundedVector: allocating " << n << " bytes" << std::endl;
-            std::cout << "*** System total = " << ResourceManager::getUsedMem() << " bytes." << std::endl;
+            std::cout << "BoundedVector: allocating " << n << " bytes" << std::endl;
+            //std::cout << "*** System total = " << ResourceManager::getUsedMem() << " bytes." << std::endl;
         	return static_cast<Tp*>(malloc(n));
         }
     }
@@ -133,7 +133,7 @@ BoundedVector<T>::BoundedVector(size_t pCapacity_limit)
 //		{
 //			v1.push_back(0);
 //		}
-		std::cout << "Success! Vector size: " << v1->size() << " Capacity: " << v1->capacity() << std::endl;
+		//std::cout << "Success! Vector size: " << v1->size() << " Capacity: " << v1->capacity() << std::endl;
 	}
 	else
 	{

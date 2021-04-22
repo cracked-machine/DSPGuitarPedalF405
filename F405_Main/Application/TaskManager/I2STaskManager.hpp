@@ -19,24 +19,39 @@
 	typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
 
 
-	class I2STaskManagerNoRTOS : public I2STaskManager_t
+	class I2STskManNoRTOS : public I2STaskManager_t
 	{
 	public:
-		I2STaskManagerNoRTOS();
-		~I2STaskManagerNoRTOS();
+		I2STskManNoRTOS();
+		~I2STskManNoRTOS();
 
 		/*
 		 * check there is system memory available before allocation or return nullptr
 		 */
 		void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
-				if(ResourceManager::checkSystemMem< I2STaskManagerNoRTOS >(size))
+				if(ResourceManager::checkSystemMem< I2STskManNoRTOS >(size))
 					return malloc(size);
 				else
 					return nullptr;
 		}
 
 
-		void nonRtosTask(uint8_t pData);
+		void nonRtosTask();
+
+		enum CallbackStatus_t
+		{
+			Idle = 0,
+			Half,
+			Full
+		};
+
+		void setCallbackStatus(I2STskManNoRTOS::CallbackStatus_t pStatus);
+		I2STskManNoRTOS::CallbackStatus_t getCallbackStatus();
+
+	private:
+
+		CallbackStatus_t callbackStatus = I2STskManNoRTOS::Idle;
+
 	};
 #endif
 

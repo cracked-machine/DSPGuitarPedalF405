@@ -1,0 +1,35 @@
+/*
+ * test_resource_manager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+
+#include "CppUTest/TestHarness.h"
+
+#include "ResourceManager.hpp"
+
+
+
+TEST_GROUP(ResourceManGroup)
+{
+};
+
+TEST(ResourceManGroup, ResourceManTest)
+{
+	I2STaskManagerNoRTOS *i2s_taskman_nortos;
+	ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+	StateMachine *extctrlMachine = NULL;
+	DebounceManager *extctrl_debounceman;
+
+	std::cout << "-------------------------------------" << std::endl;
+	std::cout << "Total System Bytes Used: " << ResourceManager::getUsedMem() << std::endl;
+}
+
+/*
+ * 	void *operator new(std::size_t count) {
+		std::cout << "allocating " << count << " bytes, " << how_many_elements<IIRFilterFx>(count) << " items\n";
+		return ::operator new[](count);
+	}
+ */

@@ -1,0 +1,76 @@
+/*
+ * I2STaskManager.cpp
+ *
+ *  Created on: Apr 21, 2021
+ *      Author: chris
+ */
+
+#include <I2STaskManager.hpp>
+
+#include <DSPManager.hpp>
+
+#ifndef USE_FREERTOS
+
+	//BasicReverb *reverbfx;
+
+#else
+
+#endif
+
+
+
+#ifdef USE_FREERTOS
+
+#else
+	I2STaskManagerNoRTOS::I2STaskManagerNoRTOS()
+	{
+
+
+		setDspManager(new(std::nothrow)  DSPManager());
+	}
+
+	I2STaskManagerNoRTOS::~I2STaskManagerNoRTOS()
+	{
+
+	}
+
+	void I2STaskManagerNoRTOS::nonRtosTask(uint8_t pData)
+	{
+		if	((this->getDspManager() != nullptr) &&
+			(this->getDspManager()->getFx() != nullptr))
+		{
+			switch(pData)
+			{
+				case 1:
+					this->getDspManager()->getFx()->process_half_u16(
+							&this->getDspManager()->rxBuf,
+							&this->getDspManager()->txBuf);
+					break;
+				case 2:
+					this->getDspManager()->getFx()->process_full_u16(
+							&this->getDspManager()->rxBuf,
+							&this->getDspManager()->txBuf);
+					break;
+
+			}
+		}
+	}
+
+	void I2STaskManagerNoRTOS::setI2STxRxCallbackStatus(CallbackStatus_t pStatus)
+	{
+		if(	pStatus == CallbackStatus_t::Idle ||
+			pStatus == CallbackStatus_t::Half ||
+			pStatus == CallbackStatus_t::Full
+		)
+		{
+			callbackStatus = pStatus;
+		}
+	}
+
+	CallbackStatus_t I2STaskManagerNoRTOS::getI2STxRxCallbackStatus()
+	{
+		return callbackStatus;
+	}
+
+#endif
+

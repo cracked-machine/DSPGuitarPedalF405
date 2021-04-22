@@ -78,7 +78,7 @@
 
 	#else
 		// I2S task declarations
-		I2STaskManagerNoRTOS *i2s_taskman_nortos;
+		I2STskManNoRTOS *i2s_taskman_nortos;
 
 		// External Control task declarations
 		ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
@@ -94,7 +94,7 @@
 	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > rxBuf{};
 	//AudioBlockU16< AbstractFx::FULL_BLK_SIZE_U16 > txBuf{};
 
-	int32_t myGlobal;
+
 
 	void appmain()
 	{
@@ -123,7 +123,7 @@
 				i2s_taskman->setDspManager(new(std::nothrow)  DSPManager(iirfx));
 				//
 		#else
-				i2s_taskman_nortos = new(std::nothrow) I2STaskManagerNoRTOS();
+				i2s_taskman_nortos = new(std::nothrow) I2STskManNoRTOS();
 		#endif
 
 		#ifdef USE_FREERTOS
@@ -190,9 +190,14 @@
 				vTaskStartScheduler();
 		#endif
 
+		std::cout << "-------------------------------------" << std::endl;
+		std::cout << "Total System Bytes Used: " << ResourceManager::getUsedMem() << std::endl;
+
 		while(1)
 		{
-			// never leave, if reached
+
+			i2s_taskman_nortos->nonRtosTask();
+
 		}
 	}
 

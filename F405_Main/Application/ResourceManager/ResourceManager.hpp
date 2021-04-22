@@ -47,9 +47,9 @@ public:
 		else
 		{
 			ResourceManager::usedMem += requestedSize;
-			std::cout << std::endl << typeid(T).name() << ":" << std::endl;
-			std::cout << "Allocating " << requestedSize << " bytes." << std::endl;
-			std::cout << "*** System total = " << ResourceManager::usedMem << " bytes." << std::endl;
+			std::cout << typeid(T).name() << ": " << requestedSize << " bytes." << std::endl;
+			//std::cout << "Allocating " << requestedSize << " bytes." << std::endl;
+			//std::cout << "*** System total = " << ResourceManager::usedMem << " bytes." << std::endl;
 			return true;
 		}
 
