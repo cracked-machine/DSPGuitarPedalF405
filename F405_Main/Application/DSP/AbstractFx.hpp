@@ -13,6 +13,7 @@ using namespace std;
 
 #include "stdint.h"
 #include <array>
+#include <ResourceManager.hpp>
 
 
 #ifndef ENABLE_CPPUTEST
@@ -107,6 +108,9 @@ public:
 										AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle);
 
 	virtual void process_mute();
+
+	void zeroAllBuffers();
+
 
 	void error_handler();
 private:

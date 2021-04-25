@@ -1,0 +1,36 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: Apr 24, 2021
+ *      Author: chris
+ */
+
+#include "Test.hpp"
+#include <new>
+#include <stdio.h>
+#include <iostream>  // cause link error due to inclusion of "operator new"
+
+/*
+	void *operator_new_blocker();
+	void *operator new(std::size_t) //throw (std::bad_alloc)
+	{
+		return operator_new_blocker();
+	}
+	*/
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+void CppTest()
+{
+	printf("hello");
+
+}
+
+#ifdef __cplusplus
+	}
+#endif
+
+

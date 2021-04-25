@@ -9,6 +9,7 @@
 
 BasicReverb::BasicReverb()
 {
+	// Create the reverb buffers. Should only be done once at system startup
 	combfilter1 = new(std::nothrow)  IIRCombFilter(3460*2, 0.805, 1.0f);
 	combfilter2 = new(std::nothrow)  IIRCombFilter(2988*2, 0.827, 1.0f);
 	combfilter3 = new(std::nothrow)  IIRCombFilter(3882*2, 0.783, 1.0f);
@@ -17,10 +18,48 @@ BasicReverb::BasicReverb()
 	allpass1 = new(std::nothrow)  UniCombFilter(	480  * 2, 0.7, 0.5f);
 	allpass2 = new(std::nothrow)  UniCombFilter(	161  * 2, 0.7, 0.5f);
 	allpass3 = new(std::nothrow)  UniCombFilter(	46   * 2, 0.7, 0.5f);
+
+
+/*	combfilter1 = new(std::nothrow)  StaticIIRCombFilter1();
+	combfilter2 = new(std::nothrow)  StaticIIRCombFilter2();
+	combfilter3 = new(std::nothrow)  StaticIIRCombFilter3();
+	//combfilter4 = new(std::nothrow)  StaticIIRCombFilter4();
+
+	allpass1 = new(std::nothrow)  StaticUniCombFilter1();
+	allpass2 = new(std::nothrow)  StaticUniCombFilter2();
+	allpass3 = new(std::nothrow)  StaticUniCombFilter3();
+*/
+
 }
 
 BasicReverb::~BasicReverb()
 {
+
+}
+
+void BasicReverb::zeroAllBuffers()
+{
+	if(combfilter1 != nullptr)
+		combfilter1->zeroBuffer();
+
+	if(combfilter2 != nullptr)
+		combfilter2->zeroBuffer();
+
+	if(combfilter3 != nullptr)
+		combfilter3->zeroBuffer();
+
+	if(combfilter4 != nullptr)
+		combfilter4->zeroBuffer();
+
+	if(allpass1 != nullptr)
+		allpass1->zeroBuffer();
+
+	if(allpass2 != nullptr)
+		allpass2->zeroBuffer();
+
+	if(allpass3 != nullptr)
+		allpass3->zeroBuffer();
+
 
 }
 

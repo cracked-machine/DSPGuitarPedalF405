@@ -1,0 +1,29 @@
+/*
+ * Test.cpp
+ *
+ *  Created on: Apr 24, 2021
+ *      Author: chris
+ */
+
+#include "Test.hpp"
+//#include <new>
+
+
+	void *operator_new_blocker();
+	void *operator new(std::size_t) //throw (std::bad_alloc)
+	{
+		return operator_new_blocker();
+	}
+
+#ifdef __cplusplus
+	extern "C"
+	{
+#endif
+
+
+
+#ifdef __cplusplus
+	}
+#endif
+
+

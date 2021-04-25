@@ -5,6 +5,7 @@
  *      Author: chris
  */
 
+#ifdef USE_FREERTOS
 #include "FreeRTOS.h"
 #include "task.h"
 
@@ -34,4 +35,4 @@ static StackType_t uxIdleTaskStack[ configMINIMAL_STACK_SIZE ];
 	*pulIdleTaskStackSize = configMINIMAL_STACK_SIZE;
 }
 
-
+#endif

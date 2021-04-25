@@ -1,0 +1,43 @@
+/*
+ * StaticIIRCombFilter.hpp
+ *
+ *  Created on: Apr 23, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_REVERB_STATICIIRCOMBFILTER_HPP_
+#define DSP_REVERB_STATICIIRCOMBFILTER_HPP_
+
+float staticIIRCombFilterSize1 = 3460*2;
+float staticIIRCombFilterSize1 = 2988*2;
+float staticIIRCombFilterSize1 = 3882*2;
+float staticIIRCombFilterSize1 = 4312*2;
+
+class StaticIIRCombFilter1 : public AbstractFx
+{
+public:
+	IIRCombFilter(size_t pSize, float pGain, float pTime);
+	virtual ~IIRCombFilter();
+
+	float processSample(float pSampleIn);
+
+	/*
+	 * check there is system memory available before allocation or return nullptr
+	 */
+	void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
+			if(ResourceManager::checkSystemMem< IIRCombFilter >(size))
+				return malloc(size);
+			else
+				return nullptr;
+	}
+
+	void zeroBuffer();
+private:
+	//IIRCombFilterBuffer *buffer;
+	std::array<float,
+	float gain;
+	float limit;
+};
+
+
+#endif /* DSP_REVERB_STATICIIRCOMBFILTER_HPP_ */

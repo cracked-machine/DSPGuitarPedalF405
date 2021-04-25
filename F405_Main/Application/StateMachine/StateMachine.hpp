@@ -14,6 +14,9 @@
 #include <AbstractState.hpp>
 class AbstractState;
 
+#include <I2STaskManager.hpp>
+class I2STskManNoRTOS;
+
 
 #include <Debounce.hpp>
 #include <FxDisabledState.hpp>
@@ -36,7 +39,6 @@ class AbstractState;
 #endif
 
 
-#include <ResourceManager.hpp>
 
 //#define MAX_NUM_STATE 2
 
@@ -56,7 +58,9 @@ public:
 	void evRotaryEncoderB();
 	AbstractState* getState();
 	void setDebounceMan(DebounceManager *pDebounceMan);
-	void error_handler();
+
+
+
 	DebounceManager* getDebounceMan();
 
 	static const size_t MAX_NUM_STATE = 2;
@@ -67,12 +71,15 @@ public:
 		new(std::nothrow)  FxEnabledState()
 	};
 
+
 	enum states_enum
 	{
 		FX_DISABLED,
 		FX_ENABLED
 	};
 
+	/*
+	void error_handler();
 	enum stateFatalErrTypes
 	{
 		STATUS_OK = 0,
@@ -80,7 +87,7 @@ public:
 	};
 
 	StateMachine::stateFatalErrTypes getErrorStatus();
-
+*/
 	/*
 	 * check there is system memory available before allocation or return nullptr
 	 */
@@ -92,6 +99,9 @@ public:
 	}
 
 
+	void setTaskMan(I2STskManNoRTOS *pTaskMan);
+	I2STskManNoRTOS* getTaskMan();
+
 private:
 
 	// the current system state
@@ -100,10 +110,10 @@ private:
 	// manage the debounce for all system events
 	DebounceManager *theDebounceMan;
 
+	I2STskManNoRTOS *theTaskMan;
 
-
-	StateMachine::stateFatalErrTypes status = STATUS_OK;
-	void error_handler(StateMachine::stateFatalErrTypes pError);
+	//StateMachine::stateFatalErrTypes status = STATUS_OK;
+	//void error_handler(StateMachine::stateFatalErrTypes pError);
 };
 
 #endif // INC_STATEMACHINE_HPP_ */

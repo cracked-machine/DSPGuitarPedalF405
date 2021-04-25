@@ -9,7 +9,8 @@
 #include <AbstractFx.hpp>
 
 //#include <Reverb.hpp>
-#include <BoundedVector.hpp>
+//#include <BoundedVector.hpp>
+
 
 class DSPManager
 {
@@ -28,6 +29,9 @@ public:
 		BLOCK_SAMPLE_MODE,
 		SINGLE_SAMPLE_MODE
 	};
+
+	void bringUp();
+	void tearDown();
 
 
 

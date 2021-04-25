@@ -13,9 +13,6 @@
 
 #include <AbstractFx.hpp>
 #include <iostream>
-#include <ResourceManager.hpp>
-
-
 
 
 class IIRFilterFx : public AbstractFx

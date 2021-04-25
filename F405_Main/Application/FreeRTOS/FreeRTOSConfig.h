@@ -27,7 +27,7 @@
  * 1 tab == 4 spaces!
  */
 /* USER CODE END Header */
-
+#ifdef USE_FREERTOS
 #ifndef FREERTOS_CONFIG_H
 #define FREERTOS_CONFIG_H
 
@@ -137,3 +137,4 @@ standard names. */
 /* USER CODE END Defines */
 
 #endif /* FREERTOS_CONFIG_H */
+#endif

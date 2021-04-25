@@ -1,0 +1,49 @@
+/*
+ * StaticIIRCombFilter.cpp
+ *
+ *  Created on: Apr 23, 2021
+ *      Author: chris
+ */
+
+#include <StaticIIRCombFilter.hpp>
+
+StaticIIRCombFilter1::StaticIIRCombFilter1()
+{
+
+	buffer = new (std::nothrow)  IIRCombFilterBuffer(pSize);
+
+	buffer->iterator = buffer->begin();
+	gain = pGain;
+	limit = pTime * pSize;
+}
+
+StaticIIRCombFilter1::~StaticIIRCombFilter1()
+{
+
+}
+
+
+void StaticIIRCombFilter1::zeroBuffer()
+{
+	//this->zeroBuffer();
+	buffer->iterator = buffer->begin();
+}
+
+float StaticIIRCombFilter1::processSample(float pSampleIn)
+{
+	float Xn = pSampleIn;
+
+	float readback = *(buffer->iterator);
+
+	float tmp = Xn + (gain * readback);
+
+	*(buffer->iterator) = tmp;
+	buffer->iterator++;
+
+	if (buffer->iterator >= buffer->end())
+		buffer->iterator = buffer->begin();
+	return readback;
+}
+
+
+

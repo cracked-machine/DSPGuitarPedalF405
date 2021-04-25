@@ -1,0 +1,48 @@
+/*
+ * StaticUniCombFilter.cpp
+ *
+ *  Created on: Apr 23, 2021
+ *      Author: chris
+ */
+
+
+#include <StaticUniCombFilter.hpp>
+
+StaticUniCombFilter1::StaticUniCombFilter1()
+{
+	buffer = new (std::nothrow) UniCombFilterBuffer(pSize);
+	buffer->iterator = buffer->begin();
+	gain = pGain;
+	limit = pTime * pSize;
+}
+
+StaticUniCombFilter1::~StaticUniCombFilter1()
+{
+
+}
+
+void StaticUniCombFilter1::zeroBuffer()
+{
+	//this->zeroBuffer();
+	buffer->iterator = buffer->begin();
+}
+
+float StaticUniCombFilter1::processSample(float pSampleIn)
+{
+	float Xn = pSampleIn;
+
+	float readback = *(buffer->iterator);
+	readback += (-gain) * Xn;
+
+	float tmp = readback * gain + Xn;
+
+	*(buffer->iterator) = tmp;
+	buffer->iterator++;
+
+	if (buffer->iterator >= buffer->end())
+		buffer->iterator = buffer->begin();
+
+	return readback;
+
+}
+

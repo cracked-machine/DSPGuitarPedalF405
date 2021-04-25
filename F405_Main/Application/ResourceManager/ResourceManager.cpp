@@ -10,7 +10,7 @@
 #include <new>
 #include <iostream>
 
-void badMemAllochandler();
+//void badMemAllocHandler();
 
 //uint32_t usedmem = 0;
 //const uint32_t totalmem = 128000;
@@ -18,6 +18,20 @@ void badMemAllochandler();
 
 uint32_t ResourceManager::usedMem = 0;
 
+ResourceManager::ResourceManager()
+{
+	std::set_new_handler(ResourceManager::badMemAllocHandler);
+}
+
+void ResourceManager::badMemAllocHandler()
+{
+    std::cout << "Memory allocation failed, terminating\n";
+    std::set_new_handler(nullptr);
+    while(FOREVER)
+    {
+    	// spin
+    }
+}
 
 void ResourceManager::addToUsedMem(uint32_t pAddition)
 {
@@ -47,22 +61,46 @@ uint32_t ResourceManager::getThresholdMem()
 	return thresholdMem;
 }
 
-void initResourceManager()
-{
-	std::set_new_handler(badMemAllochandler);
-}
+
+
 #ifndef ENABLE_CPPUTEST
 
-void CauseLinkerErrorOnCallToNew();
+// declare this function, but don't define it
+/*void *operator_new_blocker();
+void *operator new(std::size_t) //throw (std::bad_alloc)
+{
+	return operator_new_blocker();
+}*/
+
 
 void* operator new(size_t size)
 {
-    std::cout << "Error: call to default operator new is forbidden" << std::endl;
-    ResourceManager::addToUsedMem(size);
-    //CauseLinkerErrorOnCallToNew();
-	void * p = malloc(size);
+    std::cout << "Fatal Error: call to default operator new is forbidden" << std::endl;
+
+    while(FOREVER)
+    {
+    	// spin here
+
+    }
+    void * p = nullptr;
 	return p;
 }
+
+void* operator new[](size_t size)
+{
+    std::cout << "Fatal Error: call to default operator new[] is forbidden" << std::endl;
+
+    while(FOREVER)
+    {
+    	// spin here
+
+    }
+    void * p = nullptr;
+	return p;
+}
+
+
+//void* operator new(std::size_t) = delete;
 
 void operator delete(void*)
 {
@@ -70,13 +108,5 @@ void operator delete(void*)
 }
 #endif
 
-void badMemAllochandler()
-{
-    std::cout << "Memory allocation failed, terminating\n";
-    std::set_new_handler(nullptr);
-    while(FOREVER)
-    {
-    	// spin
-    }
-}
+
 

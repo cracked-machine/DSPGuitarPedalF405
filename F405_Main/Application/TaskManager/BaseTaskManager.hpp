@@ -15,9 +15,9 @@
 class DSPManager;
 
 // FreeRTOS
-#include "FreeRTOS.h"
-#include "task.h"
-#include "queue.h"
+//#include "FreeRTOS.h"
+//#include "task.h"
+//#include "queue.h"
 
 
 #include <array>
@@ -101,7 +101,7 @@ public:
 	void setDspManager(DSPManager *pDspMan);
 
 
-
+/*
 
 	enum taskFatalErrTypes
 	{
@@ -116,7 +116,7 @@ public:
 
 	int getErrorStatus();
 
-
+*/
 
 private:
 
@@ -140,8 +140,8 @@ private:
 
 	DSPManager *theDspMan;
 
-	BaseTaskManager::taskFatalErrTypes status = STATUS_OK;
-	void error_handler(BaseTaskManager::taskFatalErrTypes pError);
+	//BaseTaskManager::taskFatalErrTypes status = STATUS_OK;
+	//void error_handler(BaseTaskManager::taskFatalErrTypes pError);
 
 };
 
@@ -150,7 +150,16 @@ private:
 template<class T, class stateMachineType>
 DSPManager* BaseTaskManager<T, stateMachineType>::getDspManager()
 {
-	return theDspMan;
+	if(this->theDspMan == nullptr)
+	{
+		ResourceManager::notifySysNullPtr< DSPManager >();
+		return nullptr; // not reached
+	}
+	else
+	{
+		return theDspMan;
+	}
+
 }
 
 
@@ -237,9 +246,13 @@ template<class T, class stateMachineType>
 void BaseTaskManager<T, stateMachineType>::setDspManager(DSPManager *pDspMan)
 {
 	if(pDspMan == nullptr)
-		error_handler(INVALID_DSP_MANAGER);
+	{
+		ResourceManager::notifySysNullPtr< DSPManager >();
+	}
 	else
+	{
 		theDspMan = pDspMan;
+	}
 }
 
 template<class T, class stateMachineType>
@@ -248,7 +261,7 @@ void BaseTaskManager<T, stateMachineType>::setStateMachine(StateMachine *pMachin
 {
 	if(pMachine == nullptr)
 	{
-		error_handler(NULL_STATEMACHINE_PTR_ERR);
+		ResourceManager::notifySysNullPtr< StateMachine >();
 	}
 	else
 	{
@@ -259,9 +272,19 @@ void BaseTaskManager<T, stateMachineType>::setStateMachine(StateMachine *pMachin
 template<class T, class stateMachineType>
 stateMachineType* BaseTaskManager<T, stateMachineType>::getStateMachine()
 {
-	return this->theStateMachine;
+	if(this->theStateMachine == nullptr)
+	{
+		ResourceManager::notifySysNullPtr< StateMachine >();
+		return nullptr;
+	}
+	else
+	{
+		return this->theStateMachine;
+	}
+
 }
 
+/*
 template<class T, class stateMachineType>
 int BaseTaskManager<T, stateMachineType>::getErrorStatus()
 {
@@ -278,7 +301,7 @@ void BaseTaskManager<T, stateMachineType>::error_handler(BaseTaskManager::taskFa
 
 	}
 }
-
+*/
 // BaseTaskManager template specializations
 //typedef BaseTaskManager<uint8_t, StateMachine> I2STaskManager_t;
 //typedef BaseTaskManager<uint16_t, StateMachine> ExtCtrlTaskManager_t;

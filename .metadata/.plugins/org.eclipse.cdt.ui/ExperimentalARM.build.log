@@ -1,0 +1,24 @@
+12:26:53 **** Incremental Build of configuration Debug for project ExperimentalARM ****
+make -j4 all 
+arm-none-eabi-g++ "../Core/Src/Test.cpp" -mcpu=cortex-m4 -std=gnu++14 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -fno-exceptions -fno-rtti -fno-use-cxa-atexit -Wall -nostdlib -fstack-usage -MMD -MP -MF"Core/Src/Test.d" -MT"Core/Src/Test.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/Test.o"
+../Core/Src/Test.cpp: In function 'void CppTest()':
+../Core/Src/Test.cpp:30:20: warning: unused variable 'v1' [-Wunused-variable]
+  std::vector<int> *v1 = new std::vector<int>(1);
+                    ^~
+arm-none-eabi-g++ -o "ExperimentalARM.elf" @"objects.list"   -mcpu=cortex-m4 -T"/home/chris/DSPGuitarPedalF405/ExperimentalARM/STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="ExperimentalARM.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+Finished building target: ExperimentalARM.elf
+ 
+arm-none-eabi-objdump -h -S  ExperimentalARM.elf  > "ExperimentalARM.list"
+arm-none-eabi-objcopy  -O binary  ExperimentalARM.elf  "ExperimentalARM.bin"
+arm-none-eabi-size   ExperimentalARM.elf 
+   text	   data	    bss	    dec	    hex	filename
+ 161628	    756	   7280	 169664	  296c0	ExperimentalARM.elf
+Finished building: default.size.stdout
+ 
+Finished building: ExperimentalARM.bin
+ 
+Finished building: ExperimentalARM.list
+ 
+
+12:26:56 Build Finished. 0 errors, 1 warnings. (took 2s.253ms)
+

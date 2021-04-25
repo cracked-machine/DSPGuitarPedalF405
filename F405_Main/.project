@@ -31,51 +31,6 @@
 		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
 		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>FREERTOS_ROOT</name>
-			<type>2</type>
-			<locationURI>FREERTOS_ROOT</locationURI>
-		</link>
-	</linkedResources>
-	<filteredResources>
-		<filter>
-			<id>1618424146494</id>
-			<name>FREERTOS_ROOT/portable</name>
-			<type>9</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-GCC</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1618424146495</id>
-			<name>FREERTOS_ROOT/portable</name>
-			<type>13</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-MemMang</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1618354618303</id>
-			<name>FREERTOS_ROOT/portable/GCC</name>
-			<type>9</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-ARM_CM4F</arguments>
-			</matcher>
-		</filter>
-		<filter>
-			<id>1618424162182</id>
-			<name>FREERTOS_ROOT/portable/MemMang</name>
-			<type>13</type>
-			<matcher>
-				<id>org.eclipse.ui.ide.multiFilter</id>
-				<arguments>1.0-name-matches-false-false-heap_1.c</arguments>
-			</matcher>
-		</filter>
-	</filteredResources>
 	<variableList>
 		<variable>
 			<name>FREERTOS_ROOT</name>

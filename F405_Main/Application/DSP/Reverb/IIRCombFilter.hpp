@@ -33,7 +33,7 @@ public:
 				return nullptr;
 	}
 
-
+	void zeroBuffer();
 private:
 	IIRCombFilterBuffer *buffer;
 	float gain;

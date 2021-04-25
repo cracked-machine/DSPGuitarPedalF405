@@ -12,7 +12,7 @@
 
 #include "ResourceManager.hpp"
 #include <I2STaskManager.hpp>
-#include <ExtCtrlTaskManager.hpp>
+
 #include <StateMachine.hpp>
 #include <Debounce.hpp>
 
@@ -25,7 +25,7 @@ TEST_GROUP(ResourceManGroup)
 TEST(ResourceManGroup, ResourceManTest)
 {
 	I2STskManNoRTOS *i2s_taskman_nortos;
-	ExtCtrlTaskManagerNoRTOS *extctrl_taskman_nortos;
+
 	StateMachine *statemachine = NULL;
 	DebounceManager *extctrl_debounceman;
 
@@ -37,8 +37,8 @@ TEST(ResourceManGroup, ResourceManTest)
 	statemachine = new(std::nothrow)  StateMachine();
 	statemachine->setDebounceMan(extctrl_debounceman);
 
-	extctrl_taskman_nortos = new (std::nothrow)  ExtCtrlTaskManagerNoRTOS();
-	extctrl_taskman_nortos->setStateMachine(statemachine);
+
+	i2s_taskman_nortos->setStateMachine(statemachine);
 
 
 	std::cout << "-------------------------------------" << std::endl;

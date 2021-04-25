@@ -1,21 +1,22 @@
-08:31:04 **** Incremental Build of configuration Debug for project Experimental ****
+00:20:40 **** Incremental Build of configuration Debug for project Experimental ****
 make all 
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.cpp
+Building file: ../main.cpp
 Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"ResourceManager/ResourceManager.d" -MT"ResourceManager/ResourceManager.o" -o "ResourceManager/ResourceManager.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.cpp"
-Finished building: /home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager/ResourceManager.cpp
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"main.d" -MT"main.o" -o "main.o" "../main.cpp"
+../main.cpp: In function ‘int main()’:
+../main.cpp:10:11: warning: unused variable ‘firstout’ [-Wunused-variable]
+   10 |  uint16_t firstout = result >> 16;
+      |           ^~~~~~~~
+../main.cpp:11:11: warning: unused variable ‘secondout’ [-Wunused-variable]
+   11 |  uint16_t secondout = result & 0xFFFF;
+      |           ^~~~~~~~~
+Finished building: ../main.cpp
  
-Building file: /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp
-Invoking: GCC C++ Compiler
-g++ -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb" -I"/home/chris/DSPGuitarPedalF405/F405_Main/Application/ResourceManager" -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"DSP/Reverb/IIRCombFilter.d" -MT"DSP/Reverb/IIRCombFilter.o" -o "DSP/Reverb/IIRCombFilter.o" "/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp"
-In file included from /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.hpp:12,
-                 from /home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/Reverb/IIRCombFilter.cpp:9:
-/home/chris/DSPGuitarPedalF405/F405_Main/Application/DSP/AbstractFx.hpp:19:11: fatal error: arm_math.h: No such file or directory
-   19 |  #include "arm_math.h"
-      |           ^~~~~~~~~~~~
-compilation terminated.
-make: *** [DSP/Reverb/subdir.mk:26: DSP/Reverb/IIRCombFilter.o] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
+Building target: Experimental
+Invoking: GCC C++ Linker
+g++  -o "Experimental"  ./main.o   
+Finished building target: Experimental
+ 
 
-08:31:04 Build Failed. 2 errors, 0 warnings. (took 596ms)
+00:20:40 Build Finished. 0 errors, 2 warnings. (took 391ms)
 

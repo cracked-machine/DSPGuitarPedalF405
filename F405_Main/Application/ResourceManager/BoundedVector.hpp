@@ -73,6 +73,8 @@ public:
 	auto size();
 	auto empty();
 
+	T& operator[] (T index);
+
 	/*
 	 * check there is system memory available before allocation or return nullptr
 	 */
@@ -83,6 +85,8 @@ public:
 				return nullptr;
 	}
 
+	void zero();
+
 private:
 	size_t capacity_limit;
 	std::vector<T, NAlloc<T>> *v1;
@@ -91,6 +95,12 @@ private:
 
 };
 
+
+template<class T>
+void BoundedVector<T>::zero()
+{
+	std::fill(v1->begin(), v1->end(), 0);
+}
 template<class T>
 auto BoundedVector<T>::end()
 {

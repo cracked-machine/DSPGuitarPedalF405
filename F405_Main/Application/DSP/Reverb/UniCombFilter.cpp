@@ -23,6 +23,12 @@ UniCombFilter::~UniCombFilter()
 
 }
 
+void UniCombFilter::zeroBuffer()
+{
+	//this->zeroBuffer();
+	buffer->iterator = buffer->begin();
+}
+
 float UniCombFilter::processSample(float pSampleIn)
 {
 	float Xn = pSampleIn;
@@ -32,9 +38,11 @@ float UniCombFilter::processSample(float pSampleIn)
 
 	float tmp = readback * gain + Xn;
 
+	// store the result
 	*(buffer->iterator) = tmp;
-	buffer->iterator++;
 
+	// iterate the buffer position, make sure not to overrun
+	buffer->iterator++;
 	if (buffer->iterator >= buffer->end())
 		buffer->iterator = buffer->begin();
 

@@ -9,7 +9,9 @@
 
 #include <DSPManager.hpp>
 
+#ifdef ENABLE_CCPUTESTS
 #include <i2s.h>
+#endif
 
 #ifdef USE_FREERTOS
 
@@ -28,22 +30,29 @@
 
 	void I2STskManNoRTOS::nonRtosStateTask()
 	{
-		if(this->getStateMachine() != nullptr || this->getDspManager() != nullptr)
+
+
+		StateMachine *tmpMachine = this->getStateMachine();
+		DSPManager* tmpDspMan = this->getDspManager();
+
+
+
+		if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_ENABLED])
 		{
-			StateMachine *tmpMachine = this->getStateMachine();
-			DSPManager* tmpDspMan = this->getDspManager();
-			if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_ENABLED])
-			{
-				tmpDspMan->unmute();
+			// fixes the "random fx enable fail" bug but breaks the reverb effect
+			//tmpDspMan->getFx()->zeroAllBuffers();
+			tmpDspMan->unmute();
 
-			}
 
-			if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_DISABLED])
-			{
-				tmpDspMan->mute();
-
-			}
 		}
+
+		if(tmpMachine->getState() == tmpMachine->theStateList[StateMachine::FX_DISABLED])
+		{
+			tmpDspMan->mute();
+
+
+		}
+
 	}
 
 	void I2STskManNoRTOS::nonRtosDspTask()

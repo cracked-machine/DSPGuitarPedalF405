@@ -75,12 +75,20 @@
 	void appmain()
 	{
 
+		ResourceManager rm();
+/*
+	   while (true) {
+			int *t = new int[100000000ul];
+		}
+*/
 		std::cout << std::endl << "-------------------------------------" << std::endl;
 		std::cout << "Initialising system." << std::endl;
 
 		std::cout << "System Clock: " << HAL_RCC_GetSysClockFreq() << std::endl;
 
 		std::cout << "I2S Clock: " << HAL_RCCEx_GetPeriphCLKFreq(RCC_PERIPHCLK_I2S) << std::endl;
+
+		std::cout << std::endl << "Beginning heap analysis....." << std::endl;
 
 		setupPeriphInterrupts();
 
@@ -132,21 +140,32 @@
 
 				// create DSP Manager and set it in Task Manager
 				dspman = new(std::nothrow)  DSPManager();
+
+
+				if(i2s_taskman_nortos == nullptr) ResourceManager::notifySysNullPtr< I2STskManNoRTOS >();
+
 				i2s_taskman_nortos->setDspManager(dspman);
 
 				// create StateMachine and set in Task Manager
 				statemachine = new(std::nothrow)  StateMachine();
+
+				if(statemachine == nullptr) ResourceManager::notifySysNullPtr< StateMachine >();
+
 				i2s_taskman_nortos->setStateMachine(statemachine);
 
 				// create Debounce Manager and set in StateMachine
 				extctrl_debounceman = new(std::nothrow)  DebounceManager(TIM14, 200);
+
+				if(statemachine == nullptr) ResourceManager::notifySysNullPtr< StateMachine >();
+
 				statemachine->setDebounceMan(extctrl_debounceman);
+				statemachine->setTaskMan(i2s_taskman_nortos);
+
+
 
 
 		#endif
 
-		// start FullDuplex I2S DMA
-		HAL_StatusTypeDef res = HAL_OK;
 
 		#ifdef USE_FREERTOS
 
@@ -158,7 +177,12 @@
 		#else
 
 		// enable full duplex I2S
+		if(i2s_taskman_nortos == nullptr) ResourceManager::notifySysNullPtr< I2STskManNoRTOS >();
+
+
+		dspman->bringUp();
 		i2s_taskman_nortos->getDspManager()->enable();
+
 
 		#endif
 
@@ -170,12 +194,14 @@
 		#endif
 
 		std::cout << "-------------------------------------" << std::endl;
-		std::cout << "Total System Bytes Used: " << ResourceManager::getUsedMem() << std::endl;
+		std::cout << "Total heap bytes used: " << ResourceManager::getUsedMem() << std::endl;
 
 		while(1)
 		{
 			// loop these functions, check for updates to the system
+			if(i2s_taskman_nortos == nullptr) ResourceManager::notifySysNullPtr< I2STskManNoRTOS >();
 			i2s_taskman_nortos->nonRtosStateTask();
+			if(i2s_taskman_nortos == nullptr) ResourceManager::notifySysNullPtr< I2STskManNoRTOS >();
 			i2s_taskman_nortos->nonRtosDspTask();
 
 		}

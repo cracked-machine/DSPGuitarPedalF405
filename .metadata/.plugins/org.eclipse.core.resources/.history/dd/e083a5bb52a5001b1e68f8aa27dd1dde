@@ -1,0 +1,15 @@
+
+#include <iostream>
+
+// declare this function, but don't define it
+void *operator_new_blocker();
+void *operator new(std::size_t) //throw (std::bad_alloc)
+{
+	return operator_new_blocker();
+}
+
+int main()
+{
+	std::cout << "Hello";
+
+}

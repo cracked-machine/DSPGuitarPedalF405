@@ -93,6 +93,11 @@ void AbstractFx::process_all_u16_block(	AudioBlockU16< STEREO_DOUBLE_BLK_SIZE_U1
 	// do default for all samples here if needed
 }
 
+void AbstractFx::zeroAllBuffers()
+{
+	std::cout << "Call to base AbstractFx::zeroBuffer() method" << std::endl;
+}
+
 void AbstractFx::error_handler()
 {
 

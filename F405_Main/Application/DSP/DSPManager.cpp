@@ -7,9 +7,11 @@
 
 #include <DSPManager.hpp>
 
+#ifndef ENABLE_CPPUTEST
 #include <stm32f4xx_hal.h>
 #include <stm32f4xx_hal_i2s_ex.h>
 #include <i2s.h>
+#endif
 
 #include <IIRFilterFx.hpp>
 //#include <IIRFilterFx2.hpp>
@@ -25,12 +27,10 @@ DSPManager::DSPManager()
 	//this->setSampleMode(BLOCK_SAMPLE_MODE);
 	//IIRFilterFx *newFx = new(std::nothrow) IIRFilterFx();
 
-	// Test Schroeder reverb
-	this->setSampleMode(SINGLE_SAMPLE_MODE);
-	BasicReverb *newFx = new(std::nothrow) BasicReverb();
+
 
 	// set the fx type
-	this->setFx(newFx);
+	//this->setFx(newFx);
 }
 
 DSPManager::DSPManager(AbstractFx* pFx)
@@ -42,6 +42,29 @@ DSPManager::DSPManager(AbstractFx* pFx)
 DSPManager::~DSPManager()
 {
 	delete theFx;
+}
+
+
+void DSPManager::bringUp()
+{
+	// Test Schroeder reverb
+	this->setSampleMode(SINGLE_SAMPLE_MODE);
+	BasicReverb *newFx = new(std::nothrow) BasicReverb();
+	// set the fx type
+	this->setFx(newFx);
+}
+
+void DSPManager::tearDown()
+{
+	// Test Schroeder reverb
+	this->setSampleMode(SINGLE_SAMPLE_MODE);
+	AbstractFx* old = getFx();
+	delete old;
+	old = nullptr;
+
+	BasicReverb *newFx = new(std::nothrow) BasicReverb();
+	// set the fx type
+	this->setFx(newFx);
 }
 
 void DSPManager::setSampleMode(DSPManager::SampleMode pMode)
@@ -89,6 +112,7 @@ void DSPManager::unmute()
 
 void DSPManager::enable()
 {
+#ifndef ENABLE_CPPUTEST
 	HAL_StatusTypeDef res = HAL_OK;
 
 	switch(this->getSampleMode())
@@ -119,16 +143,19 @@ void DSPManager::enable()
 
 	if (res != HAL_OK)
 		Error_Handler();
+#endif
 }
 
 void DSPManager::disable()
 {
+#ifndef ENABLE_CPPUTEST
 	HAL_StatusTypeDef res = HAL_OK;
 
 	HAL_I2S_DMAStop(&hi2s2);
 
 	if (res != HAL_OK)
 		Error_Handler();
+#endif
 }
 
 

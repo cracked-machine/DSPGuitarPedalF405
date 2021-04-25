@@ -33,6 +33,7 @@ public:
 				return nullptr;
 	}
 
+	void zeroBuffer();
 private:
 	UniCombFilterBuffer *buffer;
 	float gain;

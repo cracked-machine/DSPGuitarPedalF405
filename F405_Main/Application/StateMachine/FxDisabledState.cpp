@@ -14,8 +14,10 @@
 #include <iostream>
 
 // HAL
+#ifndef ENABLE_CPPUTEST
 #include <tim.h>
 #include <i2s.h>
+#endif
 class DSPManager;
 
 // FxDisabledState class
@@ -31,17 +33,15 @@ void FxDisabledState::evFootswitchA(StateMachine *machine)
 		HAL_GPIO_WritePin(LEDA_G_GPIO_Port, LEDA_G_Pin, GPIO_PIN_SET);
 		HAL_GPIO_WritePin(LEDB_B_GPIO_Port, LEDB_B_Pin, GPIO_PIN_SET);
 
-		// mute DSPManager
-		//DSPManager::mute();
+		//HAL_I2S_DMAPause(&hi2s2);
+		//machine->getTaskMan()->getDspManager()->disable();
+
+		//machine->getTaskMan()->getDspManager()->getFx()->zeroAllBuffers();
 
 
-		// activate a oneshot timer to unmute after a 2ms period
-		//HAL_TIM_Base_Start_IT(&htim11);
-
-		HAL_I2S_DMAPause(&hi2s2);
-		//HAL_GPIO_TogglePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin);
 		HAL_GPIO_WritePin(RelayCoil_OUT_GPIO_Port, RelayCoil_OUT_Pin, GPIO_PIN_SET);
-		HAL_I2S_DMAResume(&hi2s2);
+
+		//HAL_I2S_DMAResume(&hi2s2);
 
 
 	#endif

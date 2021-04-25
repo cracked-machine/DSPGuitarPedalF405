@@ -1,0 +1,20 @@
+/*
+ * test.hpp
+ *
+ *  Created on: 20 Apr 2021
+ *      Author: chris
+ */
+
+#ifndef TEST_HPP_
+#define TEST_HPP_
+
+#include <memory>
+
+template<class T>
+class mmap_allocator: public std::allocator_traits<T>
+{
+
+};
+
+
+#endif /* TEST_HPP_ */

@@ -9,8 +9,6 @@
 #define STATEMACHINE_FXDISABLEDSTATE_HPP_
 
 #include <AbstractState.hpp>
-#include <ResourceManager.hpp>
-
 
 
 class FxDisabledState : public AbstractState

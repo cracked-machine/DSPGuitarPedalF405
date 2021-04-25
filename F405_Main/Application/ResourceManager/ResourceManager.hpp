@@ -26,6 +26,18 @@ class ResourceManager
 
 public:
 
+	ResourceManager();
+
+	template <typename T>
+	static void notifySysNullPtr()
+	{
+		//std::cout << "nullptr accessing " << typeid(T).name() << std::endl;
+		while(FOREVER)
+		{
+			// stay
+		}
+	}
+
 	/*
 	 * check the system has memory left before it ius allocated
 	 * (called by class-level overloaded 'operator new(std::nothrow)')
@@ -73,21 +85,17 @@ public:
 
 	}
 
-
-	template< typename T>
-	static double foo(  )
-	{ std::cout << "hello";  return 1.0;}
-
 	static uint32_t getUsedMem();
 	static void addToUsedMem(uint32_t pAddition);
 	static void removeFromUsedMem(uint32_t pSubtract);
 	static uint32_t getTotalMem();
 	static uint32_t getThresholdMem();
+	static void badMemAllocHandler();
 
 private:
 	static uint32_t usedMem;
-	static const uint32_t totalMem = 192000;
-	static const uint32_t thresholdMem = (ResourceManager::totalMem - 1000);
+	static const uint32_t totalMem = 128000;
+	static const uint32_t thresholdMem = (ResourceManager::totalMem - 500);
 };
 
 

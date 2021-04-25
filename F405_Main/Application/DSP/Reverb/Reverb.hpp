@@ -11,6 +11,8 @@
 
 #include <UniCombFilter.hpp>
 #include <IIRCombFilter.hpp>
+#include <StaticIIRCombFilter.hpp>
+#include <StaticUniCombFilter.hpp>
 
 // debug use only
 //#define ENABLE_REVERB_BYPASS
@@ -31,18 +33,28 @@ public:
 								 AudioBlockU16< STEREO_DOUBLE_CH_SIZE_U16 > *pTxBufSingle) override;
 #endif
 
+	void zeroAllBuffers();
 
 private:
 	IIRCombFilter *combfilter1;
 	IIRCombFilter *combfilter2;
 	IIRCombFilter *combfilter3;
 	IIRCombFilter *combfilter4;
-	IIRCombFilter *combfilter5;
-	IIRCombFilter *combfilter6;
+
 	UniCombFilter *allpass1;
 	UniCombFilter *allpass2;
 	UniCombFilter *allpass3;
 
+/*
+	StaticIIRCombFilter1 *combfilter1;
+	StaticIIRCombFilter2 *combfilter2;
+	StaticIIRCombFilter3 *combfilter3;
+//	StaticIIRCombFilter4 *combfilter4;
+
+	StaticUniCombFilter1 *allpass1;
+	StaticUniCombFilter2 *allpass2;
+	StaticUniCombFilter3 *allpass3;
+*/
 	float wet = 0.4f;
 
 
@@ -53,10 +65,10 @@ public:
 	 * check there is system memory available before allocation or return nullptr
 	 */
 	void* operator new(size_t size, const std::nothrow_t& tag) noexcept {
-			if(ResourceManager::checkSystemMem< BasicReverb >(size))
-				return malloc(size);
-			else
-				return nullptr;
+		if(ResourceManager::checkSystemMem< BasicReverb >(size))
+			return malloc(size);
+		else
+			return nullptr;
 	}
 };
 

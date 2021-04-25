@@ -1,0 +1,12 @@
+
+#include <stdint.h>
+
+int main()
+{
+	uint16_t first = 0xAABB;
+	uint16_t second = 0xCCDD;
+	uint32_t result = first << 16 | second;
+
+	uint16_t firstout = result >> 16;
+	uint16_t secondout = result & 0xFFFF;
+}

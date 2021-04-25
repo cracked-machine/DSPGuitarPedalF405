@@ -1,0 +1,15 @@
+/*
+ * StaticIIRCombFilter.hpp
+ *
+ *  Created on: Apr 23, 2021
+ *      Author: chris
+ */
+
+#ifndef DSP_REVERB_STATICIIRCOMBFILTER_HPP_
+#define DSP_REVERB_STATICIIRCOMBFILTER_HPP_
+
+
+
+
+
+#endif /* DSP_REVERB_STATICIIRCOMBFILTER_HPP_ */

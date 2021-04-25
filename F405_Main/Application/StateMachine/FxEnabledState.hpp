@@ -9,11 +9,8 @@
 #define STATEMACHINE_FXENABLEDSTATE_HPP_
 
 #include <AbstractState.hpp>
-#include <ResourceManager.hpp>
 
-//#include "BaseState.hpp"
 
-//class FxEnabledState : public BaseState
 class FxEnabledState : public AbstractState
 {
 public:

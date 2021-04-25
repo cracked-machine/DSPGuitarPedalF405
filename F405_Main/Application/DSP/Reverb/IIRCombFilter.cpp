@@ -13,6 +13,7 @@ IIRCombFilter::IIRCombFilter(size_t pSize, float pGain, float pTime)
 {
 
 	buffer = new (std::nothrow)  IIRCombFilterBuffer(pSize);
+
 	buffer->iterator = buffer->begin();
 	gain = pGain;
 	limit = pTime * pSize;
@@ -21,6 +22,13 @@ IIRCombFilter::IIRCombFilter(size_t pSize, float pGain, float pTime)
 IIRCombFilter::~IIRCombFilter()
 {
 
+}
+
+
+void IIRCombFilter::zeroBuffer()
+{
+	//this->zeroBuffer();
+	buffer->iterator = buffer->begin();
 }
 
 float IIRCombFilter::processSample(float pSampleIn)
