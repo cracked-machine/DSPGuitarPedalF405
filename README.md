@@ -1,5 +1,5 @@
 
-<pre>├── <font color="#3465A4"><b>F405_Main</b></font>
+<pre>├── <font color="#3465A4"><b>F405_Main</b></font> - STM32CubeIDE project files.
 │   ├── <font color="#3465A4"><b>Application</b></font> - Main Application in C++, entry point "appmain()".
 │   │   ├── <font color="#3465A4"><b>Debounce</b></font> - Manages debounce of HW switches.
 │   │   ├── <font color="#3465A4"><b>DSP</b></font>
