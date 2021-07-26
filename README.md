@@ -1,6 +1,6 @@
 
-<pre>├── <font color="#3465A4"><b>F405_Main</b></font> - Main Application in C++, entry point "appmain()".
-│   ├── <font color="#3465A4"><b>Application</b></font>
+<pre>├── <font color="#3465A4"><b>F405_Main</b></font>
+│   ├── <font color="#3465A4"><b>Application</b></font> - Main Application in C++, entry point "appmain()".
 │   │   ├── <font color="#3465A4"><b>Debounce</b></font> - Manages debounce of HW switches.
 │   │   ├── <font color="#3465A4"><b>DSP</b></font>
 │   │   │   ├── <font color="#3465A4"><b>Filters</b></font> - arm_biquad_casd_df1_inst_f32 filter using CMSIS DSP.
